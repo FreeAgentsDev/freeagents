@@ -1,0 +1,392 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Portafolio - FreeAgents" description="Descubre nuestros proyectos más exitosos. Casos reales de emprendedores que han transformado sus negocios con nuestras soluciones tecnológicas.">
+  <Header />
+  
+  <!-- Hero Section -->
+  <Hero 
+    title="Nuestro Portafolio"
+    subtitle="Proyectos que Impulsan el Crecimiento"
+    description="Cada proyecto es una historia de éxito. Descubre cómo hemos ayudado a emprendedores a transformar sus ideas en soluciones tecnológicas exitosas."
+    ctaText="Iniciar Mi Proyecto"
+    ctaLink="/contacto"
+    secondaryCtaText="Ver Servicios"
+    secondaryCtaLink="/servicios"
+  />
+
+  <!-- Filtros -->
+  <section class="py-12 bg-gray-800">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-wrap justify-center gap-4">
+        <button class="filter-btn active px-6 py-3 rounded-full bg-gradient-to-r from-neon-blue to-neon-purple text-white font-semibold transition-all duration-300" data-filter="all">
+          Todos los Proyectos
+        </button>
+        <button class="filter-btn px-6 py-3 rounded-full border-2 border-neon-blue text-neon-blue hover:bg-neon-blue hover:text-white transition-all duration-300" data-filter="desarrollo">
+          Desarrollo a Medida
+        </button>
+        <button class="filter-btn px-6 py-3 rounded-full border-2 border-neon-purple text-neon-purple hover:bg-neon-purple hover:text-white transition-all duration-300" data-filter="apps">
+          Apps Móviles
+        </button>
+        <button class="filter-btn px-6 py-3 rounded-full border-2 border-neon-green text-neon-green hover:bg-neon-green hover:text-white transition-all duration-300" data-filter="ecommerce">
+          E-commerce
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proyectos Grid -->
+  <section class="py-20 bg-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+        
+        <!-- Proyecto 1 - Desarrollo a Medida -->
+        <div class="project-card bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 hover:border-neon-blue/50 transition-all duration-300 group hover:scale-105" data-category="desarrollo">
+          <div class="h-48 bg-gradient-to-br from-neon-blue/20 to-neon-purple/20 flex items-center justify-center relative overflow-hidden">
+            <img src="/Perro astronauta en un logo creativo.png" alt="TechStartup Platform" class="h-24 w-auto opacity-80 group-hover:scale-110 transition-transform duration-300">
+            <div class="absolute top-4 right-4">
+              <span class="px-3 py-1 bg-neon-blue/20 text-neon-blue rounded-full text-sm font-medium">Desarrollo a Medida</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-xl font-bold text-white mb-2">TechStartup Platform</h3>
+            <p class="text-gray-400 mb-4">Plataforma integral para gestión de startups tecnológicas con dashboard avanzado, analytics en tiempo real y sistema de inversores.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-neon-blue/20 text-neon-blue rounded-full text-sm">React</span>
+              <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm">Node.js</span>
+              <span class="px-3 py-1 bg-neon-green/20 text-neon-green rounded-full text-sm">MongoDB</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="text-sm text-gray-500">
+                <span class="text-neon-blue font-semibold">+150%</span> crecimiento en eficiencia
+              </div>
+              <button class="text-neon-blue hover:text-neon-purple transition-colors duration-300 font-semibold">
+                Ver detalles →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 2 - Apps -->
+        <div class="project-card bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 hover:border-neon-purple/50 transition-all duration-300 group hover:scale-105" data-category="apps">
+          <div class="h-48 bg-gradient-to-br from-neon-purple/20 to-neon-pink/20 flex items-center justify-center relative overflow-hidden">
+            <img src="/Logo moderno de perro y montañas.png" alt="EcoCommerce App" class="h-24 w-auto opacity-80 group-hover:scale-110 transition-transform duration-300">
+            <div class="absolute top-4 right-4">
+              <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm font-medium">App Móvil</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-xl font-bold text-white mb-2">EcoCommerce App</h3>
+            <p class="text-gray-400 mb-4">Aplicación móvil para marketplace de productos ecológicos con sistema de recompensas, geolocalización y comunidad verde.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm">React Native</span>
+              <span class="px-3 py-1 bg-neon-pink/20 text-neon-pink rounded-full text-sm">Firebase</span>
+              <span class="px-3 py-1 bg-neon-blue/20 text-neon-blue rounded-full text-sm">Stripe</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="text-sm text-gray-500">
+                <span class="text-neon-purple font-semibold">50K+</span> usuarios activos
+              </div>
+              <button class="text-neon-purple hover:text-neon-pink transition-colors duration-300 font-semibold">
+                Ver detalles →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 3 - E-commerce -->
+        <div class="project-card bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 hover:border-neon-green/50 transition-all duration-300 group hover:scale-105" data-category="ecommerce">
+          <div class="h-48 bg-gradient-to-br from-neon-green/20 to-neon-blue/20 flex items-center justify-center relative overflow-hidden">
+            <img src="/Perro neón con bandana y gafas.png" alt="Fashion Store" class="h-24 w-auto opacity-80 group-hover:scale-110 transition-transform duration-300">
+            <div class="absolute top-4 right-4">
+              <span class="px-3 py-1 bg-neon-green/20 text-neon-green rounded-full text-sm font-medium">E-commerce</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-xl font-bold text-white mb-2">Fashion Store Premium</h3>
+            <p class="text-gray-400 mb-4">Tienda online de moda con AR para prueba virtual, recomendaciones IA y programa de fidelización avanzado.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-neon-green/20 text-neon-green rounded-full text-sm">Shopify Plus</span>
+              <span class="px-3 py-1 bg-neon-blue/20 text-neon-blue rounded-full text-sm">AR.js</span>
+              <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm">TensorFlow</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="text-sm text-gray-500">
+                <span class="text-neon-green font-semibold">+300%</span> conversión
+              </div>
+              <button class="text-neon-green hover:text-neon-blue transition-colors duration-300 font-semibold">
+                Ver detalles →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 4 - Desarrollo a Medida -->
+        <div class="project-card bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 hover:border-neon-blue/50 transition-all duration-300 group hover:scale-105" data-category="desarrollo">
+          <div class="h-48 bg-gradient-to-br from-neon-blue/20 to-neon-green/20 flex items-center justify-center relative overflow-hidden">
+            <img src="/Logotipo Neon con Perro y Tecnología.png" alt="FinTech Dashboard" class="h-24 w-auto opacity-80 group-hover:scale-110 transition-transform duration-300">
+            <div class="absolute top-4 right-4">
+              <span class="px-3 py-1 bg-neon-blue/20 text-neon-blue rounded-full text-sm font-medium">Desarrollo a Medida</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-xl font-bold text-white mb-2">FinTech Dashboard</h3>
+            <p class="text-gray-400 mb-4">Sistema de gestión financiera para emprendedores con IA predictiva, reportes automatizados y análisis de riesgo.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-neon-blue/20 text-neon-blue rounded-full text-sm">Vue.js</span>
+              <span class="px-3 py-1 bg-neon-green/20 text-neon-green rounded-full text-sm">Python</span>
+              <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm">PostgreSQL</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="text-sm text-gray-500">
+                <span class="text-neon-blue font-semibold">1M+</span> transacciones/día
+              </div>
+              <button class="text-neon-blue hover:text-neon-purple transition-colors duration-300 font-semibold">
+                Ver detalles →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 5 - Apps -->
+        <div class="project-card bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 hover:border-neon-purple/50 transition-all duration-300 group hover:scale-105" data-category="apps">
+          <div class="h-48 bg-gradient-to-br from-neon-purple/20 to-neon-blue/20 flex items-center justify-center relative overflow-hidden">
+            <img src="/Perro astronauta en un logo creativo.png" alt="Fitness Tracker" class="h-24 w-auto opacity-80 group-hover:scale-110 transition-transform duration-300">
+            <div class="absolute top-4 right-4">
+              <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm font-medium">App Móvil</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-xl font-bold text-white mb-2">FitTracker Pro</h3>
+            <p class="text-gray-400 mb-4">App de fitness con IA personal trainer, seguimiento biométrico y comunidad social para motivación grupal.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm">Flutter</span>
+              <span class="px-3 py-1 bg-neon-blue/20 text-neon-blue rounded-full text-sm">TensorFlow</span>
+              <span class="px-3 py-1 bg-neon-green/20 text-neon-green rounded-full text-sm">HealthKit</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="text-sm text-gray-500">
+                <span class="text-neon-purple font-semibold">4.8★</span> rating App Store
+              </div>
+              <button class="text-neon-purple hover:text-neon-pink transition-colors duration-300 font-semibold">
+                Ver detalles →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 6 - E-commerce -->
+        <div class="project-card bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 hover:border-neon-green/50 transition-all duration-300 group hover:scale-105" data-category="ecommerce">
+          <div class="h-48 bg-gradient-to-br from-neon-green/20 to-neon-pink/20 flex items-center justify-center relative overflow-hidden">
+            <img src="/Logo moderno de perro y montañas.png" alt="B2B Marketplace" class="h-24 w-auto opacity-80 group-hover:scale-110 transition-transform duration-300">
+            <div class="absolute top-4 right-4">
+              <span class="px-3 py-1 bg-neon-green/20 text-neon-green rounded-full text-sm font-medium">E-commerce</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-xl font-bold text-white mb-2">B2B Marketplace</h3>
+            <p class="text-gray-400 mb-4">Plataforma B2B para distribuidores con cotizaciones automáticas, gestión de crédito y logística integrada.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-neon-green/20 text-neon-green rounded-full text-sm">Next.js</span>
+              <span class="px-3 py-1 bg-neon-blue/20 text-neon-blue rounded-full text-sm">Microservices</span>
+              <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm">Redis</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="text-sm text-gray-500">
+                <span class="text-neon-green font-semibold">500+</span> empresas conectadas
+              </div>
+              <button class="text-neon-green hover:text-neon-blue transition-colors duration-300 font-semibold">
+                Ver detalles →
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Estadísticas -->
+  <section class="py-20 bg-gray-800">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+          <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
+            Nuestro Impacto
+          </span>
+        </h2>
+        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+          Números que reflejan el éxito de nuestros clientes y el crecimiento de sus negocios.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="w-20 h-20 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+            </svg>
+          </div>
+          <div class="text-4xl font-bold text-neon-blue mb-2">50+</div>
+          <p class="text-gray-400">Proyectos Completados</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-20 h-20 bg-gradient-to-r from-neon-purple to-neon-pink rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <div class="text-4xl font-bold text-neon-purple mb-2">200K+</div>
+          <p class="text-gray-400">Usuarios Impactados</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-20 h-20 bg-gradient-to-r from-neon-green to-neon-blue rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+            </svg>
+          </div>
+          <div class="text-4xl font-bold text-neon-green mb-2">250%</div>
+          <p class="text-gray-400">Crecimiento Promedio</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-20 h-20 bg-gradient-to-r from-neon-pink to-neon-purple rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+            </svg>
+          </div>
+          <div class="text-4xl font-bold text-neon-pink mb-2">4.9★</div>
+          <p class="text-gray-400">Satisfacción Cliente</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios de Proyectos -->
+  <section class="py-20 bg-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+          <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
+            Historias de Éxito
+          </span>
+        </h2>
+        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+          Escucha directamente de nuestros clientes cómo transformamos sus ideas en realidades exitosas.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700">
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-400 mr-4">
+              ★★★★★
+            </div>
+            <span class="text-neon-blue font-semibold">TechStartup Platform</span>
+          </div>
+          <p class="text-gray-300 mb-6 text-lg">
+            "FreeAgents no solo desarrolló nuestra plataforma, sino que se convirtió en nuestro socio estratégico. 
+            Su equipo combina experiencia senior con ideas frescas que realmente marcaron la diferencia. 
+            Hemos crecido 150% desde el lanzamiento."
+          </p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full flex items-center justify-center mr-4">
+              <span class="text-white font-bold">MR</span>
+            </div>
+            <div>
+              <p class="font-semibold text-white">María Rodríguez</p>
+              <p class="text-gray-400 text-sm">CEO, TechStartup Inc.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700">
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-400 mr-4">
+              ★★★★★
+            </div>
+            <span class="text-neon-green font-semibold">Fashion Store Premium</span>
+          </div>
+          <p class="text-gray-300 mb-6 text-lg">
+            "La tienda online que desarrollaron superó todas nuestras expectativas. Las funcionalidades de AR y 
+            las recomendaciones con IA han revolucionado la experiencia de compra. Nuestras conversiones 
+            aumentaron 300% en solo 6 meses."
+          </p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-gradient-to-r from-neon-green to-neon-blue rounded-full flex items-center justify-center mr-4">
+              <span class="text-white font-bold">AS</span>
+            </div>
+            <div>
+              <p class="font-semibold text-white">Ana Silva</p>
+              <p class="text-gray-400 text-sm">Fundadora, Fashion Premium</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+        <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
+          ¿Tu Proyecto Será el Próximo?
+        </span>
+      </h2>
+      <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+        Únete a los emprendedores que ya han transformado sus negocios con nuestras soluciones tecnológicas.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contacto" class="bg-gradient-to-r from-neon-blue to-neon-purple px-8 py-4 rounded-full text-white font-semibold text-lg hover:shadow-lg hover:shadow-neon-blue/25 transition-all duration-300 hover:scale-105">
+          Comenzar Mi Proyecto
+        </a>
+        <a href="/servicios" class="border-2 border-neon-purple px-8 py-4 rounded-full text-neon-purple font-semibold text-lg hover:bg-neon-purple hover:text-white transition-all duration-300 hover:scale-105">
+          Ver Servicios
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+        
+        // Update active button
+        filterButtons.forEach(btn => btn.classList.remove('active', 'bg-gradient-to-r', 'from-neon-blue', 'to-neon-purple', 'text-white'));
+        button.classList.add('active', 'bg-gradient-to-r', 'from-neon-blue', 'to-neon-purple', 'text-white');
+        
+        // Filter projects
+        projectCards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'block';
+            card.style.animation = 'fadeIn 0.5s ease-in-out';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>

@@ -1,0 +1,445 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="FreeAgents - Desarrollo de Software a la Medida para Emprendedores">
+  <Header />
+  
+  <!-- Hero Section -->
+  <Hero 
+    title="FreeAgents"
+    subtitle="Desarrollo de Software a la Medida"
+    description="Potenciamos el crecimiento de emprendedores con tecnología de vanguardia, respaldados por un equipo en constante evolución gracias a nuestra Fundación."
+    ctaText="Comenzar Proyecto"
+    ctaLink="/contacto"
+    secondaryCtaText="Ver Portafolio"
+    secondaryCtaLink="/portafolio"
+  />
+
+  <!-- Propuesta de Valor -->
+  <section class="py-20 bg-gray-800">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+          <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
+            Nuestros Servicios
+          </span>
+        </h2>
+        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+          Ofrecemos soluciones tecnológicas integrales diseñadas específicamente para emprendedores que buscan escalar sus negocios.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Desarrollo a la Medida -->
+        <div class="bg-gray-900 p-8 rounded-2xl border border-gray-700 hover:border-neon-blue/50 transition-all duration-300 group hover:scale-105">
+          <div class="mb-6">
+            <div class="w-16 h-16 bg-gradient-to-r from-neon-blue to-neon-purple rounded-xl flex items-center justify-center mb-4 group-hover:animate-pulse">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+              </svg>
+            </div>
+            <h3 class="font-display text-2xl font-bold text-white mb-4">Desarrollo a la Medida</h3>
+            <p class="text-gray-400 mb-6">
+              Creamos soluciones únicas adaptadas a las necesidades específicas de tu emprendimiento, desde sistemas internos hasta plataformas complejas.
+            </p>
+            <ul class="text-gray-300 space-y-2 mb-6">
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-neon-blue mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                Sistemas web personalizados
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-neon-blue mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                APIs y microservicios
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-neon-blue mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                Integración de sistemas
+              </li>
+            </ul>
+          </div>
+          <a href="/servicios#desarrollo" class="text-neon-blue hover:text-neon-purple transition-colors duration-300 font-semibold">
+            Conocer más →
+          </a>
+        </div>
+
+        <!-- Apps para Emprendedores -->
+        <div class="bg-gray-900 p-8 rounded-2xl border border-gray-700 hover:border-neon-purple/50 transition-all duration-300 group hover:scale-105">
+          <div class="mb-6">
+            <div class="w-16 h-16 bg-gradient-to-r from-neon-purple to-neon-pink rounded-xl flex items-center justify-center mb-4 group-hover:animate-pulse">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <h3 class="font-display text-2xl font-bold text-white mb-4">Apps para Emprendedores</h3>
+            <p class="text-gray-400 mb-6">
+              Desarrollamos aplicaciones móviles y web que conectan tu negocio con tus clientes, optimizando procesos y mejorando la experiencia de usuario.
+            </p>
+            <ul class="text-gray-300 space-y-2 mb-6">
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-neon-purple mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                Apps móviles nativas
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-neon-purple mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                Progressive Web Apps
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-neon-purple mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                UX/UI optimizado
+              </li>
+            </ul>
+          </div>
+          <a href="/servicios#apps" class="text-neon-purple hover:text-neon-pink transition-colors duration-300 font-semibold">
+            Conocer más →
+          </a>
+        </div>
+
+        <!-- E-commerce -->
+        <div class="bg-gray-900 p-8 rounded-2xl border border-gray-700 hover:border-neon-green/50 transition-all duration-300 group hover:scale-105">
+          <div class="mb-6">
+            <div class="w-16 h-16 bg-gradient-to-r from-neon-green to-neon-blue rounded-xl flex items-center justify-center mb-4 group-hover:animate-pulse">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+              </svg>
+            </div>
+            <h3 class="font-display text-2xl font-bold text-white mb-4">E-commerce</h3>
+            <p class="text-gray-400 mb-6">
+              Construimos tiendas online robustas y escalables que convierten visitantes en clientes, con todas las funcionalidades que tu negocio necesita.
+            </p>
+            <ul class="text-gray-300 space-y-2 mb-6">
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-neon-green mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                Tiendas personalizadas
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-neon-green mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                Pasarelas de pago
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-neon-green mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                Gestión de inventario
+              </li>
+            </ul>
+          </div>
+          <a href="/servicios#ecommerce" class="text-neon-green hover:text-neon-blue transition-colors duration-300 font-semibold">
+            Conocer más →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cómo Trabajamos -->
+  <section class="py-20 bg-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+          <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
+            Nuestro Proceso
+          </span>
+        </h2>
+        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+          Un enfoque estructurado que garantiza resultados excepcionales, respaldado por un equipo que se forma continuamente.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="text-center group">
+          <div class="w-20 h-20 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+            <span class="text-2xl font-bold text-white">1</span>
+          </div>
+          <h3 class="font-display text-xl font-bold text-white mb-4">Descubrimiento</h3>
+          <p class="text-gray-400">
+            Analizamos tu negocio, objetivos y necesidades para diseñar la solución perfecta.
+          </p>
+        </div>
+
+        <div class="text-center group">
+          <div class="w-20 h-20 bg-gradient-to-r from-neon-purple to-neon-pink rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+            <span class="text-2xl font-bold text-white">2</span>
+          </div>
+          <h3 class="font-display text-xl font-bold text-white mb-4">Diseño</h3>
+          <p class="text-gray-400">
+            Creamos prototipos y diseños que priorizan la experiencia de usuario y la funcionalidad.
+          </p>
+        </div>
+
+        <div class="text-center group">
+          <div class="w-20 h-20 bg-gradient-to-r from-neon-pink to-neon-green rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+            <span class="text-2xl font-bold text-white">3</span>
+          </div>
+          <h3 class="font-display text-xl font-bold text-white mb-4">Desarrollo</h3>
+          <p class="text-gray-400">
+            Nuestro equipo experto construye tu solución con las mejores prácticas y tecnologías.
+          </p>
+        </div>
+
+        <div class="text-center group">
+          <div class="w-20 h-20 bg-gradient-to-r from-neon-green to-neon-blue rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+            <span class="text-2xl font-bold text-white">4</span>
+          </div>
+          <h3 class="font-display text-xl font-bold text-white mb-4">Lanzamiento</h3>
+          <p class="text-gray-400">
+            Desplegamos tu proyecto y te acompañamos en el crecimiento continuo de tu negocio.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mini Portafolio -->
+  <section class="py-20 bg-gray-800">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+          <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
+            Casos Destacados
+          </span>
+        </h2>
+        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+          Algunos de nuestros proyectos más exitosos que han transformado negocios.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div class="bg-gray-900 rounded-2xl overflow-hidden border border-gray-700 hover:border-neon-blue/50 transition-all duration-300 group hover:scale-105">
+          <div class="h-48 bg-gradient-to-br from-neon-blue/20 to-neon-purple/20 flex items-center justify-center">
+            <img src="/Perro astronauta en un logo creativo.png" alt="Proyecto 1" class="h-24 w-auto opacity-80 group-hover:scale-110 transition-transform duration-300">
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-xl font-bold text-white mb-2">TechStartup Platform</h3>
+            <p class="text-gray-400 mb-4">Plataforma integral para gestión de startups tecnológicas con dashboard avanzado y analytics en tiempo real.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-neon-blue/20 text-neon-blue rounded-full text-sm">React</span>
+              <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm">Node.js</span>
+              <span class="px-3 py-1 bg-neon-green/20 text-neon-green rounded-full text-sm">MongoDB</span>
+            </div>
+            <a href="/portafolio" class="text-neon-blue hover:text-neon-purple transition-colors duration-300 font-semibold">
+              Ver detalles →
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-gray-900 rounded-2xl overflow-hidden border border-gray-700 hover:border-neon-purple/50 transition-all duration-300 group hover:scale-105">
+          <div class="h-48 bg-gradient-to-br from-neon-purple/20 to-neon-pink/20 flex items-center justify-center">
+            <img src="/Logo moderno de perro y montañas.png" alt="Proyecto 2" class="h-24 w-auto opacity-80 group-hover:scale-110 transition-transform duration-300">
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-xl font-bold text-white mb-2">EcoCommerce App</h3>
+            <p class="text-gray-400 mb-4">Aplicación móvil para marketplace de productos ecológicos con sistema de recompensas y geolocalización.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm">React Native</span>
+              <span class="px-3 py-1 bg-neon-pink/20 text-neon-pink rounded-full text-sm">Firebase</span>
+              <span class="px-3 py-1 bg-neon-blue/20 text-neon-blue rounded-full text-sm">Stripe</span>
+            </div>
+            <a href="/portafolio" class="text-neon-purple hover:text-neon-pink transition-colors duration-300 font-semibold">
+              Ver detalles →
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-gray-900 rounded-2xl overflow-hidden border border-gray-700 hover:border-neon-green/50 transition-all duration-300 group hover:scale-105">
+          <div class="h-48 bg-gradient-to-br from-neon-green/20 to-neon-blue/20 flex items-center justify-center">
+            <img src="/Perro neón con bandana y gafas.png" alt="Proyecto 3" class="h-24 w-auto opacity-80 group-hover:scale-110 transition-transform duration-300">
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-xl font-bold text-white mb-2">FinTech Dashboard</h3>
+            <p class="text-gray-400 mb-4">Sistema de gestión financiera para emprendedores con IA predictiva y reportes automatizados.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-neon-green/20 text-neon-green rounded-full text-sm">Vue.js</span>
+              <span class="px-3 py-1 bg-neon-blue/20 text-neon-blue rounded-full text-sm">Python</span>
+              <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm">PostgreSQL</span>
+            </div>
+            <a href="/portafolio" class="text-neon-green hover:text-neon-blue transition-colors duration-300 font-semibold">
+              Ver detalles →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <a href="/portafolio" class="bg-gradient-to-r from-neon-blue to-neon-purple px-8 py-4 rounded-full text-white font-semibold text-lg hover:shadow-lg hover:shadow-neon-blue/25 transition-all duration-300 hover:scale-105">
+          Ver Todos los Proyectos
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impacto y Talento -->
+  <section class="py-20 bg-gray-900">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="mb-8">
+          <img src="/Perro astronauta en un logo creativo.png" alt="Fundación FreeAgents" class="h-16 w-auto mx-auto mb-6 animate-float">
+        </div>
+        
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+          <span class="bg-gradient-to-r from-neon-purple to-neon-pink bg-clip-text text-transparent">
+            Impacto y Talento
+          </span>
+        </h2>
+        
+        <p class="text-xl text-gray-400 mb-8 leading-relaxed">
+          Nuestro compromiso va más allá del desarrollo de software. A través de la <strong class="text-neon-purple">Fundación FreeAgents</strong>, 
+          cultivamos el talento tech del futuro, asegurando que nuestros equipos estén siempre a la vanguardia de la innovación.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div class="text-center">
+            <div class="text-4xl font-bold text-neon-purple mb-2">50+</div>
+            <p class="text-gray-400">Desarrolladores mentoreados</p>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-bold text-neon-blue mb-2">100%</div>
+            <p class="text-gray-400">Proyectos con talento cultivado</p>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-bold text-neon-pink mb-2">24/7</div>
+            <p class="text-gray-400">Formación continua</p>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-neon-purple/10 to-neon-pink/10 border border-neon-purple/30 rounded-2xl p-8 mb-8">
+          <p class="text-lg text-gray-300 mb-6">
+            "Cuando eliges FreeAgents, no solo obtienes software excepcional. Contribuyes al desarrollo de una nueva generación de profesionales tech que transformarán la industria."
+          </p>
+          <div class="flex items-center justify-center space-x-4">
+            <img src="/Logo moderno de perro y montañas.png" alt="CEO" class="h-12 w-12 rounded-full">
+            <div class="text-left">
+              <p class="font-semibold text-white">Equipo FreeAgents</p>
+              <p class="text-gray-400 text-sm">Fundadores</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="/fundacion" class="bg-gradient-to-r from-neon-purple to-neon-pink px-8 py-4 rounded-full text-white font-semibold text-lg hover:shadow-lg hover:shadow-neon-purple/25 transition-all duration-300 hover:scale-105">
+          Conoce más sobre la Fundación
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="py-20 bg-gray-800">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+          <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
+            Lo que Dicen Nuestros Clientes
+          </span>
+        </h2>
+        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+          La satisfacción de nuestros clientes es nuestro mayor logro.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-gray-900 p-8 rounded-2xl border border-gray-700">
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-400">
+              ★★★★★
+            </div>
+          </div>
+          <p class="text-gray-300 mb-6">
+            "FreeAgents transformó completamente nuestra operación. Su equipo no solo entregó un producto excepcional, sino que nos acompañó en todo el proceso de crecimiento."
+          </p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full flex items-center justify-center mr-4">
+              <span class="text-white font-bold">MR</span>
+            </div>
+            <div>
+              <p class="font-semibold text-white">María Rodríguez</p>
+              <p class="text-gray-400 text-sm">CEO, TechVenture</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-900 p-8 rounded-2xl border border-gray-700">
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-400">
+              ★★★★★
+            </div>
+          </div>
+          <p class="text-gray-300 mb-6">
+            "La calidad del trabajo y la dedicación del equipo es impresionante. Se nota que invierten en el desarrollo de su talento, y eso se refleja en los resultados."
+          </p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-gradient-to-r from-neon-purple to-neon-pink rounded-full flex items-center justify-center mr-4">
+              <span class="text-white font-bold">CL</span>
+            </div>
+            <div>
+              <p class="font-semibold text-white">Carlos López</p>
+              <p class="text-gray-400 text-sm">Fundador, EcoStartup</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-900 p-8 rounded-2xl border border-gray-700">
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-400">
+              ★★★★★
+            </div>
+          </div>
+          <p class="text-gray-300 mb-6">
+            "Más que un proveedor, FreeAgents se convirtió en nuestro socio tecnológico. Su visión de futuro y compromiso social nos inspiró desde el primer día."
+          </p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-gradient-to-r from-neon-green to-neon-blue rounded-full flex items-center justify-center mr-4">
+              <span class="text-white font-bold">AS</span>
+            </div>
+            <div>
+              <p class="font-semibold text-white">Ana Silva</p>
+              <p class="text-gray-400 text-sm">CTO, FinanceApp</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="py-20 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+        <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
+          ¿Listo para Transformar tu Negocio?
+        </span>
+      </h2>
+      <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+        Únete a los emprendedores que ya están escalando sus negocios con tecnología de vanguardia.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contacto" class="bg-gradient-to-r from-neon-blue to-neon-purple px-8 py-4 rounded-full text-white font-semibold text-lg hover:shadow-lg hover:shadow-neon-blue/25 transition-all duration-300 hover:scale-105">
+          Comenzar Proyecto
+        </a>
+        <a href="/precios" class="border-2 border-neon-purple px-8 py-4 rounded-full text-neon-purple font-semibold text-lg hover:bg-neon-purple hover:text-white transition-all duration-300 hover:scale-105">
+          Ver Planes
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

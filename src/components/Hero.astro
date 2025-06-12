@@ -1,0 +1,101 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  description: string;
+  ctaText: string;
+  ctaLink: string;
+  secondaryCtaText?: string;
+  secondaryCtaLink?: string;
+  backgroundImage?: string;
+}
+
+const { 
+  title, 
+  subtitle, 
+  description, 
+  ctaText, 
+  ctaLink, 
+  secondaryCtaText, 
+  secondaryCtaLink,
+  backgroundImage = "/Logotipo Neon con Perro y Tecnología.png"
+} = Astro.props;
+---
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background -->
+  <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
+  
+  <!-- Animated background elements -->
+  <div class="absolute inset-0">
+    <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-neon-blue/10 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-neon-purple/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-neon-pink/20 rounded-full blur-2xl animate-float"></div>
+  </div>
+
+  <div class="relative z-10 container mx-auto px-6 text-center">
+    <div class="max-w-4xl mx-auto">
+      <!-- Logo/Image -->
+      <div class="mb-8 animate-fade-in">
+        <img src={backgroundImage} alt="FreeAgents" class="h-24 w-auto mx-auto mb-6 animate-float">
+      </div>
+
+      <!-- Title -->
+      <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 animate-slide-up">
+        <span class="bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink bg-clip-text text-transparent">
+          {title}
+        </span>
+      </h1>
+
+      <!-- Subtitle -->
+      <h2 class="text-2xl md:text-3xl font-semibold text-gray-300 mb-6 animate-slide-up delay-200">
+        {subtitle}
+      </h2>
+
+      <!-- Description -->
+      <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed animate-slide-up delay-300">
+        {description}
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up delay-500">
+        <a 
+          href={ctaLink}
+          class="bg-gradient-to-r from-neon-blue to-neon-purple px-8 py-4 rounded-full text-white font-semibold text-lg hover:shadow-lg hover:shadow-neon-blue/25 transition-all duration-300 hover:scale-105"
+        >
+          {ctaText}
+        </a>
+        {secondaryCtaText && secondaryCtaLink && (
+          <a 
+            href={secondaryCtaLink}
+            class="border-2 border-neon-purple px-8 py-4 rounded-full text-neon-purple font-semibold text-lg hover:bg-neon-purple hover:text-white transition-all duration-300 hover:scale-105"
+          >
+            {secondaryCtaText}
+          </a>
+        )}
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes delay-200 {
+    0% { animation-delay: 0.2s; }
+  }
+  @keyframes delay-300 {
+    0% { animation-delay: 0.3s; }
+  }
+  @keyframes delay-500 {
+    0% { animation-delay: 0.5s; }
+  }
+  @keyframes delay-1000 {
+    0% { animation-delay: 1s; }
+  }
+</style>
