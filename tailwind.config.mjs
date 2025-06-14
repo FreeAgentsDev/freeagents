@@ -28,11 +28,14 @@ export default {
           700: '#15803d',
           900: '#14532d',
         },
+        // Paleta de colores actualizada para coincidir con la primera versión
         neon: {
-          blue: '#00d4ff',
-          purple: '#a855f7',
-          pink: '#ec4899',
-          green: '#10b981',
+          cyan: '#00d4ff',      // Cyan brillante como en la imagen
+          blue: '#0ea5e9',      // Azul más suave
+          teal: '#14b8a6',      // Verde azulado
+          green: '#10b981',     // Verde
+          purple: '#8b5cf6',    // Púrpura
+          pink: '#ec4899',      // Rosa
         }
       },
       fontFamily: {
