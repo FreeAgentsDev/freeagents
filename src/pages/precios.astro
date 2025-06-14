@@ -8,559 +8,562 @@ import Footer from '../components/Footer.astro';
 <Layout title="Precios y Planes - FreeAgents" description="Planes flexibles de desarrollo y mantenimiento para emprendedores. Tu inversión impulsa tanto tu negocio como el futuro del talento tech.">
   <Header />
   
-  <!-- Hero Section -->
-  <Hero 
-    title="Planes Flexibles"
-    subtitle="Para Cada Etapa de tu Emprendimiento"
-    description="Ofrecemos soluciones escalables que crecen contigo. Tu inversión no solo potencia tu negocio, sino que también impulsa el futuro del talento tech a través de la Fundación FreeAgents."
-    ctaText="Consultar Plan Personalizado"
-    ctaLink="/contacto"
-    secondaryCtaText="Ver Servicios"
-    secondaryCtaLink="/servicios"
-  />
+  <div class="pt-10 min-h-screen">
+    <!-- Hero Section -->
+    <Hero 
+      title="Planes Flexibles"
+      subtitle="Para Cada Etapa de tu Emprendimiento"
+      description="Ofrecemos soluciones escalables que crecen contigo. Tu inversión no solo potencia tu negocio, sino que también impulsa el futuro del talento tech a través de la Fundación FreeAgents."
+      ctaText="Consultar Plan Personalizado"
+      ctaLink="/contacto"
+      secondaryCtaText="Ver Servicios"
+      secondaryCtaLink="/servicios"
+    />
 
-  <!-- Modelo de Suscripción -->
-  <section class="py-20 bg-gray-800">
-    <div class="container mx-auto px-6">
-      <div class="max-w-4xl mx-auto text-center mb-16">
-        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
-          <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
-            ¿Cómo Funciona Nuestro Modelo?
-          </span>
-        </h2>
-        <p class="text-xl text-gray-400 mb-8">
-          Creemos en relaciones a largo plazo. Nuestro modelo de suscripción te permite acceder a desarrollo continuo, 
-          soporte técnico y evolución constante de tu plataforma.
-        </p>
-        
-        <div class="bg-gradient-to-r from-neon-purple/10 to-neon-pink/10 border border-neon-purple/30 rounded-2xl p-8">
-          <h3 class="font-semibold text-white mb-4 text-2xl">💡 Impacto Social de tu Inversión</h3>
-          <p class="text-gray-300 text-lg">
-            Cada proyecto que desarrollamos con FreeAgents contribuye directamente al crecimiento de la 
-            <strong class="text-neon-purple">Fundación FreeAgents</strong>. Tu inversión no solo impulsa tu negocio, 
-            sino que también forma parte del desarrollo de una nueva generación de profesionales tech que 
-            transformarán la industria.
-          </p>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="text-center">
-          <div class="w-20 h-20 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full flex items-center justify-center mx-auto mb-6">
-            <span class="text-2xl font-bold text-white">1</span>
-          </div>
-          <h3 class="font-display text-xl font-bold text-white mb-4">Desarrollo Inicial</h3>
-          <p class="text-gray-400">
-            Creamos tu solución desde cero con un enfoque en escalabilidad y mantenibilidad a largo plazo.
-          </p>
-        </div>
-
-        <div class="text-center">
-          <div class="w-20 h-20 bg-gradient-to-r from-neon-purple to-neon-pink rounded-full flex items-center justify-center mx-auto mb-6">
-            <span class="text-2xl font-bold text-white">2</span>
-          </div>
-          <h3 class="font-display text-xl font-bold text-white mb-4">Suscripción de Soporte</h3>
-          <p class="text-gray-400">
-            Mantenimiento continuo, actualizaciones de seguridad y nuevas funcionalidades según tu crecimiento.
-          </p>
-        </div>
-
-        <div class="text-center">
-          <div class="w-20 h-20 bg-gradient-to-r from-neon-pink to-neon-green rounded-full flex items-center justify-center mx-auto mb-6">
-            <span class="text-2xl font-bold text-white">3</span>
-          </div>
-          <h3 class="font-display text-xl font-bold text-white mb-4">Evolución Constante</h3>
-          <p class="text-gray-400">
-            Tu plataforma crece y se adapta a las nuevas necesidades de tu negocio y del mercado.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Planes de Desarrollo -->
-  <section class="py-20 bg-gray-900">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
-          <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
-            Planes de Desarrollo
-          </span>
-        </h2>
-        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-          Elige el plan que mejor se adapte a tu etapa de emprendimiento y necesidades tecnológicas.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-        <!-- Plan Startup -->
-        <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700 hover:border-neon-blue/50 transition-all duration-300 relative">
-          <div class="text-center mb-8">
-            <h3 class="font-display text-2xl font-bold text-white mb-2">Startup</h3>
-            <p class="text-gray-400 mb-6">Perfecto para validar tu idea</p>
-            <div class="mb-6">
-              <span class="text-4xl font-bold text-neon-blue">$5,000</span>
-              <span class="text-gray-400"> - $15,000</span>
-            </div>
-            <p class="text-sm text-gray-500">Proyecto inicial + 3 meses soporte</p>
-          </div>
-
-          <ul class="space-y-4 mb-8">
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-blue mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">MVP o Landing Page</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-blue mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Diseño responsive</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-blue mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Hosting y dominio incluido</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-blue mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Analytics básico</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-blue mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Soporte por email</span>
-            </li>
-          </ul>
-
-          <a href="/contacto" class="w-full bg-gradient-to-r from-neon-blue to-neon-purple px-6 py-3 rounded-full text-white font-semibold text-center block hover:shadow-lg hover:shadow-neon-blue/25 transition-all duration-300">
-            Comenzar Proyecto
-          </a>
-        </div>
-
-        <!-- Plan Growth -->
-        <div class="bg-gray-800 rounded-2xl p-8 border-2 border-neon-purple relative transform scale-105">
-          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-            <span class="bg-gradient-to-r from-neon-purple to-neon-pink px-4 py-2 rounded-full text-white text-sm font-semibold">
-              Más Popular
+    <!-- Modelo de Suscripción -->
+    <section class="py-20 bg-gray-800">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto text-center mb-16">
+          <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+            <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
+              ¿Cómo Funciona Nuestro Modelo?
             </span>
-          </div>
+          </h2>
+          <p class="text-xl text-gray-400 mb-8">
+            Creemos en relaciones a largo plazo. Nuestro modelo de suscripción te permite acceder a desarrollo continuo, 
+            soporte técnico y evolución constante de tu plataforma.
+          </p>
           
-          <div class="text-center mb-8">
-            <h3 class="font-display text-2xl font-bold text-white mb-2">Growth</h3>
-            <p class="text-gray-400 mb-6">Para escalar tu negocio</p>
-            <div class="mb-6">
-              <span class="text-4xl font-bold text-neon-purple">$15,000</span>
-              <span class="text-gray-400"> - $50,000</span>
-            </div>
-            <p class="text-sm text-gray-500">Proyecto completo + 6 meses soporte</p>
+          <div class="bg-gradient-to-r from-neon-purple/10 to-neon-pink/10 border border-neon-purple/30 rounded-2xl p-8">
+            <h3 class="font-semibold text-white mb-4 text-2xl">💡 Impacto Social de tu Inversión</h3>
+            <p class="text-gray-300 text-lg">
+              Cada proyecto que desarrollamos con FreeAgents contribuye directamente al crecimiento de la 
+              <strong class="text-neon-purple">Fundación FreeAgents</strong>. Tu inversión no solo impulsa tu negocio, 
+              sino que también forma parte del desarrollo de una nueva generación de profesionales tech que 
+              transformarán la industria.
+            </p>
           </div>
-
-          <ul class="space-y-4 mb-8">
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-purple mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">App completa o E-commerce</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-purple mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Panel de administración</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-purple mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Integraciones API</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-purple mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Analytics avanzado</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-purple mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Soporte prioritario</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-purple mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Capacitación del equipo</span>
-            </li>
-          </ul>
-
-          <a href="/contacto" class="w-full bg-gradient-to-r from-neon-purple to-neon-pink px-6 py-3 rounded-full text-white font-semibold text-center block hover:shadow-lg hover:shadow-neon-purple/25 transition-all duration-300">
-            Comenzar Proyecto
-          </a>
         </div>
 
-        <!-- Plan Enterprise -->
-        <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700 hover:border-neon-green/50 transition-all duration-300 relative">
-          <div class="text-center mb-8">
-            <h3 class="font-display text-2xl font-bold text-white mb-2">Enterprise</h3>
-            <p class="text-gray-400 mb-6">Soluciones empresariales</p>
-            <div class="mb-6">
-              <span class="text-4xl font-bold text-neon-green">$50,000</span>
-              <span class="text-gray-400">+</span>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="w-20 h-20 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full flex items-center justify-center mx-auto mb-6">
+              <span class="text-2xl font-bold text-white">1</span>
             </div>
-            <p class="text-sm text-gray-500">Proyecto personalizado + 12 meses soporte</p>
+            <h3 class="font-display text-xl font-bold text-white mb-4">Desarrollo Inicial</h3>
+            <p class="text-gray-400">
+              Creamos tu solución desde cero con un enfoque en escalabilidad y mantenibilidad a largo plazo.
+            </p>
           </div>
 
-          <ul class="space-y-4 mb-8">
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-green mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Arquitectura personalizada</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-green mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Múltiples plataformas</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-green mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Inteligencia Artificial</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-green mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Escalabilidad enterprise</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-green mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Equipo dedicado</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-green mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">SLA garantizado</span>
-            </li>
-          </ul>
+          <div class="text-center">
+            <div class="w-20 h-20 bg-gradient-to-r from-neon-purple to-neon-pink rounded-full flex items-center justify-center mx-auto mb-6">
+              <span class="text-2xl font-bold text-white">2</span>
+            </div>
+            <h3 class="font-display text-xl font-bold text-white mb-4">Suscripción de Soporte</h3>
+            <p class="text-gray-400">
+              Mantenimiento continuo, actualizaciones de seguridad y nuevas funcionalidades según tu crecimiento.
+            </p>
+          </div>
 
-          <a href="/contacto" class="w-full bg-gradient-to-r from-neon-green to-neon-blue px-6 py-3 rounded-full text-white font-semibold text-center block hover:shadow-lg hover:shadow-neon-green/25 transition-all duration-300">
-            Consultar Proyecto
-          </a>
+          <div class="text-center">
+            <div class="w-20 h-20 bg-gradient-to-r from-neon-pink to-neon-green rounded-full flex items-center justify-center mx-auto mb-6">
+              <span class="text-2xl font-bold text-white">3</span>
+            </div>
+            <h3 class="font-display text-xl font-bold text-white mb-4">Evolución Constante</h3>
+            <p class="text-gray-400">
+              Tu plataforma crece y se adapta a las nuevas necesidades de tu negocio y del mercado.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Planes de Suscripción -->
-  <section class="py-20 bg-gray-800">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
-          <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
-            Planes de Mantenimiento
-          </span>
-        </h2>
-        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-          Mantén tu plataforma actualizada, segura y en constante evolución con nuestros planes de suscripción mensual.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Plan Básico -->
-        <div class="bg-gray-900 rounded-2xl p-8 border border-gray-700">
-          <div class="text-center mb-8">
-            <h3 class="font-display text-2xl font-bold text-white mb-2">Básico</h3>
-            <p class="text-gray-400 mb-6">Mantenimiento esencial</p>
-            <div class="mb-6">
-              <span class="text-4xl font-bold text-neon-blue">$500</span>
-              <span class="text-gray-400">/mes</span>
-            </div>
-          </div>
-
-          <ul class="space-y-4 mb-8">
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-blue mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Actualizaciones de seguridad</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-blue mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Backup automático</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-blue mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Monitoreo básico</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-blue mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Soporte por email</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-blue mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">2 horas desarrollo/mes</span>
-            </li>
-          </ul>
-
-          <a href="/contacto" class="w-full border-2 border-neon-blue px-6 py-3 rounded-full text-neon-blue font-semibold text-center block hover:bg-neon-blue hover:text-white transition-all duration-300">
-            Suscribirse
-          </a>
+    <!-- Planes de Desarrollo -->
+    <section class="py-20 bg-gray-900">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+            <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
+              Planes de Desarrollo
+            </span>
+          </h2>
+          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+            Elige el plan que mejor se adapte a tu etapa de emprendimiento y necesidades tecnológicas.
+          </p>
         </div>
 
-        <!-- Plan Profesional -->
-        <div class="bg-gray-900 rounded-2xl p-8 border-2 border-neon-purple">
-          <div class="text-center mb-8">
-            <h3 class="font-display text-2xl font-bold text-white mb-2">Profesional</h3>
-            <p class="text-gray-400 mb-6">Crecimiento continuo</p>
-            <div class="mb-6">
-              <span class="text-4xl font-bold text-neon-purple">$1,500</span>
-              <span class="text-gray-400">/mes</span>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <!-- Plan Startup -->
+          <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700 hover:border-neon-blue/50 transition-all duration-300 relative">
+            <div class="text-center mb-8">
+              <h3 class="font-display text-2xl font-bold text-white mb-2">Startup</h3>
+              <p class="text-gray-400 mb-6">Perfecto para validar tu idea</p>
+              <div class="mb-6">
+                <span class="text-4xl font-bold text-neon-blue">$5,000</span>
+                <span class="text-gray-400"> - $15,000</span>
+              </div>
+              <p class="text-sm text-gray-500">Proyecto inicial + 3 meses soporte</p>
             </div>
+
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-neon-blue mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-300">MVP o Landing Page</span>
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-neon-blue mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-300">Diseño responsive</span>
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-neon-blue mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-300">Hosting y dominio incluido</span>
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-neon-blue mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-300">Analytics básico</span>
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-neon-blue mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-300">Soporte por email</span>
+              </li>
+            </ul>
+
+            <a href="/contacto" class="w-full bg-gradient-to-r from-neon-blue to-neon-purple px-6 py-3 rounded-full text-white font-semibold text-center block hover:shadow-lg hover:shadow-neon-blue/25 transition-all duration-300">
+              Comenzar Proyecto
+            </a>
           </div>
 
-          <ul class="space-y-4 mb-8">
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-purple mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Todo del plan Básico</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-purple mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Nuevas funcionalidades</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-purple mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Optimización de rendimiento</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-purple mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Soporte prioritario</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-purple mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">8 horas desarrollo/mes</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-purple mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Reportes mensuales</span>
-            </li>
-          </ul>
-
-          <a href="/contacto" class="w-full bg-gradient-to-r from-neon-purple to-neon-pink px-6 py-3 rounded-full text-white font-semibold text-center block hover:shadow-lg hover:shadow-neon-purple/25 transition-all duration-300">
-            Suscribirse
-          </a>
-        </div>
-
-        <!-- Plan Premium -->
-        <div class="bg-gray-900 rounded-2xl p-8 border border-gray-700">
-          <div class="text-center mb-8">
-            <h3 class="font-display text-2xl font-bold text-white mb-2">Premium</h3>
-            <p class="text-gray-400 mb-6">Evolución constante</p>
-            <div class="mb-6">
-              <span class="text-4xl font-bold text-neon-green">$3,000</span>
-              <span class="text-gray-400">/mes</span>
+          <!-- Plan Growth -->
+          <div class="bg-gray-800 rounded-2xl p-8 border-2 border-neon-purple relative transform scale-105">
+            <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+              <span class="bg-gradient-to-r from-neon-purple to-neon-pink px-4 py-2 rounded-full text-white text-sm font-semibold">
+                Más Popular
+              </span>
             </div>
+            
+            <div class="text-center mb-8">
+              <h3 class="font-display text-2xl font-bold text-white mb-2">Growth</h3>
+              <p class="text-gray-400 mb-6">Para escalar tu negocio</p>
+              <div class="mb-6">
+                <span class="text-4xl font-bold text-neon-purple">$15,000</span>
+                <span class="text-gray-400"> - $50,000</span>
+              </div>
+              <p class="text-sm text-gray-500">Proyecto completo + 6 meses soporte</p>
+            </div>
+
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-neon-purple mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-300">App completa o E-commerce</span>
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-neon-purple mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-300">Panel de administración</span>
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-neon-purple mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-300">Integraciones API</span>
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-neon-purple mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-300">Analytics avanzado</span>
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-neon-purple mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-300">Soporte prioritario</span>
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-neon-purple mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-300">Capacitación del equipo</span>
+              </li>
+            </ul>
+
+            <a href="/contacto" class="w-full bg-gradient-to-r from-neon-purple to-neon-pink px-6 py-3 rounded-full text-white font-semibold text-center block hover:shadow-lg hover:shadow-neon-purple/25 transition-all duration-300">
+              Comenzar Proyecto
+            </a>
           </div>
 
-          <ul class="space-y-4 mb-8">
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-green mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Todo del plan Profesional</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-green mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Desarrollador dedicado</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-green mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Consultoría estratégica</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-green mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Soporte 24/7</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-green mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">20 horas desarrollo/mes</span>
-            </li>
-            <li class="flex items-center">
-              <svg class="w-5 h-5 text-neon-green mr-3" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-gray-300">Acceso a beta features</span>
-            </li>
-          </ul>
+          <!-- Plan Enterprise -->
+          <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700 hover:border-neon-green/50 transition-all duration-300 relative">
+            <div class="text-center mb-8">
+              <h3 class="font-display text-2xl font-bold text-white mb-2">Enterprise</h3>
+              <p class="text-gray-400 mb-6">Soluciones empresariales</p>
+              <div class="mb-6">
+                <span class="text-4xl font-bold text-neon-green">$50,000</span>
+                <span class="text-gray-400">+</span>
+              </div>
+              <p class="text-sm text-gray-500">Proyecto personalizado + 12 meses soporte</p>
+            </div>
 
-          <a href="/contacto" class="w-full border-2 border-neon-green px-6 py-3 rounded-full text-neon-green font-semibold text-center block hover:bg-neon-green hover:text-white transition-all duration-300">
-            Suscribirse
-          </a>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-neon-green mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-300">Arquitectura personalizada</span>
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-neon-green mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-300">Múltiples plataformas</span>
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-neon-green mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-300">Inteligencia Artificial</span>
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-neon-green mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-300">Escalabilidad enterprise</span>
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-neon-green mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-300">Equipo dedicado</span>
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-neon-green mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-300">SLA garantizado</span>
+              </li>
+            </ul>
+
+            <a href="/contacto" class="w-full bg-gradient-to-r from-neon-green to-neon-blue px-6 py-3 rounded-full text-white font-semibold text-center block hover:shadow-lg hover:shadow-neon-green/25 transition-all duration-300">
+              Consultar Proyecto
+            </a>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- FAQ -->
-  <section class="py-20 bg-gray-900">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
-          <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
-            Preguntas Frecuentes
-          </span>
-        </h2>
-        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-          Resolvemos las dudas más comunes sobre nuestros planes y precios.
-        </p>
-      </div>
-
-      <div class="max-w-4xl mx-auto">
-        <div class="space-y-6">
-          <div class="bg-gray-800 rounded-2xl border border-gray-700 overflow-hidden">
-            <button class="w-full p-6 text-left hover:bg-gray-750 transition-colors duration-300 flex items-center justify-between">
-              <h3 class="font-semibold text-white text-lg">¿Puedo cambiar de plan en cualquier momento?</h3>
-              <svg class="w-6 h-6 text-neon-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div class="px-6 pb-6">
-              <p class="text-gray-400">
-                Sí, puedes actualizar o cambiar tu plan de suscripción en cualquier momento. Los cambios se aplican 
-                en el siguiente ciclo de facturación y ajustamos proporcionalmente cualquier diferencia.
+        <!-- Planes de Suscripción -->
+        <section class="py-20 bg-gray-800">
+          <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+              <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+                <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
+                  Planes de Mantenimiento
+                </span>
+              </h2>
+              <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                Mantén tu plataforma actualizada, segura y en constante evolución con nuestros planes de suscripción mensual.
               </p>
             </div>
-          </div>
 
-          <div class="bg-gray-800 rounded-2xl border border-gray-700 overflow-hidden">
-            <button class="w-full p-6 text-left hover:bg-gray-750 transition-colors duration-300 flex items-center justify-between">
-              <h3 class="font-semibold text-white text-lg">¿Qué incluye el desarrollo inicial?</h3>
-              <svg class="w-6 h-6 text-neon-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div class="px-6 pb-6">
-              <p class="text-gray-400">
-                El desarrollo inicial incluye análisis de requerimientos, diseño UX/UI, desarrollo completo, 
-                testing, deployment, documentación y capacitación básica. Todo lo necesario para que tu 
-                proyecto esté listo para producción.
-              </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <!-- Plan Básico -->
+              <div class="bg-gray-900 rounded-2xl p-8 border border-gray-700">
+                <div class="text-center mb-8">
+                  <h3 class="font-display text-2xl font-bold text-white mb-2">Básico</h3>
+                  <p class="text-gray-400 mb-6">Mantenimiento esencial</p>
+                  <div class="mb-6">
+                    <span class="text-4xl font-bold text-neon-blue">$500</span>
+                    <span class="text-gray-400">/mes</span>
+                  </div>
+                </div>
+
+                <ul class="space-y-4 mb-8">
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-neon-blue mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-300">Actualizaciones de seguridad</span>
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-neon-blue mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-300">Backup automático</span>
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-neon-blue mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-300">Monitoreo básico</span>
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-neon-blue mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-300">Soporte por email</span>
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-neon-blue mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-300">2 horas desarrollo/mes</span>
+                  </li>
+                </ul>
+
+                <a href="/contacto" class="w-full border-2 border-neon-blue px-6 py-3 rounded-full text-neon-blue font-semibold text-center block hover:bg-neon-blue hover:text-white transition-all duration-300">
+                  Suscribirse
+                </a>
+              </div>
+
+              <!-- Plan Profesional -->
+              <div class="bg-gray-900 rounded-2xl p-8 border-2 border-neon-purple">
+                <div class="text-center mb-8">
+                  <h3 class="font-display text-2xl font-bold text-white mb-2">Profesional</h3>
+                  <p class="text-gray-400 mb-6">Crecimiento continuo</p>
+                  <div class="mb-6">
+                    <span class="text-4xl font-bold text-neon-purple">$1,500</span>
+                    <span class="text-gray-400">/mes</span>
+                  </div>
+                </div>
+
+                <ul class="space-y-4 mb-8">
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-neon-purple mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-300">Todo del plan Básico</span>
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-neon-purple mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-300">Nuevas funcionalidades</span>
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-neon-purple mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-300">Optimización de rendimiento</span>
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-neon-purple mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-300">Soporte prioritario</span>
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-neon-purple mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-300">8 horas desarrollo/mes</span>
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-neon-purple mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-300">Reportes mensuales</span>
+                  </li>
+                </ul>
+
+                <a href="/contacto" class="w-full bg-gradient-to-r from-neon-purple to-neon-pink px-6 py-3 rounded-full text-white font-semibold text-center block hover:shadow-lg hover:shadow-neon-purple/25 transition-all duration-300">
+                  Suscribirse
+                </a>
+              </div>
+
+              <!-- Plan Premium -->
+              <div class="bg-gray-900 rounded-2xl p-8 border border-gray-700">
+                <div class="text-center mb-8">
+                  <h3 class="font-display text-2xl font-bold text-white mb-2">Premium</h3>
+                  <p class="text-gray-400 mb-6">Evolución constante</p>
+                  <div class="mb-6">
+                    <span class="text-4xl font-bold text-neon-green">$3,000</span>
+                    <span class="text-gray-400">/mes</span>
+                  </div>
+                </div>
+
+                <ul class="space-y-4 mb-8">
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-neon-green mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-300">Todo del plan Profesional</span>
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-neon-green mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-300">Desarrollador dedicado</span>
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-neon-green mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-300">Consultoría estratégica</span>
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-neon-green mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-300">Soporte 24/7</span>
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-neon-green mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-300">20 horas desarrollo/mes</span>
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-neon-green mr-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-300">Acceso a beta features</span>
+                  </li>
+                </ul>
+
+                <a href="/contacto" class="w-full border-2 border-neon-green px-6 py-3 rounded-full text-neon-green font-semibold text-center block hover:bg-neon-green hover:text-white transition-all duration-300">
+                  Suscribirse
+                </a>
+              </div>
             </div>
           </div>
+        </section>
 
-          <div class="bg-gray-800 rounded-2xl border border-gray-700 overflow-hidden">
-            <button class="w-full p-6 text-left hover:bg-gray-750 transition-colors duration-300 flex items-center justify-between">
-              <h3 class="font-semibold text-white text-lg">¿Cómo funciona el modelo de horas de desarrollo?</h3>
-              <svg class="w-6 h-6 text-neon-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div class="px-6 pb-6">
-              <p class="text-gray-400">
-                Las horas de desarrollo incluidas en cada plan se pueden usar para nuevas funcionalidades, 
-                mejoras, correcciones o optimizaciones. Las horas no utilizadas se acumulan hasta un máximo 
-                de 2 meses. Si necesitas más horas, se facturan a $100/hora.
+        <!-- FAQ -->
+        <section class="py-20 bg-gray-900">
+          <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+              <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+                <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
+                  Preguntas Frecuentes
+                </span>
+              </h2>
+              <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                Resolvemos las dudas más comunes sobre nuestros planes y precios.
               </p>
             </div>
-          </div>
 
-          <div class="bg-gray-800 rounded-2xl border border-gray-700 overflow-hidden">
-            <button class="w-full p-6 text-left hover:bg-gray-750 transition-colors duration-300 flex items-center justify-between">
-              <h3 class="font-semibold text-white text-lg">¿Qué pasa si cancelo mi suscripción?</h3>
-              <svg class="w-6 h-6 text-neon-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div class="px-6 pb-6">
-              <p class="text-gray-400">
-                Puedes cancelar en cualquier momento con 30 días de aviso. Tu aplicación seguirá funcionando, 
-                pero no recibirás actualizaciones, soporte técnico ni nuevas funcionalidades. 
-                Te proporcionamos todos los archivos fuente y documentación.
-              </p>
+            <div class="max-w-4xl mx-auto">
+              <div class="space-y-6">
+                <div class="bg-gray-800 rounded-2xl border border-gray-700 overflow-hidden">
+                  <button class="w-full p-6 text-left hover:bg-gray-750 transition-colors duration-300 flex items-center justify-between">
+                    <h3 class="font-semibold text-white text-lg">¿Puedo cambiar de plan en cualquier momento?</h3>
+                    <svg class="w-6 h-6 text-neon-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </button>
+                  <div class="px-6 pb-6">
+                    <p class="text-gray-400">
+                      Sí, puedes actualizar o cambiar tu plan de suscripción en cualquier momento. Los cambios se aplican 
+                      en el siguiente ciclo de facturación y ajustamos proporcionalmente cualquier diferencia.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-2xl border border-gray-700 overflow-hidden">
+                  <button class="w-full p-6 text-left hover:bg-gray-750 transition-colors duration-300 flex items-center justify-between">
+                    <h3 class="font-semibold text-white text-lg">¿Qué incluye el desarrollo inicial?</h3>
+                    <svg class="w-6 h-6 text-neon-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </button>
+                  <div class="px-6 pb-6">
+                    <p class="text-gray-400">
+                      El desarrollo inicial incluye análisis de requerimientos, diseño UX/UI, desarrollo completo, 
+                      testing, deployment, documentación y capacitación básica. Todo lo necesario para que tu 
+                      proyecto esté listo para producción.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-2xl border border-gray-700 overflow-hidden">
+                  <button class="w-full p-6 text-left hover:bg-gray-750 transition-colors duration-300 flex items-center justify-between">
+                    <h3 class="font-semibold text-white text-lg">¿Cómo funciona el modelo de horas de desarrollo?</h3>
+                    <svg class="w-6 h-6 text-neon-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </button>
+                  <div class="px-6 pb-6">
+                    <p class="text-gray-400">
+                      Las horas de desarrollo incluidas en cada plan se pueden usar para nuevas funcionalidades, 
+                      mejoras, correcciones o optimizaciones. Las horas no utilizadas se acumulan hasta un máximo 
+                      de 2 meses. Si necesitas más horas, se facturan a $100/hora.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-2xl border border-gray-700 overflow-hidden">
+                  <button class="w-full p-6 text-left hover:bg-gray-750 transition-colors duration-300 flex items-center justify-between">
+                    <h3 class="font-semibold text-white text-lg">¿Qué pasa si cancelo mi suscripción?</h3>
+                    <svg class="w-6 h-6 text-neon-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </button>
+                  <div class="px-6 pb-6">
+                    <p class="text-gray-400">
+                      Puedes cancelar en cualquier momento con 30 días de aviso. Tu aplicación seguirá funcionando, 
+                      pero no recibirás actualizaciones, soporte técnico ni nuevas funcionalidades. 
+                      Te proporcionamos todos los archivos fuente y documentación.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="bg-gray-800 rounded-2xl border border-gray-700 overflow-hidden">
+                  <button class="w-full p-6 text-left hover:bg-gray-750 transition-colors duration-300 flex items-center justify-between">
+                    <h3 class="font-semibold text-white text-lg">¿Cómo contribuye mi inversión a la Fundación?</h3>
+                    <svg class="w-6 h-6 text-neon-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </button>
+                  <div class="px-6 pb-6">
+                    <p class="text-gray-400">
+                      Un porcentaje de cada proyecto se destina a la Fundación FreeAgents para programas de mentoría, 
+                      capacitación y oportunidades laborales para desarrolladores junior. Recibirás un reporte anual 
+                      del impacto social de tu inversión.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+        </section>
 
-          <div class="bg-gray-800 rounded-2xl border border-gray-700 overflow-hidden">
-            <button class="w-full p-6 text-left hover:bg-gray-750 transition-colors duration-300 flex items-center justify-between">
-              <h3 class="font-semibold text-white text-lg">¿Cómo contribuye mi inversión a la Fundación?</h3>
-              <svg class="w-6 h-6 text-neon-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div class="px-6 pb-6">
-              <p class="text-gray-400">
-                Un porcentaje de cada proyecto se destina a la Fundación FreeAgents para programas de mentoría, 
-                capacitación y oportunidades laborales para desarrolladores junior. Recibirás un reporte anual 
-                del impacto social de tu inversión.
-              </p>
+        <!-- CTA -->
+        <section class="py-20 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
+          <div class="container mx-auto px-6 text-center">
+            <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+              <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
+                ¿Listo para Comenzar?
+              </span>
+            </h2>
+            <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+              Hablemos sobre tu proyecto y encontremos el plan perfecto para hacer realidad tu visión.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="/contacto" class="bg-gradient-to-r from-neon-blue to-neon-purple px-8 py-4 rounded-full text-white font-semibold text-lg hover:shadow-lg hover:shadow-neon-blue/25 transition-all duration-300 hover:scale-105">
+                Consultar Plan Personalizado
+              </a>
+              <a href="/portafolio" class="border-2 border-neon-purple px-8 py-4 rounded-full text-neon-purple font-semibold text-lg hover:bg-neon-purple hover:text-white transition-all duration-300 hover:scale-105">
+                Ver Casos de Éxito
+              </a>
             </div>
           </div>
-        </div>
+        </section>
+
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA -->
-  <section class="py-20 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
-        <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
-          ¿Listo para Comenzar?
-        </span>
-      </h2>
-      <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
-        Hablemos sobre tu proyecto y encontremos el plan perfecto para hacer realidad tu visión.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contacto" class="bg-gradient-to-r from-neon-blue to-neon-purple px-8 py-4 rounded-full text-white font-semibold text-lg hover:shadow-lg hover:shadow-neon-blue/25 transition-all duration-300 hover:scale-105">
-          Consultar Plan Personalizado
-        </a>
-        <a href="/portafolio" class="border-2 border-neon-purple px-8 py-4 rounded-full text-neon-purple font-semibold text-lg hover:bg-neon-purple hover:text-white transition-all duration-300 hover:scale-105">
-          Ver Casos de Éxito
-        </a>
-      </div>
-    </div>
-  </section>
-
+  </div>
   <Footer />
 </Layout>

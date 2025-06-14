@@ -95,7 +95,7 @@ const currentPath = Astro.url.pathname;
     });
 
     // Language switching functionality
-    function updateLanguage(lang) {
+    function updateLanguage(lang: string) {
       const elements = document.querySelectorAll('[data-es][data-en]');
       elements.forEach(element => {
         const text = element.getAttribute(`data-${lang}`);
@@ -110,7 +110,7 @@ const currentPath = Astro.url.pathname;
     updateLanguage(currentLang);
 
     // Listen for language changes
-    window.addEventListener('languageChanged', (e) => {
+    window.addEventListener('languageChanged', (e: CustomEvent<{ language: string }>) => {
       updateLanguage(e.detail.language);
     });
   });

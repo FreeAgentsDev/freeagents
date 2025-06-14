@@ -8,367 +8,277 @@ import Footer from '../components/Footer.astro';
 <Layout title="Acerca de Nosotros - FreeAgents" description="Conoce la historia, misión y valores de FreeAgents. Un equipo comprometido con el desarrollo tecnológico y la formación del talento del futuro.">
   <Header />
   
-  <!-- Hero Section -->
-  <Hero 
-    title="Nuestra Historia"
-    subtitle="Más que Desarrollo, una Misión"
-    description="Somos un equipo apasionado por la tecnología y comprometido con el futuro. Creamos soluciones excepcionales mientras formamos la próxima generación de desarrolladores."
-    ctaText="Conocer la Fundación"
-    ctaLink="/fundacion"
-    secondaryCtaText="Ver Proyectos"
-    secondaryCtaLink="/portafolio"
-  />
+  <div class="pt-10 min-h-screen">
+    <!-- Hero Section -->
+    <Hero 
+      title="Nuestra Historia"
+      subtitle="Más que Desarrollo, una Misión"
+      description="Somos un equipo apasionado por la tecnología y comprometido con el futuro. Creamos soluciones excepcionales mientras formamos la próxima generación de desarrolladores."
+      ctaText="Conocer la Fundación"
+      ctaLink="/fundacion"
+      secondaryCtaText="Ver Proyectos"
+      secondaryCtaLink="/portafolio"
+    />
 
-  <!-- Nuestra Misión -->
-  <section class="py-20 bg-gray-800">
-    <div class="container mx-auto px-6">
-      <div class="max-w-4xl mx-auto text-center mb-16">
-        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
-          <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
-            Nuestra Misión
-          </span>
-        </h2>
-        <p class="text-xl text-gray-400 leading-relaxed">
-          Transformamos ideas en soluciones tecnológicas exitosas mientras cultivamos el talento que definirá el futuro de la industria tech. 
-          Cada proyecto es una oportunidad de crecimiento, tanto para nuestros clientes como para nuestra comunidad de desarrolladores.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div>
-          <h3 class="font-display text-3xl font-bold text-white mb-6">¿Por qué FreeAgents?</h3>
-          <div class="space-y-6">
-            <div class="flex items-start space-x-4">
-              <div class="w-12 h-12 bg-gradient-to-r from-neon-blue to-neon-purple rounded-xl flex items-center justify-center flex-shrink-0">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                </svg>
-              </div>
-              <div>
-                <h4 class="font-semibold text-white mb-2">Innovación Constante</h4>
-                <p class="text-gray-400">
-                  Nuestro equipo combina experiencia senior con perspectivas frescas de desarrolladores en formación, 
-                  creando un ambiente de innovación continua.
-                </p>
-              </div>
-            </div>
-
-            <div class="flex items-start space-x-4">
-              <div class="w-12 h-12 bg-gradient-to-r from-neon-purple to-neon-pink rounded-xl flex items-center justify-center flex-shrink-0">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                </svg>
-              </div>
-              <div>
-                <h4 class="font-semibold text-white mb-2">Compromiso Social</h4>
-                <p class="text-gray-400">
-                  A través de la Fundación FreeAgents, cada proyecto contribuye al desarrollo de talento tech, 
-                  creando un impacto positivo en la industria.
-                </p>
-              </div>
-            </div>
-
-            <div class="flex items-start space-x-4">
-              <div class="w-12 h-12 bg-gradient-to-r from-neon-green to-neon-blue rounded-xl flex items-center justify-center flex-shrink-0">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-                </svg>
-              </div>
-              <div>
-                <h4 class="font-semibold text-white mb-2">Calidad Garantizada</h4>
-                <p class="text-gray-400">
-                  Nuestro modelo de mentoría asegura que cada línea de código cumpla con los más altos estándares 
-                  de calidad y mejores prácticas.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="relative">
-          <div class="bg-gray-900 rounded-2xl p-8 border border-gray-700">
-            <h4 class="font-display text-2xl font-bold text-white mb-6">Nuestros Valores</h4>
-            <div class="space-y-4">
-              <div class="flex items-center space-x-3">
-                <div class="w-3 h-3 bg-neon-blue rounded-full"></div>
-                <span class="text-gray-300 font-medium">Excelencia Técnica</span>
-              </div>
-              <div class="flex items-center space-x-3">
-                <div class="w-3 h-3 bg-neon-purple rounded-full"></div>
-                <span class="text-gray-300 font-medium">Desarrollo del Talento</span>
-              </div>
-              <div class="flex items-center space-x-3">
-                <div class="w-3 h-3 bg-neon-green rounded-full"></div>
-                <span class="text-gray-300 font-medium">Responsabilidad Social</span>
-              </div>
-              <div class="flex items-center space-x-3">
-                <div class="w-3 h-3 bg-neon-pink rounded-full"></div>
-                <span class="text-gray-300 font-medium">Innovación Continua</span>
-              </div>
-              <div class="flex items-center space-x-3">
-                <div class="w-3 h-3 bg-neon-blue rounded-full"></div>
-                <span class="text-gray-300 font-medium">Transparencia</span>
-              </div>
-              <div class="flex items-center space-x-3">
-                <div class="w-3 h-3 bg-neon-purple rounded-full"></div>
-                <span class="text-gray-300 font-medium">Colaboración</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- El Equipo -->
-  <section class="py-20 bg-gray-900">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
-          <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
-            Nuestro Equipo
-          </span>
-        </h2>
-        <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-          Un equipo diverso de profes ionales apasionados por la tecnología y comprometidos con la excelencia.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-        <!-- Fundador 1 -->
-        <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700 text-center group hover:border-neon-blue/50 transition-all duration-300">
-          <div class="w-24 h-24 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-            <img src="/Perro astronauta en un logo creativo.png" alt="CEO" class="h-16 w-16 rounded-full">
-          </div>
-          <h3 class="font-display text-xl font-bold text-white mb-2">Alex Rodríguez</h3>
-          <p class="text-neon-blue font-semibold mb-4">CEO & Co-fundador</p>
-          <p class="text-gray-400 mb-6">
-            15+ años en desarrollo de software. Visionario detrás de la Fundación FreeAgents y mentor de más de 50 desarrolladores.
-          </p>
-          <div class="flex justify-center space-x-4">
-            <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors duration-300">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </svg>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors duration-300">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Fundador 2 -->
-        <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700 text-center group hover:border-neon-purple/50 transition-all duration-300">
-          <div class="w-24 h-24 bg-gradient-to-r from-neon-purple to-neon-pink rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-            <img src="/Logo moderno de perro y montañas.png" alt="CTO" class="h-16 w-16 rounded-full">
-          </div>
-          <h3 class="font-display text-xl font-bold text-white mb-2">María González</h3>
-          <p class="text-neon-purple font-semibold mb-4">CTO & Co-fundadora</p>
-          <p class="text-gray-400 mb-6">
-            Arquitecta de software con experiencia en startups y empresas Fortune 500. Lidera nuestros programas de mentoría técnica.
-          </p>
-          <div class="flex justify-center space-x-4">
-            <a href="#" class="text-gray-400 hover:text-neon-purple transition-colors duration-300">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </svg>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-neon-purple transition-colors duration-300">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Lead Developer -->
-        <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700 text-center group hover:border-neon-green/50 transition-all duration-300">
-          <div class="w-24 h-24 bg-gradient-to-r from-neon-green to-neon-blue rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-            <img src="/Perro neón con bandana y gafas.png" alt="Lead Developer" class="h-16 w-16 rounded-full">
-          </div>
-          <h3 class="font-display text-xl font-bold text-white mb-2">Carlos Mendoza</h3>
-          <p class="text-neon-green font-semibold mb-4">Lead Developer</p>
-          <p class="text-gray-400 mb-6">
-            Especialista en arquitecturas escalables y mentor principal en la Fundación. Ha guiado más de 30 desarrolladores junior.
-          </p>
-          <div class="flex justify-center space-x-4">
-            <a href="#" class="text-gray-400 hover:text-neon-green transition-colors duration-300">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </svg>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-neon-green transition-colors duration-300">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="text-center">
-        <p class="text-gray-400 mb-6">
-          Nuestro equipo también incluye desarrolladores senior, diseñadores UX/UI, y una comunidad creciente de 
-          talentos emergentes que participan en nuestros proyectos a través de la Fundación.
-        </p>
-        <a href="/fundacion" class="bg-gradient-to-r from-neon-purple to-neon-pink px-8 py-4 rounded-full text-white font-semibold text-lg hover:shadow-lg hover:shadow-neon-purple/25 transition-all duration-300 hover:scale-105 inline-block">
-          Conoce la Fundación
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Compromiso Social -->
-  <section class="py-20 bg-gray-800">
-    <div class="container mx-auto px-6">
-      <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-16">
+    <!-- Nuestra Misión -->
+    <section class="py-20 bg-gray-800">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto text-center mb-16">
           <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
-            <span class="bg-gradient-to-r from-neon-purple to-neon-pink bg-clip-text text-transparent">
-              Nuestro Compromiso Social
+            <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
+              Nuestra Misión
             </span>
           </h2>
-          <p class="text-xl text-gray-400">
-            La Fundación FreeAgents es el corazón de nuestra misión social y parte integral de nuestra identidad empresarial.
+          <p class="text-xl text-gray-400 leading-relaxed">
+            Transformamos ideas en soluciones tecnológicas exitosas mientras cultivamos el talento que definirá el futuro de la industria tech. 
+            Cada proyecto es una oportunidad de crecimiento, tanto para nuestros clientes como para nuestra comunidad de desarrolladores.
           </p>
         </div>
 
-        <div class="bg-gradient-to-r from-neon-purple/10 to-neon-pink/10 border border-neon-purple/30 rounded-2xl p-8 mb-12">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 class="font-display text-2xl font-bold text-white mb-4">La Fundación FreeAgents</h3>
-              <p class="text-gray-300 mb-6">
-                Más que una iniciativa de responsabilidad social, la Fundación es nuestro motor de innovación. 
-                A través de programas de mentoría, capacitación y oportunidades laborales, formamos a los 
-                desarrolladores que trabajarán en los proyectos del mañana.
-              </p>
-              <div class="space-y-3">
-                <div class="flex items-center space-x-3">
-                  <div class="w-2 h-2 bg-neon-purple rounded-full"></div>
-                  <span class="text-gray-300">50+ desarrolladores mentoreados</span>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h3 class="font-display text-3xl font-bold text-white mb-6">¿Por qué FreeAgents?</h3>
+            <div class="space-y-6">
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 bg-gradient-to-r from-neon-blue to-neon-purple rounded-xl flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  </svg>
                 </div>
-                <div class="flex items-center space-x-3">
-                  <div class="w-2 h-2 bg-neon-pink rounded-full"></div>
-                  <span class="text-gray-300">100% de proyectos con participación de talentos emergentes</span>
+                <div>
+                  <h4 class="font-semibold text-white mb-2">Innovación Constante</h4>
+                  <p class="text-gray-400">
+                    Nuestro equipo combina experiencia senior con perspectivas frescas de desarrolladores en formación, 
+                    creando un ambiente de innovación continua.
+                  </p>
                 </div>
-                <div class="flex items-center space-x-3">
-                  <div class="w-2 h-2 bg-neon-purple rounded-full"></div>
-                  <span class="text-gray-300">Programas de formación continua</span>
+              </div>
+
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 bg-gradient-to-r from-neon-purple to-neon-pink rounded-xl flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-white mb-2">Compromiso Social</h4>
+                  <p class="text-gray-400">
+                    A través de la Fundación FreeAgents, cada proyecto contribuye al desarrollo de talento tech, 
+                    creando un impacto positivo en la industria.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 bg-gradient-to-r from-neon-green to-neon-blue rounded-xl flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-white mb-2">Calidad Garantizada</h4>
+                  <p class="text-gray-400">
+                    Nuestro modelo de mentoría asegura que cada línea de código cumpla con los más altos estándares 
+                    de calidad y mejores prácticas.
+                  </p>
                 </div>
               </div>
             </div>
-            <div class="text-center">
-              <img src="/Perro astronauta en un logo creativo.png" alt="Fundación FreeAgents" class="h-32 w-auto mx-auto mb-4 animate-float">
-              <p class="text-neon-purple font-semibold">Impulsando el Talento Tech del Futuro</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="text-center">
-            <div class="w-16 h-16 bg-gradient-to-r from-neon-purple to-neon-pink rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-              </svg>
-            </div>
-            <h4 class="font-semibold text-white mb-2">Educación</h4>
-            <p class="text-gray-400 text-sm">Programas de capacitación en tecnologías modernas y mejores prácticas</p>
           </div>
 
-          <div class="text-center">
-            <div class="w-16 h-16 bg-gradient-to-r from-neon-pink to-neon-blue rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-              </svg>
+          <div class="relative">
+            <div class="bg-gray-900 rounded-2xl p-8 border border-gray-700">
+              <h4 class="font-display text-2xl font-bold text-white mb-6">Nuestros Valores</h4>
+              <div class="space-y-4">
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-neon-blue rounded-full"></div>
+                  <span class="text-gray-300 font-medium">Excelencia Técnica</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-neon-purple rounded-full"></div>
+                  <span class="text-gray-300 font-medium">Desarrollo del Talento</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-neon-green rounded-full"></div>
+                  <span class="text-gray-300 font-medium">Responsabilidad Social</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-neon-pink rounded-full"></div>
+                  <span class="text-gray-300 font-medium">Innovación Continua</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-neon-blue rounded-full"></div>
+                  <span class="text-gray-300 font-medium">Transparencia</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 bg-neon-purple rounded-full"></div>
+                  <span class="text-gray-300 font-medium">Colaboración</span>
+                </div>
+              </div>
             </div>
-            <h4 class="font-semibold text-white mb-2">Mentoría</h4>
-            <p class="text-gray-400 text-sm">Acompañamiento personalizado de desarrolladores senior a talentos emergentes</p>
-          </div>
-
-          <div class="text-center">
-            <div class="w-16 h-16 bg-gradient-to-r from-neon-blue to-neon-green rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6"></path>
-              </svg>
-            </div>
-            <h4 class="font-semibold text-white mb-2">Oportunidades</h4>
-            <p class="text-gray-400 text-sm">Primeras experiencias laborales en proyectos reales con clientes</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Filosofía -->
-  <section class="py-20 bg-gray-900">
-    <div class="container mx-auto px-6">
-      <div class="max-w-4xl mx-auto text-center">
-        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
-          <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
-            Nuestra Filosofía
-          </span>
-        </h2>
-        <p class="text-xl text-gray-400 mb-12 leading-relaxed">
-          Creemos que el mejor software surge cuando la experiencia se combina con perspectivas frescas. 
-          Por eso elegimos enfocarnos en emprendedores: son visionarios que, como nosotros, 
-          buscan transformar el mundo a través de la innovación.
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700">
-            <h3 class="font-display text-2xl font-bold text-white mb-4">¿Por qué Emprendedores?</h3>
-            <p class="text-gray-400 leading-relaxed">
-              Los emprendedores comparten nuestra pasión por la innovación y el crecimiento. 
-              Entienden el valor de invertir en talento y tecnología para construir el futuro. 
-              Cada proyecto con un emprendedor es una oportunidad de crear algo extraordinario.
-            </p>
-          </div>
-
-          <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700">
-            <h3 class="font-display text-2xl font-bold text-white mb-4">Nuestro Diferenciador</h3>
-            <p class="text-gray-400 leading-relaxed">
-              No somos solo una agencia de desarrollo. Somos un ecosistema donde el talento crece, 
-              la innovación florece y cada proyecto contribuye a un impacto social positivo. 
-              Tu éxito es nuestro éxito, y juntos construimos el futuro de la tecnología.
-            </p>
-          </div>
-        </div>
-
-        <div class="bg-gradient-to-r from-gray-800 to-gray-700 rounded-2xl p-8 border border-gray-600">
-          <h3 class="font-display text-2xl font-bold text-white mb-4">Nuestro Compromiso Contigo</h3>
-          <p class="text-gray-300 text-lg leading-relaxed">
-            Cuando eliges FreeAgents, no solo obtienes un proveedor de tecnología. 
-            Te unes a una comunidad comprometida con la excelencia, la innovación y el crecimiento mutuo. 
-            Juntos, no solo construimos software; construimos el futuro.
+    <!-- El Equipo -->
+    <section class="py-20 bg-gray-900">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+            <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
+              Nuestro Equipo
+            </span>
+          </h2>
+          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+            Un equipo diverso de profesionales apasionados por la tecnología y comprometidos con la excelencia.
           </p>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- CTA -->
-  <section class="py-20 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
-        <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
-          ¿Listo para Ser Parte de Nuestra Historia?
-        </span>
-      </h2>
-      <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
-        Únete a los emprendedores que ya están transformando sus industrias con nuestro apoyo tecnológico y social.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contacto" class="bg-gradient-to-r from-neon-blue to-neon-purple px-8 py-4 rounded-full text-white font-semibold text-lg hover:shadow-lg hover:shadow-neon-blue/25 transition-all duration-300 hover:scale-105">
-          Comenzar Nuestro Proyecto
-        </a>
-        <a href="/fundacion" class="border-2 border-neon-purple px-8 py-4 rounded-full text-neon-purple font-semibold text-lg hover:bg-neon-purple hover:text-white transition-all duration-300 hover:scale-105">
-          Conocer la Fundación
-        </a>
-      </div>
-    </div>
-  </section>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <!-- Fundador 1 -->
+          <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700 text-center group hover:border-neon-blue/50 transition-all duration-300">
+            <div class="w-24 h-24 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+              <img src="/Perro astronauta en un logo creativo.png" alt="CEO" class="h-16 w-16 rounded-full">
+            </div>
+            <h3 class="font-display text-xl font-bold text-white mb-2">Alex Rodríguez</h3>
+            <p class="text-neon-blue font-semibold mb-4">CEO & Co-fundador</p>
+            <p class="text-gray-400 mb-6">
+              15+ años en desarrollo de software. Visionario detrás de la Fundación FreeAgents y mentor de más de 50 desarrolladores.
+            </p>
+            <div class="flex justify-center space-x-4">
+              <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors duration-300">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-neon-blue transition-colors duration-300">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
 
+          <!-- Fundador 2 -->
+          <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700 text-center group hover:border-neon-purple/50 transition-all duration-300">
+            <div class="w-24 h-24 bg-gradient-to-r from-neon-purple to-neon-pink rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+              <img src="/Logo moderno de perro y montañas.png" alt="CTO" class="h-16 w-16 rounded-full">
+            </div>
+            <h3 class="font-display text-xl font-bold text-white mb-2">María González</h3>
+            <p class="text-neon-purple font-semibold mb-4">CTO & Co-fundadora</p>
+            <p class="text-gray-400 mb-6">
+              Arquitecta de software con experiencia en startups y empresas Fortune 500. Lidera nuestros programas de mentoría técnica.
+            </p>
+            <div class="flex justify-center space-x-4">
+              <a href="#" class="text-gray-400 hover:text-neon-purple transition-colors duration-300">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-neon-purple transition-colors duration-300">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Lead Developer -->
+          <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700 text-center group hover:border-neon-green/50 transition-all duration-300">
+            <div class="w-24 h-24 bg-gradient-to-r from-neon-green to-neon-blue rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+              <img src="/Perro neón con bandana y gafas.png" alt="Lead Developer" class="h-16 w-16 rounded-full">
+            </div>
+            <h3 class="font-display text-xl font-bold text-white mb-2">Carlos Mendoza</h3>
+            <p class="text-neon-green font-semibold mb-4">Lead Developer</p>
+            <p class="text-gray-400 mb-6">
+              Especialista en arquitecturas escalables y mentor principal en la Fundación. Ha guiado más de 30 desarrolladores junior.
+            </p>
+            <div class="flex justify-center space-x-4">
+              <a href="#" class="text-gray-400 hover:text-neon-green transition-colors duration-300">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-neon-green transition-colors duration-300">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <p class="text-gray-400 mb-6">
+            Nuestro equipo también incluye desarrolladores senior, diseñadores UX/UI, y una comunidad creciente de 
+            talentos emergentes que participan en nuestros proyectos a través de la Fundación.
+          </p>
+          <a href="/fundacion" class="bg-gradient-to-r from-neon-purple to-neon-pink px-8 py-4 rounded-full text-white font-semibold text-lg hover:shadow-lg hover:shadow-neon-purple/25 transition-all duration-300 hover:scale-105 inline-block">
+            Conoce la Fundación
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compromiso Social -->
+    <section class="py-20 bg-gray-800">
+      <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+              <span class="bg-gradient-to-r from-neon-purple to-neon-pink bg-clip-text text-transparent">
+                Nuestro Compromiso Social
+              </span>
+            </h2>
+            <p class="text-xl text-gray-400">
+              La Fundación FreeAgents es el corazón de nuestra misión social y parte integral de nuestra identidad empresarial.
+            </p>
+          </div>
+
+          <div class="bg-gradient-to-r from-neon-purple/10 to-neon-pink/10 border border-neon-purple/30 rounded-2xl p-8 mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 class="font-display text-2xl font-bold text-white mb-4">La Fundación FreeAgents</h3>
+                <p class="text-gray-300 mb-6">
+                  Más que una iniciativa de responsabilidad social, la Fundación es nuestro motor de innovación. 
+                  A través de programas de mentoría, capacitación y oportunidades laborales, formamos a los 
+                  desarrolladores que trabajarán en los proyectos del mañana.
+                </p>
+                <div class="space-y-3">
+                  <div class="flex items-center space-x-3">
+                    <div class="w-2 h-2 bg-neon-purple rounded-full"></div>
+                    <span class="text-gray-300">50+ desarrolladores mentoreados</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <div class="w-2 h-2 bg-neon-pink rounded-full"></div>
+                    <span class="text-gray-300">85% tasa de empleabilidad post-programa</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <div class="w-2 h-2 bg-neon-purple rounded-full"></div>
+                    <span class="text-gray-300">Proyectos reales con clientes top</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="relative">
+                <img 
+                  src="/imagen-compromiso.jpg" 
+                  alt="Equipo de FreeAgents trabajando en conjunto" 
+                  class="rounded-xl shadow-lg border border-gray-700"
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <a href="/fundacion" class="bg-gradient-to-r from-neon-blue to-neon-purple px-8 py-4 rounded-full text-white font-semibold text-lg hover:shadow-lg hover:shadow-neon-blue/25 transition-all duration-300 hover:scale-105 inline-block">
+              Conoce Más de la Fundación
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
   <Footer />
 </Layout>
