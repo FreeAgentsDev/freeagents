@@ -18,11 +18,11 @@ const {
   ctaLink, 
   secondaryCtaText, 
   secondaryCtaLink,
-  backgroundImage = "/Logotipo Neon con Perro y Tecnología.png"
+  backgroundImage = "/elongreen.png"
 } = Astro.props;
 ---
 
-<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+<section class="pt-10 relative min-h-screen flex items-center justify-center overflow-hidden">
   <!-- Background -->
   <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
   
@@ -88,7 +88,7 @@ const {
             <img 
               src={backgroundImage} 
               alt="FreeAgents" 
-              class="h-80 w-auto mx-auto animate-float drop-shadow-2xl"
+              class="h-80 rounded-3xl w-auto mx-auto animate-float drop-shadow-2xl"
             >
             
             <!-- Decorative elements -->
