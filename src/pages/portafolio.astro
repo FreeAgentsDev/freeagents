@@ -49,7 +49,15 @@ import Footer from '../components/Footer.astro';
           <!-- Proyecto 1 - Landings a la Medida -->
           <div class="project-card bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 hover:border-neon-blue/50 transition-all duration-300 group hover:scale-105" data-category="desarrollo">
             <div class="h-48 bg-gradient-to-br from-neon-blue/20 to-neon-purple/20 flex items-center justify-center relative overflow-hidden">
-              <img src="/freeagentsfoundation.png" alt="Datanova" class="h-24 w-auto opacity-80 group-hover:scale-110 transition-transform duration-300">
+              <div id="datanova-carousel" class="relative w-full h-full flex items-center justify-center">
+                <button id="datanova-prev" class="absolute left-2 z-10 bg-gray-900/70 rounded-full p-1 text-white hover:bg-neon-blue transition-colors duration-200 focus:outline-none">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                </button>
+                <img id="datanova-image" src="/datanova/datanova1.png" alt="Datanova" class="max-h-44 w-auto rounded transition-all duration-300 shadow-lg">
+                <button id="datanova-next" class="absolute right-2 z-10 bg-gray-900/70 rounded-full p-1 text-white hover:bg-neon-blue transition-colors duration-200 focus:outline-none">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </button>
+              </div>
               <div class="absolute top-4 right-4">
                 <span class="px-3 py-1 bg-neon-blue/20 text-neon-blue rounded-full text-sm font-medium">Landings a la Medida</span>
               </div>
@@ -321,6 +329,29 @@ import Footer from '../components/Footer.astro';
         });
       });
     });
+
+    // Carrusel Datanova
+    const datanovaImages = [
+      '/datanova/datanova1.png',
+      '/datanova/datanova2.png',
+      '/datanova/datanova3.png',
+      '/datanova/datanova4.png',
+      '/datanova/datanova5.png',
+    ];
+    let datanovaIndex = 0;
+    const datanovaImg = document.getElementById('datanova-image');
+    const datanovaPrev = document.getElementById('datanova-prev');
+    const datanovaNext = document.getElementById('datanova-next');
+    if (datanovaImg && datanovaPrev && datanovaNext) {
+      datanovaPrev.addEventListener('click', () => {
+        datanovaIndex = (datanovaIndex - 1 + datanovaImages.length) % datanovaImages.length;
+        (datanovaImg as HTMLImageElement).src = datanovaImages[datanovaIndex];
+      });
+      datanovaNext.addEventListener('click', () => {
+        datanovaIndex = (datanovaIndex + 1) % datanovaImages.length;
+        (datanovaImg as HTMLImageElement).src = datanovaImages[datanovaIndex];
+      });
+    }
   });
 </script>
 
