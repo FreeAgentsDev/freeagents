@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Footer from '../components/Footer.astro';
+import ProjectCard from '../components/ProjectCard.astro';
 ---
 
 <Layout title="Portafolio - FreeAgents" description="Descubre nuestros proyectos más exitosos. Casos reales de emprendedores que han transformado sus negocios con nuestras soluciones tecnológicas.">
@@ -45,177 +46,115 @@ import Footer from '../components/Footer.astro';
     <section class="py-20 bg-gray-900">
       <div class="container mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
-          
-          <!-- Proyecto 1 - Landings a la Medida -->
-          <div class="project-card bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 hover:border-neon-blue/50 transition-all duration-300 group hover:scale-105" data-category="desarrollo">
-            <div class="h-48 bg-gradient-to-br from-neon-blue/20 to-neon-purple/20 flex items-center justify-center relative overflow-hidden">
-              <div id="datanova-carousel" class="relative w-full h-full flex items-center justify-center">
-                <button id="datanova-prev" class="absolute left-2 z-10 bg-gray-900/70 rounded-full p-1 text-white hover:bg-neon-blue transition-colors duration-200 focus:outline-none">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                </button>
-                <img id="datanova-image" src="/datanova/datanova1.png" alt="Datanova" class="max-h-44 w-auto rounded transition-all duration-300 shadow-lg">
-                <button id="datanova-next" class="absolute right-2 z-10 bg-gray-900/70 rounded-full p-1 text-white hover:bg-neon-blue transition-colors duration-200 focus:outline-none">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                </button>
-              </div>
-              <div class="absolute top-4 right-4">
-                <span class="px-3 py-1 bg-neon-blue/20 text-neon-blue rounded-full text-sm font-medium">Landings a la Medida</span>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="font-display text-xl font-bold text-white mb-2">Datanova</h3>
-              <p class="text-gray-400 mb-4">Data Nova es un ejemplo de las bases de landing page modernas y potentes que FreeAgents usa. Podemos adaptarla con tus logos, textos y funcionalidades para que cause impacto y convierta visitantes en clientes.</p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-3 py-1 bg-neon-blue/20 text-neon-blue rounded-full text-sm">React</span>
-                <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm">Node.js</span>
-                <span class="px-3 py-1 bg-neon-green/20 text-neon-green rounded-full text-sm">MongoDB</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <div class="text-sm text-gray-500">
-                  <span class="text-neon-blue font-semibold">Diseño profesional</span>
-                </div>
-                <a href="" target="_blank" rel="noopener noreferrer" class="text-neon-blue hover:text-neon-purple transition-colors duration-300 font-semibold">
-                  Ver detalles →
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Proyecto 2 - Apps -->
-          <div class="project-card bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 hover:border-neon-purple/50 transition-all duration-300 group hover:scale-105" data-category="apps">
-            <div class="h-48 bg-gradient-to-br from-neon-purple/20 to-neon-pink/20 flex items-center justify-center relative overflow-hidden">
-              <img src="/logofreeagents1.png" alt="EcoCommerce App" class="h-24 w-auto opacity-80 group-hover:scale-110 transition-transform duration-300">
-              <div class="absolute top-4 right-4">
-                <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm font-medium">App Móvil</span>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="font-display text-xl font-bold text-white mb-2">EcoCommerce App</h3>
-              <p class="text-gray-400 mb-4">Aplicación móvil para marketplace de productos ecológicos con sistema de recompensas, geolocalización y comunidad verde.</p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm">React Native</span>
-                <span class="px-3 py-1 bg-neon-pink/20 text-neon-pink rounded-full text-sm">Firebase</span>
-                <span class="px-3 py-1 bg-neon-blue/20 text-neon-blue rounded-full text-sm">Stripe</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <div class="text-sm text-gray-500">
-                  <span class="text-neon-purple font-semibold">50K+</span> usuarios activos
-                </div>
-                <button class="text-neon-purple hover:text-neon-pink transition-colors duration-300 font-semibold">
-                  Ver detalles →
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Proyecto 3 - E-commerce -->
-          <div class="project-card bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 hover:border-neon-green/50 transition-all duration-300 group hover:scale-105" data-category="ecommerce">
-            <div class="h-48 bg-gradient-to-br from-neon-green/20 to-neon-blue/20 flex items-center justify-center relative overflow-hidden">
-              <img src="/Perro neón con bandana y gafas.png" alt="Fashion Store" class="h-24 w-auto opacity-80 group-hover:scale-110 transition-transform duration-300">
-              <div class="absolute top-4 right-4">
-                <span class="px-3 py-1 bg-neon-green/20 text-neon-green rounded-full text-sm font-medium">E-commerce</span>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="font-display text-xl font-bold text-white mb-2">Fashion Store Premium</h3>
-              <p class="text-gray-400 mb-4">Tienda online de moda con AR para prueba virtual, recomendaciones IA y programa de fidelización avanzado.</p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-3 py-1 bg-neon-green/20 text-neon-green rounded-full text-sm">Shopify Plus</span>
-                <span class="px-3 py-1 bg-neon-blue/20 text-neon-blue rounded-full text-sm">AR.js</span>
-                <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm">TensorFlow</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <div class="text-sm text-gray-500">
-                  <span class="text-neon-green font-semibold">+300%</span> conversión
-                </div>
-                <button class="text-neon-green hover:text-neon-blue transition-colors duration-300 font-semibold">
-                  Ver detalles →
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Proyecto 4 - Landings a la Medida -->
-          <div class="project-card bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 hover:border-neon-blue/50 transition-all duration-300 group hover:scale-105" data-category="desarrollo">
-            <div class="h-48 bg-gradient-to-br from-neon-blue/20 to-neon-green/20 flex items-center justify-center relative overflow-hidden">
-              <img src="/portfoliofrea.png" alt="FinTech Dashboard" class="h-24 w-auto opacity-80 group-hover:scale-110 transition-transform duration-300">
-              <div class="absolute top-4 right-4">
-                <span class="px-3 py-1 bg-neon-blue/20 text-neon-blue rounded-full text-sm font-medium">Landings a la Medida</span>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="font-display text-xl font-bold text-white mb-2">FinTech Dashboard</h3>
-              <p class="text-gray-400 mb-4">Sistema de gestión financiera para emprendedores con IA predictiva, reportes automatizados y análisis de riesgo.</p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-3 py-1 bg-neon-blue/20 text-neon-blue rounded-full text-sm">Vue.js</span>
-                <span class="px-3 py-1 bg-neon-green/20 text-neon-green rounded-full text-sm">Python</span>
-                <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm">PostgreSQL</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <div class="text-sm text-gray-500">
-                  <span class="text-neon-blue font-semibold">1M+</span> transacciones/día
-                </div>
-                <button class="text-neon-blue hover:text-neon-purple transition-colors duration-300 font-semibold">
-                  Ver detalles →
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Proyecto 5 - Apps -->
-          <div class="project-card bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 hover:border-neon-purple/50 transition-all duration-300 group hover:scale-105" data-category="apps">
-            <div class="h-48 bg-gradient-to-br from-neon-purple/20 to-neon-blue/20 flex items-center justify-center relative overflow-hidden">
-              <img src="/freeagentsfoundation.png" alt="Fitness Tracker" class="h-24 w-auto opacity-80 group-hover:scale-110 transition-transform duration-300">
-              <div class="absolute top-4 right-4">
-                <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm font-medium">App Móvil</span>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="font-display text-xl font-bold text-white mb-2">FitTracker Pro</h3>
-              <p class="text-gray-400 mb-4">App de fitness con IA personal trainer, seguimiento biométrico y comunidad social para motivación grupal.</p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm">Flutter</span>
-                <span class="px-3 py-1 bg-neon-blue/20 text-neon-blue rounded-full text-sm">TensorFlow</span>
-                <span class="px-3 py-1 bg-neon-green/20 text-neon-green rounded-full text-sm">HealthKit</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <div class="text-sm text-gray-500">
-                  <span class="text-neon-purple font-semibold">4.8★</span> rating App Store
-                </div>
-                <button class="text-neon-purple hover:text-neon-pink transition-colors duration-300 font-semibold">
-                  Ver detalles →
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Proyecto 6 - E-commerce -->
-          <div class="project-card bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 hover:border-neon-green/50 transition-all duration-300 group hover:scale-105" data-category="ecommerce">
-            <div class="h-48 bg-gradient-to-br from-neon-green/20 to-neon-pink/20 flex items-center justify-center relative overflow-hidden">
-              <img src="/logofreeagents1.png" alt="B2B Marketplace" class="h-24 w-auto opacity-80 group-hover:scale-110 transition-transform duration-300">
-              <div class="absolute top-4 right-4">
-                <span class="px-3 py-1 bg-neon-green/20 text-neon-green rounded-full text-sm font-medium">E-commerce</span>
-              </div>
-            </div>
-            <div class="p-6">
-              <h3 class="font-display text-xl font-bold text-white mb-2">B2B Marketplace</h3>
-              <p class="text-gray-400 mb-4">Plataforma B2B para distribuidores con cotizaciones automáticas, gestión de crédito y logística integrada.</p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-3 py-1 bg-neon-green/20 text-neon-green rounded-full text-sm">Next.js</span>
-                <span class="px-3 py-1 bg-neon-blue/20 text-neon-blue rounded-full text-sm">Microservices</span>
-                <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-sm">Redis</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <div class="text-sm text-gray-500">
-                  <span class="text-neon-green font-semibold">500+</span> empresas conectadas
-                </div>
-                <button class="text-neon-green hover:text-neon-blue transition-colors duration-300 font-semibold">
-                  Ver detalles →
-                </button>
-              </div>
-            </div>
-          </div>
-
+          <ProjectCard
+            title="Datanova"
+            description="Data Nova es un ejemplo de las bases de landing page modernas y potentes que FreeAgents usa. Podemos adaptarla con tus logos, textos y funcionalidades para que cause impacto y convierta visitantes en clientes."
+            media={[
+              { type: 'image', src: '/datanova/datanova1.png', alt: 'Datanova' },
+              { type: 'image', src: '/datanova/datanova2.png', alt: 'Datanova' },
+              { type: 'image', src: '/datanova/datanova3.png', alt: 'Datanova' },
+              { type: 'image', src: '/datanova/datanova4.png', alt: 'Datanova' },
+              { type: 'image', src: '/datanova/datanova5.png', alt: 'Datanova' }
+            ]}
+            imageAlt="Datanova"
+            techs={[{name: 'Astro', colorClass: 'bg-neon-blue/20 text-neon-blue'}, {name: 'Node.js', colorClass: 'bg-neon-purple/20 text-neon-purple'}, {name: 'Tailwind CSS', colorClass: 'bg-neon-green/20 text-neon-green'}]}
+            badge="Landings a la Medida"
+            badgeColorClass="bg-neon-blue/20 text-neon-blue"
+            category="desarrollo"
+            metric="Diseño profesional"
+            metricLabel=""
+            detailsUrl=""
+            demoUrl="https://data-nova.vercel.app"
+          />
+          <ProjectCard
+            title="Munchies"
+            description="Medusa DTC Starter es la base ideal para tu tienda online Directo al Consumidor. Esta plantilla de e-commerce de código abierto, construida con Medusa y Next.js, te ofrece una solución potente y flexible para vender directamente a tus clientes. Podemos transformar esta sólida base en TU tienda online personalizada, reflejando fielmente tu marca y visión."
+            media={[
+              { type: 'video', src: '/munchies/munchies.mp4' },
+            ]}
+            imageAlt="Munchies App"
+            techs={[{name: 'NextJS', colorClass: 'bg-neon-purple/20 text-neon-purple'}, {name: 'Tailwind', colorClass: 'bg-neon-pink/20 text-neon-pink'}, {name: 'Pagos en linea', colorClass: 'bg-neon-blue/20 text-neon-blue'}]}
+            badge="E-commerce"
+            badgeColorClass="bg-neon-purple/20 text-neon-purple"
+            category="ecommerce"
+            metric="100% personalizable"
+            metricLabel=""
+            detailsUrl=""
+            demoUrl='https://munchies-tinloof.vercel.app'
+          />
+          <ProjectCard
+            title="Fitness App"
+            description="La base perfecta para tu aplicación móvil de bienestar. Este ejemplo de Flutter ofrece una estructura robusta para apps de fitness modernas. Podemos transformar esta sólida base en TU aplicación personalizada, con tus logos, funciones específicas y una experiencia de usuario única."
+            media={[
+              { type: 'image', src: '/fitness/fit1.png', alt: 'Fitness App' },
+              { type: 'image', src: '/fitness/fit2.png', alt: 'Fitness App' }
+              ]}
+            imageAlt="Fitness App"
+            techs={[{name: 'Flutter', colorClass: 'bg-neon-purple/20 text-neon-purple'}, {name: 'Firebase', colorClass: 'bg-neon-pink/20 text-neon-pink'}, {name: 'Subscripcion', colorClass: 'bg-neon-blue/20 text-neon-blue'}]}
+            badge="App Móvil"
+            badgeColorClass="bg-neon-purple/20 text-neon-purple"
+            category="apps"
+            metric="Ideal para adptar a tu gimnasio"
+            metricLabel=""
+            detailsUrl=""
+          />
+          <ProjectCard
+            title="Horizon"
+            description="Horizon es una base excelente para tu sitio web, perfecta para blogs, portfolios o presencias online minimalistas. Este tema demuestra cómo FreeAgents puede ofrecerte una solución elegante y optimizada para tus necesidades. Podemos transformar esta base en TU sitio web personalizado, reflejando fielmente tu marca y visión."
+            media={[
+              { type: 'image', src: '/horizon/hori1.png', alt: 'Horizon' },
+              { type: 'image', src: '/horizon/hori2.png', alt: 'Horizon' },
+              { type: 'image', src: '/horizon/hori3.png', alt: 'Horizon' },
+              { type: 'image', src: '/horizon/hori4.png', alt: 'Horizon' },
+              { type: 'image', src: '/horizon/hori5.png', alt: 'Horizon' }
+              ]}
+            imageAlt="Fashion Store"
+            techs={[{name: 'Shopify Plus', colorClass: 'bg-neon-green/20 text-neon-green'}, {name: 'AR.js', colorClass: 'bg-neon-blue/20 text-neon-blue'}, {name: 'TensorFlow', colorClass: 'bg-neon-purple/20 text-neon-purple'}]}
+            badge="Portafolio"
+            badgeColorClass="bg-neon-green/20 text-neon-green"
+            category="desarrollo"
+            metric="Da confianza y claridad"
+            metricLabel=""
+            detailsUrl=""
+            demoUrl='https://horizon.cosmicthemes.com'
+          />
+          <ProjectCard
+            title="ScrewFast"
+            description="Screwfast es la base que tu negocio necesita. Esta plantilla de Astro ofrece un portafolio o blog de alto rendimiento y SEO, ideal para destacar tu contenido. Te mostramos cómo podemos transformar esta sólida base en TU sitio web personalizado, reflejando fielmente tu marca y visión."
+            media={[
+              { type: 'image', src: '/screwfast/screw1.png', alt: 'Screwfast' },
+              { type: 'image', src: '/screwfast/screw2.png', alt: 'Screwfast' },
+              { type: 'image', src: '/screwfast/screw3.png', alt: 'Screwfast' },
+              { type: 'image', src: '/screwfast/screw4.png', alt: 'Screwfast' },
+              { type: 'image', src: '/screwfast/screw5.png', alt: 'Screwfast' }
+            ]}
+            imageAlt="Screwfast"
+            techs={[{name: 'Astro', colorClass: 'bg-neon-blue/20 text-neon-blue'}, {name: 'React', colorClass: 'bg-neon-green/20 text-neon-green'}, {name: 'Tailwind CSS', colorClass: 'bg-neon-purple/20 text-neon-purple'}]}
+            badge="Landings a la Medida"
+            badgeColorClass="bg-neon-blue/20 text-neon-blue"
+            category="desarrollo"
+            metric="SEO optimizado"
+            metricLabel=""
+            detailsUrl=""
+          />
+          <ProjectCard
+            title="Medusa Next.js Ecommerce Store Starter"
+            description="Medusa Next.js es la base ideal para tu tienda online Directo al Consumidor (DTC). Este template de e-commerce de código abierto, combinando Medusa y Next.js, te ofrece una solución potente y flexible para vender directamente a tus clientes. Podemos transformar esta sólida base en TU tienda online personalizada, reflejando fielmente tu marca y visión."
+            media={[
+              { type: 'image', src: '/medusanext/medusa1.png', alt: 'medusa' },
+              { type: 'image', src: '/medusanext/medusa2.png', alt: 'medusa' },
+              { type: 'image', src: '/medusanext/medusa3.png', alt: 'medusa' }
+              ]}
+            imageAlt="medusa"
+            techs={[{name: 'MedusaJS', colorClass: 'bg-neon-purple/20 text-neon-purple'}, {name: 'NextJS', colorClass: 'bg-neon-blue/20 text-neon-blue'}, {name: 'Tailwin dCSS', colorClass: 'bg-neon-green/20 text-neon-green'}]}
+            badge="Ecommerce"
+            badgeColorClass="bg-neon-purple/20 text-neon-purple"
+            category="ecommerce"
+            metric="4.8★"
+            metricLabel="Una alternativa economica a Shopify"
+            detailsUrl=""
+            demoUrl='https://next.medusajs.com/us'
+          />
         </div>
       </div>
     </section>
@@ -312,14 +251,10 @@ import Footer from '../components/Footer.astro';
     filterButtons.forEach(button => {
       button.addEventListener('click', () => {
         const filter = button.getAttribute('data-filter');
-        
-        // Update active button
         filterButtons.forEach(btn => btn.classList.remove('active', 'bg-gradient-to-r', 'from-neon-blue', 'to-neon-purple', 'text-white'));
         button.classList.add('active', 'bg-gradient-to-r', 'from-neon-blue', 'to-neon-purple', 'text-white');
-        
-        // Filter projects
         projectCards.forEach(card => {
-          const htmlCard = card as HTMLElement; // Assert to HTMLElement
+          const htmlCard = card as HTMLElement;
           if (filter === 'all' || htmlCard.getAttribute('data-category') === filter) {
             htmlCard.style.display = 'block';
             htmlCard.style.animation = 'fadeIn 0.5s ease-in-out';
@@ -329,29 +264,6 @@ import Footer from '../components/Footer.astro';
         });
       });
     });
-
-    // Carrusel Datanova
-    const datanovaImages = [
-      '/datanova/datanova1.png',
-      '/datanova/datanova2.png',
-      '/datanova/datanova3.png',
-      '/datanova/datanova4.png',
-      '/datanova/datanova5.png',
-    ];
-    let datanovaIndex = 0;
-    const datanovaImg = document.getElementById('datanova-image');
-    const datanovaPrev = document.getElementById('datanova-prev');
-    const datanovaNext = document.getElementById('datanova-next');
-    if (datanovaImg && datanovaPrev && datanovaNext) {
-      datanovaPrev.addEventListener('click', () => {
-        datanovaIndex = (datanovaIndex - 1 + datanovaImages.length) % datanovaImages.length;
-        (datanovaImg as HTMLImageElement).src = datanovaImages[datanovaIndex];
-      });
-      datanovaNext.addEventListener('click', () => {
-        datanovaIndex = (datanovaIndex + 1) % datanovaImages.length;
-        (datanovaImg as HTMLImageElement).src = datanovaImages[datanovaIndex];
-      });
-    }
   });
 </script>
 
