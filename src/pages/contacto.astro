@@ -28,8 +28,8 @@ import Footer from '../components/Footer.astro';
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <!-- Formulario -->
             <div class="bg-gray-900 rounded-2xl p-8 border border-gray-700">
-              <h2 class="font-display text-3xl font-bold text-white mb-6">Cuéntanos sobre tu Proyecto</h2>
-              <form class="space-y-6" id="contact-form">
+              <h2 id="form-title" class="font-display text-3xl font-bold text-white mb-6">Cuéntanos sobre tu Proyecto</h2>
+              <form id="contact-form" class="space-y-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label for="nombre" class="block text-sm font-medium text-gray-300 mb-2">Nombre *</label>
@@ -43,7 +43,7 @@ import Footer from '../components/Footer.astro';
                     >
                   </div>
                   <div>
-                    <label for="empresa" class="block text-sm font-medium text-gray-300 mb-2">Empresa</label>
+                    <label id="empresa-label" for="empresa" class="block text-sm font-medium text-gray-300 mb-2">Empresa</label>
                     <input 
                       type="text" 
                       id="empresa" 
@@ -98,39 +98,74 @@ import Footer from '../components/Footer.astro';
                   </select>
                 </div>
 
-                <div>
-                  <label for="presupuesto" class="block text-sm font-medium text-gray-300 mb-2">Presupuesto Estimado</label>
-                  <select 
-                    id="presupuesto" 
-                    name="presupuesto"
-                    class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition-colors duration-300"
-                  >
-                    <option value="">Selecciona un rango</option>
-                    <option value="5k-15k">$5,000 - $15,000</option>
-                    <option value="15k-50k">$15,000 - $50,000</option>
-                    <option value="50k-100k">$50,000 - $100,000</option>
-                    <option value="100k+">$100,000+</option>
-                    <option value="no-definido">Aún no definido</option>
-                  </select>
+                <div id="proyecto-fields" class="hidden">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label for="presupuesto" class="block text-sm font-medium text-gray-300 mb-2">Presupuesto Estimado</label>
+                      <select 
+                        id="presupuesto" 
+                        name="presupuesto"
+                        class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition-colors duration-300"
+                      >
+                        <option value="">Selecciona un rango</option>
+                        <option value="800k-1.6m">$800.000 - $1.599.000 (Startup)</option>
+                        <option value="1.6m-4m">$1.600.000 - $4.000.000 (Growth)</option>
+                        <option value="4.5m+">$4.500.000+ (Enterprise)</option>
+                        <option value="no-definido">Aún no definido</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="timeline" class="block text-sm font-medium text-gray-300 mb-2">Timeline Deseado</label>
+                      <select 
+                        id="timeline" 
+                        name="timeline"
+                        class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition-colors duration-300"
+                      >
+                        <option value="">Selecciona un timeline</option>
+                        <option value="urgente">Lo antes posible (1-2 meses)</option>
+                        <option value="normal">Normal (3-6 meses)</option>
+                        <option value="flexible">Flexible (6+ meses)</option>
+                        <option value="exploratorio">Solo explorando opciones</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="fundacion-fields" class="hidden">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label for="experiencia" class="block text-sm font-medium text-gray-300 mb-2">Experiencia</label>
+                      <select 
+                        id="experiencia" 
+                        name="experiencia"
+                        class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition-colors duration-300"
+                      >
+                        <option value="">Selecciona tu experiencia</option>
+                        <option value="estudiante">Estudiante</option>
+                        <option value="profesional">Profesional</option>
+                        <option value="senior">Senior</option>
+                        <option value="otro">Otro</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="disponibilidad" class="block text-sm font-medium text-gray-300 mb-2">Disponibilidad</label>
+                      <select 
+                        id="disponibilidad" 
+                        name="disponibilidad"
+                        class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition-colors duration-300"
+                      >
+                        <option value="">Selecciona tu disponibilidad</option>
+                        <option value="tiempo-completo">Tiempo completo</option>
+                        <option value="medio-tiempo">Medio tiempo</option>
+                        <option value="flexible">Flexible</option>
+                        <option value="otro">Otro</option>
+                      </select>
+                    </div>
+                  </div>
                 </div>
 
                 <div>
-                  <label for="timeline" class="block text-sm font-medium text-gray-300 mb-2">Timeline Deseado</label>
-                  <select 
-                    id="timeline" 
-                    name="timeline"
-                    class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition-colors duration-300"
-                  >
-                    <option value="">Selecciona un timeline</option>
-                    <option value="urgente">Lo antes posible (1-2 meses)</option>
-                    <option value="normal">Normal (3-6 meses)</option>
-                    <option value="flexible">Flexible (6+ meses)</option>
-                    <option value="exploratorio">Solo explorando opciones</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label for="mensaje" class="block text-sm font-medium text-gray-300 mb-2">Cuéntanos más sobre tu proyecto *</label>
+                  <label id="mensaje-label" for="mensaje" class="block text-sm font-medium text-gray-300 mb-2">Cuéntanos más sobre tu proyecto *</label>
                   <textarea 
                     id="mensaje" 
                     name="mensaje" 
@@ -141,38 +176,25 @@ import Footer from '../components/Footer.astro';
                   ></textarea>
                 </div>
 
-                <div class="flex items-start space-x-3">
-                  <input 
-                    type="checkbox" 
-                    id="acepto-terminos" 
-                    name="acepto-terminos" 
-                    required
-                    class="mt-1 w-4 h-4 text-neon-blue bg-gray-800 border-gray-600 rounded focus:ring-neon-blue focus:ring-2"
+                <div class="flex flex-col sm:flex-row gap-4 mt-8">
+                  <button 
+                    type="button" 
+                    id="enviar-whatsapp"
+                    class="w-full bg-gradient-to-r from-green-400 to-green-600 px-8 py-4 rounded-full text-white font-semibold text-lg hover:shadow-lg hover:shadow-green-400/25 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
                   >
-                  <label for="acepto-terminos" class="text-sm text-gray-300">
-                    Acepto los <a href="#" class="text-neon-blue hover:text-neon-purple transition-colors duration-300">términos y condiciones</a> 
-                    y la <a href="#" class="text-neon-blue hover:text-neon-purple transition-colors duration-300">política de privacidad</a> *
-                  </label>
-                </div>
-
-                <div class="flex items-start space-x-3">
-                  <input 
-                    type="checkbox" 
-                    id="newsletter" 
-                    name="newsletter"
-                    class="mt-1 w-4 h-4 text-neon-blue bg-gray-800 border-gray-600 rounded focus:ring-neon-blue focus:ring-2"
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.52 3.48A12.07 12.07 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.22-1.63A11.93 11.93 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.21-3.48-8.52zM12 22c-1.85 0-3.68-.5-5.26-1.44l-.38-.22-3.69.97.99-3.59-.25-.37A9.94 9.94 0 0 1 2 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10zm5.2-7.6c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.28.7.9.86 1.08.16.18.32.2.6.07.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.18-.29.28-.48.09-.18.05-.36-.02-.5-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47-.16-.01-.36-.01-.56-.01-.19 0-.5.07-.76.34-.26.27-1 1-.97 2.43.03 1.43 1.03 2.81 1.18 3 .15.19 2.03 3.1 4.93 4.22.69.3 1.23.48 1.65.61.69.22 1.32.19 1.81.12.55-.08 1.65-.67 1.88-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+                    Enviar por WhatsApp
+                  </button>
+                  <button 
+                    type="button" 
+                    id="enviar-email"
+                    class="w-full bg-gradient-to-r from-blue-500 to-purple-600 px-8 py-4 rounded-full text-white font-semibold text-lg hover:shadow-lg hover:shadow-blue-400/25 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
                   >
-                  <label for="newsletter" class="text-sm text-gray-300">
-                    Quiero recibir actualizaciones sobre FreeAgents y la Fundación
-                  </label>
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 20V8.99l8 6.99 8-6.99V20H4z"/></svg>
+                    Enviar por Email
+                  </button>
                 </div>
-
-                <button 
-                  type="submit" 
-                  class="w-full bg-gradient-to-r from-neon-blue to-neon-purple px-8 py-4 rounded-full text-white font-semibold text-lg hover:shadow-lg hover:shadow-neon-blue/25 transition-all duration-300 hover:scale-105"
-                >
-                  Enviar Mensaje
-                </button>
+                <p id="form-alert" class="text-red-500 text-sm mt-4 hidden"></p>
               </form>
             </div>
 
@@ -236,7 +258,7 @@ import Footer from '../components/Footer.astro';
                   <!-- GitHub -->
                   <a href="https://github.com/FreeAgentsDev" target="_blank" class="w-12 h-12 bg-gradient-to-r from-neon-purple to-neon-pink rounded-xl flex items-center justify-center hover:scale-110 transition-transform duration-300" aria-label="GitHub">
                     <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.02c-3.2.7-3.87-1.54-3.87-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.73 1.27 3.4.97.11-.75.41-1.27.75-1.56-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98.01 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.7.42.36.8 1.08.8 2.18v3.24c0 .31.21.67.8.56C20.71 21.39 24 17.08 24 12c0-6.27-5.23-11.5-12-11.5z"/>
+                      <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.02c-3.2.7-3.87-1.54-3.87-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.73 1.27 3.4.97.11-.75.41-1.27.75-1.56-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98.01 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 2.18v3.24c0 .31.21.67.8.56C20.71 21.39 24 17.08 24 12c0-6.27-5.23-11.5-12-11.5z"/>
                     </svg>
                   </a>
                   <!-- Instagram -->
@@ -383,36 +405,184 @@ import Footer from '../components/Footer.astro';
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('contact-form');
-    
-    form?.addEventListener('submit', (e) => {
-      e.preventDefault();
+    const btnWhatsapp = document.getElementById('enviar-whatsapp');
+    const btnEmail = document.getElementById('enviar-email');
+    const alertMsg = document.getElementById('form-alert');
+    const tipoProyecto = document.getElementById('tipo-proyecto') as HTMLSelectElement;
+    const proyectoFields = document.getElementById('proyecto-fields');
+    const fundacionFields = document.getElementById('fundacion-fields');
+    const formTitle = document.getElementById('form-title');
+    const empresaLabel = document.getElementById('empresa-label');
+    const mensajeLabel = document.getElementById('mensaje-label');
+    const mensajeTextarea = document.getElementById('mensaje') as HTMLTextAreaElement;
+
+    // Función para actualizar la interfaz según la selección
+    function actualizarInterfaz() {
+      const valor = tipoProyecto.value;
+      const esFundacion = valor.startsWith('fundacion-');
       
-      // Aquí puedes agregar la lógica para enviar el formulario
-      // Por ejemplo, usando fetch para enviar a un endpoint
-      
-      // Simulación de envío exitoso
-      const submitButton = form.querySelector('button[type="submit"]');
-      const originalText = submitButton?.textContent;
-      
-      if (submitButton) {
-        submitButton.textContent = 'Enviando...';
-        submitButton.disabled = true;
-        
-        setTimeout(() => {
-          submitButton.textContent = '¡Mensaje Enviado!';
-          submitButton.classList.remove('from-neon-blue', 'to-neon-purple');
-          submitButton.classList.add('from-neon-green', 'to-neon-blue');
-          
-          setTimeout(() => {
-            form.reset();
-            submitButton.textContent = originalText;
-            submitButton.disabled = false;
-            submitButton.classList.remove('from-neon-green', 'to-neon-blue');
-            submitButton.classList.add('from-neon-blue', 'to-neon-purple');
-          }, 3000);
-        }, 2000);
+      if (esFundacion) {
+        // Configuración para Fundación
+        if (formTitle) formTitle.textContent = 'Únete a la Fundación FreeAgents';
+        if (empresaLabel) empresaLabel.textContent = 'Organización / Universidad';
+        if (mensajeLabel) mensajeLabel.textContent = 'Cuéntanos sobre tu interés en la Fundación *';
+        if (mensajeTextarea) {
+          mensajeTextarea.placeholder = 'Describe tu motivación para unirte a la Fundación, tu experiencia, objetivos de aprendizaje o cómo te gustaría contribuir...';
+        }
+        if (proyectoFields) proyectoFields.classList.add('hidden');
+        if (fundacionFields) fundacionFields.classList.remove('hidden');
+      } else if (valor && valor !== 'otro') {
+        // Configuración para Proyectos Empresariales
+        if (formTitle) formTitle.textContent = 'Cuéntanos sobre tu Proyecto';
+        if (empresaLabel) empresaLabel.textContent = 'Empresa';
+        if (mensajeLabel) mensajeLabel.textContent = 'Cuéntanos más sobre tu proyecto *';
+        if (mensajeTextarea) {
+          mensajeTextarea.placeholder = 'Describe tu proyecto, objetivos, funcionalidades deseadas, o cualquier información relevante que nos ayude a entender mejor tus necesidades...';
+        }
+        if (proyectoFields) proyectoFields.classList.remove('hidden');
+        if (fundacionFields) fundacionFields.classList.add('hidden');
+      } else {
+        // Configuración por defecto
+        if (formTitle) formTitle.textContent = 'Cuéntanos sobre tu Proyecto';
+        if (empresaLabel) empresaLabel.textContent = 'Empresa';
+        if (mensajeLabel) mensajeLabel.textContent = 'Cuéntanos más sobre tu proyecto *';
+        if (mensajeTextarea) {
+          mensajeTextarea.placeholder = 'Describe tu proyecto, objetivos, funcionalidades deseadas, o cualquier información relevante que nos ayude a entender mejor tus necesidades...';
+        }
+        if (proyectoFields) proyectoFields.classList.add('hidden');
+        if (fundacionFields) fundacionFields.classList.add('hidden');
       }
-    });
+    }
+
+    // Event listener para cambios en el tipo de proyecto
+    if (tipoProyecto) {
+      tipoProyecto.addEventListener('change', actualizarInterfaz);
+    }
+
+    function getFormData() {
+      const f = form as HTMLFormElement | null;
+      if (!f) return {
+        nombre: '', empresa: '', email: '', telefono: '', tipo: '', presupuesto: '', timeline: '', mensaje: '', experiencia: '', disponibilidad: ''
+      };
+      return {
+        nombre: (f.elements.namedItem('nombre') as HTMLInputElement)?.value.trim(),
+        empresa: (f.elements.namedItem('empresa') as HTMLInputElement)?.value.trim(),
+        email: (f.elements.namedItem('email') as HTMLInputElement)?.value.trim(),
+        telefono: (f.elements.namedItem('telefono') as HTMLInputElement)?.value.trim(),
+        tipo: (f.elements.namedItem('tipo-proyecto') as HTMLSelectElement)?.value.trim(),
+        presupuesto: (f.elements.namedItem('presupuesto') as HTMLSelectElement)?.value.trim(),
+        timeline: (f.elements.namedItem('timeline') as HTMLSelectElement)?.value.trim(),
+        mensaje: (f.elements.namedItem('mensaje') as HTMLTextAreaElement)?.value.trim(),
+        experiencia: (f.elements.namedItem('experiencia') as HTMLSelectElement)?.value.trim(),
+        disponibilidad: (f.elements.namedItem('disponibilidad') as HTMLSelectElement)?.value.trim(),
+      };
+    }
+
+    function validarCampos(data: {nombre: string, empresa: string, email: string, telefono: string, tipo: string, presupuesto: string, timeline: string, mensaje: string, experiencia: string, disponibilidad: string}): string {
+      if (!data.nombre || !data.email || !data.tipo || !data.mensaje) {
+        return 'Por favor completa todos los campos obligatorios marcados con *';
+      }
+      if (!data.email.includes('@')) {
+        return 'Por favor ingresa un email válido';
+      }
+      return '';
+    }
+
+    function mensajeWhatsapp(data: {nombre: string, empresa: string, email: string, telefono: string, tipo: string, presupuesto: string, timeline: string, mensaje: string, experiencia: string, disponibilidad: string}): string {
+      const esFundacion = data.tipo.startsWith('fundacion-');
+      
+      if (esFundacion) {
+        return encodeURIComponent(
+          `¡Hola Fundación FreeAgents! 👋\n\n` +
+          `Mi nombre es: ${data.nombre}${data.empresa ? ' (' + data.empresa + ')' : ''}\n` +
+          `Email: ${data.email}\n` +
+          (data.telefono ? `Teléfono: ${data.telefono}\n` : '') +
+          `Interés en: ${data.tipo}\n` +
+          (data.experiencia ? `Experiencia: ${data.experiencia}\n` : '') +
+          (data.disponibilidad ? `Disponibilidad: ${data.disponibilidad}\n` : '') +
+          `\nMotivación e interés:\n${data.mensaje}\n\n¡Gracias!`
+        );
+      } else {
+        return encodeURIComponent(
+          `¡Hola FreeAgents! 👋\n\n` +
+          `Mi nombre es: ${data.nombre}${data.empresa ? ' (' + data.empresa + ')' : ''}\n` +
+          `Email: ${data.email}\n` +
+          (data.telefono ? `Teléfono: ${data.telefono}\n` : '') +
+          `Tipo de proyecto: ${data.tipo}\n` +
+          (data.presupuesto ? `Presupuesto estimado: ${data.presupuesto}\n` : '') +
+          (data.timeline ? `Timeline deseado: ${data.timeline}\n` : '') +
+          `\nDetalles del proyecto:\n${data.mensaje}\n\n¡Gracias!`
+        );
+      }
+    }
+
+    function mensajeEmail(data: {nombre: string, empresa: string, email: string, telefono: string, tipo: string, presupuesto: string, timeline: string, mensaje: string, experiencia: string, disponibilidad: string}): string {
+      const esFundacion = data.tipo.startsWith('fundacion-');
+      
+      if (esFundacion) {
+        return (
+          `¡Hola Fundación FreeAgents!%0D%0A%0D%0A` +
+          `Mi nombre es: ${data.nombre}${data.empresa ? ' (' + data.empresa + ')' : ''}%0D%0A` +
+          `Email: ${data.email}%0D%0A` +
+          (data.telefono ? `Teléfono: ${data.telefono}%0D%0A` : '') +
+          `Interés en: ${data.tipo}%0D%0A` +
+          (data.experiencia ? `Experiencia: ${data.experiencia}%0D%0A` : '') +
+          (data.disponibilidad ? `Disponibilidad: ${data.disponibilidad}%0D%0A` : '') +
+          `%0D%0AMotivación e interés:%0D%0A${data.mensaje}%0D%0A%0D%0A¡Gracias!`
+        );
+      } else {
+        return (
+          `¡Hola FreeAgents!%0D%0A%0D%0A` +
+          `Mi nombre es: ${data.nombre}${data.empresa ? ' (' + data.empresa + ')' : ''}%0D%0A` +
+          `Email: ${data.email}%0D%0A` +
+          (data.telefono ? `Teléfono: ${data.telefono}%0D%0A` : '') +
+          `Tipo de proyecto: ${data.tipo}%0D%0A` +
+          (data.presupuesto ? `Presupuesto estimado: ${data.presupuesto}%0D%0A` : '') +
+          (data.timeline ? `Timeline deseado: ${data.timeline}%0D%0A` : '') +
+          `%0D%0ADetalles del proyecto:%0D%0A${data.mensaje}%0D%0A%0D%0A¡Gracias!`
+        );
+      }
+    }
+
+    if (btnWhatsapp) {
+      btnWhatsapp.addEventListener('click', () => {
+        const data = getFormData();
+        const error = validarCampos(data);
+        if (alertMsg) {
+          if (error) {
+            alertMsg.textContent = error;
+            alertMsg.classList.remove('hidden');
+            return;
+          }
+          alertMsg.classList.add('hidden');
+        }
+        const texto = mensajeWhatsapp(data);
+        window.open(`https://wa.me/573004940576?text=${texto}`, '_blank');
+      });
+    }
+
+    if (btnEmail) {
+      btnEmail.addEventListener('click', () => {
+        const data = getFormData();
+        const error = validarCampos(data);
+        if (alertMsg) {
+          if (error) {
+            alertMsg.textContent = error;
+            alertMsg.classList.remove('hidden');
+            return;
+          }
+          alertMsg.classList.add('hidden');
+        }
+        if (data.email.endsWith('@gmail.com')) {
+          const subject = encodeURIComponent('Nuevo contacto desde FreeAgents');
+          const body = mensajeEmail(data);
+          window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=freeagentsdev@gmail.com&su=${subject}&body=${body}`, '_blank');
+        } else if (alertMsg) {
+          alertMsg.textContent = 'Solo puedes usar el envío por email si tu correo es de Gmail.';
+          alertMsg.classList.remove('hidden');
+        }
+      });
+    }
 
     // Smooth scroll para el enlace del CTA
     const ctaLinks = document.querySelectorAll('a[href="#contacto-form"]');
