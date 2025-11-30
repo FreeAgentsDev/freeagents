@@ -1,0 +1,131 @@
+---
+/**
+ * Componente de botón reutilizable y accesible
+ * Soporta múltiples variantes y estados
+ */
+export interface ButtonProps {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'outline';
+  color?: 'cyan' | 'teal' | 'blue' | 'green' | 'purple' | 'pink';
+  size?: 'sm' | 'md' | 'lg';
+  fullWidth?: boolean;
+  disabled?: boolean;
+  ariaLabel?: string;
+  class?: string;
+}
+
+const {
+  href,
+  variant = 'primary',
+  color = 'cyan',
+  size = 'md',
+  fullWidth = false,
+  disabled = false,
+  ariaLabel,
+  class: className = '',
+} = Astro.props;
+
+const colorMap = {
+  cyan: {
+    primary: 'from-neon-cyan to-neon-teal',
+    secondary: 'bg-neon-cyan/15 border-neon-cyan text-neon-cyan hover:bg-neon-cyan hover:text-white',
+    outline: 'border-neon-cyan text-neon-cyan hover:bg-neon-cyan hover:text-white',
+  },
+  teal: {
+    primary: 'from-neon-teal to-neon-blue',
+    secondary: 'bg-neon-teal/15 border-neon-teal text-neon-teal hover:bg-neon-teal hover:text-white',
+    outline: 'border-neon-teal text-neon-teal hover:bg-neon-teal hover:text-white',
+  },
+  blue: {
+    primary: 'from-neon-blue to-neon-purple',
+    secondary: 'bg-neon-blue/15 border-neon-blue text-neon-blue hover:bg-neon-blue hover:text-white',
+    outline: 'border-neon-blue text-neon-blue hover:bg-neon-blue hover:text-white',
+  },
+  green: {
+    primary: 'from-neon-green to-neon-cyan',
+    secondary: 'bg-neon-green/15 border-neon-green text-neon-green hover:bg-neon-green hover:text-white',
+    outline: 'border-neon-green text-neon-green hover:bg-neon-green hover:text-white',
+  },
+  purple: {
+    primary: 'from-neon-purple to-neon-pink',
+    secondary: 'bg-neon-purple/15 border-neon-purple text-neon-purple hover:bg-neon-purple hover:text-white',
+    outline: 'border-neon-purple text-neon-purple hover:bg-neon-purple hover:text-white',
+  },
+  pink: {
+    primary: 'from-neon-pink to-neon-purple',
+    secondary: 'bg-neon-pink/15 border-neon-pink text-neon-pink hover:bg-neon-pink hover:text-white',
+    outline: 'border-neon-pink text-neon-pink hover:bg-neon-pink hover:text-white',
+  },
+};
+
+const sizeMap = {
+  sm: 'px-6 py-2.5 text-sm',
+  md: 'px-8 py-3 text-base',
+  lg: 'px-10 py-5 text-lg',
+};
+
+const variantClasses = colorMap[color];
+const sizeClass = sizeMap[size];
+const widthClass = fullWidth ? 'w-full' : '';
+const disabledClass = disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : '';
+
+const baseClasses = `
+  relative
+  inline-flex
+  items-center
+  justify-center
+  gap-2
+  font-semibold
+  rounded-full
+  transition-all
+  duration-300
+  focus:outline-none
+  focus:ring-2
+  focus:ring-offset-2
+  focus:ring-offset-gray-900
+  ${sizeClass}
+  ${widthClass}
+  ${disabledClass}
+  ${className}
+`.trim().replace(/\s+/g, ' ');
+
+let buttonClasses = '';
+if (variant === 'primary') {
+  buttonClasses = `bg-gradient-to-r ${variantClasses.primary} text-white hover:shadow-2xl hover:scale-105 focus:ring-${color === 'cyan' ? 'neon-cyan' : color === 'teal' ? 'neon-teal' : color}`;
+} else if (variant === 'secondary') {
+  buttonClasses = `${variantClasses.secondary} backdrop-blur-sm border-2 hover:shadow-2xl hover:scale-105`;
+} else {
+  buttonClasses = `${variantClasses.outline} border-2 backdrop-blur-sm hover:shadow-xl hover:scale-105`;
+}
+
+const finalClasses = `${baseClasses} ${buttonClasses}`;
+---
+
+{href ? (
+  <a
+    href={href}
+    class={finalClasses}
+    aria-label={ariaLabel}
+    aria-disabled={disabled}
+  >
+    <slot />
+  </a>
+) : (
+  <button
+    type="button"
+    class={finalClasses}
+    aria-label={ariaLabel}
+    disabled={disabled}
+  >
+    <slot />
+  </button>
+)}
+
+<style>
+  /* Asegurar que los botones sean accesibles */
+  a[aria-disabled="true"],
+  button:disabled {
+    pointer-events: none;
+  }
+</style>
+

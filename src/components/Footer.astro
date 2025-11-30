@@ -1,76 +1,208 @@
-<footer class="bg-gray-950 border-t border-gray-800">
-  <div class="container mx-auto px-6 py-12">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-      <!-- Logo y descripción -->
+<footer class="relative bg-gray-900/80 backdrop-blur-xl border-t border-gray-800/50 overflow-hidden">
+  <!-- Animated Background con Glassmorphism -->
+  <div class="absolute inset-0">
+    <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gray-900/60 via-gray-950/60 to-gray-900/60"></div>
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-neon-cyan/3 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-neon-purple/3 rounded-full blur-3xl"></div>
+  </div>
+
+  <!-- Grid Pattern Overlay Sutil -->
+  <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(rgba(0, 212, 255, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(20, 184, 166, 0.08) 1px, transparent 1px); background-size: 50px 50px;"></div>
+  
+  <!-- Gradiente Sutil -->
+  <div class="absolute inset-0 bg-gradient-to-r from-neon-cyan/2 via-transparent to-neon-purple/2"></div>
+
+  <div class="container mx-auto px-6 py-12 relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <!-- Logo y descripción Premium -->
       <div class="col-span-1 md:col-span-2">
-        <div class="flex items-center space-x-3 mb-4">
-          <img src="/portfoliofrea.png" alt="FreeAgents" class="h-8 w-auto">
-          <span class="font-display font-bold text-xl bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
+        <div class="flex items-center space-x-3 mb-6 group">
+          <div class="relative">
+            <div class="absolute inset-0 bg-neon-cyan/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <img 
+              src="/portfoliofrea.png" 
+              alt="FreeAgents" 
+              class="h-10 w-auto relative z-10 group-hover:scale-110 transition-transform duration-300 drop-shadow-lg"
+            >
+          </div>
+          <span class="font-display font-bold text-2xl bg-gradient-to-r from-neon-cyan via-neon-teal to-neon-blue bg-clip-text text-transparent group-hover:from-neon-teal group-hover:via-neon-blue group-hover:to-neon-cyan transition-all duration-300">
             FreeAgents
           </span>
         </div>
-        <p class="text-gray-400 mb-6 max-w-md">
+        <p class="text-gray-400 mb-6 max-w-md leading-relaxed">
           Desarrollamos software a la medida para emprendedores, impulsando el crecimiento de tu negocio con tecnología de vanguardia y talento excepcional.
         </p>
+        
+        <!-- Social Media Links Premium -->
         <div class="flex space-x-4">
-          <!-- GitHub -->
-          <a href="https://github.com/FreeAgentsDev" target="_blank" class="text-gray-400 hover:text-neon-blue transition-colors duration-300" aria-label="GitHub">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <a 
+            href="https://github.com/FreeAgentsDev" 
+            target="_blank" 
+            class="group relative w-12 h-12 flex items-center justify-center rounded-xl bg-gray-900/50 border border-gray-800 hover:border-neon-cyan/50 transition-all duration-300 hover:scale-110"
+            aria-label="GitHub"
+          >
+            <div class="absolute inset-0 bg-neon-cyan/0 group-hover:bg-neon-cyan/10 rounded-xl transition-all duration-300"></div>
+            <svg class="w-6 h-6 text-gray-400 group-hover:text-neon-cyan relative z-10 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.02c-3.2.7-3.87-1.54-3.87-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.73 1.27 3.4.97.11-.75.41-1.27.75-1.56-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98.01 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.7.42.36.8 1.08.8 2.18v3.24c0 .31.21.67.8.56C20.71 21.39 24 17.08 24 12c0-6.27-5.23-11.5-12-11.5z"/>
             </svg>
           </a>
-          <!-- LinkedIn -->
-          <a href="https://www.linkedin.com/company/freeagentsdev/" target="_blank" class="text-gray-400 hover:text-neon-blue transition-colors duration-300" aria-label="LinkedIn">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          
+          <a 
+            href="https://www.linkedin.com/company/freeagentsdev/" 
+            target="_blank" 
+            class="group relative w-12 h-12 flex items-center justify-center rounded-xl bg-gray-900/50 border border-gray-800 hover:border-neon-blue/50 transition-all duration-300 hover:scale-110"
+            aria-label="LinkedIn"
+          >
+            <div class="absolute inset-0 bg-neon-blue/0 group-hover:bg-neon-blue/10 rounded-xl transition-all duration-300"></div>
+            <svg class="w-6 h-6 text-gray-400 group-hover:text-neon-blue relative z-10 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
               <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v5.72z"/>
             </svg>
           </a>
-          <!-- Instagram -->
-          <a href="https://www.instagram.com/freeagentsdev/" target="_blank" class="text-gray-400 hover:text-neon-blue transition-colors duration-300" aria-label="Instagram">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          
+          <a 
+            href="https://www.instagram.com/freeagentsdev/" 
+            target="_blank" 
+            class="group relative w-12 h-12 flex items-center justify-center rounded-xl bg-gray-900/50 border border-gray-800 hover:border-neon-pink/50 transition-all duration-300 hover:scale-110"
+            aria-label="Instagram"
+          >
+            <div class="absolute inset-0 bg-neon-pink/0 group-hover:bg-neon-pink/10 rounded-xl transition-all duration-300"></div>
+            <svg class="w-6 h-6 text-gray-400 group-hover:text-neon-pink relative z-10 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2.2c3.2 0 3.584.012 4.85.07 1.17.056 1.97.24 2.43.41.59.22 1.01.48 1.45.92.44.44.7.86.92 1.45.17.46.354 1.26.41 2.43.058 1.266.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.056 1.17-.24 1.97-.41 2.43-.22.59-.48 1.01-.92 1.45-.44.44-.86.7-1.45.92-.46.17-1.26.354-2.43.41-1.266.058-1.65.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.056-1.97-.24-2.43-.41-.59-.22-1.01-.48-1.45-.92-.44-.44-.7-.86-.92-1.45-.17-.46-.354-1.26-.41-2.43C2.212 15.784 2.2 15.4 2.2 12s.012-3.584.07-4.85c.056-1.17.24-1.97.41-2.43.22-.59.48-1.01.92-1.45.44-.44.86-.7 1.45-.92.46-.17 1.26-.354 2.43-.41C8.416 2.212 8.8 2.2 12 2.2zm0-2.2C8.736 0 8.332.012 7.052.07c-1.29.058-2.18.25-2.95.53-.8.29-1.48.68-2.15 1.35-.67.67-1.06 1.35-1.35 2.15-.28.77-.472 1.66-.53 2.95C.012 8.332 0 8.736 0 12c0 3.264.012 3.668.07 4.948.058 1.29.25 2.18.53 2.95.29.8.68 1.48 1.35 2.15.67.67 1.35 1.06 2.15 1.35.77.28 1.66.472 2.95.53C8.332 23.988 8.736 24 12 24c3.264 0 3.668-.012 4.948-.07 1.29-.058 2.18-.25 2.95-.53.8-.29 1.48-.68 2.15-1.35.67-.67 1.06-1.35 1.35-2.15.28-.77.472-1.66.53-2.95.058-1.28.07-1.684.07-4.948 0-3.264-.012-3.668-.07-4.948-.058-1.29-.25-2.18-.53-2.95-.29-.8-.68-1.48-1.35-2.15-.67-.67-1.35-1.06-2.15-1.35-.77-.28-1.66-.472-2.95-.53C15.668.012 15.264 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm7.844-10.406a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/>
             </svg>
           </a>
-          <!-- Facebook -->
-          <a href="https://www.facebook.com/profile.php?id=61577490723653" target="_blank" class="text-gray-400 hover:text-neon-blue transition-colors duration-300" aria-label="Facebook">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          
+          <a 
+            href="https://www.facebook.com/profile.php?id=61577490723653" 
+            target="_blank" 
+            class="group relative w-12 h-12 flex items-center justify-center rounded-xl bg-gray-900/50 border border-gray-800 hover:border-neon-blue/50 transition-all duration-300 hover:scale-110"
+            aria-label="Facebook"
+          >
+            <div class="absolute inset-0 bg-neon-blue/0 group-hover:bg-neon-blue/10 rounded-xl transition-all duration-300"></div>
+            <svg class="w-6 h-6 text-gray-400 group-hover:text-neon-blue relative z-10 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
               <path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.326 24H12.82v-9.294H9.692v-3.622h3.127V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/>
             </svg>
           </a>
         </div>
       </div>
 
-      <!-- Enlaces rápidos -->
+      <!-- Enlaces rápidos Premium -->
       <div>
-        <h3 class="font-semibold text-white mb-4">Servicios</h3>
-        <ul class="space-y-2">
-          <li><a href="/servicios#desarrollo" class="text-gray-400 hover:text-neon-blue transition-colors duration-300">Desarrollo a la Medida</a></li>
-          <li><a href="/servicios#apps" class="text-gray-400 hover:text-neon-blue transition-colors duration-300">Apps para Emprendedores</a></li>
-          <li><a href="/servicios#ecommerce" class="text-gray-400 hover:text-neon-blue transition-colors duration-300">E-commerce</a></li>
-          <li><a href="/precios" class="text-gray-400 hover:text-neon-blue transition-colors duration-300">Planes y Precios</a></li>
+        <h3 class="font-semibold text-white mb-6 flex items-center gap-2">
+          <div class="w-1 h-6 bg-gradient-to-b from-neon-cyan to-neon-teal rounded-full"></div>
+          Servicios
+        </h3>
+        <ul class="space-y-3">
+          <li>
+            <a 
+              href="/servicios#desarrollo" 
+              class="group flex items-center gap-2 text-gray-400 hover:text-neon-cyan transition-all duration-300"
+            >
+              <div class="w-0 h-0.5 bg-neon-cyan group-hover:w-4 transition-all duration-300"></div>
+              <span>Desarrollo a la Medida</span>
+            </a>
+          </li>
+          <li>
+            <a 
+              href="/servicios#apps" 
+              class="group flex items-center gap-2 text-gray-400 hover:text-neon-cyan transition-all duration-300"
+            >
+              <div class="w-0 h-0.5 bg-neon-cyan group-hover:w-4 transition-all duration-300"></div>
+              <span>Apps para Emprendedores</span>
+            </a>
+          </li>
+          <li>
+            <a 
+              href="/servicios#ecommerce" 
+              class="group flex items-center gap-2 text-gray-400 hover:text-neon-cyan transition-all duration-300"
+            >
+              <div class="w-0 h-0.5 bg-neon-cyan group-hover:w-4 transition-all duration-300"></div>
+              <span>E-commerce</span>
+            </a>
+          </li>
+          <li>
+            <a 
+              href="/precios" 
+              class="group flex items-center gap-2 text-gray-400 hover:text-neon-cyan transition-all duration-300"
+            >
+              <div class="w-0 h-0.5 bg-neon-cyan group-hover:w-4 transition-all duration-300"></div>
+              <span>Planes y Precios</span>
+            </a>
+          </li>
         </ul>
       </div>
 
-      <!-- Empresa -->
+      <!-- Empresa Premium -->
       <div>
-        <h3 class="font-semibold text-white mb-4">Empresa</h3>
-        <ul class="space-y-2">
-          <li><a href="/nosotros" class="text-gray-400 hover:text-neon-blue transition-colors duration-300">Acerca de Nosotros</a></li>
-          <li><a href="/portafolio" class="text-gray-400 hover:text-neon-blue transition-colors duration-300">Portafolio</a></li>
-          <li><a href="/fundacion" class="text-gray-400 hover:text-neon-purple transition-colors duration-300">Fundación FreeAgents</a></li>
-          <li><a href="/contacto" class="text-gray-400 hover:text-neon-blue transition-colors duration-300">Contacto</a></li>
+        <h3 class="font-semibold text-white mb-6 flex items-center gap-2">
+          <div class="w-1 h-6 bg-gradient-to-b from-neon-purple to-neon-pink rounded-full"></div>
+          Empresa
+        </h3>
+        <ul class="space-y-3">
+          <li>
+            <a 
+              href="/nosotros" 
+              class="group flex items-center gap-2 text-gray-400 hover:text-neon-purple transition-all duration-300"
+            >
+              <div class="w-0 h-0.5 bg-neon-purple group-hover:w-4 transition-all duration-300"></div>
+              <span>Acerca de Nosotros</span>
+            </a>
+          </li>
+          <li>
+            <a 
+              href="/portafolio" 
+              class="group flex items-center gap-2 text-gray-400 hover:text-neon-purple transition-all duration-300"
+            >
+              <div class="w-0 h-0.5 bg-neon-purple group-hover:w-4 transition-all duration-300"></div>
+              <span>Portafolio</span>
+            </a>
+          </li>
+          <li>
+            <a 
+              href="/fundacion" 
+              class="group flex items-center gap-2 text-gray-400 hover:text-neon-teal transition-all duration-300"
+            >
+              <div class="w-0 h-0.5 bg-neon-teal group-hover:w-4 transition-all duration-300"></div>
+              <span>Fundación FreeAgents</span>
+            </a>
+          </li>
+          <li>
+            <a 
+              href="/contacto" 
+              class="group flex items-center gap-2 text-gray-400 hover:text-neon-purple transition-all duration-300"
+            >
+              <div class="w-0 h-0.5 bg-neon-purple group-hover:w-4 transition-all duration-300"></div>
+              <span>Contacto</span>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
 
-    <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-      <p class="text-gray-400 text-sm">
-        © 2025 FreeAgents. Todos los derechos reservados.
+    <!-- Bottom Section Premium -->
+    <div class="border-t border-gray-800/50 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-gray-400 text-sm flex items-center gap-2">
+        <span>© 2025 FreeAgents.</span>
+        <span class="text-gray-500">Todos los derechos reservados.</span>
       </p>
-      <div class="flex space-x-6 mt-4 md:mt-0">
-        <a href="#" class="text-gray-400 hover:text-neon-blue text-sm transition-colors duration-300">Política de Privacidad</a>
-        <a href="#" class="text-gray-400 hover:text-neon-blue text-sm transition-colors duration-300">Términos de Servicio</a>
+      <div class="flex space-x-6">
+        <a 
+          href="#" 
+          class="group text-gray-400 hover:text-neon-cyan text-sm transition-all duration-300 relative"
+        >
+          <span class="relative z-10">Política de Privacidad</span>
+          <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-neon-cyan group-hover:w-full transition-all duration-300"></div>
+        </a>
+        <a 
+          href="#" 
+          class="group text-gray-400 hover:text-neon-cyan text-sm transition-all duration-300 relative"
+        >
+          <span class="relative z-10">Términos de Servicio</span>
+          <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-neon-cyan group-hover:w-full transition-all duration-300"></div>
+        </a>
       </div>
     </div>
   </div>
+
+  <!-- Decorative Bottom Gradient -->
+  <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-neon-cyan/50 to-transparent"></div>
 </footer>

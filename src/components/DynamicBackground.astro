@@ -1,0 +1,550 @@
+---
+// Componente de fondo dinámico tecnológico avanzado
+interface Props {
+  type?: 'matrix' | 'circuits' | 'particles' | 'hologram' | 'neural';
+  color?: 'cyan' | 'purple' | 'pink' | 'blue' | 'green';
+}
+
+const { type = 'particles', color = 'cyan' } = Astro.props;
+
+const colorMap = {
+  cyan: { primary: '#00d4ff', secondary: '#14b8a6' },
+  purple: { primary: '#8b5cf6', secondary: '#a855f7' },
+  pink: { primary: '#ec4899', secondary: '#f472b6' },
+  blue: { primary: '#0ea5e9', secondary: '#3b82f6' },
+  green: { primary: '#10b981', secondary: '#22c55e' }
+};
+
+const colors = colorMap[color] || colorMap.cyan;
+---
+
+<div class="dynamic-background" data-type={type} data-color={color}>
+  {type === 'matrix' && (
+    <div class="matrix-container">
+      <canvas id="matrix-canvas" class="matrix-canvas"></canvas>
+    </div>
+  )}
+  
+  {type === 'circuits' && (
+    <div class="circuits-container">
+      <svg class="circuits-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id={`circuit-grad-${color}`} x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style={`stop-color:${colors.primary};stop-opacity:0.2`} />
+            <stop offset="50%" style={`stop-color:${colors.secondary};stop-opacity:0.1`} />
+            <stop offset="100%" style={`stop-color:${colors.primary};stop-opacity:0.2`} />
+          </linearGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        <g class="circuit-network">
+          {Array.from({ length: 15 }).map((_, i) => {
+            const x1 = Math.random() * 1920;
+            const y1 = Math.random() * 1080;
+            const x2 = Math.random() * 1920;
+            const y2 = Math.random() * 1080;
+            return (
+              <>
+                <line 
+                  x1={x1} 
+                  y1={y1} 
+                  x2={x2} 
+                  y2={y2} 
+                  stroke={`url(#circuit-grad-${color})`}
+                  stroke-width="2"
+                  class="circuit-line"
+                  style={`animation-delay: ${i * 0.2}s;`}
+                />
+                <circle 
+                  cx={x1} 
+                  cy={y1} 
+                  r="6" 
+                  fill={colors.primary}
+                  class="circuit-node"
+                  style={`animation-delay: ${i * 0.2}s;`}
+                />
+                <circle 
+                  cx={x2} 
+                  cy={y2} 
+                  r="6" 
+                  fill={colors.secondary}
+                  class="circuit-node"
+                  style={`animation-delay: ${i * 0.2 + 0.1}s;`}
+                />
+              </>
+            );
+          })}
+        </g>
+      </svg>
+    </div>
+  )}
+  
+  {type === 'particles' && (
+    <div class="particles-container">
+      <canvas id="particles-canvas" class="particles-canvas"></canvas>
+    </div>
+  )}
+  
+  {type === 'hologram' && (
+    <div class="hologram-container">
+      <div class="hologram-grid" style={`background-image: linear-gradient(rgba(${colors.primary === '#00d4ff' ? '0, 212, 255' : colors.primary === '#8b5cf6' ? '139, 92, 246' : colors.primary === '#0ea5e9' ? '14, 165, 233' : '16, 185, 129'}, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(${colors.primary === '#00d4ff' ? '0, 212, 255' : colors.primary === '#8b5cf6' ? '139, 92, 246' : colors.primary === '#0ea5e9' ? '14, 165, 233' : '16, 185, 129'}, 0.1) 1px, transparent 1px);`}></div>
+      <div class="hologram-scan" style={`background: linear-gradient(to bottom, transparent 0%, ${colors.primary}15 50%, transparent 100%);`}></div>
+    </div>
+  )}
+  
+  {type === 'neural' && (
+    <div class="neural-container">
+      <canvas id="neural-canvas" class="neural-canvas"></canvas>
+    </div>
+  )}
+</div>
+
+<style>
+  .dynamic-background {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  /* Matrix Effect */
+  .matrix-container {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .matrix-canvas {
+    width: 100%;
+    height: 100%;
+    opacity: 0.08;
+  }
+
+  /* Circuits */
+  .circuits-container {
+    position: absolute;
+    inset: 0;
+  }
+
+  .circuits-svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .circuit-line {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: circuit-draw 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 2px currentColor);
+  }
+
+  .circuit-node {
+    animation: node-pulse 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px currentColor);
+  }
+
+  @keyframes circuit-draw {
+    0% {
+      stroke-dashoffset: 1000;
+      opacity: 0;
+    }
+    20% {
+      opacity: 0.4;
+    }
+    80% {
+      opacity: 0.4;
+    }
+    100% {
+      stroke-dashoffset: 0;
+      opacity: 0.15;
+    }
+  }
+
+  @keyframes node-pulse {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.2);
+    }
+  }
+
+  /* Particles */
+  .particles-container {
+    position: absolute;
+    inset: 0;
+  }
+
+  .particles-canvas {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Hologram */
+  .hologram-container {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hologram-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    animation: hologram-scan 8s linear infinite;
+  }
+
+  .hologram-scan {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 212, 255, 0.1) 50%,
+      transparent 100%
+    );
+    animation: hologram-scan-line 3s linear infinite;
+  }
+
+  @keyframes hologram-scan {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(30px, 30px); }
+  }
+
+  @keyframes hologram-scan-line {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+
+  /* Neural Network */
+  .neural-container {
+    position: absolute;
+    inset: 0;
+  }
+
+  .neural-canvas {
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+  }
+</style>
+
+<script>
+  /**
+   * Dynamic Background Scripts
+   * Optimizado para performance y manejo de errores
+   */
+  if (typeof window !== 'undefined') {
+    // Throttle function para optimizar resize events
+    function throttle<T extends (...args: any[]) => void>(
+      func: T,
+      limit: number
+    ): (...args: Parameters<T>) => void {
+      let inThrottle: boolean;
+      return function (this: any, ...args: Parameters<T>) {
+        if (!inThrottle) {
+          func.apply(this, args);
+          inThrottle = true;
+          setTimeout(() => (inThrottle = false), limit);
+        }
+      };
+    }
+
+    // RequestAnimationFrame polyfill para mejor performance
+    const raf = window.requestAnimationFrame || 
+                ((cb: FrameRequestCallback) => setTimeout(cb, 16));
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Matrix Effect
+      const matrixCanvas = document.getElementById('matrix-canvas') as HTMLCanvasElement;
+      if (matrixCanvas) {
+        const ctx = matrixCanvas.getContext('2d');
+        if (ctx) {
+          let animationFrameId: number | null = null;
+          
+          const resizeCanvas = () => {
+            matrixCanvas.width = window.innerWidth;
+            matrixCanvas.height = window.innerHeight;
+          };
+          
+          resizeCanvas();
+          
+          const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+          const fontSize = 14;
+          const columns = matrixCanvas.width / fontSize;
+          const drops: number[] = [];
+          
+          for (let i = 0; i < columns; i++) {
+            drops[i] = Math.random() * -100;
+          }
+          
+          function drawMatrix() {
+            try {
+              ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+              ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+              
+              ctx.fillStyle = '#00d4ff';
+              ctx.font = `${fontSize}px monospace`;
+              
+              for (let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                const x = i * fontSize;
+                const y = drops[i] * fontSize;
+                
+                ctx.fillText(text, x, y);
+                
+                if (y > matrixCanvas.height && Math.random() > 0.975) {
+                  drops[i] = 0;
+                }
+                drops[i]++;
+              }
+              
+              animationFrameId = raf(drawMatrix);
+            } catch (error) {
+              console.error('Error in matrix animation:', error);
+              if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+              }
+            }
+          }
+          
+          drawMatrix();
+          
+          const handleResize = throttle(() => {
+            resizeCanvas();
+            // Recalcular columnas
+            const newColumns = Math.floor(matrixCanvas.width / fontSize);
+            while (drops.length < newColumns) {
+              drops.push(Math.random() * -100);
+            }
+            drops.length = newColumns;
+          }, 250);
+          
+          window.addEventListener('resize', handleResize);
+          
+          // Cleanup on page unload
+          window.addEventListener('beforeunload', () => {
+            if (animationFrameId) {
+              cancelAnimationFrame(animationFrameId);
+            }
+            window.removeEventListener('resize', handleResize);
+          });
+        }
+      }
+      
+      // Advanced Particles
+      const particlesCanvas = document.getElementById('particles-canvas') as HTMLCanvasElement;
+      if (particlesCanvas) {
+        const ctx = particlesCanvas.getContext('2d');
+        if (ctx) {
+          let animationFrameId: number | null = null;
+          
+          const resizeCanvas = () => {
+            particlesCanvas.width = window.innerWidth;
+            particlesCanvas.height = window.innerHeight;
+          };
+          
+          resizeCanvas();
+          
+          const particles: Array<{
+            x: number;
+            y: number;
+            vx: number;
+            vy: number;
+            size: number;
+            color: string;
+            life: number;
+          }> = [];
+          
+          const colors = ['#00d4ff', '#8b5cf6', '#ec4899', '#14b8a6', '#0ea5e9'];
+          
+          function createParticle() {
+            particles.push({
+              x: Math.random() * particlesCanvas.width,
+              y: Math.random() * particlesCanvas.height,
+              vx: (Math.random() - 0.5) * 0.8,
+              vy: (Math.random() - 0.5) * 0.8,
+              size: Math.random() * 4 + 2,
+              color: colors[Math.floor(Math.random() * colors.length)],
+              life: Math.random() * 100
+            });
+          }
+          
+          for (let i = 0; i < 80; i++) {
+            createParticle();
+          }
+          
+          function animateParticles() {
+            ctx.clearRect(0, 0, particlesCanvas.width, particlesCanvas.height);
+            
+            particles.forEach((particle, i) => {
+              particle.x += particle.vx;
+              particle.y += particle.vy;
+              particle.life--;
+              
+              if (particle.life <= 0 || particle.x < 0 || particle.x > particlesCanvas.width || 
+                  particle.y < 0 || particle.y > particlesCanvas.height) {
+                particles[i] = {
+                  x: Math.random() * particlesCanvas.width,
+                  y: Math.random() * particlesCanvas.height,
+                  vx: (Math.random() - 0.5) * 0.8,
+                  vy: (Math.random() - 0.5) * 0.8,
+                  size: Math.random() * 4 + 2,
+                  color: colors[Math.floor(Math.random() * colors.length)],
+                  life: Math.random() * 100 + 50
+                };
+              }
+              
+              ctx.beginPath();
+              ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+              ctx.fillStyle = particle.color;
+              ctx.globalAlpha = 0.7;
+              ctx.shadowBlur = 15;
+              ctx.shadowColor = particle.color;
+              ctx.fill();
+              
+              particles.slice(i + 1).forEach(otherParticle => {
+                const dx = particle.x - otherParticle.x;
+                const dy = particle.y - otherParticle.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 120) {
+                  ctx.beginPath();
+                  ctx.moveTo(particle.x, particle.y);
+                  ctx.lineTo(otherParticle.x, otherParticle.y);
+                  ctx.strokeStyle = particle.color;
+                  ctx.globalAlpha = 0.15 * (1 - distance / 120);
+                  ctx.lineWidth = 1.5;
+                  ctx.stroke();
+                }
+              });
+            });
+            
+            animationFrameId = raf(animateParticles);
+          }
+          
+          animateParticles();
+          
+          const handleResize = throttle(() => {
+            resizeCanvas();
+          }, 250);
+          
+          window.addEventListener('resize', handleResize);
+          
+          // Cleanup
+          window.addEventListener('beforeunload', () => {
+            if (animationFrameId) {
+              cancelAnimationFrame(animationFrameId);
+            }
+            window.removeEventListener('resize', handleResize);
+          });
+        }
+      }
+      
+      // Neural Network
+      const neuralCanvas = document.getElementById('neural-canvas') as HTMLCanvasElement;
+      if (neuralCanvas) {
+        const ctx = neuralCanvas.getContext('2d');
+        if (ctx) {
+          let animationFrameId: number | null = null;
+          
+          const resizeCanvas = () => {
+            neuralCanvas.width = window.innerWidth;
+            neuralCanvas.height = window.innerHeight;
+          };
+          
+          resizeCanvas();
+          
+          const nodes: Array<{x: number, y: number, connections: number[]}> = [];
+          const nodeCount = 30;
+          
+          for (let i = 0; i < nodeCount; i++) {
+            nodes.push({
+              x: Math.random() * neuralCanvas.width,
+              y: Math.random() * neuralCanvas.height,
+              connections: []
+            });
+          }
+          
+          nodes.forEach((node, i) => {
+            const connections = Math.floor(Math.random() * 3) + 1;
+            for (let j = 0; j < connections; j++) {
+              const target = Math.floor(Math.random() * nodeCount);
+              if (target !== i && !node.connections.includes(target)) {
+                node.connections.push(target);
+              }
+            }
+          });
+          
+          function animateNeural() {
+            ctx.clearRect(0, 0, neuralCanvas.width, neuralCanvas.height);
+            
+            nodes.forEach((node, i) => {
+              node.x += (Math.random() - 0.5) * 0.5;
+              node.y += (Math.random() - 0.5) * 0.5;
+              
+              if (node.x < 0) node.x = neuralCanvas.width;
+              if (node.x > neuralCanvas.width) node.x = 0;
+              if (node.y < 0) node.y = neuralCanvas.height;
+              if (node.y > neuralCanvas.height) node.y = 0;
+              
+              node.connections.forEach(targetIndex => {
+                const target = nodes[targetIndex];
+                const dx = node.x - target.x;
+                const dy = node.y - target.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 200) {
+                  ctx.beginPath();
+                  ctx.moveTo(node.x, node.y);
+                  ctx.lineTo(target.x, target.y);
+                  ctx.strokeStyle = '#00d4ff';
+                  ctx.globalAlpha = 0.2 * (1 - distance / 200);
+                  ctx.lineWidth = 1;
+                  ctx.stroke();
+                }
+              });
+              
+              ctx.beginPath();
+              ctx.arc(node.x, node.y, 4, 0, Math.PI * 2);
+              ctx.fillStyle = '#00d4ff';
+              ctx.globalAlpha = 0.6;
+              ctx.shadowBlur = 10;
+              ctx.shadowColor = '#00d4ff';
+              ctx.fill();
+            });
+            
+            animationFrameId = raf(animateNeural);
+          }
+          
+          animateNeural();
+          
+          const handleResize = throttle(() => {
+            resizeCanvas();
+          }, 250);
+          
+          window.addEventListener('resize', handleResize);
+          
+          // Cleanup
+          window.addEventListener('beforeunload', () => {
+            if (animationFrameId) {
+              cancelAnimationFrame(animationFrameId);
+            }
+            window.removeEventListener('resize', handleResize);
+          });
+        }
+      }
+    });
+  }
+</script>
+

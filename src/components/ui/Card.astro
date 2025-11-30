@@ -1,0 +1,53 @@
+---
+/**
+ * Componente de tarjeta reutilizable con glassmorphism
+ * Consistente en todo el proyecto
+ */
+export interface CardProps {
+  hover?: boolean;
+  borderColor?: 'cyan' | 'teal' | 'blue' | 'green' | 'purple' | 'pink';
+  padding?: 'sm' | 'md' | 'lg';
+  class?: string;
+}
+
+const {
+  hover = true,
+  borderColor = 'gray',
+  padding = 'md',
+  class: className = '',
+} = Astro.props;
+
+const paddingMap = {
+  sm: 'p-4',
+  md: 'p-6',
+  lg: 'p-8',
+};
+
+const borderColorMap = {
+  cyan: 'border-gray-700 hover:border-neon-cyan/50',
+  teal: 'border-gray-700 hover:border-neon-teal/50',
+  blue: 'border-gray-700 hover:border-neon-blue/50',
+  green: 'border-gray-700 hover:border-neon-green/50',
+  purple: 'border-gray-700 hover:border-neon-purple/50',
+  pink: 'border-gray-700 hover:border-neon-pink/50',
+  gray: 'border-gray-700',
+};
+
+const hoverClass = hover ? 'transition-all duration-300 hover:shadow-xl hover:-translate-y-2' : '';
+const borderClass = borderColorMap[borderColor];
+const paddingClass = paddingMap[padding];
+---
+
+<div class={`
+  bg-gray-800/60
+  backdrop-blur-sm
+  rounded-2xl
+  border
+  ${borderClass}
+  ${paddingClass}
+  ${hoverClass}
+  ${className}
+`.trim().replace(/\s+/g, ' ')}>
+  <slot />
+</div>
+

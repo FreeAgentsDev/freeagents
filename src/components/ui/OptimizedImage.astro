@@ -1,0 +1,54 @@
+---
+/**
+ * Componente de imagen optimizado con lazy loading y accesibilidad
+ * Mejora performance y SEO
+ */
+import { getOptimizedImageAttributes, isValidImageUrl } from '../../utils/image';
+
+export interface OptimizedImageProps {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  loading?: 'lazy' | 'eager';
+  decoding?: 'async' | 'auto' | 'sync';
+  sizes?: string;
+  class?: string;
+  priority?: boolean;
+}
+
+const {
+  src,
+  alt,
+  width,
+  height,
+  loading = 'lazy',
+  decoding = 'async',
+  sizes,
+  class: className = '',
+  priority = false,
+} = Astro.props;
+
+// Validar URL de imagen
+if (!isValidImageUrl(src)) {
+  console.warn(`Invalid image URL: ${src}`);
+}
+
+const imageAttributes = getOptimizedImageAttributes({
+  src,
+  alt,
+  width,
+  height,
+  loading: priority ? 'eager' : loading,
+  decoding,
+  sizes,
+  class: className,
+});
+---
+
+<img
+  {...imageAttributes}
+  fetchpriority={priority ? 'high' : undefined}
+  onerror="this.style.display='none'"
+/>
+

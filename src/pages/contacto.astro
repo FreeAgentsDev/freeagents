@@ -1,34 +1,193 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
 import Footer from '../components/Footer.astro';
+import DynamicBackground from '../components/DynamicBackground.astro';
 ---
 
 <Layout title="Contacto - FreeAgents" description="Hablemos de tu próximo proyecto. Contáctanos para desarrollo de software, apps, e-commerce o para unirte a la Fundación FreeAgents.">
   <Header />
   
-  <div class="pt-10 min-h-screen">
-    <!-- Hero Section -->
-    <Hero 
-      title="Hablemos"
-      subtitle="De tu Próximo Proyecto"
-      description="Estamos aquí para convertir tu visión en realidad. Ya sea un proyecto de desarrollo, una consulta sobre nuestros servicios, o interés en la Fundación, nos encantaría escucharte."
-      ctaText="Enviar Mensaje"
-      ctaLink="#contacto-form"
-      secondaryCtaText="Ver Servicios"
-      secondaryCtaLink="/servicios"
-      backgroundImage='/logofreeagents1.png'
-    />
+  <main class="pt-20 relative min-h-screen overflow-hidden">
+    <!-- Fondo Dinámico Potente para Toda la Vista -->
+    <div class="fixed inset-0 -z-10">
+      <DynamicBackground type="matrix" color="cyan" />
+      <DynamicBackground type="particles" color="teal" />
+      <DynamicBackground type="circuits" color="cyan" />
+      
+      <!-- Gradientes Animados Múltiples -->
+      <div class="absolute inset-0">
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-cyan-900/30 via-teal-900/20 to-blue-900/30 animate-pulse"></div>
+        <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-neon-cyan/20 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-1/4 left-1/4 w-96 h-96 bg-neon-teal/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+        <div class="absolute top-1/2 right-1/3 w-96 h-96 bg-neon-blue/15 rounded-full blur-3xl animate-pulse" style="animation-delay: 0.5s;"></div>
+      </div>
+      
+      <!-- Grid Pattern Overlay -->
+      <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(0, 212, 255, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(20, 184, 166, 0.2) 1px, transparent 1px); background-size: 50px 50px; animation: grid-move 20s linear infinite;"></div>
+    </div>
+
+    <!-- Hero Section Única -->
+    <section class="relative py-24 overflow-hidden">
+      
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="inline-block px-4 py-2 bg-neon-cyan/10 border border-neon-cyan/30 rounded-full mb-8">
+            <span class="text-neon-cyan font-semibold text-sm">Contacto</span>
+          </div>
+          
+          <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 text-white">
+            Hablemos de tu
+            <br>
+            <span class="bg-gradient-to-r from-neon-cyan to-neon-teal bg-clip-text text-transparent">
+              Próximo Proyecto
+            </span>
+          </h1>
+          
+          <p class="text-xl text-gray-300 mb-4 max-w-3xl mx-auto">
+            Estamos aquí para convertir tu visión en realidad. Agenda una <strong class="text-neon-cyan">llamada gratuita de 30 minutos</strong> 
+            y descubre cómo podemos ayudarte.
+          </p>
+          
+          <p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
+            Sin compromiso. Solo una conversación honesta sobre tus necesidades tecnológicas.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a 
+              href="#contacto-form" 
+              class="bg-gradient-to-r from-neon-cyan to-neon-teal px-10 py-5 rounded-full text-white font-bold text-lg hover:shadow-2xl hover:shadow-neon-cyan/30 transition-all duration-300 hover:scale-105"
+            >
+              Agendar Llamada Gratuita
+            </a>
+            <a 
+              href="/servicios" 
+              class="border-2 border-neon-teal px-10 py-5 rounded-full text-neon-teal font-bold text-lg hover:bg-neon-teal hover:text-white transition-all duration-300 hover:scale-105"
+            >
+              Ver Servicios
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Formulario de Contacto -->
-    <section id="contacto-form" class="py-20 bg-gray-800">
-      <div class="container mx-auto px-6">
-        <div class="max-w-6xl mx-auto">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <!-- Formulario -->
-            <div class="bg-gray-900 rounded-2xl p-8 border border-gray-700">
-              <h2 id="form-title" class="font-display text-3xl font-bold text-white mb-6">Cuéntanos sobre tu Proyecto</h2>
+    <section id="contacto-form" class="py-20 relative">
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+            <!-- Información de Contacto a la izquierda -->
+            <div class="order-2 lg:order-1 space-y-8 lg:sticky lg:top-24">
+              <!-- Información General -->
+              <div class="bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+                <h3 class="font-display text-2xl font-bold text-white mb-6">Información de Contacto</h3>
+                <div class="space-y-6">
+                  <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-gradient-to-r from-neon-blue to-neon-purple rounded-xl flex items-center justify-center flex-shrink-0">
+                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-white mb-1">Email General</h4>
+                      <p class="text-gray-400">freeagentsdev@gmail.com</p>
+                      <p class="text-gray-500 text-sm">Respuesta en 24 horas</p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-gradient-to-r from-neon-purple to-neon-pink rounded-xl flex items-center justify-center flex-shrink-0">
+                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-white mb-1">Proyectos Empresariales</h4>
+                      <p class="text-gray-400">freeagentsdev@gmail.com</p>
+                      <p class="text-gray-500 text-sm">Para proyectos +$50K</p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-gradient-to-r from-neon-green to-neon-blue rounded-xl flex items-center justify-center flex-shrink-0">
+                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-white mb-1">Fundación FreeAgents</h4>
+                      <p class="text-gray-400">freeagentsdev@gmail.com</p>
+                      <p class="text-gray-500 text-sm">Mentoría, talento y alianzas</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Redes Sociales -->
+              <div class="bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+                <h3 class="font-display text-2xl font-bold text-white mb-6">Síguenos</h3>
+                <div class="flex space-x-4">
+                  <!-- LinkedIn -->
+                  <a href="https://www.linkedin.com/company/freeagentsdev/" target="_blank" class="w-12 h-12 bg-gradient-to-r from-neon-blue to-neon-purple rounded-xl flex items-center justify-center hover:scale-110 transition-transform duration-300" aria-label="LinkedIn">
+                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v5.72z"/>
+                    </svg>
+                  </a>
+                  <!-- GitHub -->
+                  <a href="https://github.com/FreeAgentsDev" target="_blank" class="w-12 h-12 bg-gradient-to-r from-neon-purple to-neon-pink rounded-xl flex items-center justify-center hover:scale-110 transition-transform duration-300" aria-label="GitHub">
+                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.02c-3.2.7-3.87-1.54-3.87-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.729.08-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.334-5.466-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98.01 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.7.42.36.8 1.08.8 2.18v3.24c0 .31.21.67.8.56C20.71 21.39 24 17.08 24 12c0-6.27-5.23-11.5-12-11.5z"/>
+                    </svg>
+                  </a>
+                  <!-- Instagram -->
+                  <a href="https://www.instagram.com/freeagentsdev/" target="_blank" class="w-12 h-12 bg-gradient-to-r from-neon-green to-neon-blue rounded-xl flex items-center justify-center hover:scale-110 transition-transform duration-300" aria-label="Instagram">
+                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2.2c3.2 0 3.584.012 4.85.07 1.17.056 1.97.24 2.43.41.59.22 1.01.48 1.45.92.44.44.7.86.92 1.45.17.46.354 1.26.41 2.43.058 1.266.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.056 1.17-.24 1.97-.41 2.43-.22.59-.48 1.01-.92 1.45-.44.44-.86.7-1.45.92-.46.17-1.26.354-2.43.41-1.266.058-1.65.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.056-1.97-.24-2.43-.41-.59-.22-1.01-.48-1.45-.92-.44-.44-.7-.86-.92-1.45-.17-.46-.354-1.26-.41-2.43C2.212 15.784 2.2 15.4 2.2 12s.012-3.584.07-4.85c.056-1.17.24-1.97.41-2.43.22-.59.48-1.01.92-1.45.44-.44.86-.7 1.45-.92.46-.17 1.26-.354 2.43-.41C8.416 2.212 8.8 2.2 12 2.2zm0-2.2C8.736 0 8.332.012 7.052.07c-1.29.058-2.18.25-2.95.53-.8.29-1.48.68-2.15 1.35-.67.67-1.06 1.35-1.35 2.15-.28.77-.472 1.66-.53 2.95C.012 8.332 0 8.736 0 12c0 3.264.012 3.668.07 4.948.058 1.29.25 2.18.53 2.95.29.8.68 1.48 1.35 2.15.67.67 1.35 1.06 2.15 1.35.77.28 1.66.472 2.95.53C8.332 23.988 8.736 24 12 24c3.264 0 3.668-.012 4.948-.07 1.29-.058 2.18-.25 2.95-.53.8-.29 1.48-.68 2.15-1.35.67-.67 1.06-1.35 1.35-2.15.28-.77.472-1.66.53-2.95.058-1.28.07-1.684.07-4.948 0-3.264-.012-3.668-.07-4.948-.058-1.29-.25-2.18-.53-2.95-.29-.8-.68-1.48-1.35-2.15-.67-.67-1.35-1.06-2.15-1.35-.77-.28-1.66-.472-2.95-.53C15.668.012 15.264 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm7.844-10.406a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/>
+                    </svg>
+                  </a>
+                  <!-- Facebook -->
+                  <a href="https://www.facebook.com/profile.php?id=61577490723653" target="_blank" class="w-12 h-12 bg-gradient-to-r from-neon-pink to-neon-purple rounded-xl flex items-center justify-center hover:scale-110 transition-transform duration-300" aria-label="Facebook">
+                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.326 24H12.82v-9.294H9.692v-3.622h3.127V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Horarios -->
+              <div class="bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+                <h3 class="font-display text-2xl font-bold text-white mb-6">Horarios de Atención</h3>
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center">
+                    <span class="text-gray-300">Lunes - Viernes</span>
+                    <span class="text-neon-blue font-semibold">9:00 AM - 6:00 PM</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-gray-300">Sábados</span>
+                    <span class="text-neon-purple font-semibold">10:00 AM - 2:00 PM</span>
+                  </div>
+                  <div class="flex justify-between items-center">
+                    <span class="text-gray-300">Domingos</span>
+                    <span class="text-gray-500">Cerrado</span>
+                  </div>
+                </div>
+                <div class="mt-6 p-4 bg-gradient-to-r from-neon-blue/10 to-neon-purple/10 border border-neon-blue/30 rounded-xl">
+                  <p class="text-gray-300 text-sm">
+                    <strong class="text-neon-blue">Proyectos urgentes:</strong> Disponibilidad 24/7 para clientes Enterprise
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Formulario a la derecha -->
+            <div class="order-1 lg:order-2 lg:col-span-2 bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 md:p-10 border border-gray-700 mx-auto w-full">
+              <div class="mb-6">
+                <div class="inline-block px-4 py-2 bg-neon-cyan/10 border border-neon-cyan/30 rounded-full mb-4">
+                  <span class="text-neon-cyan font-semibold text-sm">Formulario de Contacto</span>
+                </div>
+                <h2 id="form-title" class="font-display text-3xl font-bold text-white mb-2">Cuéntanos sobre tu Proyecto</h2>
+                <p class="text-gray-400">Completa el formulario y te responderemos en menos de 24 horas.</p>
+              </div>
               <form id="contact-form" class="space-y-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
@@ -197,117 +356,14 @@ import Footer from '../components/Footer.astro';
                 <p id="form-alert" class="text-red-500 text-sm mt-4 hidden"></p>
               </form>
             </div>
-
-            <!-- Información de Contacto -->
-            <div class="space-y-8">
-              <!-- Información General -->
-              <div class="bg-gray-900 rounded-2xl p-8 border border-gray-700">
-                <h3 class="font-display text-2xl font-bold text-white mb-6">Información de Contacto</h3>
-                <div class="space-y-6">
-                  <div class="flex items-start space-x-4">
-                    <div class="w-12 h-12 bg-gradient-to-r from-neon-blue to-neon-purple rounded-xl flex items-center justify-center flex-shrink-0">
-                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 class="font-semibold text-white mb-1">Email General</h4>
-                      <p class="text-gray-400">freeagentsdev@gmail.com</p>
-                      <p class="text-gray-500 text-sm">Respuesta en 24 horas</p>
-                    </div>
-                  </div>
-
-                  <div class="flex items-start space-x-4">
-                    <div class="w-12 h-12 bg-gradient-to-r from-neon-purple to-neon-pink rounded-xl flex items-center justify-center flex-shrink-0">
-                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6"></path>
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 class="font-semibold text-white mb-1">Proyectos Empresariales</h4>
-                      <p class="text-gray-400">freeagentsdev@gmail.com</p>
-                      <p class="text-gray-500 text-sm">Para proyectos +$50K</p>
-                    </div>
-                  </div>
-
-                  <div class="flex items-start space-x-4">
-                    <div class="w-12 h-12 bg-gradient-to-r from-neon-green to-neon-blue rounded-xl flex items-center justify-center flex-shrink-0">
-                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 class="font-semibold text-white mb-1">Fundación FreeAgents</h4>
-                      <p class="text-gray-400">freeagentsdev@gmail.com</p>
-                      <p class="text-gray-500 text-sm">Mentoría, talento y alianzas</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Redes Sociales -->
-              <div class="bg-gray-900 rounded-2xl p-8 border border-gray-700">
-                <h3 class="font-display text-2xl font-bold text-white mb-6">Síguenos</h3>
-                <div class="flex space-x-4">
-                  <!-- LinkedIn -->
-                  <a href="https://www.linkedin.com/company/freeagentsdev/" target="_blank" class="w-12 h-12 bg-gradient-to-r from-neon-blue to-neon-purple rounded-xl flex items-center justify-center hover:scale-110 transition-transform duration-300" aria-label="LinkedIn">
-                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v5.72z"/>
-                    </svg>
-                  </a>
-                  <!-- GitHub -->
-                  <a href="https://github.com/FreeAgentsDev" target="_blank" class="w-12 h-12 bg-gradient-to-r from-neon-purple to-neon-pink rounded-xl flex items-center justify-center hover:scale-110 transition-transform duration-300" aria-label="GitHub">
-                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.02c-3.2.7-3.87-1.54-3.87-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.73 1.27 3.4.97.11-.75.41-1.27.75-1.56-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98.01 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 2.18v3.24c0 .31.21.67.8.56C20.71 21.39 24 17.08 24 12c0-6.27-5.23-11.5-12-11.5z"/>
-                    </svg>
-                  </a>
-                  <!-- Instagram -->
-                  <a href="https://www.instagram.com/freeagentsdev/" target="_blank" class="w-12 h-12 bg-gradient-to-r from-neon-green to-neon-blue rounded-xl flex items-center justify-center hover:scale-110 transition-transform duration-300" aria-label="Instagram">
-                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2.2c3.2 0 3.584.012 4.85.07 1.17.056 1.97.24 2.43.41.59.22 1.01.48 1.45.92.44.44.7.86.92 1.45.17.46.354 1.26.41 2.43.058 1.266.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.056 1.17-.24 1.97-.41 2.43-.22.59-.48 1.01-.92 1.45-.44.44-.86.7-1.45.92-.46.17-1.26.354-2.43.41-1.266.058-1.65.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.056-1.97-.24-2.43-.41-.59-.22-1.01-.48-1.45-.92-.44-.44-.7-.86-.92-1.45-.17-.46-.354-1.26-.41-2.43C2.212 15.784 2.2 15.4 2.2 12s.012-3.584.07-4.85c.056-1.17.24-1.97.41-2.43.22-.59.48-1.01.92-1.45.44-.44.86-.7 1.45-.92.46-.17 1.26-.354 2.43-.41C8.416 2.212 8.8 2.2 12 2.2zm0-2.2C8.736 0 8.332.012 7.052.07c-1.29.058-2.18.25-2.95.53-.8.29-1.48.68-2.15 1.35-.67.67-1.06 1.35-1.35 2.15-.28.77-.472 1.66-.53 2.95C.012 8.332 0 8.736 0 12c0 3.264.012 3.668.07 4.948.058 1.29.25 2.18.53 2.95.29.8.68 1.48 1.35 2.15.67.67 1.35 1.06 2.15 1.35.77.28 1.66.472 2.95.53C8.332 23.988 8.736 24 12 24c3.264 0 3.668-.012 4.948-.07 1.29-.058 2.18-.25 2.95-.53.8-.29 1.48-.68 2.15-1.35.67-.67 1.06-1.35 1.35-2.15.28-.77.472-1.66.53-2.95.058-1.28.07-1.684.07-4.948 0-3.264-.012-3.668-.07-4.948-.058-1.29-.25-2.18-.53-2.95-.29-.8-.68-1.48-1.35-2.15-.67-.67-1.35-1.06-2.15-1.35-.77-.28-1.66-.472-2.95-.53C15.668.012 15.264 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm7.844-10.406a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/>
-                    </svg>
-                  </a>
-                  <!-- Facebook -->
-                  <a href="https://www.facebook.com/profile.php?id=61577490723653" target="_blank" class="w-12 h-12 bg-gradient-to-r from-neon-pink to-neon-purple rounded-xl flex items-center justify-center hover:scale-110 transition-transform duration-300" aria-label="Facebook">
-                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.326 24H12.82v-9.294H9.692v-3.622h3.127V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-
-              <!-- Horarios -->
-              <div class="bg-gray-900 rounded-2xl p-8 border border-gray-700">
-                <h3 class="font-display text-2xl font-bold text-white mb-6">Horarios de Atención</h3>
-                <div class="space-y-3">
-                  <div class="flex justify-between items-center">
-                    <span class="text-gray-300">Lunes - Viernes</span>
-                    <span class="text-neon-blue font-semibold">9:00 AM - 6:00 PM</span>
-                  </div>
-                  <div class="flex justify-between items-center">
-                    <span class="text-gray-300">Sábados</span>
-                    <span class="text-neon-purple font-semibold">10:00 AM - 2:00 PM</span>
-                  </div>
-                  <div class="flex justify-between items-center">
-                    <span class="text-gray-300">Domingos</span>
-                    <span class="text-gray-500">Cerrado</span>
-                  </div>
-                </div>
-                <div class="mt-6 p-4 bg-gradient-to-r from-neon-blue/10 to-neon-purple/10 border border-neon-blue/30 rounded-xl">
-                  <p class="text-gray-300 text-sm">
-                    <strong class="text-neon-blue">Proyectos urgentes:</strong> Disponibilidad 24/7 para clientes Enterprise
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- FAQ Rápido -->
-    <section class="py-20 bg-gray-900">
-      <div class="container mx-auto px-6">
+    <section class="py-20 relative">
+      <div class="container mx-auto px-6 relative z-10">
         <div class="text-center mb-16">
           <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
             <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
@@ -322,7 +378,7 @@ import Footer from '../components/Footer.astro';
         <div class="max-w-4xl mx-auto">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="space-y-6">
-              <div class="bg-gray-800 rounded-2xl p-6 border border-gray-700">
+              <div class="bg-gray-800/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
                 <h3 class="font-semibold text-white mb-3">¿Cuánto tiempo toma recibir una respuesta?</h3>
                 <p class="text-gray-400 text-sm">
                   Respondemos todos los mensajes en un máximo de 24 horas. Para proyectos urgentes, 
@@ -330,7 +386,7 @@ import Footer from '../components/Footer.astro';
                 </p>
               </div>
 
-              <div class="bg-gray-800 rounded-2xl p-6 border border-gray-700">
+              <div class="bg-gray-800/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
                 <h3 class="font-semibold text-white mb-3">¿Ofrecen consultas gratuitas?</h3>
                 <p class="text-gray-400 text-sm">
                   Sí, la primera consulta de 30 minutos es completamente gratuita para evaluar 
@@ -338,7 +394,7 @@ import Footer from '../components/Footer.astro';
                 </p>
               </div>
 
-              <div class="bg-gray-800 rounded-2xl p-6 border border-gray-700">
+              <div class="bg-gray-800/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
                 <h3 class="font-semibold text-white mb-3">¿Trabajan con startups pequeñas?</h3>
                 <p class="text-gray-400 text-sm">
                   Absolutamente. Nos especializamos en emprendedores y tenemos planes flexibles 
@@ -348,7 +404,7 @@ import Footer from '../components/Footer.astro';
             </div>
 
             <div class="space-y-6">
-              <div class="bg-gray-800 rounded-2xl p-6 border border-gray-700">
+              <div class="bg-gray-800/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
                 <h3 class="font-semibold text-white mb-3">¿Cómo funciona el proceso de la Fundación?</h3>
                 <p class="text-gray-400 text-sm">
                   Evaluamos cada aplicación individualmente. El proceso incluye entrevista técnica, 
@@ -356,7 +412,7 @@ import Footer from '../components/Footer.astro';
                 </p>
               </div>
 
-              <div class="bg-gray-800 rounded-2xl p-6 border border-gray-700">
+              <div class="bg-gray-800/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
                 <h3 class="font-semibold text-white mb-3">¿Manejan proyectos internacionales?</h3>
                 <p class="text-gray-400 text-sm">
                   Sí, trabajamos con clientes en toda América Latina y Estados Unidos. 
@@ -364,7 +420,7 @@ import Footer from '../components/Footer.astro';
                 </p>
               </div>
 
-              <div class="bg-gray-800 rounded-2xl p-6 border border-gray-700">
+              <div class="bg-gray-800/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
                 <h3 class="font-semibold text-white mb-3">¿Qué incluye el mantenimiento?</h3>
                 <p class="text-gray-400 text-sm">
                   Actualizaciones de seguridad, optimizaciones, nuevas funcionalidades menores, 
@@ -378,8 +434,8 @@ import Footer from '../components/Footer.astro';
     </section>
 
     <!-- CTA Final -->
-    <section class="py-20 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
-      <div class="container mx-auto px-6 text-center">
+    <section class="py-20 relative">
+      <div class="container mx-auto px-6 text-center relative z-10">
         <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
           <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent">
             ¿Listo para Comenzar?
@@ -390,7 +446,7 @@ import Footer from '../components/Footer.astro';
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="#contacto-form" class="bg-gradient-to-r from-neon-blue to-neon-purple px-8 py-4 rounded-full text-white font-semibold text-lg hover:shadow-lg hover:shadow-neon-blue/25 transition-all duration-300 hover:scale-105">
-            Enviar Mensaje Ahora
+            Completar Formulario
           </a>
           <a href="/precios" class="border-2 border-neon-purple px-8 py-4 rounded-full text-neon-purple font-semibold text-lg hover:bg-neon-purple hover:text-white transition-all duration-300 hover:scale-105">
             Ver Planes y Precios
@@ -398,9 +454,20 @@ import Footer from '../components/Footer.astro';
         </div>
       </div>
     </section>
-  </div>
+  </main>
   <Footer />
 </Layout>
+
+<style>
+  @keyframes grid-move {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(50px, 50px);
+    }
+  }
+</style>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {

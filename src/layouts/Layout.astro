@@ -2,25 +2,117 @@
 export interface Props {
   title: string;
   description?: string;
+  keywords?: string;
+  image?: string;
+  type?: string;
+  canonical?: string;
 }
 
-const { title, description = "FreeAgents - Desarrollo de software a la medida para emprendedores" } = Astro.props;
+const { 
+  title, 
+  description = "FreeAgents - Desarrollo de software a la medida para emprendedores", 
+  keywords = "desarrollo de software, desarrollo web, desarrollo de aplicaciones, software a la medida, desarrollo de páginas web, desarrollo de apps, e-commerce, software factory, desarrollo de software para empresas, programación, desarrollo de software personalizado",
+  image = "/logofreeagents1.png",
+  type = "website",
+  canonical
+} = Astro.props;
+
+const siteUrl = Astro.site?.href || "https://freeagents.dev";
+const currentUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
+const ogImage = new URL(image, siteUrl).href;
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
     
-    <!-- Fonts -->
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="FreeAgents" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="language" content="Spanish" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="distribution" content="global" />
+    <meta name="rating" content="general" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={currentUrl} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={currentUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="FreeAgents" />
+    <meta property="og:locale" content="es_ES" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={currentUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:creator" content="@freeagentsdev" />
+    <meta name="twitter:site" content="@freeagentsdev" />
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/logofreeagents1.png" />
+    <link rel="apple-touch-icon" href="/logofreeagents1.png" />
+    <link rel="shortcut icon" href="/logofreeagents1.png" />
+    
+    <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data Base (Organization) -->
+    {Astro.url.pathname === '/' && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "FreeAgents",
+        "alternateName": "FreeAgents Software Factory",
+        "url": siteUrl,
+        "logo": `${siteUrl}/logofreeagents1.png`,
+        "description": "Software Factory especializada en desarrollo de software a la medida, páginas web, aplicaciones móviles y e-commerce para empresas y emprendedores.",
+        "foundingDate": "2024",
+        "founders": [{
+          "@type": "Person",
+          "name": "Miguel Gallego"
+        }],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "availableLanguage": ["Spanish", "English"]
+        },
+        "sameAs": [
+          "https://github.com/FreeAgentsDev",
+          "https://www.linkedin.com/company/freeagentsdev/",
+          "https://www.instagram.com/freeagentsdev/",
+          "https://www.facebook.com/profile.php?id=61577490723653"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "CO"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": ["Colombia", "Latinoamérica"]
+        }
+      })} />
+    )}
   </head>
   <body class="bg-gray-900 text-white">
     <slot />
@@ -30,13 +122,210 @@ const { title, description = "FreeAgents - Desarrollo de software a la medida pa
 <style is:global>
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
   
   body {
     font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
   
   .font-display {
     font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+
+  /* Mejoras de jerarquía visual */
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  /* Transiciones suaves mejoradas */
+  * {
+    transition-property: color, background-color, border-color, transform, opacity, box-shadow;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Mejoras de espaciado */
+  section {
+    scroll-margin-top: 5rem;
+  }
+
+  /* Sombras mejoradas para tarjetas */
+  .card-shadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .card-shadow-hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Mejoras de contraste y legibilidad */
+  .text-gray-400 {
+    color: rgb(156 163 175);
+  }
+
+  .text-gray-300 {
+    color: rgb(209 213 219);
+  }
+
+  /* Animaciones mejoradas */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ============================================
+     SCROLLBAR PERSONALIZADA - Tema Cyberpunk
+     ============================================ */
+  
+  /* Webkit (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(17, 24, 39, 0.8);
+    border-left: 1px solid rgba(0, 212, 255, 0.1);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 212, 255, 0.6) 0%,
+      rgba(20, 184, 166, 0.6) 50%,
+      rgba(14, 165, 233, 0.6) 100%
+    );
+    border-radius: 10px;
+    border: 2px solid rgba(17, 24, 39, 0.8);
+    box-shadow: 
+      0 0 10px rgba(0, 212, 255, 0.5),
+      inset 0 0 10px rgba(0, 212, 255, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 212, 255, 0.9) 0%,
+      rgba(20, 184, 166, 0.9) 50%,
+      rgba(14, 165, 233, 0.9) 100%
+    );
+    box-shadow: 
+      0 0 20px rgba(0, 212, 255, 0.8),
+      inset 0 0 15px rgba(0, 212, 255, 0.5);
+    transform: scale(1.1);
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 212, 255, 1) 0%,
+      rgba(20, 184, 166, 1) 50%,
+      rgba(14, 165, 233, 1) 100%
+    );
+    box-shadow: 
+      0 0 30px rgba(0, 212, 255, 1),
+      inset 0 0 20px rgba(0, 212, 255, 0.7);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: rgba(17, 24, 39, 0.8);
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 212, 255, 0.6) rgba(17, 24, 39, 0.8);
+  }
+
+  /* Scrollbar para elementos específicos */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 212, 255, 0.5) 0%,
+      rgba(20, 184, 166, 0.5) 100%
+    );
+    border-radius: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 212, 255, 0.8) 0%,
+      rgba(20, 184, 166, 0.8) 100%
+    );
+  }
+
+  /* Efecto de scroll suave mejorado */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Efecto de parallax sutil en scroll */
+    [data-scroll-speed] {
+      will-change: transform;
+    }
+  }
+
+  /* Respetar preferencias de movimiento reducido */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Efecto de glow al hacer scroll */
+  @keyframes scrollGlow {
+    0%, 100% {
+      box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+    }
+  }
+
+  /* Animación de scroll para elementos */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
   }
 </style>

@@ -1,0 +1,52 @@
+---
+/**
+ * Componente de indicador de progreso de scroll
+ * Muestra una barra de progreso en la parte superior
+ */
+---
+
+<div 
+  id="scroll-progress" 
+  class="fixed top-0 left-0 h-1 bg-gradient-to-r from-neon-cyan via-neon-teal to-neon-blue z-[100] transition-all duration-150 ease-out"
+  role="progressbar"
+  aria-valuemin="0"
+  aria-valuemax="100"
+  aria-valuenow="0"
+  aria-label="Progreso de scroll"
+  style="width: 0%; box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);"
+></div>
+
+<script>
+  if (typeof window !== 'undefined') {
+    const scrollProgress = document.getElementById('scroll-progress');
+    
+    if (scrollProgress) {
+      const updateScrollProgress = () => {
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollableHeight = documentHeight - windowHeight;
+        const progress = scrollableHeight > 0 ? (scrollTop / scrollableHeight) * 100 : 0;
+        
+        scrollProgress.style.width = `${progress}%`;
+        scrollProgress.setAttribute('aria-valuenow', Math.round(progress).toString());
+      };
+      
+      // Throttle para mejor performance
+      let ticking = false;
+      const handleScroll = () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateScrollProgress();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      };
+      
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      updateScrollProgress(); // Inicializar
+    }
+  }
+</script>
+

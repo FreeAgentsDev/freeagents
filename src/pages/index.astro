@@ -1,465 +1,922 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
 import Footer from '../components/Footer.astro';
+import DynamicBackground from '../components/DynamicBackground.astro';
+import ScrollProgress from '../components/ui/ScrollProgress.astro';
+
+const siteUrl = Astro.site?.href || "https://freeagents.dev";
+const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
 ---
 
-<Layout title="FreeAgents - Desarrollo de Software a la Medida para Emprendedores">
+<Layout 
+  title="Desarrollo de Software a la Medida | Desarrollo de Páginas Web | FreeAgents Software Factory" 
+  description="Desarrollo de software a la medida para empresas. Creamos páginas web, aplicaciones móviles, e-commerce y sistemas personalizados. Software Factory con metodologías ágiles, equipo especializado y resultados garantizados. Cotización gratuita."
+  keywords="desarrollo de software, desarrollo de páginas web, desarrollo web, desarrollo de aplicaciones, desarrollo de apps, software a la medida, desarrollo de software para empresas, desarrollo de software personalizado, software factory, desarrollo de páginas web profesionales, creación de páginas web, desarrollo de sitios web, programación de software, desarrollo de software empresarial, desarrollo de software a medida, desarrollo de aplicaciones web, desarrollo de aplicaciones móviles, e-commerce, tiendas online, desarrollo de software Colombia, desarrollo de software Latinoamérica"
+  image="/logofreeagents1.png"
+  type="website"
+  canonical={currentUrl}
+>
   <Header />
+  <ScrollProgress />
   
-  <div class="pt-10 min-h-screen">
-    <!-- Hero Section -->
-    <Hero 
-      title="Desarrollo De Software Personalizado para Impulsar tu Visión Emprendedora"
-      subtitle="Desarrollo de Software a la Medida"
-      description="Potenciamos el crecimiento de emprendedores con tecnología de vanguardia, respaldados por un equipo en constante evolución gracias a nuestra Fundación."
-      ctaText="Comenzar Proyecto"
-      ctaLink="/contacto"
-      secondaryCtaText="Ver Portafolio"
-      secondaryCtaLink="/portafolio"
-    />
+  <main class="pt-20 relative min-h-screen overflow-hidden">
+    <!-- Fondo Dinámico EXTREMADAMENTE Potente para Toda la Vista -->
+    <div class="fixed inset-0 -z-10">
+      <!-- Múltiples Capas de Fondos Dinámicos -->
+      <DynamicBackground type="matrix" color="cyan" />
+      <DynamicBackground type="circuits" color="cyan" />
+      <DynamicBackground type="particles" color="blue" />
+      <DynamicBackground type="neural" color="green" />
+      <DynamicBackground type="hologram" color="cyan" />
+      
+      <!-- Gradientes Animados Múltiples y Potentes -->
+      <div class="absolute inset-0">
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-cyan-900/15 via-teal-900/10 to-blue-900/15 animate-pulse"></div>
+        <div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-neon-cyan/8 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-neon-teal/8 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+        <div class="absolute top-1/2 right-1/3 w-[500px] h-[500px] bg-neon-blue/6 rounded-full blur-3xl animate-pulse" style="animation-delay: 0.5s;"></div>
+        <div class="absolute bottom-1/3 left-1/3 w-[550px] h-[550px] bg-neon-green/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 1.5s;"></div>
+        <div class="absolute top-1/3 right-1/4 w-[450px] h-[450px] bg-neon-purple/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 0.75s;"></div>
+      </div>
+      
+      <!-- Grid Pattern Overlay Múltiple -->
+      <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(rgba(0, 212, 255, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(20, 184, 166, 0.15) 1px, transparent 1px); background-size: 50px 50px; animation: grid-move 20s linear infinite;"></div>
+      <div class="absolute inset-0 opacity-3" style="background-image: linear-gradient(rgba(14, 165, 233, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 185, 129, 0.1) 1px, transparent 1px); background-size: 30px 30px; animation: grid-move 15s linear infinite reverse;"></div>
+      
+      <!-- Efectos de Luz Adicionales -->
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-cyan-500/5 to-transparent"></div>
+        <div class="absolute bottom-0 right-0 w-full h-1/2 bg-gradient-to-t from-teal-500/5 to-transparent"></div>
+      </div>
+    </div>
+    <!-- Hero Section Única - Software Factory -->
+    <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
 
-    <!-- Propuesta de Valor -->
-    <section class="py-20 bg-gray-800">
-      <div class="container mx-auto px-6">
+      <div class="relative z-10 container mx-auto px-6 py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+          <!-- Content -->
+          <div class="text-center lg:text-left">
+            <!-- Badge Software Factory -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-neon-cyan/10 border border-neon-cyan/30 rounded-full mb-8 animate-fade-in">
+              <svg class="w-5 h-5 text-neon-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+              </svg>
+              <span class="text-neon-cyan font-semibold">Software Factory</span>
+            </div>
+
+            <!-- Main Headline - Optimizado para SEO -->
+            <h1 class="font-display text-5xl md:text-7xl font-bold mb-8 leading-tight animate-slide-up">
+              <span class="text-white drop-shadow-[0_0_20px_rgba(0,212,255,0.5)]">Desarrollo de Software</span>
+              <br>
+              <span class="bg-gradient-to-r from-neon-cyan via-neon-teal to-neon-blue bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(0,212,255,0.6)]">
+                y Páginas Web a la Medida
+              </span>
+              <br>
+              <span class="text-white drop-shadow-[0_0_20px_rgba(0,212,255,0.5)]">para tu Empresa</span>
+            </h1>
+
+            <!-- Subheadline - Optimizado para SEO -->
+            <p class="text-xl md:text-2xl text-gray-100 mb-4 leading-relaxed animate-slide-up drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]" style="animation-delay: 0.1s;">
+              Especialistas en <strong class="text-neon-cyan drop-shadow-[0_0_10px_rgba(0,212,255,0.6)]">desarrollo de páginas web</strong>, 
+              <strong class="text-neon-teal drop-shadow-[0_0_10px_rgba(20,184,166,0.6)]">desarrollo de aplicaciones</strong> y 
+              <strong class="text-neon-blue drop-shadow-[0_0_10px_rgba(14,165,233,0.6)]">software a la medida</strong> para empresas.
+            </p>
+
+            <p class="text-lg text-gray-200 mb-12 animate-slide-up drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]" style="animation-delay: 0.2s;">
+              Software Factory con <strong>equipo especializado</strong>, <strong>metodologías ágiles</strong> y <strong>resultados garantizados</strong>. 
+              Transformamos ideas en soluciones tecnológicas que impulsan el crecimiento de tu negocio.
+            </p>
+
+            <!-- CTAs Principales -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-8 animate-slide-up" style="animation-delay: 0.3s;">
+              <a 
+                href="/contacto" 
+                class="group bg-gradient-to-r from-neon-cyan to-neon-teal px-10 py-5 rounded-full text-white font-bold text-lg hover:shadow-2xl hover:shadow-neon-cyan/30 transition-all duration-300 hover:scale-105 flex items-center gap-2"
+              >
+                <span>Agendar una Llamada</span>
+                <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </a>
+              <a 
+                href="/portafolio" 
+                class="relative border-2 border-neon-teal px-10 py-5 rounded-full text-neon-teal font-bold text-lg bg-neon-teal/10 backdrop-blur-sm hover:bg-neon-teal hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-neon-teal/40 drop-shadow-[0_0_15px_rgba(20,184,166,0.4)]"
+              >
+                <span class="relative z-10">Ver Proyectos Reales</span>
+                <div class="absolute inset-0 rounded-full bg-neon-teal/20 blur-xl opacity-50"></div>
+              </a>
+            </div>
+
+            <!-- Trust Indicators -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 animate-fade-in" style="animation-delay: 0.4s;">
+              <div class="text-center lg:text-left">
+                <div class="text-3xl md:text-4xl font-bold text-neon-cyan mb-2 drop-shadow-[0_0_15px_rgba(0,212,255,0.6)]">100%</div>
+                <div class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Proyectos Exitosos</div>
+              </div>
+              <div class="text-center lg:text-left">
+                <div class="text-3xl md:text-4xl font-bold text-neon-teal mb-2 drop-shadow-[0_0_15px_rgba(20,184,166,0.6)]">24/7</div>
+                <div class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Soporte Técnico</div>
+              </div>
+              <div class="text-center lg:text-left">
+                <div class="text-3xl md:text-4xl font-bold text-neon-blue mb-2 drop-shadow-[0_0_15px_rgba(14,165,233,0.6)]">Agile</div>
+                <div class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Metodología</div>
+              </div>
+              <div class="text-center lg:text-left">
+                <div class="text-3xl md:text-4xl font-bold text-neon-green mb-2 drop-shadow-[0_0_15px_rgba(16,185,129,0.6)]">+50</div>
+                <div class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Clientes Satisfechos</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Image -->
+          <div class="relative flex justify-center lg:justify-end">
+            <div class="relative">
+              <!-- Glow effect behind image -->
+              <div class="absolute inset-0 bg-gradient-to-r from-neon-cyan/20 to-neon-teal/20 rounded-3xl blur-2xl transform scale-110"></div>
+              
+              <!-- Main image container -->
+              <div class="relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-3xl p-8 border border-gray-700/50">
+                <img 
+                  src="/elongreen.png" 
+                  alt="Desarrollo de software a la medida - FreeAgents Software Factory especializada en desarrollo de páginas web y aplicaciones" 
+                  class="h-80 rounded-3xl w-auto mx-auto animate-float drop-shadow-2xl"
+                >
+                
+                <!-- Decorative elements -->
+                <div class="absolute -top-4 -right-4 w-8 h-8 bg-neon-cyan rounded-full animate-pulse"></div>
+                <div class="absolute -bottom-4 -left-4 w-6 h-6 bg-neon-teal rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
+                <div class="absolute top-1/2 -left-6 w-4 h-4 bg-neon-blue rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ¿Quiénes Somos? - Software Factory -->
+    <section class="py-24 relative overflow-hidden">
+      
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-4xl mx-auto">
+          <!-- Tarjeta Centrada -->
+          <div class="relative flex justify-center">
+            <div class="relative bg-gray-900/60 backdrop-blur-sm rounded-3xl p-8 border border-gray-700 shadow-2xl w-full max-w-2xl">
+                <div class="absolute -top-4 -right-4 w-24 h-24 bg-neon-cyan/20 rounded-full blur-2xl"></div>
+                <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-neon-teal/20 rounded-full blur-2xl"></div>
+                
+                <!-- Logo/Imagen de la empresa -->
+                <div class="relative mb-6 flex justify-center">
+                  <img 
+                    src="/logofreeagents1.png" 
+                    alt="FreeAgents - Logo de Software Factory especializada en desarrollo de software y páginas web" 
+                    class="h-24 w-auto rounded-full border-2 border-neon-cyan/30"
+                  >
+                </div>
+                
+                <div class="relative bg-gray-800/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
+                  <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-xl flex items-center justify-center">
+                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">Software Factory</h4>
+                      <p class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Proceso profesional</p>
+                    </div>
+                  </div>
+                  
+                  <div class="space-y-3">
+                    <div class="flex items-center gap-3 text-sm">
+                      <div class="w-2 h-2 bg-neon-cyan rounded-full"></div>
+                      <span class="text-gray-100 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Análisis de requerimientos</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                      <div class="w-2 h-2 bg-neon-teal rounded-full"></div>
+                      <span class="text-gray-100 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Diseño y arquitectura</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                      <div class="w-2 h-2 bg-neon-blue rounded-full"></div>
+                      <span class="text-gray-100 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Desarrollo ágil</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                      <div class="w-2 h-2 bg-neon-green rounded-full"></div>
+                      <span class="text-gray-100 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Testing y QA</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm">
+                      <div class="w-2 h-2 bg-neon-purple rounded-full"></div>
+                      <span class="text-gray-100 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Deployment y soporte</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ¿Qué Hacemos? - Servicios -->
+    <section class="py-24 relative overflow-hidden">
+      
+      <div class="container mx-auto px-6 relative z-10">
         <div class="text-center mb-16">
-          <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
-            <span class="bg-gradient-to-r from-neon-cyan to-neon-teal bg-clip-text text-transparent">
-              Nuestros Servicios
-            </span>
+          <div class="inline-block px-4 py-2 bg-neon-teal/10 border border-neon-teal/30 rounded-full mb-6">
+            <span class="text-neon-teal font-semibold text-sm">¿Qué Hacemos?</span>
+          </div>
+          
+          <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-[0_0_20px_rgba(0,212,255,0.5)]">
+            Soluciones Tecnológicas <span class="bg-gradient-to-r from-neon-teal to-neon-blue bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(20,184,166,0.6)]">a la Medida</span>
           </h2>
-          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-            Ofrecemos soluciones tecnológicas integrales diseñadas específicamente para emprendedores que buscan escalar sus negocios.
+          
+          <p class="text-xl text-gray-100 max-w-3xl mx-auto drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+            Construimos software que resuelve problemas reales de negocio. Cada solución está diseñada específicamente para tus necesidades.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <!-- Desarrollo a la Medida -->
-          <div class="bg-gray-900 p-8 rounded-2xl border border-gray-700 hover:border-neon-cyan/50 transition-all duration-300 group hover:scale-105">
-            <div class="mb-6">
-              <div class="w-16 h-16 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-xl flex items-center justify-center mb-4 group-hover:animate-pulse">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-                </svg>
-              </div>
-              <h3 class="font-display text-2xl font-bold text-white mb-4">Desarrollo a la Medida</h3>
-              <p class="text-gray-400 mb-6">
-                Creamos soluciones únicas adaptadas a las necesidades específicas de tu emprendimiento, desde sistemas internos hasta plataformas complejas.
-              </p>
-              <ul class="text-gray-300 space-y-2 mb-6">
-                <li class="flex items-center">
-                  <svg class="w-5 h-5 text-neon-cyan mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                  </svg>
-                  Sistemas web personalizados
-                </li>
-                <li class="flex items-center">
-                  <svg class="w-5 h-5 text-neon-cyan mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                  </svg>
-                  APIs y microservicios
-                </li>
-                <li class="flex items-center">
-                  <svg class="w-5 h-5 text-neon-cyan mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                  </svg>
-                  Integración de sistemas
-                </li>
-              </ul>
+          <div class="group bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-neon-cyan/50 transition-all duration-300 hover:shadow-xl hover:shadow-neon-cyan/10 hover:-translate-y-2">
+            <div class="w-16 h-16 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+              </svg>
             </div>
-            <a href="/servicios#desarrollo" class="text-neon-cyan hover:text-neon-teal transition-colors duration-300 font-semibold">
-              Conocer más →
+            <h3 class="font-display text-2xl font-bold text-white mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">Desarrollo a la Medida</h3>
+            <p class="text-gray-200 mb-6 leading-relaxed drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">
+              Sistemas web, APIs y plataformas personalizadas que se adaptan perfectamente a tus procesos de negocio.
+            </p>
+            <ul class="space-y-2 mb-6 text-gray-100 text-sm drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-neon-cyan" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                Sistemas web personalizados
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-neon-cyan" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                APIs y microservicios
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-neon-cyan" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                Integración de sistemas
+              </li>
+            </ul>
+            <a href="/servicios#desarrollo" class="text-neon-cyan hover:text-neon-teal font-semibold flex items-center gap-2">
+              Ver más detalles
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
             </a>
           </div>
 
-          <!-- Apps para Emprendedores -->
-          <div class="bg-gray-900 p-8 rounded-2xl border border-gray-700 hover:border-neon-teal/50 transition-all duration-300 group hover:scale-105">
-            <div class="mb-6">
-              <div class="w-16 h-16 bg-gradient-to-r from-neon-teal to-neon-blue rounded-xl flex items-center justify-center mb-4 group-hover:animate-pulse">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-                </svg>
-              </div>
-              <h3 class="font-display text-2xl font-bold text-white mb-4">Apps para Emprendedores</h3>
-              <p class="text-gray-400 mb-6">
-                Desarrollamos aplicaciones móviles y web que conectan tu negocio con tus clientes, optimizando procesos y mejorando la experiencia de usuario.
-              </p>
-              <ul class="text-gray-300 space-y-2 mb-6">
-                <li class="flex items-center">
-                  <svg class="w-5 h-5 text-neon-teal mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                  </svg>
-                  Apps móviles nativas
-                </li>
-                <li class="flex items-center">
-                  <svg class="w-5 h-5 text-neon-teal mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                  </svg>
-                  Progressive Web Apps
-                </li>
-                <li class="flex items-center">
-                  <svg class="w-5 h-5 text-neon-teal mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                  </svg>
-                  UX/UI optimizado
-                </li>
-              </ul>
+          <!-- Apps Móviles -->
+          <div class="group bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-neon-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-neon-teal/10 hover:-translate-y-2">
+            <div class="w-16 h-16 bg-gradient-to-r from-neon-teal to-neon-blue rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+              </svg>
             </div>
-            <a href="/servicios#apps" class="text-neon-teal hover:text-neon-blue transition-colors duration-300 font-semibold">
-              Conocer más →
+            <h3 class="font-display text-2xl font-bold text-white mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">Apps Móviles</h3>
+            <p class="text-gray-200 mb-6 leading-relaxed drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">
+              Aplicaciones nativas y multiplataforma que conectan tu negocio con tus clientes de manera intuitiva.
+            </p>
+            <ul class="space-y-2 mb-6 text-gray-100 text-sm drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-neon-teal" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                Apps iOS y Android
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-neon-teal" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                Progressive Web Apps
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-neon-teal" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                UX/UI optimizado
+              </li>
+            </ul>
+            <a href="/servicios#apps" class="text-neon-teal hover:text-neon-blue font-semibold flex items-center gap-2">
+              Ver más detalles
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
             </a>
           </div>
 
           <!-- E-commerce -->
-          <div class="bg-gray-900 p-8 rounded-2xl border border-gray-700 hover:border-neon-green/50 transition-all duration-300 group hover:scale-105">
-            <div class="mb-6">
-              <div class="w-16 h-16 bg-gradient-to-r from-neon-green to-neon-cyan rounded-xl flex items-center justify-center mb-4 group-hover:animate-pulse">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
-                </svg>
-              </div>
-              <h3 class="font-display text-2xl font-bold text-white mb-4">E-commerce</h3>
-              <p class="text-gray-400 mb-6">
-                Construimos tiendas online robustas y escalables que convierten visitantes en clientes, con todas las funcionalidades que tu negocio necesita.
-              </p>
-              <ul class="text-gray-300 space-y-2 mb-6">
-                <li class="flex items-center">
-                  <svg class="w-5 h-5 text-neon-green mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                  </svg>
-                  Tiendas personalizadas
-                </li>
-                <li class="flex items-center">
-                  <svg class="w-5 h-5 text-neon-green mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                  </svg>
-                  Pasarelas de pago
-                </li>
-                <li class="flex items-center">
-                  <svg class="w-5 h-5 text-neon-green mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                  </svg>
-                  Gestión de inventario
-                </li>
-              </ul>
+          <div class="group bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-neon-green/50 transition-all duration-300 hover:shadow-xl hover:shadow-neon-green/10 hover:-translate-y-2">
+            <div class="w-16 h-16 bg-gradient-to-r from-neon-green to-neon-cyan rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+              </svg>
             </div>
-            <a href="/servicios#ecommerce" class="text-neon-green hover:text-neon-cyan transition-colors duration-300 font-semibold">
-              Conocer más →
+            <h3 class="font-display text-2xl font-bold text-white mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">E-commerce</h3>
+            <p class="text-gray-200 mb-6 leading-relaxed drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">
+              Tiendas online robustas y escalables que convierten visitantes en clientes, con todas las funcionalidades que necesitas.
+            </p>
+            <ul class="space-y-2 mb-6 text-gray-100 text-sm drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-neon-green" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                Tiendas personalizadas
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-neon-green" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                Pasarelas de pago
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-neon-green" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                Gestión de inventario
+              </li>
+            </ul>
+            <a href="/servicios#ecommerce" class="text-neon-green hover:text-neon-cyan font-semibold flex items-center gap-2">
+              Ver más detalles
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
             </a>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Cómo Trabajamos -->
-    <section class="py-20 bg-gray-900">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
-            <span class="bg-gradient-to-r from-neon-cyan to-neon-teal bg-clip-text text-transparent">
-              Nuestro Proceso
-            </span>
-          </h2>
-          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-            Un enfoque estructurado que garantiza resultados excepcionales, respaldado por un equipo que se forma continuamente.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div class="text-center group">
-            <div class="w-20 h-20 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-              <span class="text-2xl font-bold text-white">1</span>
-            </div>
-            <h3 class="font-display text-xl font-bold text-white mb-4">Descubrimiento</h3>
-            <p class="text-gray-400">
-              Analizamos tu negocio, objetivos y necesidades para diseñar la solución perfecta.
-            </p>
-          </div>
-
-          <div class="text-center group">
-            <div class="w-20 h-20 bg-gradient-to-r from-neon-teal to-neon-blue rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-              <span class="text-2xl font-bold text-white">2</span>
-            </div>
-            <h3 class="font-display text-xl font-bold text-white mb-4">Diseño</h3>
-            <p class="text-gray-400">
-              Creamos prototipos y diseños que priorizan la experiencia de usuario y la funcionalidad.
-            </p>
-          </div>
-
-          <div class="text-center group">
-            <div class="w-20 h-20 bg-gradient-to-r from-neon-blue to-neon-green rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-              <span class="text-2xl font-bold text-white">3</span>
-            </div>
-            <h3 class="font-display text-xl font-bold text-white mb-4">Desarrollo</h3>
-            <p class="text-gray-400">
-              Nuestro equipo experto construye tu solución con las mejores prácticas y tecnologías.
-            </p>
-          </div>
-
-          <div class="text-center group">
-            <div class="w-20 h-20 bg-gradient-to-r from-neon-green to-neon-cyan rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-              <span class="text-2xl font-bold text-white">4</span>
-            </div>
-            <h3 class="font-display text-xl font-bold text-white mb-4">Lanzamiento</h3>
-            <p class="text-gray-400">
-              Desplegamos tu proyecto y te acompañamos en el crecimiento continuo de tu negocio.
-            </p>
-          </div>
+        <div class="text-center mt-12">
+          <a href="/servicios" class="relative inline-flex items-center gap-2 px-8 py-4 border-2 border-neon-teal text-neon-teal font-semibold rounded-full bg-neon-teal/15 backdrop-blur-sm hover:bg-neon-teal hover:text-white transition-all duration-300 hover:shadow-2xl hover:shadow-neon-teal/40 drop-shadow-[0_0_15px_rgba(20,184,166,0.4)]">
+            <span class="relative z-10">Ver Todos los Servicios</span>
+            <svg class="w-5 h-5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+            <div class="absolute inset-0 rounded-full bg-neon-teal/20 blur-xl opacity-50"></div>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- Mini Portafolio -->
-    <section class="py-20 bg-gray-800">
-      <div class="container mx-auto px-6">
+    <!-- Metodologías Profesionales -->
+    <section class="py-24 relative overflow-hidden">
+      <!-- Dynamic Background -->
+      <DynamicBackground type="neural" color="blue" />
+      
+      <div class="absolute inset-0 bg-gradient-to-r from-neon-blue/5 via-transparent to-neon-purple/5"></div>
+      
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-16">
+            <div class="inline-block px-4 py-2 bg-neon-blue/10 border border-neon-blue/30 rounded-full mb-6">
+              <span class="text-neon-blue font-semibold text-sm">Metodologías Profesionales</span>
+            </div>
+            
+            <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-[0_0_20px_rgba(0,212,255,0.5)]">
+              Proceso <span class="bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(139,92,246,0.6)]">Profesional</span> y Transparente
+            </h2>
+            
+            <p class="text-xl text-gray-100 max-w-3xl mx-auto drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+              Trabajamos con metodologías ágiles probadas para garantizar entregas de calidad, en tiempo y con comunicación constante.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <!-- Sprint Planning -->
+            <div class="bg-gray-900/60 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-neon-blue/50 transition-all">
+              <div class="w-12 h-12 bg-neon-blue/20 rounded-lg flex items-center justify-center mb-4">
+                <span class="text-2xl font-bold text-neon-blue">1</span>
+              </div>
+              <h3 class="font-semibold text-white mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">Sprint Planning</h3>
+              <p class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Planificación detallada de cada iteración con objetivos claros y medibles.</p>
+            </div>
+
+            <!-- Desarrollo Ágil -->
+            <div class="bg-gray-900/60 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-neon-purple/50 transition-all">
+              <div class="w-12 h-12 bg-neon-purple/20 rounded-lg flex items-center justify-center mb-4">
+                <span class="text-2xl font-bold text-neon-purple">2</span>
+              </div>
+              <h3 class="font-semibold text-white mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">Desarrollo Ágil</h3>
+              <p class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Ciclos cortos de desarrollo con entregas incrementales y feedback continuo.</p>
+            </div>
+
+            <!-- Code Review -->
+            <div class="bg-gray-900/60 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-neon-teal/50 transition-all">
+              <div class="w-12 h-12 bg-neon-teal/20 rounded-lg flex items-center justify-center mb-4">
+                <span class="text-2xl font-bold text-neon-teal">3</span>
+              </div>
+              <h3 class="font-semibold text-white mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">Code Review</h3>
+              <p class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Revisión de código por pares para garantizar calidad y mejores prácticas.</p>
+            </div>
+
+            <!-- Testing & QA -->
+            <div class="bg-gray-900/60 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-neon-green/50 transition-all">
+              <div class="w-12 h-12 bg-neon-green/20 rounded-lg flex items-center justify-center mb-4">
+                <span class="text-2xl font-bold text-neon-green">4</span>
+              </div>
+              <h3 class="font-semibold text-white mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">Testing & QA</h3>
+              <p class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Pruebas exhaustivas antes de cada deploy para asegurar estabilidad.</p>
+            </div>
+          </div>
+
+          <div class="mt-12 bg-gradient-to-r from-neon-blue/10 to-neon-purple/10 border border-neon-blue/30 rounded-2xl p-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <!-- Herramientas a la izquierda -->
+              <div class="order-2 md:order-1 bg-gray-800/60 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50">
+                <h4 class="font-semibold text-white mb-4">Herramientas que Usamos</h4>
+                <div class="grid grid-cols-2 gap-3">
+                  <div class="text-center p-3 bg-gray-900/60 rounded-lg">
+                    <div class="text-sm font-semibold text-gray-100 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Jira</div>
+                  </div>
+                  <div class="text-center p-3 bg-gray-900/60 rounded-lg">
+                    <div class="text-sm font-semibold text-gray-100 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Git</div>
+                  </div>
+                  <div class="text-center p-3 bg-gray-900/60 rounded-lg">
+                    <div class="text-sm font-semibold text-gray-100 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">CI/CD</div>
+                  </div>
+                  <div class="text-center p-3 bg-gray-900/60 rounded-lg">
+                    <div class="text-sm font-semibold text-gray-100 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Slack</div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Contenido a la derecha -->
+              <div class="order-1 md:order-2">
+                <h3 class="font-display text-2xl font-bold text-white mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">Agile & Scrum</h3>
+                <p class="text-gray-100 mb-4 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">
+                  Aplicamos metodologías ágiles (Scrum, Kanban) adaptadas a cada proyecto. 
+                  Esto nos permite:
+                </p>
+                <ul class="space-y-2 text-gray-100 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">
+                  <li class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-neon-blue" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    Entregas frecuentes y valor temprano
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-neon-blue" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    Adaptación rápida a cambios
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-neon-blue" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    Comunicación constante con el cliente
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-neon-blue" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    Transparencia total en el proceso
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portafolio Destacado -->
+    <section class="py-24 relative overflow-hidden">
+      <div class="container mx-auto px-6 relative z-10">
         <div class="text-center mb-16">
-          <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
-            <span class="bg-gradient-to-r from-neon-cyan to-neon-teal bg-clip-text text-transparent">
-              Casos Destacados
-            </span>
+          <div class="inline-block px-4 py-2 bg-neon-green/10 border border-neon-green/30 rounded-full mb-6">
+            <span class="text-neon-green font-semibold text-sm">Proyectos</span>
+          </div>
+          
+          <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-[0_0_20px_rgba(0,212,255,0.5)]">
+            Casos de <span class="bg-gradient-to-r from-neon-green to-neon-cyan bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(16,185,129,0.6)]">Éxito Reales</span>
           </h2>
-          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-            Algunos de nuestros proyectos más exitosos que han transformado negocios.
+          
+          <p class="text-xl text-gray-100 max-w-3xl mx-auto drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+            Proyectos que han transformado negocios y generado resultados medibles para nuestros clientes.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          <div class="bg-gray-900 rounded-2xl overflow-hidden border border-gray-700 hover:border-neon-cyan/50 transition-all duration-300 group hover:scale-105">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
+          <!-- Proyecto 1 -->
+          <div class="group bg-gray-800/60 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700 hover:border-neon-cyan/50 transition-all duration-300 hover:shadow-xl hover:shadow-neon-cyan/10">
             <div class="h-48 bg-gradient-to-br from-neon-cyan/20 to-neon-teal/20 flex items-center justify-center">
-              <img src="/kj.png" alt="Proyecto 1" class="h-24 w-auto rounded-full opacity-80 group-hover:scale-110 transition-transform duration-300">
+              <img src="/kj.png" alt="Proyecto Kevin Jewelry - Desarrollo de página web y sistema de gestión para joyería" class="h-24 w-auto rounded-full opacity-80 group-hover:scale-110 transition-transform">
             </div>
             <div class="p-6">
-              <h3 class="font-display text-xl font-bold text-white mb-2">Kevin Jewelry</h3>
-              <p class="text-gray-400 mb-4">Landing page enfopcada a la atraccion de nuevos inversionistas y mayoristas a formar parte de la empresa + Sistema para la completa gestion de estos nuevos participantes.</p>
+              <h3 class="font-display text-xl font-bold text-white mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">Kevin Jewelry</h3>
+              <p class="text-gray-200 mb-4 text-sm drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Landing page + Sistema de gestión para atracción de inversionistas y mayoristas.</p>
               <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-3 py-1 bg-neon-cyan/20 text-neon-cyan rounded-full text-sm">Landing</span>
-                <span class="px-3 py-1 bg-neon-teal/20 text-neon-teal rounded-full text-sm">WebApp</span>
-                <span class="px-3 py-1 bg-neon-green/20 text-neon-green rounded-full text-sm">SEO</span>
+                <span class="px-3 py-1 bg-neon-cyan/20 text-neon-cyan rounded-full text-xs">Landing</span>
+                <span class="px-3 py-1 bg-neon-teal/20 text-neon-teal rounded-full text-xs">WebApp</span>
+                <span class="px-3 py-1 bg-neon-green/20 text-neon-green rounded-full text-xs">SEO</span>
               </div>
             </div>
           </div>
 
-          <div class="bg-gray-900 rounded-2xl overflow-hidden border border-gray-700 hover:border-neon-teal/50 transition-all duration-300 group hover:scale-105">
+          <!-- Proyecto 2 -->
+          <div class="group bg-gray-800/60 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700 hover:border-neon-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-neon-teal/10">
             <div class="h-48 bg-gradient-to-br from-neon-teal/20 to-neon-blue/20 flex items-center justify-center">
-              <img src="/prosejurix.png" alt="Proyecto 2" class="h-24 rounded-full w-auto opacity-80 group-hover:scale-110 transition-transform duration-300">
+              <img src="/prosejurix.png" alt="Proyecto Prosejurix - Desarrollo de página web y sistema de consultas legales" class="h-24 w-auto rounded-full opacity-80 group-hover:scale-110 transition-transform">
             </div>
             <div class="p-6">
               <h3 class="font-display text-xl font-bold text-white mb-2">Prosejurix</h3>
-              <p class="text-gray-400 mb-4">Landing page moderna para la firma de abogados de responsabilidad civil optimizada para brindar posicionar la marca en la web + Sistema de consultas en el cual los clientes de la firma pueden gestionar y seguir de cerca el estado de su proceso.</p>
+              <p class="text-gray-200 mb-4 text-sm drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Landing page + Sistema de consultas para seguimiento de procesos legales.</p>
               <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-3 py-1 bg-neon-teal/20 text-neon-teal rounded-full text-sm">Landing</span>
-                <span class="px-3 py-1 bg-neon-blue/20 text-neon-blue rounded-full text-sm">SEO</span>
-                <span class="px-3 py-1 bg-neon-green/20 text-neon-green rounded-full text-sm">Marketing</span>
+                <span class="px-3 py-1 bg-neon-teal/20 text-neon-teal rounded-full text-xs">Landing</span>
+                <span class="px-3 py-1 bg-neon-blue/20 text-neon-blue rounded-full text-xs">Sistema</span>
+                <span class="px-3 py-1 bg-neon-green/20 text-neon-green rounded-full text-xs">SEO</span>
               </div>
             </div>
           </div>
 
-          <div class="bg-gray-900 rounded-2xl overflow-hidden border border-gray-700 hover:border-neon-green/50 transition-all duration-300 group hover:scale-105">
+          <!-- Proyecto 3 -->
+          <div class="group bg-gray-800/60 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700 hover:border-neon-green/50 transition-all duration-300 hover:shadow-xl hover:shadow-neon-green/10">
             <div class="h-48 bg-gradient-to-br from-neon-green/20 to-neon-cyan/20 flex items-center justify-center">
-              <img src="/qori.png" alt="Proyecto 3" class="h-24 w-24 rounded-full opacity-80 group-hover:scale-110 transition-transform duration-300">
+              <img src="/qori.png" alt="Proyecto Qori - Desarrollo de e-commerce completo con gestión de redes sociales e IA" class="h-24 w-24 rounded-full opacity-80 group-hover:scale-110 transition-transform">
             </div>
             <div class="p-6">
               <h3 class="font-display text-xl font-bold text-white mb-2">Qori</h3>
-              <p class="text-gray-400 mb-4">Landing page informativa + Sistema completo de ecommerce de ultra bajo costo + Posicionamiento de marca en redes sociales con gestion de anuncios por parte de freeagents + Actual desarrollo de un bot con IA para la gestion de ventas y contabilidad</p>
+              <p class="text-gray-200 mb-4 text-sm drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">E-commerce completo + Gestión de redes sociales + Bot con IA para ventas.</p>
               <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-3 py-1 bg-neon-green/20 text-neon-green rounded-full text-sm">Lnding</span>
-                <span class="px-3 py-1 bg-neon-cyan/20 text-neon-cyan rounded-full text-sm">Ecommerce</span>
-                <span class="px-3 py-1 bg-neon-teal/20 text-neon-teal rounded-full text-sm">Redes Sociales</span>
-                <span class="px-3 py-1 bg-neon-teal/20 text-neon-pink rounded-full text-sm">Bot IA </span>
+                <span class="px-3 py-1 bg-neon-green/20 text-neon-green rounded-full text-xs">Ecommerce</span>
+                <span class="px-3 py-1 bg-neon-cyan/20 text-neon-cyan rounded-full text-xs">Redes</span>
+                <span class="px-3 py-1 bg-neon-purple/20 text-neon-purple rounded-full text-xs">IA</span>
               </div>
             </div>
           </div>
         </div>
 
         <div class="text-center">
-          <a href="/portafolio" class="inline-flex items-center justify-center px-8 py-4 border border-neon-cyan text-neon-cyan font-semibold rounded-full hover:bg-neon-cyan hover:text-white transition-all duration-300 text-lg">
-            Ver Portafolio Completo
-            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <a href="/portafolio" class="relative inline-flex items-center gap-2 px-8 py-4 border-2 border-neon-green text-neon-green font-semibold rounded-full bg-neon-green/15 backdrop-blur-sm hover:bg-neon-green hover:text-white transition-all duration-300 hover:shadow-2xl hover:shadow-neon-green/40 drop-shadow-[0_0_15px_rgba(16,185,129,0.4)]">
+            <span class="relative z-10">Ver Portafolio Completo</span>
+            <svg class="w-5 h-5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
             </svg>
+            <div class="absolute inset-0 rounded-full bg-neon-green/20 blur-xl opacity-50"></div>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Impacto y Talento -->
-    <section class="py-20 bg-gray-900">
-      <div class="container mx-auto px-6">
+    <!-- ¿Por qué Deberían Contratarnos? -->
+    <section class="py-24 relative overflow-hidden">
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-16">
+            <div class="inline-block px-4 py-2 bg-neon-purple/10 border border-neon-purple/30 rounded-full mb-6">
+              <span class="text-neon-purple font-semibold text-sm">¿Por qué FreeAgents?</span>
+            </div>
+            
+            <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-[0_0_20px_rgba(0,212,255,0.5)]">
+              Razones para <span class="bg-gradient-to-r from-neon-purple to-neon-pink bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(139,92,246,0.6)]">Confiar en Nosotros</span>
+            </h2>
+            
+            <p class="text-xl text-gray-100 max-w-3xl mx-auto drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+              No solo construimos software. Creamos soluciones que generan valor real para tu negocio.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Capacidad -->
+            <div class="bg-gray-900/60 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-neon-cyan/50 transition-all">
+              <div class="w-12 h-12 bg-neon-cyan/20 rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-neon-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+              </div>
+              <h3 class="font-semibold text-white mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">Capacidad Comprobada</h3>
+              <p class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Equipo con años de experiencia construyendo software de alto nivel para empresas.</p>
+            </div>
+
+            <!-- Metodología -->
+            <div class="bg-gray-900/60 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-neon-teal/50 transition-all">
+              <div class="w-12 h-12 bg-neon-teal/20 rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-neon-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                </svg>
+              </div>
+              <h3 class="font-semibold text-white mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">Metodologías Profesionales</h3>
+              <p class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Agile, Scrum y mejores prácticas de la industria para garantizar calidad.</p>
+            </div>
+
+            <!-- Innovación -->
+            <div class="bg-gray-900/60 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-neon-blue/50 transition-all">
+              <div class="w-12 h-12 bg-neon-blue/20 rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-neon-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
+              <h3 class="font-semibold text-white mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">Innovación Constante</h3>
+              <p class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Tecnologías de vanguardia y enfoques frescos gracias a nuestra Fundación.</p>
+            </div>
+
+            <!-- Resultados -->
+            <div class="bg-gray-900/60 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-neon-green/50 transition-all">
+              <div class="w-12 h-12 bg-neon-green/20 rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-neon-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                </svg>
+              </div>
+              <h3 class="font-semibold text-white mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">Resultados Medibles</h3>
+              <p class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Cada proyecto está diseñado para generar resultados tangibles y ROI positivo.</p>
+            </div>
+
+            <!-- Soporte -->
+            <div class="bg-gray-900/60 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-neon-purple/50 transition-all">
+              <div class="w-12 h-12 bg-neon-purple/20 rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-neon-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                </svg>
+              </div>
+              <h3 class="font-semibold text-white mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">Soporte Continuo</h3>
+              <p class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Acompañamiento 24/7 y planes de mantenimiento para el crecimiento continuo.</p>
+            </div>
+
+            <!-- Transparencia -->
+            <div class="bg-gray-900/60 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-neon-pink/50 transition-all">
+              <div class="w-12 h-12 bg-neon-pink/20 rounded-lg flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-neon-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                </svg>
+              </div>
+              <h3 class="font-semibold text-white mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">Transparencia Total</h3>
+              <p class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Comunicación clara, reportes regulares y visibilidad completa del proceso.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final - ¿Cómo Contactarlos? -->
+    <section class="py-24 relative overflow-hidden">
+      
+      <div class="container mx-auto px-6 relative z-10">
         <div class="max-w-4xl mx-auto text-center">
-          <div class="mb-8">
-            <img src="/freeagentsfoundation.png" alt="Fundación FreeAgents" class="h-20 rounded-full w-auto mx-auto mb-6 animate-float">
+          <div class="inline-block px-4 py-2 bg-neon-cyan/10 border border-neon-cyan/30 rounded-full mb-8">
+            <span class="text-neon-cyan font-semibold text-sm">¿Cómo Contactarnos?</span>
           </div>
           
-          <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
-            <span class="bg-gradient-to-r from-neon-teal to-neon-blue bg-clip-text text-transparent">
-              Impacto y Talento
-            </span>
+          <h2 class="font-display text-4xl md:text-6xl font-bold mb-8 text-white drop-shadow-[0_0_25px_rgba(0,212,255,0.6)]">
+            ¿Listo para <span class="bg-gradient-to-r from-neon-cyan to-neon-teal bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(0,212,255,0.7)]">Transformar tu Negocio</span>?
           </h2>
           
-          <p class="text-xl text-gray-400 mb-8 leading-relaxed">
-            Nuestro compromiso va más allá del desarrollo de software. A través de la <strong class="text-neon-teal">Fundación FreeAgents</strong>, 
-            cultivamos el talento tech del futuro, asegurando que nuestros equipos estén siempre a la vanguardia de la innovación.
+          <p class="text-xl text-gray-100 mb-4 leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+            Hablemos de tu proyecto. Agenda una llamada gratuita de 30 minutos y descubre cómo podemos ayudarte.
           </p>
-          <p class="text-xl text-gray-400 mb-8 leading-relaxed">
-            Si deseas hacer parte de nuestro equipo o te interesa averiguar como puedes <strong class="text-neon-blue">darle un giro a tu carrera aprendiendo una habilidad de tecnologia </strong> <strong class="text-neon-purple">o aportar tu conocimiento a nuestro colectivo,</strong> 
-            tenemos las puertas abiertas para colaborar contigo, impulsar tu carrera y apoyarnos juntos en el proceso
+          
+          <p class="text-lg text-gray-200 mb-12 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
+            Sin compromiso. Solo una conversación honesta sobre tus necesidades tecnológicas.
           </p>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            <div class="text-center">
-              <div class="text-4xl font-bold text-neon-cyan mb-2">100%</div>
-              <p class="text-gray-400">Proyectos con talento cultivado</p>
-            </div>
-            <div class="text-center">
-              <div class="text-4xl font-bold text-neon-blue mb-2">24/7</div>
-              <p class="text-gray-400">Acompañamiento continua</p>
-            </div>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a 
+              href="/contacto" 
+              class="group bg-gradient-to-r from-neon-cyan to-neon-teal px-10 py-5 rounded-full text-white font-bold text-lg hover:shadow-2xl hover:shadow-neon-cyan/30 transition-all duration-300 hover:scale-105 flex items-center gap-2"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+              </svg>
+              <span>Agendar Llamada Gratuita</span>
+            </a>
+            <a 
+              href="/precios" 
+              class="relative border-2 border-neon-teal px-10 py-5 rounded-full text-neon-teal font-bold text-lg bg-neon-teal/15 backdrop-blur-sm hover:bg-neon-teal hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-neon-teal/40 drop-shadow-[0_0_15px_rgba(20,184,166,0.4)]"
+            >
+              <span class="relative z-10">Ver Planes y Precios</span>
+              <div class="absolute inset-0 rounded-full bg-neon-teal/20 blur-xl opacity-50"></div>
+            </a>
           </div>
 
-          <div class="bg-gradient-to-r from-neon-teal/10 to-neon-blue/10 border border-neon-teal/30 rounded-2xl p-8 mb-8">
-            <p class="text-lg text-gray-300 mb-6">
-              "Cuando eliges FreeAgents, no solo obtienes software excepcional. Contribuyes al desarrollo de una nueva generación de profesionales tech que transformarán la industria."
-            </p>
-            <div class="flex items-center justify-center space-x-4">
-              <img src="/logofreeagents1.png" alt="CEO" class="h-12 w-12 rounded-full">
-              <div class="text-left">
-                <p class="font-semibold text-white">Equipo FreeAgents</p>
-                <p class="text-gray-400 text-sm">Fundadores</p>
-              </div>
+          <div class="mt-12 flex flex-wrap justify-center gap-8 text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-neon-cyan drop-shadow-[0_0_10px_rgba(0,212,255,0.6)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Respuesta en 24 horas</span>
             </div>
-          </div>
-
-          <a href="/fundacion" class="bg-gradient-to-r from-neon-teal to-neon-blue px-8 py-4 rounded-full text-white font-semibold text-lg hover:shadow-lg hover:shadow-neon-teal/25 transition-all duration-300 hover:scale-105">
-            Conoce más sobre la Fundación
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonios -->
-    <section class="py-20 bg-gray-800">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
-            <span class="bg-gradient-to-r from-neon-cyan to-neon-teal bg-clip-text text-transparent">
-              Lo que Dicen Nuestros Clientes
-            </span>
-          </h2>
-          <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-            La satisfacción de nuestros clientes es nuestro mayor logro.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="bg-gray-900 p-8 rounded-2xl border border-gray-700">
-            <div class="flex items-center mb-4">
-              <div class="flex text-yellow-400">
-                ★★★★★
-              </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-neon-cyan drop-shadow-[0_0_10px_rgba(0,212,255,0.6)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Consulta gratuita</span>
             </div>
-            <p class="text-gray-300 mb-6">
-              "FreeAgents transformó completamente nuestra operación. Su equipo no solo entregó un producto excepcional, sino que nos acompañó en todo el proceso de crecimiento."
-            </p>
-            <div class="flex items-center">
-              <div class="w-12 h-12 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-full flex items-center justify-center mr-4">
-                <span class="text-white font-bold">MR</span>
-              </div>
-              <div>
-                <p class="font-semibold text-white">María Rodríguez</p>
-                <p class="text-gray-400 text-sm">CEO, TechVenture</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-gray-900 p-8 rounded-2xl border border-gray-700">
-            <div class="flex items-center mb-4">
-              <div class="flex text-yellow-400">
-                ★★★★★
-              </div>
-            </div>
-            <p class="text-gray-300 mb-6">
-              "La calidad del trabajo y la dedicación del equipo es impresionante. Se nota que invierten en el desarrollo de su talento, y eso se refleja en los resultados."
-            </p>
-            <div class="flex items-center">
-              <div class="w-12 h-12 bg-gradient-to-r from-neon-teal to-neon-blue rounded-full flex items-center justify-center mr-4">
-                <span class="text-white font-bold">CL</span>
-              </div>
-              <div>
-                <p class="font-semibold text-white">Carlos López</p>
-                <p class="text-gray-400 text-sm">Fundador, EcoStartup</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-gray-900 p-8 rounded-2xl border border-gray-700">
-            <div class="flex items-center mb-4">
-              <div class="flex text-yellow-400">
-                ★★★★★
-              </div>
-            </div>
-            <p class="text-gray-300 mb-6">
-              "Más que un proveedor, FreeAgents se convirtió en nuestro socio tecnológico. Su visión de futuro y compromiso social nos inspiró desde el primer día."
-            </p>
-            <div class="flex items-center">
-              <div class="w-12 h-12 bg-gradient-to-r from-neon-green to-neon-cyan rounded-full flex items-center justify-center mr-4">
-                <span class="text-white font-bold">AS</span>
-              </div>
-              <div>
-                <p class="font-semibold text-white">Ana Silva</p>
-                <p class="text-gray-400 text-sm">CTO, FinanceApp</p>
-              </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-neon-cyan drop-shadow-[0_0_10px_rgba(0,212,255,0.6)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Sin compromiso</span>
             </div>
           </div>
         </div>
       </div>
     </section>
+  </main>
 
-    <!-- CTA Final -->
-    <section class="py-20 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
-      <div class="container mx-auto px-6 text-center">
-        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
-          <span class="bg-gradient-to-r from-neon-cyan to-neon-teal bg-clip-text text-transparent">
-            ¿Listo para Transformar tu Negocio?
-          </span>
-        </h2>
-        <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
-          Únete a los emprendedores que ya están escalando sus negocios con tecnología de vanguardia.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/contacto" class="bg-gradient-to-r from-neon-cyan to-neon-teal px-8 py-4 rounded-full text-white font-semibold text-lg hover:shadow-lg hover:shadow-neon-cyan/25 transition-all duration-300 hover:scale-105">
-            Comenzar Proyecto
-          </a>
-          <a href="/precios" class="border-2 border-neon-teal px-8 py-4 rounded-full text-neon-teal font-semibold text-lg hover:bg-neon-teal hover:text-white transition-all duration-300 hover:scale-105">
-            Ver Planes
-          </a>
-        </div>
-      </div>
-    </section>
-  </div>
   <Footer />
 </Layout>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // Language switching functionality
-    function updateLanguage(lang) {
-      const elements = document.querySelectorAll('[data-es][data-en]');
-      elements.forEach(element => {
-        const text = element.getAttribute(`data-${lang}`);
-        if (text) {
-          element.textContent = text;
-        }
-      });
+<!-- Structured Data (JSON-LD) para SEO -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "FreeAgents",
+  "alternateName": "FreeAgents Software Factory",
+  "url": siteUrl,
+  "logo": `${siteUrl}/logofreeagents1.png`,
+  "description": "Software Factory especializada en desarrollo de software a la medida, páginas web, aplicaciones móviles y e-commerce para empresas y emprendedores.",
+  "foundingDate": "2024",
+  "founders": [
+    {
+      "@type": "Person",
+      "name": "Miguel Gallego"
     }
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "availableLanguage": ["Spanish", "English"]
+  },
+  "sameAs": [
+    "https://github.com/FreeAgentsDev",
+    "https://www.linkedin.com/company/freeagentsdev/",
+    "https://www.instagram.com/freeagentsdev/",
+    "https://www.facebook.com/profile.php?id=61577490723653"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "CO"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": ["Colombia", "Latinoamérica"]
+  }
+})} />
 
-    // Initialize language
-    const currentLang = localStorage.getItem('language') || 'es';
-    updateLanguage(currentLang);
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Desarrollo de Software a la Medida - FreeAgents",
+  "applicationCategory": "BusinessApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "description": "Cotización personalizada según proyecto"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "ratingCount": "50"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "FreeAgents"
+  }
+})} />
 
-    // Listen for language changes
-    window.addEventListener('languageChanged', (e) => {
-      updateLanguage(e.detail.language);
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Desarrollo de Software",
+  "provider": {
+    "@type": "Organization",
+    "name": "FreeAgents"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": ["Colombia", "Latinoamérica"]
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicios de Desarrollo de Software",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Desarrollo de Páginas Web",
+          "description": "Desarrollo de sitios web profesionales y personalizados"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Desarrollo de Aplicaciones Móviles",
+          "description": "Apps nativas iOS y Android, Progressive Web Apps"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "E-commerce",
+          "description": "Tiendas online completas con pasarelas de pago"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Desarrollo de Software a la Medida",
+          "description": "Sistemas personalizados, APIs, microservicios"
+        }
+      }
+    ]
+  }
+})} />
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "FreeAgents",
+  "url": siteUrl,
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": `${siteUrl}/contacto?q={search_term_string}`
+    },
+    "query-input": "required name=search_term_string"
+  }
+})} />
+
+<style>
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.8s ease-out forwards;
+    opacity: 0;
+  }
+  
+  @keyframes grid-move {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(50px, 50px);
+    }
+  }
+</style>
+
+<script>
+  /**
+   * Inicializar efectos de scroll reveal
+   */
+  if (typeof window !== 'undefined') {
+    document.addEventListener('DOMContentLoaded', () => {
+      // Inicializar scroll reveal para elementos con la clase scroll-reveal
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+          rootMargin: '0px 0px -100px 0px',
+        }
+      );
+
+      const elements = document.querySelectorAll('.scroll-reveal');
+      elements.forEach((el) => observer.observe(el));
     });
-  });
+  }
 </script>

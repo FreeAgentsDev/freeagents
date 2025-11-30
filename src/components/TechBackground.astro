@@ -1,0 +1,274 @@
+---
+interface Props {
+  variant?: 'particles' | 'code' | 'grid' | 'circuits' | 'waves';
+  intensity?: 'low' | 'medium' | 'high';
+}
+
+const { variant = 'particles', intensity = 'medium' } = Astro.props;
+---
+
+<div class="tech-background" data-variant={variant} data-intensity={intensity}>
+  {variant === 'particles' && (
+    <>
+      <canvas id="particles-canvas" class="absolute inset-0 w-full h-full"></canvas>
+    </>
+  )}
+  
+  {variant === 'code' && (
+    <div class="absolute inset-0 overflow-hidden opacity-20">
+      <div class="code-rain">
+        {Array.from({ length: 20 }).map(() => (
+          <div class="code-line" style={`left: ${Math.random() * 100}%; animation-delay: ${Math.random() * 5}s; animation-duration: ${10 + Math.random() * 10}s;`}>
+            {Array.from({ length: 30 }).map(() => (
+              <span class="code-char">{Math.random() > 0.5 ? '0' : '1'}</span>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+  
+  {variant === 'grid' && (
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="grid-pattern"></div>
+      <div class="grid-lines"></div>
+    </div>
+  )}
+  
+  {variant === 'circuits' && (
+    <div class="absolute inset-0 overflow-hidden opacity-30">
+      <svg class="w-full h-full" viewBox="0 0 1200 800">
+        <defs>
+          <linearGradient id="circuit-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.3" />
+            <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:0.2" />
+            <stop offset="100%" style="stop-color:#ec4899;stop-opacity:0.3" />
+          </linearGradient>
+        </defs>
+        <g class="circuit-paths">
+          <path d="M100,100 L300,100 L300,300 L500,300" stroke="url(#circuit-gradient)" stroke-width="2" fill="none" class="circuit-line" />
+          <path d="M700,200 L900,200 L900,400 L1100,400" stroke="url(#circuit-gradient)" stroke-width="2" fill="none" class="circuit-line" style="animation-delay: 0.5s;" />
+          <path d="M200,500 L400,500 L400,700 L600,700" stroke="url(#circuit-gradient)" stroke-width="2" fill="none" class="circuit-line" style="animation-delay: 1s;" />
+          <circle cx="100" cy="100" r="4" fill="#00d4ff" class="circuit-node animate-pulse" />
+          <circle cx="500" cy="300" r="4" fill="#8b5cf6" class="circuit-node animate-pulse" style="animation-delay: 0.3s;" />
+          <circle cx="1100" cy="400" r="4" fill="#ec4899" class="circuit-node animate-pulse" style="animation-delay: 0.6s;" />
+        </g>
+      </svg>
+    </div>
+  )}
+  
+  {variant === 'waves' && (
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="wave-container">
+        <svg class="waves" viewBox="0 0 1200 800" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.1" />
+              <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.05" />
+            </linearGradient>
+          </defs>
+          <path class="wave-path" d="M0,400 Q300,300 600,400 T1200,400 L1200,800 L0,800 Z" fill="url(#wave-gradient)" />
+          <path class="wave-path" d="M0,500 Q300,400 600,500 T1200,500 L1200,800 L0,800 Z" fill="url(#wave-gradient)" style="animation-delay: 0.5s;" />
+        </svg>
+      </div>
+    </div>
+  )}
+</div>
+
+<style>
+  .tech-background {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Code Rain Effect */
+  .code-rain {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .code-line {
+    position: absolute;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: #00d4ff;
+    white-space: nowrap;
+    animation: code-fall linear infinite;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+  }
+
+  .code-char {
+    display: inline-block;
+    opacity: 0.6;
+    animation: code-flicker 0.1s infinite;
+  }
+
+  @keyframes code-fall {
+    0% {
+      transform: translateY(-100px);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(calc(100vh + 100px));
+      opacity: 0;
+    }
+  }
+
+  @keyframes code-flicker {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  /* Grid Pattern */
+  .grid-pattern {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: grid-move 20s linear infinite;
+  }
+
+  .grid-lines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(rgba(139, 92, 246, 0.2) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(139, 92, 246, 0.2) 1px, transparent 1px);
+    background-size: 200px 200px;
+    animation: grid-move 30s linear infinite reverse;
+  }
+
+  @keyframes grid-move {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+  }
+
+  /* Circuit Lines */
+  .circuit-line {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: circuit-draw 3s ease-in-out infinite;
+  }
+
+  @keyframes circuit-draw {
+    0% {
+      stroke-dashoffset: 1000;
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      stroke-dashoffset: 0;
+      opacity: 0.5;
+    }
+  }
+
+  .circuit-node {
+    filter: drop-shadow(0 0 4px currentColor);
+  }
+
+  /* Wave Animation */
+  .wave-path {
+    animation: wave-animate 8s ease-in-out infinite;
+  }
+
+  @keyframes wave-animate {
+    0%, 100% {
+      d: path("M0,400 Q300,300 600,400 T1200,400 L1200,800 L0,800 Z");
+    }
+    50% {
+      d: path("M0,400 Q300,500 600,400 T1200,400 L1200,800 L0,800 Z");
+    }
+  }
+</style>
+
+<script>
+  // Particles Canvas Animation
+  if (typeof window !== 'undefined') {
+    document.addEventListener('DOMContentLoaded', () => {
+      const canvas = document.getElementById('particles-canvas');
+      if (!canvas) return;
+      
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      
+      const particles: Array<{x: number, y: number, vx: number, vy: number, size: number, color: string}> = [];
+      const particleCount = 50;
+      
+      const colors = ['#00d4ff', '#8b5cf6', '#ec4899', '#14b8a6', '#0ea5e9'];
+      
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5,
+          size: Math.random() * 3 + 1,
+          color: colors[Math.floor(Math.random() * colors.length)]
+        });
+      }
+      
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        particles.forEach((particle, i) => {
+          particle.x += particle.vx;
+          particle.y += particle.vy;
+          
+          if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
+          if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
+          
+          ctx.beginPath();
+          ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+          ctx.fillStyle = particle.color;
+          ctx.globalAlpha = 0.6;
+          ctx.shadowBlur = 10;
+          ctx.shadowColor = particle.color;
+          ctx.fill();
+          
+          // Connect nearby particles
+          particles.slice(i + 1).forEach(otherParticle => {
+            const dx = particle.x - otherParticle.x;
+            const dy = particle.y - otherParticle.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            if (distance < 150) {
+              ctx.beginPath();
+              ctx.moveTo(particle.x, particle.y);
+              ctx.lineTo(otherParticle.x, otherParticle.y);
+              ctx.strokeStyle = particle.color;
+              ctx.globalAlpha = 0.2 * (1 - distance / 150);
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
+          });
+        });
+        
+        requestAnimationFrame(animate);
+      }
+      
+      animate();
+      
+      window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+    });
+  }
+</script>
+
