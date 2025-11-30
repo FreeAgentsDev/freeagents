@@ -1,11 +1,14 @@
 ---
-// Componente de fondo dinámico tecnológico avanzado
+// Componente de fondo dinámico tecnológico avanzado - OPTIMIZADO
 interface Props {
   type?: 'matrix' | 'circuits' | 'particles' | 'hologram' | 'neural';
   color?: 'cyan' | 'purple' | 'pink' | 'blue' | 'green';
 }
 
 const { type = 'particles', color = 'cyan' } = Astro.props;
+
+// Generar ID único para evitar conflictos
+const uniqueId = `bg-${type}-${Math.random().toString(36).substring(2, 9)}`;
 
 const colorMap = {
   cyan: { primary: '#00d4ff', secondary: '#14b8a6' },
@@ -18,10 +21,10 @@ const colorMap = {
 const colors = colorMap[color] || colorMap.cyan;
 ---
 
-<div class="dynamic-background" data-type={type} data-color={color}>
+<div class="dynamic-background" data-type={type} data-color={color} data-bg-id={uniqueId}>
   {type === 'matrix' && (
     <div class="matrix-container">
-      <canvas id="matrix-canvas" class="matrix-canvas"></canvas>
+      <canvas id={`${uniqueId}-canvas`} class="matrix-canvas"></canvas>
     </div>
   )}
   
@@ -29,21 +32,14 @@ const colors = colorMap[color] || colorMap.cyan;
     <div class="circuits-container">
       <svg class="circuits-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
         <defs>
-          <linearGradient id={`circuit-grad-${color}`} x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style={`stop-color:${colors.primary};stop-opacity:0.2`} />
-            <stop offset="50%" style={`stop-color:${colors.secondary};stop-opacity:0.1`} />
-            <stop offset="100%" style={`stop-color:${colors.primary};stop-opacity:0.2`} />
+          <linearGradient id={`circuit-grad-${uniqueId}`} x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style={`stop-color:${colors.primary};stop-opacity:0.15`} />
+            <stop offset="50%" style={`stop-color:${colors.secondary};stop-opacity:0.08`} />
+            <stop offset="100%" style={`stop-color:${colors.primary};stop-opacity:0.15`} />
           </linearGradient>
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-            <feMerge>
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
         </defs>
         <g class="circuit-network">
-          {Array.from({ length: 15 }).map((_, i) => {
+          {Array.from({ length: 10 }).map((_, i) => {
             const x1 = Math.random() * 1920;
             const y1 = Math.random() * 1080;
             const x2 = Math.random() * 1920;
@@ -55,26 +51,26 @@ const colors = colorMap[color] || colorMap.cyan;
                   y1={y1} 
                   x2={x2} 
                   y2={y2} 
-                  stroke={`url(#circuit-grad-${color})`}
-                  stroke-width="2"
+                  stroke={`url(#circuit-grad-${uniqueId})`}
+                  stroke-width="1.5"
                   class="circuit-line"
-                  style={`animation-delay: ${i * 0.2}s;`}
+                  style={`animation-delay: ${i * 0.3}s;`}
                 />
                 <circle 
                   cx={x1} 
                   cy={y1} 
-                  r="6" 
+                  r="4" 
                   fill={colors.primary}
                   class="circuit-node"
-                  style={`animation-delay: ${i * 0.2}s;`}
+                  style={`animation-delay: ${i * 0.3}s;`}
                 />
                 <circle 
                   cx={x2} 
                   cy={y2} 
-                  r="6" 
+                  r="4" 
                   fill={colors.secondary}
                   class="circuit-node"
-                  style={`animation-delay: ${i * 0.2 + 0.1}s;`}
+                  style={`animation-delay: ${i * 0.3 + 0.15}s;`}
                 />
               </>
             );
@@ -86,20 +82,20 @@ const colors = colorMap[color] || colorMap.cyan;
   
   {type === 'particles' && (
     <div class="particles-container">
-      <canvas id="particles-canvas" class="particles-canvas"></canvas>
+      <canvas id={`${uniqueId}-canvas`} class="particles-canvas"></canvas>
     </div>
   )}
   
   {type === 'hologram' && (
     <div class="hologram-container">
-      <div class="hologram-grid" style={`background-image: linear-gradient(rgba(${colors.primary === '#00d4ff' ? '0, 212, 255' : colors.primary === '#8b5cf6' ? '139, 92, 246' : colors.primary === '#0ea5e9' ? '14, 165, 233' : '16, 185, 129'}, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(${colors.primary === '#00d4ff' ? '0, 212, 255' : colors.primary === '#8b5cf6' ? '139, 92, 246' : colors.primary === '#0ea5e9' ? '14, 165, 233' : '16, 185, 129'}, 0.1) 1px, transparent 1px);`}></div>
-      <div class="hologram-scan" style={`background: linear-gradient(to bottom, transparent 0%, ${colors.primary}15 50%, transparent 100%);`}></div>
+      <div class="hologram-grid" style={`background-image: linear-gradient(rgba(${colors.primary === '#00d4ff' ? '0, 212, 255' : colors.primary === '#8b5cf6' ? '139, 92, 246' : colors.primary === '#0ea5e9' ? '14, 165, 233' : '16, 185, 129'}, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(${colors.primary === '#00d4ff' ? '0, 212, 255' : colors.primary === '#8b5cf6' ? '139, 92, 246' : colors.primary === '#0ea5e9' ? '14, 165, 233' : '16, 185, 129'}, 0.08) 1px, transparent 1px);`}></div>
+      <div class="hologram-scan" style={`background: linear-gradient(to bottom, transparent 0%, ${colors.primary}10 50%, transparent 100%);`}></div>
     </div>
   )}
   
   {type === 'neural' && (
     <div class="neural-container">
-      <canvas id="neural-canvas" class="neural-canvas"></canvas>
+      <canvas id={`${uniqueId}-canvas`} class="neural-canvas"></canvas>
     </div>
   )}
 </div>
@@ -124,6 +120,9 @@ const colors = colorMap[color] || colorMap.cyan;
     width: 100%;
     height: 100%;
     opacity: 0.08;
+    will-change: transform;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
   }
 
   /* Circuits */
@@ -186,6 +185,8 @@ const colors = colorMap[color] || colorMap.cyan;
   .particles-canvas {
     width: 100%;
     height: 100%;
+    will-change: transform;
+    image-rendering: -webkit-optimize-contrast;
   }
 
   /* Hologram */
@@ -236,52 +237,90 @@ const colors = colorMap[color] || colorMap.cyan;
     width: 100%;
     height: 100%;
     opacity: 0.1;
+    will-change: transform;
+    image-rendering: -webkit-optimize-contrast;
   }
 </style>
 
 <script>
   /**
-   * Dynamic Background Scripts
-   * Optimizado para performance y manejo de errores
+   * Dynamic Background Scripts - ULTRA OPTIMIZADO
+   * Performance mejorada: devicePixelRatio, Page Visibility API, menos partículas
    */
   if (typeof window !== 'undefined') {
-    // Throttle function para optimizar resize events
+    // Throttle mejorado con requestAnimationFrame
     function throttle<T extends (...args: any[]) => void>(
       func: T,
       limit: number
     ): (...args: Parameters<T>) => void {
-      let inThrottle: boolean;
+      let lastRun = 0;
+      let timeoutId: ReturnType<typeof setTimeout> | null = null;
       return function (this: any, ...args: Parameters<T>) {
-        if (!inThrottle) {
+        const now = Date.now();
+        if (now - lastRun >= limit) {
           func.apply(this, args);
-          inThrottle = true;
-          setTimeout(() => (inThrottle = false), limit);
+          lastRun = now;
+        } else {
+          if (timeoutId) clearTimeout(timeoutId);
+          timeoutId = setTimeout(() => {
+            func.apply(this, args);
+            lastRun = Date.now();
+          }, limit - (now - lastRun));
         }
       };
     }
 
-    // RequestAnimationFrame polyfill para mejor performance
     const raf = window.requestAnimationFrame || 
                 ((cb: FrameRequestCallback) => setTimeout(cb, 16));
 
+    // Page Visibility API para pausar animaciones
+    let isPageVisible = !document.hidden;
+    document.addEventListener('visibilitychange', () => {
+      isPageVisible = !document.hidden;
+    });
+
+    // Función para redimensionar canvas correctamente con devicePixelRatio
+    function setupCanvas(canvas: HTMLCanvasElement): { ctx: CanvasRenderingContext2D | null, dpr: number } {
+      const ctx = canvas.getContext('2d', { alpha: true, desynchronized: true });
+      if (!ctx) return { ctx: null, dpr: 1 };
+      
+      const dpr = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
+      
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      canvas.style.width = `${rect.width}px`;
+      canvas.style.height = `${rect.height}px`;
+      
+      ctx.scale(dpr, dpr);
+      
+      return { ctx, dpr };
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
-      // Matrix Effect
-      const matrixCanvas = document.getElementById('matrix-canvas') as HTMLCanvasElement;
-      if (matrixCanvas) {
-        const ctx = matrixCanvas.getContext('2d');
-        if (ctx) {
+      // Buscar todos los backgrounds por su data-bg-id
+      const backgrounds = document.querySelectorAll('[data-bg-id]');
+      
+      backgrounds.forEach((bgElement) => {
+        const bgId = bgElement.getAttribute('data-bg-id');
+        const type = bgElement.getAttribute('data-type');
+        if (!bgId || !type) return;
+
+        // Matrix Effect
+        if (type === 'matrix') {
+          const canvas = document.getElementById(`${bgId}-canvas`) as HTMLCanvasElement;
+          if (!canvas) return;
+          
+          const { ctx, dpr } = setupCanvas(canvas);
+          if (!ctx) return;
+          
           let animationFrameId: number | null = null;
-          
-          const resizeCanvas = () => {
-            matrixCanvas.width = window.innerWidth;
-            matrixCanvas.height = window.innerHeight;
-          };
-          
-          resizeCanvas();
+          let isPaused = false;
           
           const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
           const fontSize = 14;
-          const columns = matrixCanvas.width / fontSize;
+          const rect = canvas.getBoundingClientRect();
+          let columns = Math.floor(rect.width / fontSize);
           const drops: number[] = [];
           
           for (let i = 0; i < columns; i++) {
@@ -289,72 +328,76 @@ const colors = colorMap[color] || colorMap.cyan;
           }
           
           function drawMatrix() {
+            if (!isPageVisible || isPaused) {
+              animationFrameId = raf(drawMatrix);
+              return;
+            }
+            
             try {
               ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-              ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+              ctx.fillRect(0, 0, rect.width, rect.height);
               
               ctx.fillStyle = '#00d4ff';
               ctx.font = `${fontSize}px monospace`;
               
-              for (let i = 0; i < drops.length; i++) {
+              for (let i = 0; i < drops.length && i < columns; i++) {
                 const text = chars[Math.floor(Math.random() * chars.length)];
                 const x = i * fontSize;
                 const y = drops[i] * fontSize;
                 
-                ctx.fillText(text, x, y);
-                
-                if (y > matrixCanvas.height && Math.random() > 0.975) {
+                if (y < rect.height + 100) {
+                  ctx.fillText(text, x, y);
+                  drops[i]++;
+                } else if (Math.random() > 0.975) {
                   drops[i] = 0;
                 }
-                drops[i]++;
               }
               
               animationFrameId = raf(drawMatrix);
             } catch (error) {
               console.error('Error in matrix animation:', error);
-              if (animationFrameId) {
-                cancelAnimationFrame(animationFrameId);
-              }
+              if (animationFrameId) cancelAnimationFrame(animationFrameId);
             }
           }
           
-          drawMatrix();
-          
           const handleResize = throttle(() => {
-            resizeCanvas();
-            // Recalcular columnas
-            const newColumns = Math.floor(matrixCanvas.width / fontSize);
+            const newRect = canvas.getBoundingClientRect();
+            const newDpr = window.devicePixelRatio || 1;
+            canvas.width = newRect.width * newDpr;
+            canvas.height = newRect.height * newDpr;
+            canvas.style.width = `${newRect.width}px`;
+            canvas.style.height = `${newRect.height}px`;
+            ctx.scale(newDpr / dpr, newDpr / dpr);
+            rect.width = newRect.width;
+            rect.height = newRect.height;
+            
+            const newColumns = Math.floor(rect.width / fontSize);
             while (drops.length < newColumns) {
               drops.push(Math.random() * -100);
             }
             drops.length = newColumns;
-          }, 250);
+            columns = newColumns;
+          }, 300);
           
           window.addEventListener('resize', handleResize);
+          drawMatrix();
           
-          // Cleanup on page unload
           window.addEventListener('beforeunload', () => {
-            if (animationFrameId) {
-              cancelAnimationFrame(animationFrameId);
-            }
+            if (animationFrameId) cancelAnimationFrame(animationFrameId);
             window.removeEventListener('resize', handleResize);
           });
         }
-      }
-      
-      // Advanced Particles
-      const particlesCanvas = document.getElementById('particles-canvas') as HTMLCanvasElement;
-      if (particlesCanvas) {
-        const ctx = particlesCanvas.getContext('2d');
-        if (ctx) {
+        
+        // Particles - OPTIMIZADO: menos partículas, menos cálculos
+        if (type === 'particles') {
+          const canvas = document.getElementById(`${bgId}-canvas`) as HTMLCanvasElement;
+          if (!canvas) return;
+          
+          const { ctx } = setupCanvas(canvas);
+          if (!ctx) return;
+          
           let animationFrameId: number | null = null;
-          
-          const resizeCanvas = () => {
-            particlesCanvas.width = window.innerWidth;
-            particlesCanvas.height = window.innerHeight;
-          };
-          
-          resizeCanvas();
+          const rect = canvas.getBoundingClientRect();
           
           const particles: Array<{
             x: number;
@@ -363,121 +406,118 @@ const colors = colorMap[color] || colorMap.cyan;
             vy: number;
             size: number;
             color: string;
-            life: number;
           }> = [];
           
-          const colors = ['#00d4ff', '#8b5cf6', '#ec4899', '#14b8a6', '#0ea5e9'];
+          const colors = ['#00d4ff', '#14b8a6', '#0ea5e9'];
+          const particleCount = 40; // Reducido de 80 a 40
           
-          function createParticle() {
+          for (let i = 0; i < particleCount; i++) {
             particles.push({
-              x: Math.random() * particlesCanvas.width,
-              y: Math.random() * particlesCanvas.height,
-              vx: (Math.random() - 0.5) * 0.8,
-              vy: (Math.random() - 0.5) * 0.8,
-              size: Math.random() * 4 + 2,
-              color: colors[Math.floor(Math.random() * colors.length)],
-              life: Math.random() * 100
+              x: Math.random() * rect.width,
+              y: Math.random() * rect.height,
+              vx: (Math.random() - 0.5) * 0.5,
+              vy: (Math.random() - 0.5) * 0.5,
+              size: Math.random() * 3 + 1.5,
+              color: colors[Math.floor(Math.random() * colors.length)]
             });
           }
           
-          for (let i = 0; i < 80; i++) {
-            createParticle();
-          }
-          
           function animateParticles() {
-            ctx.clearRect(0, 0, particlesCanvas.width, particlesCanvas.height);
+            if (!isPageVisible) {
+              animationFrameId = raf(animateParticles);
+              return;
+            }
             
-            particles.forEach((particle, i) => {
+            ctx.clearRect(0, 0, rect.width, rect.height);
+            
+            // Optimización: solo dibujar conexiones cercanas
+            for (let i = 0; i < particles.length; i++) {
+              const particle = particles[i];
               particle.x += particle.vx;
               particle.y += particle.vy;
-              particle.life--;
               
-              if (particle.life <= 0 || particle.x < 0 || particle.x > particlesCanvas.width || 
-                  particle.y < 0 || particle.y > particlesCanvas.height) {
-                particles[i] = {
-                  x: Math.random() * particlesCanvas.width,
-                  y: Math.random() * particlesCanvas.height,
-                  vx: (Math.random() - 0.5) * 0.8,
-                  vy: (Math.random() - 0.5) * 0.8,
-                  size: Math.random() * 4 + 2,
-                  color: colors[Math.floor(Math.random() * colors.length)],
-                  life: Math.random() * 100 + 50
-                };
-              }
+              if (particle.x < 0 || particle.x > rect.width) particle.vx *= -1;
+              if (particle.y < 0 || particle.y > rect.height) particle.vy *= -1;
               
               ctx.beginPath();
               ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
               ctx.fillStyle = particle.color;
-              ctx.globalAlpha = 0.7;
-              ctx.shadowBlur = 15;
-              ctx.shadowColor = particle.color;
+              ctx.globalAlpha = 0.6;
               ctx.fill();
               
-              particles.slice(i + 1).forEach(otherParticle => {
-                const dx = particle.x - otherParticle.x;
-                const dy = particle.y - otherParticle.y;
+              // Solo conectar con partículas cercanas (optimización)
+              for (let j = i + 1; j < particles.length; j++) {
+                const other = particles[j];
+                const dx = particle.x - other.x;
+                const dy = particle.y - other.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
                 
-                if (distance < 120) {
+                if (distance < 100) {
                   ctx.beginPath();
                   ctx.moveTo(particle.x, particle.y);
-                  ctx.lineTo(otherParticle.x, otherParticle.y);
+                  ctx.lineTo(other.x, other.y);
                   ctx.strokeStyle = particle.color;
-                  ctx.globalAlpha = 0.15 * (1 - distance / 120);
-                  ctx.lineWidth = 1.5;
+                  ctx.globalAlpha = 0.1 * (1 - distance / 100);
+                  ctx.lineWidth = 1;
                   ctx.stroke();
                 }
-              });
-            });
+              }
+            }
             
             animationFrameId = raf(animateParticles);
           }
           
-          animateParticles();
-          
           const handleResize = throttle(() => {
-            resizeCanvas();
-          }, 250);
+            const newRect = canvas.getBoundingClientRect();
+            const newDpr = window.devicePixelRatio || 1;
+            canvas.width = newRect.width * newDpr;
+            canvas.height = newRect.height * newDpr;
+            canvas.style.width = `${newRect.width}px`;
+            canvas.style.height = `${newRect.height}px`;
+            ctx.scale(newDpr, newDpr);
+            rect.width = newRect.width;
+            rect.height = newRect.height;
+            
+            // Ajustar partículas al nuevo tamaño
+            particles.forEach(p => {
+              p.x = Math.min(p.x, rect.width);
+              p.y = Math.min(p.y, rect.height);
+            });
+          }, 300);
           
           window.addEventListener('resize', handleResize);
+          animateParticles();
           
-          // Cleanup
           window.addEventListener('beforeunload', () => {
-            if (animationFrameId) {
-              cancelAnimationFrame(animationFrameId);
-            }
+            if (animationFrameId) cancelAnimationFrame(animationFrameId);
             window.removeEventListener('resize', handleResize);
           });
         }
-      }
-      
-      // Neural Network
-      const neuralCanvas = document.getElementById('neural-canvas') as HTMLCanvasElement;
-      if (neuralCanvas) {
-        const ctx = neuralCanvas.getContext('2d');
-        if (ctx) {
+        
+        // Neural Network - OPTIMIZADO
+        if (type === 'neural') {
+          const canvas = document.getElementById(`${bgId}-canvas`) as HTMLCanvasElement;
+          if (!canvas) return;
+          
+          const { ctx } = setupCanvas(canvas);
+          if (!ctx) return;
+          
           let animationFrameId: number | null = null;
-          
-          const resizeCanvas = () => {
-            neuralCanvas.width = window.innerWidth;
-            neuralCanvas.height = window.innerHeight;
-          };
-          
-          resizeCanvas();
+          const rect = canvas.getBoundingClientRect();
           
           const nodes: Array<{x: number, y: number, connections: number[]}> = [];
-          const nodeCount = 30;
+          const nodeCount = 20; // Reducido de 30 a 20
           
           for (let i = 0; i < nodeCount; i++) {
             nodes.push({
-              x: Math.random() * neuralCanvas.width,
-              y: Math.random() * neuralCanvas.height,
+              x: Math.random() * rect.width,
+              y: Math.random() * rect.height,
               connections: []
             });
           }
           
           nodes.forEach((node, i) => {
-            const connections = Math.floor(Math.random() * 3) + 1;
+            const connections = Math.floor(Math.random() * 2) + 1; // Máximo 2 conexiones
             for (let j = 0; j < connections; j++) {
               const target = Math.floor(Math.random() * nodeCount);
               if (target !== i && !node.connections.includes(target)) {
@@ -487,16 +527,21 @@ const colors = colorMap[color] || colorMap.cyan;
           });
           
           function animateNeural() {
-            ctx.clearRect(0, 0, neuralCanvas.width, neuralCanvas.height);
+            if (!isPageVisible) {
+              animationFrameId = raf(animateNeural);
+              return;
+            }
             
-            nodes.forEach((node, i) => {
-              node.x += (Math.random() - 0.5) * 0.5;
-              node.y += (Math.random() - 0.5) * 0.5;
+            ctx.clearRect(0, 0, rect.width, rect.height);
+            
+            nodes.forEach((node) => {
+              node.x += (Math.random() - 0.5) * 0.3;
+              node.y += (Math.random() - 0.5) * 0.3;
               
-              if (node.x < 0) node.x = neuralCanvas.width;
-              if (node.x > neuralCanvas.width) node.x = 0;
-              if (node.y < 0) node.y = neuralCanvas.height;
-              if (node.y > neuralCanvas.height) node.y = 0;
+              if (node.x < 0) node.x = rect.width;
+              if (node.x > rect.width) node.x = 0;
+              if (node.y < 0) node.y = rect.height;
+              if (node.y > rect.height) node.y = 0;
               
               node.connections.forEach(targetIndex => {
                 const target = nodes[targetIndex];
@@ -504,46 +549,48 @@ const colors = colorMap[color] || colorMap.cyan;
                 const dy = node.y - target.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
                 
-                if (distance < 200) {
+                if (distance < 150) {
                   ctx.beginPath();
                   ctx.moveTo(node.x, node.y);
                   ctx.lineTo(target.x, target.y);
                   ctx.strokeStyle = '#00d4ff';
-                  ctx.globalAlpha = 0.2 * (1 - distance / 200);
+                  ctx.globalAlpha = 0.15 * (1 - distance / 150);
                   ctx.lineWidth = 1;
                   ctx.stroke();
                 }
               });
               
               ctx.beginPath();
-              ctx.arc(node.x, node.y, 4, 0, Math.PI * 2);
+              ctx.arc(node.x, node.y, 3, 0, Math.PI * 2);
               ctx.fillStyle = '#00d4ff';
-              ctx.globalAlpha = 0.6;
-              ctx.shadowBlur = 10;
-              ctx.shadowColor = '#00d4ff';
+              ctx.globalAlpha = 0.5;
               ctx.fill();
             });
             
             animationFrameId = raf(animateNeural);
           }
           
-          animateNeural();
-          
           const handleResize = throttle(() => {
-            resizeCanvas();
-          }, 250);
+            const newRect = canvas.getBoundingClientRect();
+            const newDpr = window.devicePixelRatio || 1;
+            canvas.width = newRect.width * newDpr;
+            canvas.height = newRect.height * newDpr;
+            canvas.style.width = `${newRect.width}px`;
+            canvas.style.height = `${newRect.height}px`;
+            ctx.scale(newDpr, newDpr);
+            rect.width = newRect.width;
+            rect.height = newRect.height;
+          }, 300);
           
           window.addEventListener('resize', handleResize);
+          animateNeural();
           
-          // Cleanup
           window.addEventListener('beforeunload', () => {
-            if (animationFrameId) {
-              cancelAnimationFrame(animationFrameId);
-            }
+            if (animationFrameId) cancelAnimationFrame(animationFrameId);
             window.removeEventListener('resize', handleResize);
           });
         }
-      }
+      });
     });
   }
 </script>

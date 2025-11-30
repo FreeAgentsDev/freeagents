@@ -1,22 +1,27 @@
 ---
-// Language Selector Component
+// Language Selector Component - Optimizado con IDs únicos
+const uniqueId = `lang-${Math.random().toString(36).substring(2, 11)}`;
 ---
 
-<div class="language-selector relative">
-  <button id="language-btn" class="flex items-center space-x-2 px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 hover:border-neon-cyan/50 transition-all duration-300">
-    <img id="current-flag" src="/flags/es.svg" alt="Español" class="w-5 h-5 rounded-sm">
-    <span id="current-lang" class="text-gray-300 text-sm font-medium">ES</span>
+<div class="language-selector relative" data-lang-selector-id={uniqueId}>
+  <button 
+    class="lang-btn flex items-center space-x-2 px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 hover:border-neon-cyan/50 transition-all duration-300"
+    aria-label="Seleccionar idioma"
+    aria-expanded="false"
+  >
+    <img class="lang-flag w-5 h-5 rounded-sm" src="/flags/es.svg" alt="Español">
+    <span class="lang-text text-gray-300 text-sm font-medium">ES</span>
     <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
     </svg>
   </button>
   
-  <div id="language-dropdown" class="absolute top-full right-0 mt-2 w-32 bg-gray-800 border border-gray-700 rounded-lg shadow-xl opacity-0 invisible transform scale-95 transition-all duration-200 z-50">
-    <button class="language-option w-full flex items-center space-x-3 px-4 py-3 hover:bg-gray-700 transition-colors duration-200 first:rounded-t-lg" data-lang="es">
+  <div class="lang-dropdown absolute top-full right-0 mt-2 w-32 bg-gray-800 border border-gray-700 rounded-lg shadow-xl opacity-0 invisible transform scale-95 transition-all duration-200 z-50">
+    <button class="lang-option w-full flex items-center space-x-3 px-4 py-3 hover:bg-gray-700 transition-colors duration-200 first:rounded-t-lg" data-lang="es">
       <img src="/flags/es.svg" alt="Español" class="w-5 h-5 rounded-sm">
       <span class="text-gray-300 text-sm">Español</span>
     </button>
-    <button class="language-option w-full flex items-center space-x-3 px-4 py-3 hover:bg-gray-700 transition-colors duration-200 last:rounded-b-lg" data-lang="en">
+    <button class="lang-option w-full flex items-center space-x-3 px-4 py-3 hover:bg-gray-700 transition-colors duration-200 last:rounded-b-lg" data-lang="en">
       <img src="/flags/us.svg" alt="English" class="w-5 h-5 rounded-sm">
       <span class="text-gray-300 text-sm">English</span>
     </button>
@@ -24,68 +29,100 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const languageBtn = document.getElementById('language-btn');
-    const languageDropdown = document.getElementById('language-dropdown');
-    const currentFlag = document.getElementById('current-flag');
-    const currentLang = document.getElementById('current-lang');
-    const languageOptions = document.querySelectorAll('.language-option');
-
-    // Get current language from localStorage or default to 'es'
-    let currentLanguage = localStorage.getItem('language') || 'es';
+  document.addEventListener('DOMContentLoaded', function() {
+    // Find all language selectors on the page
+    const selectors = document.querySelectorAll('.language-selector');
     
-    // Update UI based on current language
-    function updateLanguageUI(lang) {
-      if (lang === 'en') {
-        currentFlag.src = '/flags/us.svg';
-        currentFlag.alt = 'English';
-        currentLang.textContent = 'EN';
-      } else {
-        currentFlag.src = '/flags/es.svg';
-        currentFlag.alt = 'Español';
-        currentLang.textContent = 'ES';
-      }
-    }
+    selectors.forEach(container => {
+      const languageBtn = container.querySelector('.lang-btn') as HTMLButtonElement;
+      const languageDropdown = container.querySelector('.lang-dropdown') as HTMLElement;
+      const currentFlag = container.querySelector('.lang-flag') as HTMLImageElement;
+      const currentLang = container.querySelector('.lang-text') as HTMLElement;
+      const languageOptions = container.querySelectorAll('.lang-option');
 
-    // Initialize UI
-    updateLanguageUI(currentLanguage);
+      if (!languageBtn || !languageDropdown || !currentFlag || !currentLang) return;
 
-    // Toggle dropdown
-    languageBtn?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isVisible = !languageDropdown.classList.contains('opacity-0');
+      // Get current language from localStorage or default to 'es'
+      let currentLanguage = localStorage.getItem('language') || 'es';
       
-      if (isVisible) {
-        languageDropdown.classList.add('opacity-0', 'invisible', 'scale-95');
-      } else {
-        languageDropdown.classList.remove('opacity-0', 'invisible', 'scale-95');
+      // Update UI based on current language
+      function updateLanguageUI(lang: string) {
+        if (lang === 'en') {
+          currentFlag.src = '/flags/us.svg';
+          currentFlag.alt = 'English';
+          currentLang.textContent = 'EN';
+        } else {
+          currentFlag.src = '/flags/es.svg';
+          currentFlag.alt = 'Español';
+          currentLang.textContent = 'ES';
+        }
       }
-    });
 
-    // Handle language selection
-    languageOptions.forEach(option => {
-      option.addEventListener('click', (e) => {
-        const selectedLang = option.getAttribute('data-lang');
+      // Update all language selectors on the page
+      function updateAllSelectors(lang: string) {
+        document.querySelectorAll('.language-selector').forEach(sel => {
+          const flag = sel.querySelector('.lang-flag') as HTMLImageElement;
+          const text = sel.querySelector('.lang-text') as HTMLElement;
+          if (flag && text) {
+            if (lang === 'en') {
+              flag.src = '/flags/us.svg';
+              flag.alt = 'English';
+              text.textContent = 'EN';
+            } else {
+              flag.src = '/flags/es.svg';
+              flag.alt = 'Español';
+              text.textContent = 'ES';
+            }
+          }
+        });
+      }
+
+      // Initialize UI
+      updateLanguageUI(currentLanguage);
+
+      // Toggle dropdown
+      languageBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const isVisible = !languageDropdown.classList.contains('opacity-0');
         
-        if (selectedLang !== currentLanguage) {
-          currentLanguage = selectedLang;
-          localStorage.setItem('language', selectedLang);
-          updateLanguageUI(selectedLang);
-          
-          // Trigger language change event
-          window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: selectedLang } }));
-          
-          // Close dropdown
+        if (isVisible) {
           languageDropdown.classList.add('opacity-0', 'invisible', 'scale-95');
+          languageBtn.setAttribute('aria-expanded', 'false');
+        } else {
+          languageDropdown.classList.remove('opacity-0', 'invisible', 'scale-95');
+          languageBtn.setAttribute('aria-expanded', 'true');
         }
       });
-    });
 
-    // Close dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!languageBtn?.contains(e.target) && !languageDropdown?.contains(e.target)) {
-        languageDropdown.classList.add('opacity-0', 'invisible', 'scale-95');
-      }
+      // Handle language selection
+      languageOptions.forEach(option => {
+        option.addEventListener('click', function(e) {
+          e.stopPropagation();
+          e.preventDefault();
+          const selectedLang = option.getAttribute('data-lang');
+          
+          if (selectedLang && selectedLang !== currentLanguage) {
+            // Save language to localStorage
+            localStorage.setItem('language', selectedLang);
+            
+            // Reload the page to apply language changes
+            window.location.reload();
+          } else if (selectedLang === currentLanguage) {
+            // If same language, just close dropdown
+            languageDropdown.classList.add('opacity-0', 'invisible', 'scale-95');
+            languageBtn.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function(e) {
+        const target = e.target as Node;
+        if (!container.contains(target)) {
+          languageDropdown.classList.add('opacity-0', 'invisible', 'scale-95');
+          languageBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
     });
   });
 </script>

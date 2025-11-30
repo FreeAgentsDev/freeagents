@@ -121,8 +121,8 @@ const currentPath = Astro.url.pathname;
           <!-- Glow Effect -->
           <div class="absolute inset-0 bg-gradient-to-r from-neon-cyan to-neon-teal opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300"></div>
           
-          <span class="relative z-10 flex items-center gap-2" data-es="Contacto" data-en="Contact">
-            Contacto
+          <span class="relative z-10 flex items-center gap-2">
+            <span data-es="Contacto" data-en="Contact">Contacto</span>
             <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
             </svg>
@@ -177,9 +177,9 @@ const currentPath = Astro.url.pathname;
           href="/servicios" 
           class="mobile-link group relative px-4 py-3 rounded-lg text-gray-300 hover:text-white transition-all duration-300"
         >
-          <span class="relative z-10 flex items-center gap-3" data-es="Servicios" data-en="Services">
+          <span class="relative z-10 flex items-center gap-3">
             <div class="w-2 h-2 bg-neon-cyan rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            Servicios
+            <span data-es="Servicios" data-en="Services">Servicios</span>
           </span>
           <div class="absolute inset-0 bg-gradient-to-r from-neon-cyan/10 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
         </a>
@@ -188,9 +188,9 @@ const currentPath = Astro.url.pathname;
           href="/portafolio" 
           class="mobile-link group relative px-4 py-3 rounded-lg text-gray-300 hover:text-white transition-all duration-300"
         >
-          <span class="relative z-10 flex items-center gap-3" data-es="Portafolio" data-en="Portfolio">
+          <span class="relative z-10 flex items-center gap-3">
             <div class="w-2 h-2 bg-neon-cyan rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            Portafolio
+            <span data-es="Portafolio" data-en="Portfolio">Portafolio</span>
           </span>
           <div class="absolute inset-0 bg-gradient-to-r from-neon-cyan/10 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
         </a>
@@ -199,9 +199,9 @@ const currentPath = Astro.url.pathname;
           href="/precios" 
           class="mobile-link group relative px-4 py-3 rounded-lg text-gray-300 hover:text-white transition-all duration-300"
         >
-          <span class="relative z-10 flex items-center gap-3" data-es="Precios" data-en="Pricing">
+          <span class="relative z-10 flex items-center gap-3">
             <div class="w-2 h-2 bg-neon-cyan rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            Precios
+            <span data-es="Precios" data-en="Pricing">Precios</span>
           </span>
           <div class="absolute inset-0 bg-gradient-to-r from-neon-cyan/10 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
         </a>
@@ -210,9 +210,9 @@ const currentPath = Astro.url.pathname;
           href="/nosotros" 
           class="mobile-link group relative px-4 py-3 rounded-lg text-gray-300 hover:text-white transition-all duration-300"
         >
-          <span class="relative z-10 flex items-center gap-3" data-es="Nosotros" data-en="About">
+          <span class="relative z-10 flex items-center gap-3">
             <div class="w-2 h-2 bg-neon-cyan rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            Nosotros
+            <span data-es="Nosotros" data-en="About">Nosotros</span>
           </span>
           <div class="absolute inset-0 bg-gradient-to-r from-neon-cyan/10 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
         </a>
@@ -221,9 +221,9 @@ const currentPath = Astro.url.pathname;
           href="/fundacion" 
           class="mobile-link group relative px-4 py-3 rounded-lg text-gray-300 hover:text-neon-teal transition-all duration-300"
         >
-          <span class="relative z-10 flex items-center gap-3" data-es="Fundación" data-en="Foundation">
+          <span class="relative z-10 flex items-center gap-3">
             <div class="w-2 h-2 bg-neon-teal rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            Fundación
+            <span data-es="Fundación" data-en="Foundation">Fundación</span>
           </span>
           <div class="absolute inset-0 bg-gradient-to-r from-neon-teal/10 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
         </a>
@@ -356,25 +356,49 @@ const currentPath = Astro.url.pathname;
       lastScroll = currentScroll;
     });
 
-    // Language switching functionality
+    // Language switching functionality - Versión mejorada y robusta
     function updateLanguage(lang: string) {
+      // Update all elements with data-es and data-en attributes
       const elements = document.querySelectorAll('[data-es][data-en]');
+      
       elements.forEach(element => {
         const text = element.getAttribute(`data-${lang}`);
         if (text) {
-          element.textContent = text;
+          // Get all child elements to preserve them
+          const childElements: Element[] = [];
+          Array.from(element.children).forEach(child => {
+            childElements.push(child.cloneNode(true) as Element);
+          });
+          
+          // Clear the element completely
+          element.innerHTML = '';
+          
+          // Add the new text
+          element.appendChild(document.createTextNode(text));
+          
+          // Re-add all child elements after the text
+          childElements.forEach(child => {
+            element.appendChild(child);
+          });
         }
       });
+      
+      // Update page title if it has language attributes
+      const titleElement = document.querySelector('title');
+      if (titleElement) {
+        const titleEs = titleElement.getAttribute('data-es');
+        const titleEn = titleElement.getAttribute('data-en');
+        if (lang === 'en' && titleEn) {
+          titleElement.textContent = titleEn;
+        } else if (lang === 'es' && titleEs) {
+          titleElement.textContent = titleEs;
+        }
+      }
     }
 
-    // Initialize language
+    // Initialize language on page load - Apply language immediately when page loads
+    // Since the page reloads when language changes, we only need to apply on load
     const currentLang = localStorage.getItem('language') || 'es';
     updateLanguage(currentLang);
-
-    // Listen for language changes
-    window.addEventListener('languageChanged', (e) => {
-      const customEvent = e as CustomEvent<{ language: string }>;
-      updateLanguage(customEvent.detail.language);
-    });
   });
 </script>

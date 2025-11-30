@@ -74,8 +74,20 @@ const ogImage = new URL(image, siteUrl).href;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Fonts with display=swap for better performance -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/logofreeagents1.png" as="image" type="image/png" fetchpriority="high">
+    
+    <!-- Prefetch routes for faster navigation -->
+    <link rel="prefetch" href="/servicios" as="document">
+    <link rel="prefetch" href="/portafolio" as="document">
+    <link rel="prefetch" href="/contacto" as="document">
+    <link rel="prefetch" href="/precios" as="document">
+    <link rel="prefetch" href="/nosotros" as="document">
+    <link rel="prefetch" href="/fundacion" as="document">
     
     <!-- Structured Data Base (Organization) -->
     {Astro.url.pathname === '/' && (
@@ -116,6 +128,137 @@ const ogImage = new URL(image, siteUrl).href;
   </head>
   <body class="bg-gray-900 text-white">
     <slot />
+    
+    <!-- Performance Optimization Script -->
+    <script>
+      /**
+       * Intelligent Route Prefetching and Resource Optimization
+       * Prefetch routes when user hovers over links or when they're likely to navigate
+       */
+      (function() {
+        const prefetchedRoutes = new Set();
+        
+        // Prefetch on link hover
+        function prefetchRoute(url) {
+          if (!url || url === window.location.pathname || prefetchedRoutes.has(url)) return;
+          
+          prefetchedRoutes.add(url);
+          const link = document.createElement('link');
+          link.rel = 'prefetch';
+          link.href = url;
+          link.as = 'document';
+          document.head.appendChild(link);
+        }
+        
+        // Prefetch on mouseenter (hover) with debounce
+        let hoverTimeout;
+        document.addEventListener('mouseenter', (e) => {
+          clearTimeout(hoverTimeout);
+          hoverTimeout = setTimeout(() => {
+            const target = e.target;
+            const link = target.closest('a[href]');
+            if (link && link.href && link.href.startsWith(window.location.origin)) {
+              const url = new URL(link.href);
+              if (url.pathname !== window.location.pathname) {
+                prefetchRoute(url.pathname);
+              }
+            }
+          }, 100);
+        }, true);
+        
+        // Prefetch visible links after page load
+        function prefetchVisibleLinks() {
+          if (!('IntersectionObserver' in window)) return;
+          
+          const links = document.querySelectorAll('a[href]');
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                const link = entry.target;
+                if (link.href && link.href.startsWith(window.location.origin)) {
+                  const url = new URL(link.href);
+                  if (url.pathname !== window.location.pathname) {
+                    prefetchRoute(url.pathname);
+                  }
+                  observer.unobserve(link);
+                }
+              }
+            });
+          }, { rootMargin: '100px' });
+          
+          links.forEach(link => {
+            if (link.href && link.href.startsWith(window.location.origin)) {
+              observer.observe(link);
+            }
+          });
+        }
+        
+        if (document.readyState === 'complete') {
+          prefetchVisibleLinks();
+        } else {
+          window.addEventListener('load', prefetchVisibleLinks);
+        }
+      })();
+    </script>
+    
+    <!-- Global Language Translation Script -->
+    <script>
+      /**
+       * Global Language Translation System
+       * Applies translations to all pages when they load
+       */
+      (function() {
+        function updatePageLanguage(lang) {
+          // Update all elements with data-es and data-en attributes
+          const elements = document.querySelectorAll('[data-es][data-en]');
+          
+          elements.forEach(element => {
+            const text = element.getAttribute('data-' + lang);
+            if (text) {
+              // Get all child elements to preserve them (like SVG, icons, etc.)
+              const childElements = [];
+              Array.from(element.children).forEach(child => {
+                childElements.push(child.cloneNode(true));
+              });
+              
+              // Clear the element
+              element.innerHTML = '';
+              
+              // Add the new text
+              element.appendChild(document.createTextNode(text));
+              
+              // Re-add all child elements after the text
+              childElements.forEach(child => {
+                element.appendChild(child);
+              });
+            }
+          });
+          
+          // Update page title if it has language attributes
+          const titleElement = document.querySelector('title');
+          if (titleElement) {
+            const titleEs = titleElement.getAttribute('data-es');
+            const titleEn = titleElement.getAttribute('data-en');
+            if (lang === 'en' && titleEn) {
+              titleElement.textContent = titleEn;
+            } else if (lang === 'es' && titleEs) {
+              titleElement.textContent = titleEs;
+            }
+          }
+        }
+        
+        // Apply language when page loads
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', function() {
+            const currentLang = localStorage.getItem('language') || 'es';
+            updatePageLanguage(currentLang);
+          });
+        } else {
+          const currentLang = localStorage.getItem('language') || 'es';
+          updatePageLanguage(currentLang);
+        }
+      })();
+    </script>
   </body>
 </html>
 

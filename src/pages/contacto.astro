@@ -33,23 +33,23 @@ import DynamicBackground from '../components/DynamicBackground.astro';
       <div class="container mx-auto px-6 relative z-10">
         <div class="max-w-4xl mx-auto text-center">
           <div class="inline-block px-4 py-2 bg-neon-cyan/10 border border-neon-cyan/30 rounded-full mb-8">
-            <span class="text-neon-cyan font-semibold text-sm">Contacto</span>
+            <span class="text-neon-cyan font-semibold text-sm" data-es="Contacto" data-en="Contact">Contacto</span>
           </div>
           
           <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 text-white">
-            Hablemos de tu
+            <span data-es="Hablemos de tu" data-en="Let's Talk About Your">Hablemos de tu</span>
             <br>
-            <span class="bg-gradient-to-r from-neon-cyan to-neon-teal bg-clip-text text-transparent">
+            <span class="bg-gradient-to-r from-neon-cyan to-neon-teal bg-clip-text text-transparent" data-es="Próximo Proyecto" data-en="Next Project">
               Próximo Proyecto
             </span>
           </h1>
           
-          <p class="text-xl text-gray-300 mb-4 max-w-3xl mx-auto">
+          <p class="text-xl text-gray-300 mb-4 max-w-3xl mx-auto" data-es="Estamos aquí para convertir tu visión en realidad. Agenda una llamada gratuita de 30 minutos y descubre cómo podemos ayudarte." data-en="We're here to turn your vision into reality. Schedule a free 30-minute call and discover how we can help you.">
             Estamos aquí para convertir tu visión en realidad. Agenda una <strong class="text-neon-cyan">llamada gratuita de 30 minutos</strong> 
             y descubre cómo podemos ayudarte.
           </p>
           
-          <p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
+          <p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto" data-es="Sin compromiso. Solo una conversación honesta sobre tus necesidades tecnológicas." data-en="No commitment. Just an honest conversation about your technological needs.">
             Sin compromiso. Solo una conversación honesta sobre tus necesidades tecnológicas.
           </p>
 
@@ -58,13 +58,13 @@ import DynamicBackground from '../components/DynamicBackground.astro';
               href="#contacto-form" 
               class="bg-gradient-to-r from-neon-cyan to-neon-teal px-10 py-5 rounded-full text-white font-bold text-lg hover:shadow-2xl hover:shadow-neon-cyan/30 transition-all duration-300 hover:scale-105"
             >
-              Agendar Llamada Gratuita
+              <span data-es="Agendar Llamada Gratuita" data-en="Schedule Free Call">Agendar Llamada Gratuita</span>
             </a>
             <a 
               href="/servicios" 
               class="border-2 border-neon-teal px-10 py-5 rounded-full text-neon-teal font-bold text-lg hover:bg-neon-teal hover:text-white transition-all duration-300 hover:scale-105"
             >
-              Ver Servicios
+              <span data-es="Ver Servicios" data-en="View Services">Ver Servicios</span>
             </a>
           </div>
         </div>
@@ -80,7 +80,7 @@ import DynamicBackground from '../components/DynamicBackground.astro';
             <div class="order-2 lg:order-1 space-y-8 lg:sticky lg:top-24">
               <!-- Información General -->
               <div class="bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
-                <h3 class="font-display text-2xl font-bold text-white mb-6">Información de Contacto</h3>
+                <h3 class="font-display text-2xl font-bold text-white mb-6" data-es="Información de Contacto" data-en="Contact Information">Información de Contacto</h3>
                 <div class="space-y-6">
                   <div class="flex items-start space-x-4">
                     <div class="w-12 h-12 bg-gradient-to-r from-neon-blue to-neon-purple rounded-xl flex items-center justify-center flex-shrink-0">
@@ -89,9 +89,9 @@ import DynamicBackground from '../components/DynamicBackground.astro';
                       </svg>
                     </div>
                     <div>
-                      <h4 class="font-semibold text-white mb-1">Email General</h4>
+                      <h4 class="font-semibold text-white mb-1" data-es="Email General" data-en="General Email">Email General</h4>
                       <p class="text-gray-400">freeagentsdev@gmail.com</p>
-                      <p class="text-gray-500 text-sm">Respuesta en 24 horas</p>
+                      <p class="text-gray-500 text-sm" data-es="Respuesta en 24 horas" data-en="Response within 24 hours">Respuesta en 24 horas</p>
                     </div>
                   </div>
 
@@ -102,9 +102,9 @@ import DynamicBackground from '../components/DynamicBackground.astro';
                       </svg>
                     </div>
                     <div>
-                      <h4 class="font-semibold text-white mb-1">Proyectos Empresariales</h4>
+                      <h4 class="font-semibold text-white mb-1" data-es="Proyectos Empresariales" data-en="Enterprise Projects">Proyectos Empresariales</h4>
                       <p class="text-gray-400">freeagentsdev@gmail.com</p>
-                      <p class="text-gray-500 text-sm">Para proyectos +$50K</p>
+                      <p class="text-gray-500 text-sm" data-es="Para proyectos +$50K" data-en="For projects +$50K">Para proyectos +$50K</p>
                     </div>
                   </div>
 
@@ -115,9 +115,9 @@ import DynamicBackground from '../components/DynamicBackground.astro';
                       </svg>
                     </div>
                     <div>
-                      <h4 class="font-semibold text-white mb-1">Fundación FreeAgents</h4>
+                      <h4 class="font-semibold text-white mb-1" data-es="Fundación FreeAgents" data-en="FreeAgents Foundation">Fundación FreeAgents</h4>
                       <p class="text-gray-400">freeagentsdev@gmail.com</p>
-                      <p class="text-gray-500 text-sm">Mentoría, talento y alianzas</p>
+                      <p class="text-gray-500 text-sm" data-es="Mentoría, talento y alianzas" data-en="Mentorship, talent and partnerships">Mentoría, talento y alianzas</p>
                     </div>
                   </div>
                 </div>
@@ -125,7 +125,7 @@ import DynamicBackground from '../components/DynamicBackground.astro';
 
               <!-- Redes Sociales -->
               <div class="bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
-                <h3 class="font-display text-2xl font-bold text-white mb-6">Síguenos</h3>
+                <h3 class="font-display text-2xl font-bold text-white mb-6" data-es="Síguenos" data-en="Follow Us">Síguenos</h3>
                 <div class="flex space-x-4">
                   <!-- LinkedIn -->
                   <a href="https://www.linkedin.com/company/freeagentsdev/" target="_blank" class="w-12 h-12 bg-gradient-to-r from-neon-blue to-neon-purple rounded-xl flex items-center justify-center hover:scale-110 transition-transform duration-300" aria-label="LinkedIn">
@@ -156,7 +156,7 @@ import DynamicBackground from '../components/DynamicBackground.astro';
 
               <!-- Horarios -->
               <div class="bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
-                <h3 class="font-display text-2xl font-bold text-white mb-6">Horarios de Atención</h3>
+                <h3 class="font-display text-2xl font-bold text-white mb-6" data-es="Horarios de Atención" data-en="Business Hours">Horarios de Atención</h3>
                 <div class="space-y-3">
                   <div class="flex justify-between items-center">
                     <span class="text-gray-300">Lunes - Viernes</span>
@@ -183,15 +183,15 @@ import DynamicBackground from '../components/DynamicBackground.astro';
             <div class="order-1 lg:order-2 lg:col-span-2 bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 md:p-10 border border-gray-700 mx-auto w-full">
               <div class="mb-6">
                 <div class="inline-block px-4 py-2 bg-neon-cyan/10 border border-neon-cyan/30 rounded-full mb-4">
-                  <span class="text-neon-cyan font-semibold text-sm">Formulario de Contacto</span>
+                  <span class="text-neon-cyan font-semibold text-sm" data-es="Formulario de Contacto" data-en="Contact Form">Formulario de Contacto</span>
                 </div>
-                <h2 id="form-title" class="font-display text-3xl font-bold text-white mb-2">Cuéntanos sobre tu Proyecto</h2>
-                <p class="text-gray-400">Completa el formulario y te responderemos en menos de 24 horas.</p>
+                <h2 id="form-title" class="font-display text-3xl font-bold text-white mb-2" data-es="Cuéntanos sobre tu Proyecto" data-en="Tell Us About Your Project">Cuéntanos sobre tu Proyecto</h2>
+                <p class="text-gray-400" data-es="Completa el formulario y te responderemos en menos de 24 horas." data-en="Complete the form and we will respond within 24 hours.">Completa el formulario y te responderemos en menos de 24 horas.</p>
               </div>
               <form id="contact-form" class="space-y-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label for="nombre" class="block text-sm font-medium text-gray-300 mb-2">Nombre *</label>
+                    <label for="nombre" class="block text-sm font-medium text-gray-300 mb-2" data-es="Nombre *" data-en="Name *">Nombre *</label>
                     <input 
                       type="text" 
                       id="nombre" 
@@ -199,10 +199,12 @@ import DynamicBackground from '../components/DynamicBackground.astro';
                       required
                       class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition-colors duration-300"
                       placeholder="Tu nombre completo"
+                      data-placeholder-es="Tu nombre completo"
+                      data-placeholder-en="Your full name"
                     >
                   </div>
                   <div>
-                    <label id="empresa-label" for="empresa" class="block text-sm font-medium text-gray-300 mb-2">Empresa</label>
+                    <label id="empresa-label" for="empresa" class="block text-sm font-medium text-gray-300 mb-2" data-es="Empresa" data-en="Company">Empresa</label>
                     <input 
                       type="text" 
                       id="empresa" 
@@ -215,7 +217,7 @@ import DynamicBackground from '../components/DynamicBackground.astro';
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email *</label>
+                    <label for="email" class="block text-sm font-medium text-gray-300 mb-2" data-es="Email *" data-en="Email *">Email *</label>
                     <input 
                       type="email" 
                       id="email" 
@@ -226,7 +228,7 @@ import DynamicBackground from '../components/DynamicBackground.astro';
                     >
                   </div>
                   <div>
-                    <label for="telefono" class="block text-sm font-medium text-gray-300 mb-2">Teléfono</label>
+                    <label for="telefono" class="block text-sm font-medium text-gray-300 mb-2" data-es="Teléfono" data-en="Phone">Teléfono</label>
                     <input 
                       type="tel" 
                       id="telefono" 
@@ -238,7 +240,7 @@ import DynamicBackground from '../components/DynamicBackground.astro';
                 </div>
 
                 <div>
-                  <label for="tipo-proyecto" class="block text-sm font-medium text-gray-300 mb-2">Tipo de Proyecto *</label>
+                  <label for="tipo-proyecto" class="block text-sm font-medium text-gray-300 mb-2" data-es="Tipo de Proyecto *" data-en="Project Type *">Tipo de Proyecto *</label>
                   <select 
                     id="tipo-proyecto" 
                     name="tipo-proyecto" 

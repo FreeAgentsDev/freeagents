@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import DynamicBackground from '../components/DynamicBackground.astro';
 import ScrollProgress from '../components/ui/ScrollProgress.astro';
+import OptimizedImage from '../components/ui/OptimizedImage.astro';
 
 const siteUrl = Astro.site?.href || "https://freeagents.dev";
 const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
@@ -21,33 +22,28 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
   <ScrollProgress />
   
   <main class="pt-20 relative min-h-screen overflow-hidden">
-    <!-- Fondo Dinámico EXTREMADAMENTE Potente para Toda la Vista -->
-    <div class="fixed inset-0 -z-10">
-      <!-- Múltiples Capas de Fondos Dinámicos -->
-      <DynamicBackground type="matrix" color="cyan" />
-      <DynamicBackground type="circuits" color="cyan" />
+    <!-- Fondo Dinámico Optimizado para Performance -->
+    <div class="fixed inset-0 -z-10 will-change-transform">
+      <!-- Capas de Fondos Dinámicos Reducidas (Optimizado) -->
       <DynamicBackground type="particles" color="blue" />
-      <DynamicBackground type="neural" color="green" />
+      <DynamicBackground type="circuits" color="cyan" />
       <DynamicBackground type="hologram" color="cyan" />
       
-      <!-- Gradientes Animados Múltiples y Potentes -->
-      <div class="absolute inset-0">
-        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-cyan-900/15 via-teal-900/10 to-blue-900/15 animate-pulse"></div>
-        <div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-neon-cyan/8 rounded-full blur-3xl animate-pulse"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-neon-teal/8 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
-        <div class="absolute top-1/2 right-1/3 w-[500px] h-[500px] bg-neon-blue/6 rounded-full blur-3xl animate-pulse" style="animation-delay: 0.5s;"></div>
-        <div class="absolute bottom-1/3 left-1/3 w-[550px] h-[550px] bg-neon-green/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 1.5s;"></div>
-        <div class="absolute top-1/3 right-1/4 w-[450px] h-[450px] bg-neon-purple/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 0.75s;"></div>
+      <!-- Gradientes Animados Optimizados -->
+      <div class="absolute inset-0 will-change-opacity">
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-cyan-900/12 via-teal-900/8 to-blue-900/12"></div>
+        <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-neon-cyan/6 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-neon-teal/6 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/2 right-1/3 w-[400px] h-[400px] bg-neon-blue/5 rounded-full blur-3xl"></div>
       </div>
       
-      <!-- Grid Pattern Overlay Múltiple -->
-      <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(rgba(0, 212, 255, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(20, 184, 166, 0.15) 1px, transparent 1px); background-size: 50px 50px; animation: grid-move 20s linear infinite;"></div>
-      <div class="absolute inset-0 opacity-3" style="background-image: linear-gradient(rgba(14, 165, 233, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 185, 129, 0.1) 1px, transparent 1px); background-size: 30px 30px; animation: grid-move 15s linear infinite reverse;"></div>
+      <!-- Grid Pattern Overlay Optimizado -->
+      <div class="absolute inset-0 opacity-4 will-change-transform" style="background-image: linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(20, 184, 166, 0.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
       
       <!-- Efectos de Luz Adicionales -->
       <div class="absolute inset-0 pointer-events-none">
-        <div class="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-cyan-500/5 to-transparent"></div>
-        <div class="absolute bottom-0 right-0 w-full h-1/2 bg-gradient-to-t from-teal-500/5 to-transparent"></div>
+        <div class="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-cyan-500/4 to-transparent"></div>
+        <div class="absolute bottom-0 right-0 w-full h-1/2 bg-gradient-to-t from-teal-500/4 to-transparent"></div>
       </div>
     </div>
     <!-- Hero Section Única - Software Factory -->
@@ -67,23 +63,23 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
 
             <!-- Main Headline - Optimizado para SEO -->
             <h1 class="font-display text-5xl md:text-7xl font-bold mb-8 leading-tight animate-slide-up">
-              <span class="text-white drop-shadow-[0_0_20px_rgba(0,212,255,0.5)]">Desarrollo de Software</span>
+              <span class="text-white drop-shadow-[0_0_20px_rgba(0,212,255,0.5)]" data-es="Desarrollo de Software" data-en="Software Development">Desarrollo de Software</span>
               <br>
-              <span class="bg-gradient-to-r from-neon-cyan via-neon-teal to-neon-blue bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(0,212,255,0.6)]">
+              <span class="bg-gradient-to-r from-neon-cyan via-neon-teal to-neon-blue bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(0,212,255,0.6)]" data-es="y Páginas Web a la Medida" data-en="and Custom Web Pages">
                 y Páginas Web a la Medida
               </span>
               <br>
-              <span class="text-white drop-shadow-[0_0_20px_rgba(0,212,255,0.5)]">para tu Empresa</span>
+              <span class="text-white drop-shadow-[0_0_20px_rgba(0,212,255,0.5)]" data-es="para tu Empresa" data-en="for your Business">para tu Empresa</span>
             </h1>
 
             <!-- Subheadline - Optimizado para SEO -->
-            <p class="text-xl md:text-2xl text-gray-100 mb-4 leading-relaxed animate-slide-up drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]" style="animation-delay: 0.1s;">
+            <p class="text-xl md:text-2xl text-gray-100 mb-4 leading-relaxed animate-slide-up drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]" style="animation-delay: 0.1s;" data-es="Especialistas en desarrollo de páginas web, desarrollo de aplicaciones y software a la medida para empresas." data-en="Specialists in web development, application development and custom software for businesses.">
               Especialistas en <strong class="text-neon-cyan drop-shadow-[0_0_10px_rgba(0,212,255,0.6)]">desarrollo de páginas web</strong>, 
               <strong class="text-neon-teal drop-shadow-[0_0_10px_rgba(20,184,166,0.6)]">desarrollo de aplicaciones</strong> y 
               <strong class="text-neon-blue drop-shadow-[0_0_10px_rgba(14,165,233,0.6)]">software a la medida</strong> para empresas.
             </p>
 
-            <p class="text-lg text-gray-200 mb-12 animate-slide-up drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]" style="animation-delay: 0.2s;">
+            <p class="text-lg text-gray-200 mb-12 animate-slide-up drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]" style="animation-delay: 0.2s;" data-es="Software Factory con equipo especializado, metodologías ágiles y resultados garantizados. Transformamos ideas en soluciones tecnológicas que impulsan el crecimiento de tu negocio." data-en="Software Factory with specialized team, agile methodologies and guaranteed results. We transform ideas into technological solutions that drive your business growth.">
               Software Factory con <strong>equipo especializado</strong>, <strong>metodologías ágiles</strong> y <strong>resultados garantizados</strong>. 
               Transformamos ideas en soluciones tecnológicas que impulsan el crecimiento de tu negocio.
             </p>
@@ -94,7 +90,7 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
                 href="/contacto" 
                 class="group bg-gradient-to-r from-neon-cyan to-neon-teal px-10 py-5 rounded-full text-white font-bold text-lg hover:shadow-2xl hover:shadow-neon-cyan/30 transition-all duration-300 hover:scale-105 flex items-center gap-2"
               >
-                <span>Agendar una Llamada</span>
+                <span data-es="Agendar una Llamada" data-en="Schedule a Call">Agendar una Llamada</span>
                 <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                 </svg>
@@ -103,7 +99,7 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
                 href="/portafolio" 
                 class="relative border-2 border-neon-teal px-10 py-5 rounded-full text-neon-teal font-bold text-lg bg-neon-teal/10 backdrop-blur-sm hover:bg-neon-teal hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-neon-teal/40 drop-shadow-[0_0_15px_rgba(20,184,166,0.4)]"
               >
-                <span class="relative z-10">Ver Proyectos Reales</span>
+                <span class="relative z-10" data-es="Ver Proyectos Reales" data-en="View Real Projects">Ver Proyectos Reales</span>
                 <div class="absolute inset-0 rounded-full bg-neon-teal/20 blur-xl opacity-50"></div>
               </a>
             </div>
@@ -112,19 +108,19 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 animate-fade-in" style="animation-delay: 0.4s;">
               <div class="text-center lg:text-left">
                 <div class="text-3xl md:text-4xl font-bold text-neon-cyan mb-2 drop-shadow-[0_0_15px_rgba(0,212,255,0.6)]">100%</div>
-                <div class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Proyectos Exitosos</div>
+                <div class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Proyectos Exitosos" data-en="Successful Projects">Proyectos Exitosos</div>
               </div>
               <div class="text-center lg:text-left">
                 <div class="text-3xl md:text-4xl font-bold text-neon-teal mb-2 drop-shadow-[0_0_15px_rgba(20,184,166,0.6)]">24/7</div>
-                <div class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Soporte Técnico</div>
+                <div class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Soporte Técnico" data-en="Technical Support">Soporte Técnico</div>
               </div>
               <div class="text-center lg:text-left">
                 <div class="text-3xl md:text-4xl font-bold text-neon-blue mb-2 drop-shadow-[0_0_15px_rgba(14,165,233,0.6)]">Agile</div>
-                <div class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Metodología</div>
+                <div class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Metodología" data-en="Methodology">Metodología</div>
               </div>
               <div class="text-center lg:text-left">
                 <div class="text-3xl md:text-4xl font-bold text-neon-green mb-2 drop-shadow-[0_0_15px_rgba(16,185,129,0.6)]">+50</div>
-                <div class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Clientes Satisfechos</div>
+                <div class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Clientes Satisfechos" data-en="Satisfied Clients">Clientes Satisfechos</div>
               </div>
             </div>
           </div>
@@ -137,11 +133,15 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
               
               <!-- Main image container -->
               <div class="relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-3xl p-8 border border-gray-700/50">
-                <img 
+                <OptimizedImage 
                   src="/elongreen.png" 
                   alt="Desarrollo de software a la medida - FreeAgents Software Factory especializada en desarrollo de páginas web y aplicaciones" 
                   class="h-80 rounded-3xl w-auto mx-auto animate-float drop-shadow-2xl"
-                >
+                  priority={true}
+                  loading="eager"
+                  width={600}
+                  height={320}
+                />
                 
                 <!-- Decorative elements -->
                 <div class="absolute -top-4 -right-4 w-8 h-8 bg-neon-cyan rounded-full animate-pulse"></div>
@@ -167,11 +167,14 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
                 
                 <!-- Logo/Imagen de la empresa -->
                 <div class="relative mb-6 flex justify-center">
-                  <img 
+                  <OptimizedImage 
                     src="/logofreeagents1.png" 
                     alt="FreeAgents - Logo de Software Factory especializada en desarrollo de software y páginas web" 
                     class="h-24 w-auto rounded-full border-2 border-neon-cyan/30"
-                  >
+                    loading="lazy"
+                    width={96}
+                    height={96}
+                  />
                 </div>
                 
                 <div class="relative bg-gray-800/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
@@ -182,31 +185,31 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
                       </svg>
                     </div>
                     <div>
-                      <h4 class="font-semibold text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">Software Factory</h4>
-                      <p class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Proceso profesional</p>
+                      <h4 class="font-semibold text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]" data-es="Software Factory" data-en="Software Factory">Software Factory</h4>
+                      <p class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Proceso profesional" data-en="Professional process">Proceso profesional</p>
                     </div>
                   </div>
                   
                   <div class="space-y-3">
                     <div class="flex items-center gap-3 text-sm">
                       <div class="w-2 h-2 bg-neon-cyan rounded-full"></div>
-                      <span class="text-gray-100 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Análisis de requerimientos</span>
+                      <span class="text-gray-100 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Análisis de requerimientos" data-en="Requirements analysis">Análisis de requerimientos</span>
                     </div>
                     <div class="flex items-center gap-3 text-sm">
                       <div class="w-2 h-2 bg-neon-teal rounded-full"></div>
-                      <span class="text-gray-100 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Diseño y arquitectura</span>
+                      <span class="text-gray-100 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Diseño y arquitectura" data-en="Design and architecture">Diseño y arquitectura</span>
                     </div>
                     <div class="flex items-center gap-3 text-sm">
                       <div class="w-2 h-2 bg-neon-blue rounded-full"></div>
-                      <span class="text-gray-100 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Desarrollo ágil</span>
+                      <span class="text-gray-100 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Desarrollo ágil" data-en="Agile development">Desarrollo ágil</span>
                     </div>
                     <div class="flex items-center gap-3 text-sm">
                       <div class="w-2 h-2 bg-neon-green rounded-full"></div>
-                      <span class="text-gray-100 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Testing y QA</span>
+                      <span class="text-gray-100 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Testing y QA" data-en="Testing and QA">Testing y QA</span>
                     </div>
                     <div class="flex items-center gap-3 text-sm">
                       <div class="w-2 h-2 bg-neon-purple rounded-full"></div>
-                      <span class="text-gray-100 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">Deployment y soporte</span>
+                      <span class="text-gray-100 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Deployment y soporte" data-en="Deployment and support">Deployment y soporte</span>
                     </div>
                   </div>
                 </div>
@@ -223,14 +226,14 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
       <div class="container mx-auto px-6 relative z-10">
         <div class="text-center mb-16">
           <div class="inline-block px-4 py-2 bg-neon-teal/10 border border-neon-teal/30 rounded-full mb-6">
-            <span class="text-neon-teal font-semibold text-sm">¿Qué Hacemos?</span>
+            <span class="text-neon-teal font-semibold text-sm" data-es="¿Qué Hacemos?" data-en="What We Do">¿Qué Hacemos?</span>
           </div>
           
           <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-[0_0_20px_rgba(0,212,255,0.5)]">
-            Soluciones Tecnológicas <span class="bg-gradient-to-r from-neon-teal to-neon-blue bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(20,184,166,0.6)]">a la Medida</span>
+            <span data-es="Soluciones Tecnológicas" data-en="Technological Solutions">Soluciones Tecnológicas</span> <span class="bg-gradient-to-r from-neon-teal to-neon-blue bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(20,184,166,0.6)]" data-es="a la Medida" data-en="Custom Made">a la Medida</span>
           </h2>
           
-          <p class="text-xl text-gray-100 max-w-3xl mx-auto drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+          <p class="text-xl text-gray-100 max-w-3xl mx-auto drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]" data-es="Construimos software que resuelve problemas reales de negocio. Cada solución está diseñada específicamente para tus necesidades." data-en="We build software that solves real business problems. Each solution is designed specifically for your needs.">
             Construimos software que resuelve problemas reales de negocio. Cada solución está diseñada específicamente para tus necesidades.
           </p>
         </div>
@@ -243,8 +246,8 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
               </svg>
             </div>
-            <h3 class="font-display text-2xl font-bold text-white mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">Desarrollo a la Medida</h3>
-            <p class="text-gray-200 mb-6 leading-relaxed drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">
+            <h3 class="font-display text-2xl font-bold text-white mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]" data-es="Desarrollo a la Medida" data-en="Custom Development">Desarrollo a la Medida</h3>
+            <p class="text-gray-200 mb-6 leading-relaxed drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Sistemas web, APIs y plataformas personalizadas que se adaptan perfectamente a tus procesos de negocio." data-en="Web systems, APIs and customized platforms that perfectly adapt to your business processes.">
               Sistemas web, APIs y plataformas personalizadas que se adaptan perfectamente a tus procesos de negocio.
             </p>
             <ul class="space-y-2 mb-6 text-gray-100 text-sm drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">
@@ -252,23 +255,23 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
                 <svg class="w-4 h-4 text-neon-cyan" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                Sistemas web personalizados
+                <span data-es="Sistemas web personalizados" data-en="Custom web systems">Sistemas web personalizados</span>
               </li>
               <li class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-neon-cyan" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                APIs y microservicios
+                <span data-es="APIs y microservicios" data-en="APIs and microservices">APIs y microservicios</span>
               </li>
               <li class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-neon-cyan" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                Integración de sistemas
+                <span data-es="Integración de sistemas" data-en="System integration">Integración de sistemas</span>
               </li>
             </ul>
             <a href="/servicios#desarrollo" class="text-neon-cyan hover:text-neon-teal font-semibold flex items-center gap-2">
-              Ver más detalles
+              <span data-es="Ver más detalles" data-en="View more details">Ver más detalles</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>
@@ -282,8 +285,8 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
               </svg>
             </div>
-            <h3 class="font-display text-2xl font-bold text-white mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">Apps Móviles</h3>
-            <p class="text-gray-200 mb-6 leading-relaxed drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">
+            <h3 class="font-display text-2xl font-bold text-white mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]" data-es="Apps Móviles" data-en="Mobile Apps">Apps Móviles</h3>
+            <p class="text-gray-200 mb-6 leading-relaxed drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Aplicaciones nativas y multiplataforma que conectan tu negocio con tus clientes de manera intuitiva." data-en="Native and cross-platform applications that connect your business with your customers in an intuitive way.">
               Aplicaciones nativas y multiplataforma que conectan tu negocio con tus clientes de manera intuitiva.
             </p>
             <ul class="space-y-2 mb-6 text-gray-100 text-sm drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">
@@ -291,23 +294,23 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
                 <svg class="w-4 h-4 text-neon-teal" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                Apps iOS y Android
+                <span data-es="Apps iOS y Android" data-en="iOS and Android Apps">Apps iOS y Android</span>
               </li>
               <li class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-neon-teal" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                Progressive Web Apps
+                <span>Progressive Web Apps</span>
               </li>
               <li class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-neon-teal" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                UX/UI optimizado
+                <span data-es="UX/UI optimizado" data-en="Optimized UX/UI">UX/UI optimizado</span>
               </li>
             </ul>
             <a href="/servicios#apps" class="text-neon-teal hover:text-neon-blue font-semibold flex items-center gap-2">
-              Ver más detalles
+              <span data-es="Ver más detalles" data-en="View more details">Ver más detalles</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>
@@ -321,8 +324,8 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
               </svg>
             </div>
-            <h3 class="font-display text-2xl font-bold text-white mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">E-commerce</h3>
-            <p class="text-gray-200 mb-6 leading-relaxed drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">
+            <h3 class="font-display text-2xl font-bold text-white mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]" data-es="E-commerce" data-en="E-commerce">E-commerce</h3>
+            <p class="text-gray-200 mb-6 leading-relaxed drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Tiendas online robustas y escalables que convierten visitantes en clientes, con todas las funcionalidades que necesitas." data-en="Robust and scalable online stores that convert visitors into customers, with all the features you need.">
               Tiendas online robustas y escalables que convierten visitantes en clientes, con todas las funcionalidades que necesitas.
             </p>
             <ul class="space-y-2 mb-6 text-gray-100 text-sm drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">
@@ -330,23 +333,23 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
                 <svg class="w-4 h-4 text-neon-green" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                Tiendas personalizadas
+                <span data-es="Tiendas personalizadas" data-en="Custom stores">Tiendas personalizadas</span>
               </li>
               <li class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-neon-green" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                Pasarelas de pago
+                <span data-es="Pasarelas de pago" data-en="Payment gateways">Pasarelas de pago</span>
               </li>
               <li class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-neon-green" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                Gestión de inventario
+                <span data-es="Gestión de inventario" data-en="Inventory management">Gestión de inventario</span>
               </li>
             </ul>
             <a href="/servicios#ecommerce" class="text-neon-green hover:text-neon-cyan font-semibold flex items-center gap-2">
-              Ver más detalles
+              <span data-es="Ver más detalles" data-en="View more details">Ver más detalles</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>
@@ -356,7 +359,7 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
 
         <div class="text-center mt-12">
           <a href="/servicios" class="relative inline-flex items-center gap-2 px-8 py-4 border-2 border-neon-teal text-neon-teal font-semibold rounded-full bg-neon-teal/15 backdrop-blur-sm hover:bg-neon-teal hover:text-white transition-all duration-300 hover:shadow-2xl hover:shadow-neon-teal/40 drop-shadow-[0_0_15px_rgba(20,184,166,0.4)]">
-            <span class="relative z-10">Ver Todos los Servicios</span>
+            <span class="relative z-10" data-es="Ver Todos los Servicios" data-en="View All Services">Ver Todos los Servicios</span>
             <svg class="w-5 h-5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
             </svg>
@@ -509,7 +512,7 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
           <!-- Proyecto 1 -->
           <div class="group bg-gray-800/60 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700 hover:border-neon-cyan/50 transition-all duration-300 hover:shadow-xl hover:shadow-neon-cyan/10">
             <div class="h-48 bg-gradient-to-br from-neon-cyan/20 to-neon-teal/20 flex items-center justify-center">
-              <img src="/kj.png" alt="Proyecto Kevin Jewelry - Desarrollo de página web y sistema de gestión para joyería" class="h-24 w-auto rounded-full opacity-80 group-hover:scale-110 transition-transform">
+              <OptimizedImage src="/kj.png" alt="Proyecto Kevin Jewelry - Desarrollo de página web y sistema de gestión para joyería" class="h-24 w-auto rounded-full opacity-80 group-hover:scale-110 transition-transform" loading="lazy" width={96} height={96} />
             </div>
             <div class="p-6">
               <h3 class="font-display text-xl font-bold text-white mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">Kevin Jewelry</h3>
@@ -525,7 +528,7 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
           <!-- Proyecto 2 -->
           <div class="group bg-gray-800/60 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700 hover:border-neon-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-neon-teal/10">
             <div class="h-48 bg-gradient-to-br from-neon-teal/20 to-neon-blue/20 flex items-center justify-center">
-              <img src="/prosejurix.png" alt="Proyecto Prosejurix - Desarrollo de página web y sistema de consultas legales" class="h-24 w-auto rounded-full opacity-80 group-hover:scale-110 transition-transform">
+              <OptimizedImage src="/prosejurix.png" alt="Proyecto Prosejurix - Desarrollo de página web y sistema de consultas legales" class="h-24 w-auto rounded-full opacity-80 group-hover:scale-110 transition-transform" loading="lazy" width={96} height={96} />
             </div>
             <div class="p-6">
               <h3 class="font-display text-xl font-bold text-white mb-2">Prosejurix</h3>
@@ -541,7 +544,7 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
           <!-- Proyecto 3 -->
           <div class="group bg-gray-800/60 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700 hover:border-neon-green/50 transition-all duration-300 hover:shadow-xl hover:shadow-neon-green/10">
             <div class="h-48 bg-gradient-to-br from-neon-green/20 to-neon-cyan/20 flex items-center justify-center">
-              <img src="/qori.png" alt="Proyecto Qori - Desarrollo de e-commerce completo con gestión de redes sociales e IA" class="h-24 w-24 rounded-full opacity-80 group-hover:scale-110 transition-transform">
+              <OptimizedImage src="/qori.png" alt="Proyecto Qori - Desarrollo de e-commerce completo con gestión de redes sociales e IA" class="h-24 w-24 rounded-full opacity-80 group-hover:scale-110 transition-transform" loading="lazy" width={96} height={96} />
             </div>
             <div class="p-6">
               <h3 class="font-display text-xl font-bold text-white mb-2">Qori</h3>
@@ -557,7 +560,7 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
 
         <div class="text-center">
           <a href="/portafolio" class="relative inline-flex items-center gap-2 px-8 py-4 border-2 border-neon-green text-neon-green font-semibold rounded-full bg-neon-green/15 backdrop-blur-sm hover:bg-neon-green hover:text-white transition-all duration-300 hover:shadow-2xl hover:shadow-neon-green/40 drop-shadow-[0_0_15px_rgba(16,185,129,0.4)]">
-            <span class="relative z-10">Ver Portafolio Completo</span>
+            <span class="relative z-10" data-es="Ver Portafolio Completo" data-en="View Full Portfolio">Ver Portafolio Completo</span>
             <svg class="w-5 h-5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
             </svg>
@@ -573,14 +576,14 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
         <div class="max-w-6xl mx-auto">
           <div class="text-center mb-16">
             <div class="inline-block px-4 py-2 bg-neon-purple/10 border border-neon-purple/30 rounded-full mb-6">
-              <span class="text-neon-purple font-semibold text-sm">¿Por qué FreeAgents?</span>
+              <span class="text-neon-purple font-semibold text-sm" data-es="¿Por qué FreeAgents?" data-en="Why FreeAgents?">¿Por qué FreeAgents?</span>
             </div>
             
             <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-[0_0_20px_rgba(0,212,255,0.5)]">
-              Razones para <span class="bg-gradient-to-r from-neon-purple to-neon-pink bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(139,92,246,0.6)]">Confiar en Nosotros</span>
+              <span data-es="Razones para" data-en="Reasons to">Razones para</span> <span class="bg-gradient-to-r from-neon-purple to-neon-pink bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(139,92,246,0.6)]" data-es="Confiar en Nosotros" data-en="Trust Us">Confiar en Nosotros</span>
             </h2>
             
-            <p class="text-xl text-gray-100 max-w-3xl mx-auto drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+            <p class="text-xl text-gray-100 max-w-3xl mx-auto drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]" data-es="No solo construimos software. Creamos soluciones que generan valor real para tu negocio." data-en="We don't just build software. We create solutions that generate real value for your business.">
               No solo construimos software. Creamos soluciones que generan valor real para tu negocio.
             </p>
           </div>
@@ -663,18 +666,18 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
       <div class="container mx-auto px-6 relative z-10">
         <div class="max-w-4xl mx-auto text-center">
           <div class="inline-block px-4 py-2 bg-neon-cyan/10 border border-neon-cyan/30 rounded-full mb-8">
-            <span class="text-neon-cyan font-semibold text-sm">¿Cómo Contactarnos?</span>
+            <span class="text-neon-cyan font-semibold text-sm" data-es="¿Cómo Contactarnos?" data-en="How to Contact Us?">¿Cómo Contactarnos?</span>
           </div>
           
           <h2 class="font-display text-4xl md:text-6xl font-bold mb-8 text-white drop-shadow-[0_0_25px_rgba(0,212,255,0.6)]">
-            ¿Listo para <span class="bg-gradient-to-r from-neon-cyan to-neon-teal bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(0,212,255,0.7)]">Transformar tu Negocio</span>?
+            <span data-es="¿Listo para" data-en="Ready to">¿Listo para</span> <span class="bg-gradient-to-r from-neon-cyan to-neon-teal bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(0,212,255,0.7)]" data-es="Transformar tu Negocio" data-en="Transform Your Business">Transformar tu Negocio</span>?
           </h2>
           
-          <p class="text-xl text-gray-100 mb-4 leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+          <p class="text-xl text-gray-100 mb-4 leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]" data-es="Hablemos de tu proyecto. Agenda una llamada gratuita de 30 minutos y descubre cómo podemos ayudarte." data-en="Let's talk about your project. Schedule a free 30-minute call and discover how we can help you.">
             Hablemos de tu proyecto. Agenda una llamada gratuita de 30 minutos y descubre cómo podemos ayudarte.
           </p>
           
-          <p class="text-lg text-gray-200 mb-12 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
+          <p class="text-lg text-gray-200 mb-12 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]" data-es="Sin compromiso. Solo una conversación honesta sobre tus necesidades tecnológicas." data-en="No commitment. Just an honest conversation about your technological needs.">
             Sin compromiso. Solo una conversación honesta sobre tus necesidades tecnológicas.
           </p>
 
@@ -686,13 +689,13 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
               </svg>
-              <span>Agendar Llamada Gratuita</span>
+              <span data-es="Agendar Llamada Gratuita" data-en="Schedule Free Call">Agendar Llamada Gratuita</span>
             </a>
             <a 
               href="/precios" 
               class="relative border-2 border-neon-teal px-10 py-5 rounded-full text-neon-teal font-bold text-lg bg-neon-teal/15 backdrop-blur-sm hover:bg-neon-teal hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-neon-teal/40 drop-shadow-[0_0_15px_rgba(20,184,166,0.4)]"
             >
-              <span class="relative z-10">Ver Planes y Precios</span>
+              <span class="relative z-10" data-es="Ver Planes y Precios" data-en="View Plans and Pricing">Ver Planes y Precios</span>
               <div class="absolute inset-0 rounded-full bg-neon-teal/20 blur-xl opacity-50"></div>
             </a>
           </div>
@@ -702,19 +705,19 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
               <svg class="w-5 h-5 text-neon-cyan drop-shadow-[0_0_10px_rgba(0,212,255,0.6)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
-              <span>Respuesta en 24 horas</span>
+              <span data-es="Respuesta en 24 horas" data-en="24-hour response">Respuesta en 24 horas</span>
             </div>
             <div class="flex items-center gap-2">
               <svg class="w-5 h-5 text-neon-cyan drop-shadow-[0_0_10px_rgba(0,212,255,0.6)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
-              <span>Consulta gratuita</span>
+              <span data-es="Consulta gratuita" data-en="Free consultation">Consulta gratuita</span>
             </div>
             <div class="flex items-center gap-2">
               <svg class="w-5 h-5 text-neon-cyan drop-shadow-[0_0_10px_rgba(0,212,255,0.6)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
               </svg>
-              <span>Sin compromiso</span>
+              <span data-es="Sin compromiso" data-en="No commitment">Sin compromiso</span>
             </div>
           </div>
         </div>
@@ -855,40 +858,70 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
   @keyframes fade-in {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translate3d(0, 20px, 0);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
     }
   }
 
   @keyframes slide-up {
     from {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translate3d(0, 30px, 0);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
+      transform: translate3d(0, 0, 0);
     }
   }
 
   .animate-fade-in {
     animation: fade-in 0.8s ease-out forwards;
+    will-change: opacity, transform;
   }
 
   .animate-slide-up {
     animation: slide-up 0.8s ease-out forwards;
     opacity: 0;
+    will-change: opacity, transform;
   }
   
-  @keyframes grid-move {
-    0% {
-      transform: translate(0, 0);
+  
+  /* Optimizaciones de rendimiento - GPU Acceleration */
+  .dynamic-background,
+  .dynamic-background * {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    will-change: transform, opacity;
+  }
+  
+  /* Optimizar contenedores de fondo */
+  [class*="bg-gradient"],
+  [class*="blur-"] {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+  }
+  
+  /* Reducir repaints en animaciones */
+  @media (prefers-reduced-motion: reduce) {
+    .dynamic-background,
+    .dynamic-background *,
+    [class*="animate-"],
+    [class*="bg-gradient"],
+    [class*="blur-"] {
+      animation: none !important;
+      transition: none !important;
     }
-    100% {
-      transform: translate(50px, 50px);
+  }
+  
+  /* Optimización para móviles */
+  @media (max-width: 768px) {
+    .dynamic-background canvas {
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
     }
   }
 </style>
