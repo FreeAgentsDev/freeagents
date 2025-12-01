@@ -5,7 +5,7 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   site: 'https://freeagents.dev',
   integrations: [tailwind()],
-  output: 'hybrid', // Hybrid mode: static pages + server-side APIs
+  output: 'server', // Server mode: enables server-side rendering and API routes
   compressHTML: true,
   build: {
     inlineStylesheets: 'auto',
