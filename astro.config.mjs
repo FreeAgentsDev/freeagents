@@ -5,4 +5,22 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   site: 'https://freeagents.dev',
   integrations: [tailwind()],
+  output: 'hybrid', // Hybrid mode: static pages + server-side APIs
+  compressHTML: true,
+  build: {
+    inlineStylesheets: 'auto',
+    assets: '_assets',
+  },
+  vite: {
+    build: {
+      cssCodeSplit: true,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vendor: ['astro'],
+          },
+        },
+      },
+    },
+  },
 });

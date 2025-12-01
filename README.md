@@ -1,48 +1,83 @@
-# Astro Starter Kit: Basics
+# FreeAgents - Software Factory
 
-```sh
-npm create astro@latest -- --template basics
+Sitio web profesional de FreeAgents, una Software Factory especializada en desarrollo de software a la medida, aplicaciones móviles, e-commerce y automatización con IA.
+
+## 🚀 Características
+
+- **Diseño Moderno**: Interfaz cyberpunk/neon con efectos visuales avanzados
+- **Multiidioma**: Soporte completo para español e inglés
+- **Asistente IA**: Chatbot "Orvi" integrado con Gemini AI
+- **SEO Optimizado**: Structured data, sitemap dinámico, meta tags completos
+- **Seguridad**: Headers de seguridad, rate limiting, validación de inputs
+- **Accesibilidad**: ARIA labels, semantic HTML, navegación por teclado
+- **Performance**: Lazy loading, code splitting, optimización de imágenes
+
+## 🛠️ Tecnologías
+
+- **Astro 5.x**: Framework web moderno
+- **Tailwind CSS**: Estilos utility-first
+- **TypeScript**: Tipado estático
+- **Gemini AI**: Asistente virtual inteligente
+
+## 📦 Instalación
+
+```bash
+# Instalar dependencias
+npm install
+
+# Desarrollo
+npm run dev
+
+# Build para producción
+npm run build
+
+# Preview de producción
+npm run preview
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## 🔐 Variables de Entorno
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Crea un archivo `.env` en la raíz del proyecto:
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+```env
+ORVI_API_KEY=tu_api_key_de_gemini_aqui
+```
 
-## 🚀 Project Structure
+## 📁 Estructura del Proyecto
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
+```
 /
-├── public/
-│   └── favicon.svg
+├── public/          # Archivos estáticos
 ├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/ # Componentes reutilizables
+│   ├── layouts/    # Layouts de página
+│   ├── pages/      # Páginas y rutas
+│   ├── utils/      # Utilidades
+│   └── middleware.ts # Middleware de seguridad
+└── astro.config.mjs
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🔒 Seguridad
 
-## 🧞 Commands
+- **Headers de Seguridad**: CSP, HSTS, X-Frame-Options, etc.
+- **Rate Limiting**: Protección contra abuso de API
+- **Validación de Inputs**: Sanitización de datos de usuario
+- **Variables de Entorno**: API keys protegidas
 
-All commands are run from the root of the project, from a terminal:
+## 📈 SEO
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- **Structured Data**: Schema.org (Organization, Service, WebSite)
+- **Sitemap Dinámico**: Generado automáticamente
+- **Meta Tags**: Open Graph, Twitter Cards completos
+- **Robots.txt**: Optimizado para crawlers
 
-## 👀 Want to learn more?
+## ♿ Accesibilidad
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- **ARIA Labels**: Navegación accesible
+- **Semantic HTML**: Estructura semántica correcta
+- **Keyboard Navigation**: Navegación por teclado
+- **Focus Management**: Indicadores de foco visibles
+
+## 📝 Licencia
+
+Privado - FreeAgents © 2024

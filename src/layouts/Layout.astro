@@ -1,4 +1,6 @@
 ---
+import OrviChat from '../components/OrviChat.astro';
+
 export interface Props {
   title: string;
   description?: string;
@@ -23,7 +25,7 @@ const ogImage = new URL(image, siteUrl).href;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" itemscope itemtype="https://schema.org/WebSite">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -40,6 +42,17 @@ const ogImage = new URL(image, siteUrl).href;
     <meta name="revisit-after" content="7 days" />
     <meta name="distribution" content="global" />
     <meta name="rating" content="general" />
+    <meta name="theme-color" content="#00d4ff" />
+    <meta name="color-scheme" content="dark" />
+    
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="CO" />
+    <meta name="geo.placename" content="Colombia" />
+    
+    <!-- Mobile Optimization -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     
     <!-- Canonical URL -->
     <link rel="canonical" href={currentUrl} />
@@ -89,45 +102,124 @@ const ogImage = new URL(image, siteUrl).href;
     <link rel="prefetch" href="/nosotros" as="document">
     <link rel="prefetch" href="/fundacion" as="document">
     
-    <!-- Structured Data Base (Organization) -->
+    <!-- Structured Data - Organization (All Pages) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "FreeAgents",
+      "alternateName": "FreeAgents Software Factory",
+      "url": siteUrl,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${siteUrl}/logofreeagents1.png`,
+        "width": 512,
+        "height": 512
+      },
+      "description": "Software Factory especializada en desarrollo de software a la medida, páginas web, aplicaciones móviles y e-commerce para empresas y emprendedores.",
+      "foundingDate": "2024",
+      "founder": {
+        "@type": "Person",
+        "name": "Miguel Gallego"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "availableLanguage": ["Spanish", "English"],
+        "areaServed": ["CO", "LATAM", "US"]
+      },
+      "sameAs": [
+        "https://github.com/FreeAgentsDev",
+        "https://www.linkedin.com/company/freeagentsdev/",
+        "https://www.instagram.com/freeagentsdev/",
+        "https://www.facebook.com/profile.php?id=61577490723653"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "CO"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": ["Colombia", "Latinoamérica", "Estados Unidos"]
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "offerCount": "6",
+        "lowPrice": "60",
+        "highPrice": "2400",
+        "priceCurrency": "USD"
+      }
+    })} />
+
+    <!-- Structured Data - WebSite (Homepage) -->
     {Astro.url.pathname === '/' && (
       <script type="application/ld+json" set:html={JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "Organization",
+        "@type": "WebSite",
         "name": "FreeAgents",
-        "alternateName": "FreeAgents Software Factory",
         "url": siteUrl,
-        "logo": `${siteUrl}/logofreeagents1.png`,
-        "description": "Software Factory especializada en desarrollo de software a la medida, páginas web, aplicaciones móviles y e-commerce para empresas y emprendedores.",
-        "foundingDate": "2024",
-        "founders": [{
-          "@type": "Person",
-          "name": "Miguel Gallego"
-        }],
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "customer service",
-          "availableLanguage": ["Spanish", "English"]
+        "description": description,
+        "publisher": {
+          "@type": "Organization",
+          "name": "FreeAgents"
         },
-        "sameAs": [
-          "https://github.com/FreeAgentsDev",
-          "https://www.linkedin.com/company/freeagentsdev/",
-          "https://www.instagram.com/freeagentsdev/",
-          "https://www.facebook.com/profile.php?id=61577490723653"
-        ],
-        "address": {
-          "@type": "PostalAddress",
-          "addressCountry": "CO"
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": `${siteUrl}/?q={search_term_string}`
+          },
+          "query-input": "required name=search_term_string"
+        }
+      })} />
+    )}
+
+    <!-- Structured Data - Service (Services Page) -->
+    {Astro.url.pathname === '/servicios' && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Software Development",
+        "provider": {
+          "@type": "Organization",
+          "name": "FreeAgents"
         },
         "areaServed": {
           "@type": "Country",
           "name": ["Colombia", "Latinoamérica"]
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Servicios de Desarrollo de Software",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Desarrollo de Software a la Medida"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "E-commerce Profesional"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Desarrollo de Apps Móviles"
+              }
+            }
+          ]
         }
       })} />
     )}
   </head>
   <body class="bg-gray-900 text-white">
     <slot />
+    <OrviChat />
     
     <!-- Performance Optimization Script -->
     <script>

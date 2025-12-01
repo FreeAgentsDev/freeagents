@@ -1,9 +1,28 @@
+# robots.txt for freeagents.dev
+# Optimized for SEO and search engine crawling
+
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /_astro/
+Disallow: /node_modules/
 
 # Sitemap
 Sitemap: https://freeagents.dev/sitemap.xml
 
-# Crawl-delay
+# Crawl-delay (be respectful to server resources)
 Crawl-delay: 1
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
 

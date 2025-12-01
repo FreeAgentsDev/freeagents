@@ -4,7 +4,7 @@ import LanguageSelector from './LanguageSelector.astro';
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="fixed top-0 w-full z-50" id="main-header">
+<header class="fixed top-0 w-full z-50" id="main-header" role="banner" aria-label="Navegación principal">
   <!-- Animated Background Gradient con Glassmorphism -->
   <div class="absolute inset-0 bg-gray-900/80 backdrop-blur-xl border-b border-gray-800/50"></div>
   
@@ -28,15 +28,19 @@ const currentPath = Astro.url.pathname;
   <nav class="container mx-auto px-6 py-4 relative z-10">
     <div class="flex items-center justify-between">
       <!-- Logo con Efectos Premium -->
-      <a href="/" class="flex items-center space-x-3 group relative">
+      <a href="/" class="flex items-center space-x-3 group relative" aria-label="Ir a la página de inicio de FreeAgents">
         <!-- Glow Effect -->
         <div class="absolute -inset-2 bg-neon-cyan/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         
         <div class="relative">
           <img 
             src="/logofreeagents1.png" 
-            alt="FreeAgents" 
+            alt="Logo de FreeAgents - Software Factory" 
+            width="40"
+            height="40"
             class="h-10 w-auto group-hover:scale-110 transition-all duration-300 rounded-full sm:h-8 drop-shadow-lg group-hover:drop-shadow-2xl group-hover:drop-shadow-neon-cyan/50"
+            loading="eager"
+            fetchpriority="high"
           >
           <div class="absolute inset-0 bg-neon-cyan/0 group-hover:bg-neon-cyan/10 rounded-full transition-all duration-300 blur-sm"></div>
         </div>
@@ -48,7 +52,7 @@ const currentPath = Astro.url.pathname;
       </a>
 
       <!-- Desktop Navigation con Efectos Avanzados -->
-      <nav class="hidden md:flex items-center space-x-2" aria-label="Navegación principal">
+      <div class="hidden md:flex items-center space-x-2" role="navigation" aria-label="Menú de navegación">
         <a 
           href="/" 
           class={`nav-link group relative px-4 py-2 rounded-lg transition-all duration-300 ${currentPath === '/' ? 'text-neon-cyan' : 'text-gray-300 hover:text-white'}`}
