@@ -56,6 +56,11 @@ const ogImage = new URL(image, siteUrl).href;
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     
+    <!-- Performance Optimizations -->
+    <meta http-equiv="x-dns-prefetch-control" content="on" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    
     <!-- Canonical URL -->
     <link rel="canonical" href={currentUrl} />
     
@@ -292,6 +297,132 @@ const ogImage = new URL(image, siteUrl).href;
         } else {
           window.addEventListener('load', prefetchVisibleLinks);
         }
+      })();
+    </script>
+    
+    <!-- Scroll to Top on Navigation -->
+    <script>
+      /**
+       * Scroll to top when navigating to a new page
+       * This ensures that every page loads from the top, not from the footer
+       */
+      (function() {
+        function scrollToTop() {
+          // Scroll inmediatamente al top
+          window.scrollTo(0, 0);
+          document.documentElement.scrollTop = 0;
+          document.body.scrollTop = 0;
+          
+          // Asegurar que se mantenga en el top después de que la página cargue
+          requestAnimationFrame(() => {
+            window.scrollTo(0, 0);
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+          });
+        }
+        
+        // Scroll al top cuando la página carga
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', scrollToTop);
+        } else {
+          scrollToTop();
+        }
+        
+        // Scroll al top cuando Astro carga una nueva página (SPA navigation)
+        document.addEventListener('astro:page-load', () => {
+          scrollToTop();
+          // Asegurar después de un pequeño delay
+          setTimeout(scrollToTop, 0);
+          setTimeout(scrollToTop, 10);
+          setTimeout(scrollToTop, 50);
+        });
+        
+        // También escuchar el evento de after-swap si está disponible
+        document.addEventListener('astro:after-swap', () => {
+          scrollToTop();
+          setTimeout(scrollToTop, 0);
+          setTimeout(scrollToTop, 10);
+        });
+        
+        // Interceptar clicks en enlaces internos para hacer scroll al top
+        document.addEventListener('click', (e) => {
+          const target = e.target.closest('a[href]');
+          if (target && target.href) {
+            try {
+              const url = new URL(target.href);
+              // Si es un enlace interno (mismo origen)
+              if (url.origin === window.location.origin && url.pathname !== window.location.pathname) {
+                // Hacer scroll al top antes de navegar
+                scrollToTop();
+              }
+            } catch (err) {
+              // Ignorar errores de URL
+            }
+          }
+        });
+      })();
+    </script>
+    
+    <!-- Scroll to Top on Navigation -->
+    <script>
+      /**
+       * Scroll to top when navigating to a new page
+       * This ensures that every page loads from the top, not from the footer
+       */
+      (function() {
+        function scrollToTop() {
+          // Scroll inmediatamente al top
+          window.scrollTo(0, 0);
+          document.documentElement.scrollTop = 0;
+          document.body.scrollTop = 0;
+          
+          // Asegurar que se mantenga en el top después de que la página cargue
+          requestAnimationFrame(() => {
+            window.scrollTo(0, 0);
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+          });
+        }
+        
+        // Scroll al top cuando la página carga
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', scrollToTop);
+        } else {
+          scrollToTop();
+        }
+        
+        // Scroll al top cuando Astro carga una nueva página (SPA navigation)
+        document.addEventListener('astro:page-load', () => {
+          scrollToTop();
+          // Asegurar después de pequeños delays
+          setTimeout(scrollToTop, 0);
+          setTimeout(scrollToTop, 10);
+          setTimeout(scrollToTop, 50);
+        });
+        
+        // También escuchar el evento de after-swap si está disponible
+        document.addEventListener('astro:after-swap', () => {
+          scrollToTop();
+          setTimeout(scrollToTop, 0);
+          setTimeout(scrollToTop, 10);
+        });
+        
+        // Interceptar clicks en enlaces internos para hacer scroll al top
+        document.addEventListener('click', (e) => {
+          const target = e.target.closest('a[href]');
+          if (target && target.href) {
+            try {
+              const url = new URL(target.href);
+              // Si es un enlace interno (mismo origen)
+              if (url.origin === window.location.origin && url.pathname !== window.location.pathname) {
+                // Hacer scroll al top antes de navegar
+                scrollToTop();
+              }
+            } catch (err) {
+              // Ignorar errores de URL
+            }
+          }
+        });
       })();
     </script>
     
@@ -564,5 +695,75 @@ const ogImage = new URL(image, siteUrl).href;
   .scroll-reveal.revealed {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  /* Optimizaciones globales de rendimiento */
+  
+  /* GPU Acceleration para elementos animados */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Optimización de scroll en móviles */
+  @media (max-width: 768px) {
+    html {
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Reducir animaciones en móviles */
+    [class*="animate-"] {
+      animation-duration: 0.6s !important;
+    }
+    
+    /* Optimizar transformaciones */
+    * {
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      perspective: 1000px;
+    }
+  }
+
+  /* Reducir animaciones para usuarios que prefieren menos movimiento */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Optimización de imágenes */
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Optimización de canvas */
+  canvas {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: pixelated;
+  }
+
+  /* Optimización de contenedores con backdrop-blur */
+  [class*="backdrop-blur"] {
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  /* Optimización para dispositivos de bajo rendimiento */
+  @media (prefers-reduced-motion: no-preference) {
+    @media (max-width: 480px) {
+      /* Desactivar efectos pesados en móviles pequeños */
+      [class*="blur-3xl"],
+      [class*="blur-2xl"] {
+        filter: blur(8px) !important;
+      }
+    }
   }
 </style>

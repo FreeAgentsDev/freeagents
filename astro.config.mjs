@@ -1,15 +1,13 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
-import node from '@astrojs/node';
+import vercel from '@astrojs/vercel/serverless';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://freeagents.dev',
   integrations: [tailwind()],
   output: 'server', // Server mode: enables server-side rendering and API routes
-  adapter: node({
-    mode: 'standalone',
-  }),
+  adapter: vercel(),
   compressHTML: true,
   build: {
     inlineStylesheets: 'auto',

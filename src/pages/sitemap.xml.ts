@@ -1,6 +1,9 @@
 import type { APIRoute } from 'astro';
 import { getAllServiceSlugs } from '../config/services.ts';
 
+// Mark this route as server-side only (not prerendered)
+export const prerender = false;
+
 const siteUrl = 'https://freeagents.dev';
 
 const pages = [
