@@ -1,96 +1,180 @@
 ---
 ---
 
-<div id="orvi-chat-root">
-  <!-- Botón flotante -->
+<div id="orvi-chat-root" data-orvi-instance="true">
+  <!-- Botón flotante atractivo y llamativo -->
   <button
     id="orvi-toggle"
-    class="fixed bottom-6 right-6 z-40 flex items-center gap-2 px-4 py-3 rounded-full bg-gradient-to-r from-neon-cyan to-neon-purple shadow-lg shadow-neon-cyan/40 border border-neon-cyan/60 hover:scale-105 hover:shadow-neon-purple/50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-neon-cyan focus:ring-offset-2 focus:ring-offset-gray-900"
+    type="button"
+    class="orvi-float-button fixed bottom-6 right-6 z-40 flex items-center gap-3 px-5 py-4 rounded-2xl bg-gradient-to-br from-purple-600 via-purple-500 to-pink-500 backdrop-blur-md border-2 border-purple-400/30 hover:border-purple-300/50 shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-gray-900 group animate-bounce-subtle"
     aria-label="Abrir chat con Orvi, asistente virtual de FreeAgents"
     aria-expanded="false"
     aria-controls="orvi-panel"
   >
-    <div class="relative w-9 h-9 rounded-full bg-gray-900/80 border border-neon-cyan/60 flex items-center justify-center overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-br from-neon-cyan/40 via-neon-purple/40 to-neon-teal/40 opacity-60"></div>
-      <span class="relative font-display text-lg font-bold text-white">O</span>
+    <div class="relative w-12 h-12 rounded-full flex items-center justify-center overflow-hidden flex-shrink-0 ring-2 ring-white/20 group-hover:ring-white/40 transition-all">
+      <div class="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-full"></div>
+      <img 
+        src="/orby.png" 
+        alt="Orvi - Asistente IA" 
+        class="w-full h-full object-cover rounded-full orby-avatar relative z-10"
+        loading="eager"
+      />
+      <div class="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white animate-pulse"></div>
     </div>
-    <div class="hidden sm:flex flex-col text-left">
-      <span class="text-xs uppercase tracking-wide text-neon-cyan/90">Asistente IA</span>
-      <span class="text-sm font-semibold text-white">Orvi está en línea</span>
+    <div class="hidden sm:flex flex-col text-left relative z-10">
+      <span class="text-xs text-purple-100 font-medium">Asistente IA</span>
+      <span class="text-sm font-bold text-white">Orvi está en línea</span>
     </div>
+    <!-- Indicador de notificación cuando no hay chat activo -->
+    <div
+      id="orvi-inactive-badge"
+      class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold animate-pulse hidden"
+      aria-label="Nuevo chat disponible"
+    >
+      <span class="text-[10px]">!</span>
+    </div>
+    <!-- Efecto de brillo animado -->
+    <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+    <!-- Partículas flotantes -->
+    <div class="absolute -top-2 -right-2 w-2 h-2 bg-pink-400 rounded-full animate-ping opacity-75"></div>
+    <div class="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-purple-400 rounded-full animate-pulse"></div>
   </button>
+  
+  <!-- Notificación de mensaje nuevo -->
+  <div
+    id="orvi-notification"
+    class="fixed bottom-32 right-6 z-50 hidden items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-br from-purple-600 via-purple-500 to-pink-500 backdrop-blur-md border-2 border-purple-400/30 shadow-2xl cursor-pointer hover:scale-105 transition-transform max-w-sm"
+    style="display: none;"
+    role="alert"
+    aria-live="polite"
+  >
+    <div class="relative w-10 h-10 rounded-full flex items-center justify-center overflow-hidden flex-shrink-0 ring-2 ring-white/20">
+      <img 
+        src="/orby.png" 
+        alt="Orvi - Asistente IA" 
+        class="w-full h-full object-cover rounded-full orby-avatar"
+        loading="eager"
+      />
+      <div class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white animate-pulse"></div>
+    </div>
+    <div class="flex flex-col text-left">
+      <span class="text-xs text-purple-100 font-medium">Nuevo mensaje</span>
+      <span class="text-sm font-bold text-white">Orvi te está esperando</span>
+    </div>
+    <button
+      id="orvi-notification-close"
+      class="ml-2 p-1 rounded-lg hover:bg-white/20 text-white transition-colors"
+      aria-label="Cerrar notificación"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
 
-  <!-- Ventana de chat -->
+  <!-- Ventana de chat atractiva -->
   <div
     id="orvi-panel"
-    class="fixed bottom-24 right-4 sm:right-6 z-40 w-[90vw] max-w-sm bg-gray-900/95 border border-neon-cyan/40 rounded-2xl shadow-2xl shadow-neon-cyan/30 backdrop-blur-xl overflow-hidden transform translate-y-6 opacity-0 pointer-events-none transition-all duration-300"
+    class="fixed bottom-24 right-4 sm:right-6 z-40 w-[90vw] max-w-sm bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800 backdrop-blur-xl border-2 border-purple-500/30 rounded-3xl shadow-2xl overflow-hidden transform translate-y-6 opacity-0 pointer-events-none transition-all duration-500 orvi-panel"
     role="dialog"
     aria-label="Chat con Orvi, asistente virtual"
     aria-modal="true"
     aria-live="polite"
   >
-    <!-- Header -->
-    <div class="flex items-center justify-between px-4 py-3 border-b border-gray-700/70 bg-gradient-to-r from-gray-900/90 via-gray-900/80 to-gray-900/90">
+    <!-- Efecto de brillo en el borde -->
+    <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-purple-500/20 orvi-panel-glow pointer-events-none"></div>
+    
+    <!-- Header atractivo con gradiente -->
+    <div class="relative flex items-center justify-between px-5 py-4 border-b border-purple-500/20 bg-gradient-to-r from-purple-600/10 via-transparent to-pink-600/10">
       <div class="flex items-center gap-3">
-        <div class="relative w-9 h-9 rounded-full bg-gray-900/80 border border-neon-cyan/60 flex items-center justify-center overflow-hidden">
-          <div class="absolute inset-0 bg-gradient-to-br from-neon-cyan/40 via-neon-purple/40 to-neon-teal/40 opacity-70 animate-pulse"></div>
-          <span class="relative font-display text-lg font-bold text-white">O</span>
+        <div class="relative w-10 h-10 rounded-full flex items-center justify-center overflow-hidden flex-shrink-0 ring-2 ring-purple-400/30">
+          <div class="absolute inset-0 bg-gradient-to-br from-purple-400/30 to-pink-400/30 rounded-full"></div>
+          <img 
+            src="/orby.png" 
+            alt="Orvi - Asistente IA" 
+            class="w-full h-full object-cover rounded-full orby-avatar relative z-10"
+            loading="eager"
+          />
         </div>
         <div class="flex flex-col">
-          <span class="text-sm font-semibold text-white">Orvi</span>
-          <span class="text-xs text-neon-cyan/80">Asistente IA de FreeAgents</span>
+          <span class="text-base font-bold text-white bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">Orvi</span>
+          <span class="text-xs text-purple-300 font-medium">Asistente IA</span>
         </div>
       </div>
-      <button
-        id="orvi-close"
-        class="p-1.5 rounded-full hover:bg-gray-800/80 text-gray-400 hover:text-white transition-colors"
-        aria-label="Cerrar chat de Orvi"
-      >
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
+      <div class="flex items-center gap-2">
+        <a
+          href="/orvy"
+          class="p-2 rounded-xl hover:bg-purple-500/20 text-gray-400 hover:text-white transition-all hover:scale-110"
+          aria-label="Abrir vista completa de Orvi"
+          title="Vista completa"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+          </svg>
+        </a>
+        <button
+          id="orvi-close"
+          class="p-2 rounded-xl hover:bg-purple-500/20 text-gray-400 hover:text-white transition-all hover:scale-110 hover:rotate-90"
+          aria-label="Cerrar chat de Orvi"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
     </div>
 
     <!-- Mensajes -->
     <div
       id="orvi-messages"
-      class="max-h-80 min-h-[220px] overflow-y-auto px-4 py-3 space-y-3 custom-scrollbar"
+      class="max-h-80 min-h-[200px] overflow-y-auto px-4 py-4 space-y-3 custom-scrollbar"
     >
-      <div class="flex items-start gap-2">
-        <div class="w-7 h-7 rounded-full bg-gradient-to-br from-neon-cyan to-neon-purple flex items-center justify-center text-xs font-bold text-white">
-          O
+      <!-- Mensaje inicial con animación especial -->
+      <div class="flex items-start gap-3 orvi-welcome-message">
+        <div class="w-8 h-8 rounded-full flex items-center justify-center overflow-hidden flex-shrink-0 ring-2 ring-purple-400/30">
+          <div class="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full"></div>
+          <img 
+            src="/orby.png" 
+            alt="Orvi - Asistente IA" 
+            class="w-full h-full object-cover rounded-full orby-avatar relative z-10"
+            loading="eager"
+          />
         </div>
-        <div class="max-w-[80%] rounded-2xl bg-gray-800/90 border border-neon-cyan/40 px-3 py-2 text-sm text-gray-100">
-          <p>
-            ¡Hola! Soy <span class="font-semibold text-neon-cyan">Orvi</span>, el asistente IA de FreeAgents.
-            Puedo ayudarte a entender nuestros servicios, planes y a guiarte al mejor siguiente paso.
+        <div class="relative max-w-[85%] rounded-2xl bg-gradient-to-br from-purple-600/20 via-purple-500/15 to-pink-500/20 backdrop-blur-sm border border-purple-400/20 px-4 py-3 text-sm leading-relaxed shadow-lg overflow-hidden">
+          <p class="text-gray-100 relative z-10">
+            <span class="orvi-greeting-text inline-block">
+              ¡Hola! 👋 Soy <span class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-pink-300 to-purple-300 animate-gradient-x">Orvi</span>, tu consultor de FreeAgents.
+            </span>
           </p>
+          <p class="mt-2 text-gray-200 orvi-welcome-text relative z-10">
+            Estoy aquí para entender qué necesita tu negocio y ayudarte a encontrar la mejor solución. ¿Qué desafío o proyecto tienes en mente?
+          </p>
+          <!-- Efecto de brillo animado en el mensaje -->
+          <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full orvi-message-shine pointer-events-none"></div>
         </div>
       </div>
     </div>
 
-    <!-- Input -->
-    <form id="orvi-form" class="border-t border-gray-700/70 bg-gray-900/90 px-3 py-2 flex items-center gap-2">
+    <!-- Input atractivo -->
+    <form id="orvi-form" class="relative border-t border-purple-500/20 px-4 py-3 flex items-center gap-2 bg-gradient-to-r from-gray-900/50 via-transparent to-gray-900/50">
       <input
         id="orvi-input"
         type="text"
         required
         autocomplete="off"
-        placeholder="Escribe tu pregunta para Orvi..."
+        placeholder="Escribe tu mensaje..."
         aria-label="Campo de texto para escribir tu pregunta a Orvi"
         aria-required="true"
-        class="flex-1 bg-gray-800/80 border border-gray-700 rounded-full px-3 py-2 text-sm text-gray-100 placeholder-gray-500 focus:outline-none focus:border-neon-cyan focus:ring-2 focus:ring-neon-cyan focus:ring-offset-2 focus:ring-offset-gray-900"
+        class="flex-1 bg-gray-800/60 border-2 border-purple-500/20 rounded-xl px-4 py-2.5 text-sm text-gray-100 placeholder-gray-400 focus:outline-none focus:border-purple-400/50 focus:bg-gray-800/80 focus:ring-2 focus:ring-purple-500/20 transition-all"
       />
       <button
         type="submit"
         id="orvi-send"
         aria-label="Enviar mensaje a Orvi"
-        class="flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-r from-neon-cyan to-neon-teal text-white hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-neon-cyan focus:ring-offset-2 focus:ring-offset-gray-900"
-        aria-label="Enviar mensaje a Orvi"
+        class="flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white shadow-lg hover:shadow-purple-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-purple-400 hover:scale-110 active:scale-95"
       >
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
         </svg>
       </button>
     </form>
@@ -99,6 +183,12 @@
 
 <script>
   (function () {
+    // Prevenir múltiples instancias
+    if (document.querySelector('[data-orvi-instance="true"]') && window.orviInitialized) {
+      return;
+    }
+    window.orviInitialized = true;
+    
     const root = document.getElementById('orvi-chat-root');
     if (!root) return;
 
@@ -109,12 +199,60 @@
     const input = document.getElementById('orvi-input');
     const messages = document.getElementById('orvi-messages');
     const sendBtn = document.getElementById('orvi-send');
+    const notification = document.getElementById('orvi-notification');
+    const notificationClose = document.getElementById('orvi-notification-close');
 
-    function openPanel() {
+    let isPanelOpen = false;
+    let notificationShown = false;
+    let notificationTimeout: ReturnType<typeof setTimeout> | null = null;
+    let hasActiveChat = false; // Rastrea si hay un chat activo (mensajes intercambiados)
+    const inactiveBadge = document.getElementById('orvi-inactive-badge');
+    
+    // Verificar estado inicial del panel
+    if (panel) {
+      const computedStyle = window.getComputedStyle(panel);
+      isPanelOpen = computedStyle.opacity === '1' && computedStyle.pointerEvents === 'auto';
+    }
+
+    function openPanel(e?: Event) {
       if (!panel) return;
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      
+      // Prevenir scroll cuando se abre el panel
+      const scrollY = window.scrollY;
+      const scrollX = window.scrollX;
+      
+      isPanelOpen = true;
       panel.style.opacity = '1';
       panel.style.transform = 'translateY(0)';
       panel.style.pointerEvents = 'auto';
+      // Asegurar que el panel esté fijo y no se mueva
+      panel.style.position = 'fixed';
+      panel.style.bottom = '6rem'; // bottom-24 en Tailwind
+      panel.style.right = window.innerWidth >= 640 ? '1.5rem' : '1rem';
+      panel.style.top = 'auto';
+      panel.style.left = 'auto';
+      panel.style.margin = '0';
+      
+      if (toggle) {
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+      // Ocultar notificación si existe
+      hideNotification();
+      // Ocultar badge de inactivo cuando se abre el panel
+      if (inactiveBadge) {
+        inactiveBadge.classList.add('hidden');
+      }
+      
+      // Mantener posición de scroll inmediatamente y después de un frame
+      window.scrollTo(scrollX, scrollY);
+      requestAnimationFrame(() => {
+        window.scrollTo(scrollX, scrollY);
+      });
+      
       if (input) {
         setTimeout(() => input.focus(), 200);
       }
@@ -122,31 +260,106 @@
 
     function closePanel() {
       if (!panel) return;
+      isPanelOpen = false;
       panel.style.opacity = '0';
       panel.style.transform = 'translateY(12px)';
       panel.style.pointerEvents = 'none';
+      if (toggle) {
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+      // Verificar si mostrar badge después de cerrar (solo si no hay chat activo)
+      setTimeout(() => {
+        if (!hasActiveChat) {
+          checkInactiveChat();
+        }
+      }, 300);
     }
+    
+    function hideNotification() {
+      const notification = document.getElementById('orvi-notification');
+      if (notification) {
+        notification.style.display = 'none';
+      }
+      if (notificationTimeout) {
+        clearTimeout(notificationTimeout);
+        notificationTimeout = null;
+      }
+    }
+    
+    function showNotification() {
+      if (isPanelOpen || notificationShown) return;
+      const notification = document.getElementById('orvi-notification');
+      if (notification && !isPanelOpen) {
+        notificationShown = true;
+        notification.style.display = 'flex';
+        setTimeout(() => {
+          notification.style.animation = 'notificationSlideIn 0.3s ease-out';
+        }, 100);
+      }
+    }
+    
+    // Mostrar badge de inactivo si no hay chat activo después de cargar
+    function checkInactiveChat() {
+      // Si ya hay un chat activo, no mostrar el badge
+      if (hasActiveChat || !inactiveBadge) return;
+      
+      // Contar mensajes del usuario (excluyendo el mensaje de bienvenida)
+      const userMessages = messages?.querySelectorAll('.flex.items-start.gap-2.justify-end');
+      
+      // Si no hay mensajes del usuario y el panel está cerrado, mostrar badge de inactivo
+      if ((!userMessages || userMessages.length === 0) && !isPanelOpen) {
+        inactiveBadge.classList.remove('hidden');
+      } else {
+        inactiveBadge.classList.add('hidden');
+      }
+    }
+    
+    // Verificar estado inicial después de que la página cargue
+    setTimeout(() => {
+      checkInactiveChat();
+    }, 1500);
+    
+    // Mostrar notificación después de 5 segundos si el panel está cerrado y no se ha mostrado antes
+    notificationTimeout = setTimeout(() => {
+      if (!isPanelOpen && !notificationShown) {
+        showNotification();
+      }
+    }, 5000);
 
     function appendMessage(text, from) {
       if (!messages) return;
+      
+      // Marcar que hay un chat activo cuando se envía o recibe un mensaje
+      if (from === 'user' || from === 'orvi') {
+        hasActiveChat = true;
+        // Ocultar badge de inactivo cuando hay chat activo
+        if (inactiveBadge) {
+          inactiveBadge.classList.add('hidden');
+        }
+      }
+      
       const wrapper = document.createElement('div');
       wrapper.className = 'flex items-start gap-2 ' + (from === 'user' ? 'justify-end' : '');
 
       if (from === 'user') {
         const bubble = document.createElement('div');
         bubble.className =
-          'max-w-[80%] rounded-2xl bg-gradient-to-r from-neon-cyan/80 to-neon-purple/80 px-3 py-2 text-sm text-white';
+          'max-w-[85%] rounded-2xl bg-gradient-to-br from-purple-700/40 to-pink-700/40 border border-purple-400/20 px-4 py-3 text-sm text-white leading-relaxed shadow-lg animate-message-in';
         bubble.textContent = text;
         wrapper.appendChild(bubble);
       } else {
         const avatar = document.createElement('div');
         avatar.className =
-          'w-7 h-7 rounded-full bg-gradient-to-br from-neon-cyan to-neon-purple flex items-center justify-center text-xs font-bold text-white';
-        avatar.textContent = 'O';
+          'w-6 h-6 rounded-full flex items-center justify-center overflow-hidden flex-shrink-0';
+        const img = document.createElement('img');
+        img.src = '/orby.png';
+        img.alt = 'Orvi - Asistente IA';
+        img.className = 'w-full h-full object-cover rounded-full orby-avatar';
+        avatar.appendChild(img);
 
         const bubble = document.createElement('div');
         bubble.className =
-          'max-w-[80%] rounded-2xl bg-gray-800/90 border border-neon-cyan/40 px-3 py-2 text-sm text-gray-100 whitespace-pre-wrap';
+          'max-w-[85%] rounded-2xl bg-gradient-to-br from-purple-600/20 via-purple-500/15 to-pink-500/20 backdrop-blur-sm border border-purple-400/20 px-4 py-3 text-sm text-gray-200 leading-relaxed whitespace-pre-wrap shadow-lg animate-message-in';
         bubble.textContent = text;
 
         wrapper.appendChild(avatar);
@@ -166,12 +379,14 @@
       typing.id = typingId;
       typing.className = 'flex items-start gap-2';
       typing.innerHTML = `
-        <div class="w-7 h-7 rounded-full bg-gradient-to-br from-neon-cyan to-neon-purple flex items-center justify-center text-xs font-bold text-white">O</div>
-        <div class="max-w-[80%] rounded-2xl bg-gray-800/90 border border-neon-cyan/40 px-3 py-2 text-sm text-gray-300">
+        <div class="w-6 h-6 rounded-full flex items-center justify-center overflow-hidden flex-shrink-0">
+          <img src="/orby.png" alt="Orvi - Asistente IA" class="w-full h-full object-cover rounded-full orby-avatar" />
+        </div>
+        <div class="max-w-[85%] rounded-xl bg-gray-800/60 px-3 py-2 text-sm text-gray-300">
           <span class="inline-flex gap-1 items-center">
-            <span class="w-1.5 h-1.5 rounded-full bg-neon-cyan animate-pulse"></span>
-            <span class="w-1.5 h-1.5 rounded-full bg-neon-cyan/70 animate-pulse" style="animation-delay: 0.15s;"></span>
-            <span class="w-1.5 h-1.5 rounded-full bg-neon-cyan/50 animate-pulse" style="animation-delay: 0.3s;"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-gray-400 animate-pulse"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-gray-400/70 animate-pulse" style="animation-delay: 0.15s;"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-gray-400/50 animate-pulse" style="animation-delay: 0.3s;"></span>
           </span>
         </div>
       `;
@@ -236,17 +451,34 @@
       }
     }
 
-    toggle?.addEventListener('click', () => {
+    toggle?.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
       if (!panel) return;
-      const isOpen = panel.style.opacity === '1';
+      
+      // Guardar posición de scroll actual
+      const scrollY = window.scrollY;
+      
+      const computedStyle = window.getComputedStyle(panel);
+      const isOpen = computedStyle.opacity === '1' && computedStyle.pointerEvents === 'auto';
       if (isOpen) {
         closePanel();
       } else {
-        openPanel();
+        openPanel(e);
       }
+      
+      // Prevenir scroll - mantener posición
+      requestAnimationFrame(() => {
+        window.scrollTo(window.scrollX, scrollY);
+      });
+      
+      return false;
     });
 
-    closeBtn?.addEventListener('click', () => {
+    closeBtn?.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       closePanel();
     });
 
@@ -260,7 +492,216 @@
       input.value = '';
       sendMessage(value);
     });
+    
+    // Cerrar notificación
+    notificationClose?.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      hideNotification();
+    });
+    
+    // Abrir panel al hacer clic en la notificación
+    notification?.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (e.target !== notificationClose && !notificationClose?.contains(e.target as Node)) {
+        openPanel(e);
+      }
+    });
+    
+    // Exponer función openPanel globalmente para que el Header pueda usarla
+    (window as any).openOrviChat = () => {
+      openPanel();
+    };
   })();
 </script>
 
-
+<style>
+  /* Optimización de la imagen con fondo transparente */
+  .orby-avatar {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+  
+  /* Scrollbar atractivo */
+  #orvi-messages::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  #orvi-messages::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  #orvi-messages::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, rgba(168, 85, 247, 0.4), rgba(236, 72, 153, 0.4));
+    border-radius: 3px;
+  }
+  
+  #orvi-messages::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, rgba(168, 85, 247, 0.6), rgba(236, 72, 153, 0.6));
+  }
+  
+  /* Animación suave para el panel */
+  #orvi-panel {
+    will-change: transform, opacity;
+    position: fixed !important;
+    top: auto !important;
+    left: auto !important;
+  }
+  
+  /* Animación de entrada del panel */
+  .orvi-panel {
+    animation: panelSlideIn 0.5s ease-out forwards;
+  }
+  
+  @keyframes panelSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(24px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  /* Efecto de brillo en el panel */
+  .orvi-panel-glow {
+    animation: glowPulse 3s ease-in-out infinite;
+  }
+  
+  @keyframes glowPulse {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.3;
+    }
+  }
+  
+  /* Animación sutil del botón flotante */
+  @keyframes bounce-subtle {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+  
+  .animate-bounce-subtle {
+    animation: bounce-subtle 3s ease-in-out infinite;
+  }
+  
+  /* Animación de pulso lento */
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse-slow 3s ease-in-out infinite;
+  }
+  
+  /* Animación de entrada de mensajes */
+  @keyframes messageIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  .animate-message-in {
+    animation: messageIn 0.3s ease-out;
+  }
+  
+  /* Animación de gradiente en el texto */
+  @keyframes gradient-x {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+  
+  .animate-gradient-x {
+    background-size: 200% 200%;
+    animation: gradient-x 3s ease infinite;
+  }
+  
+  /* Efecto de brillo en el mensaje de bienvenida */
+  .orvi-message-shine {
+    animation: shine 3s ease-in-out infinite;
+  }
+  
+  @keyframes shine {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  /* Animación de entrada del mensaje de bienvenida */
+  .orvi-welcome-message {
+    animation: welcomeFadeIn 0.8s ease-out;
+  }
+  
+  @keyframes welcomeFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Efecto de hover en el botón flotante */
+  .orvi-float-button:hover {
+    transform: translateY(-2px) scale(1.02);
+  }
+  
+  /* Mejoras de accesibilidad y UX */
+  #orvi-toggle:focus-visible {
+    outline: 2px solid rgba(168, 85, 247, 0.5);
+    outline-offset: 2px;
+  }
+  
+  /* Efecto de partículas en el botón */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(180deg);
+    }
+  }
+  
+  /* Animación de entrada de notificación */
+  @keyframes notificationSlideIn {
+    from {
+      opacity: 0;
+      transform: translateX(100px) scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+    }
+  }
+  
+  #orvi-notification {
+    animation: notificationSlideIn 0.3s ease-out;
+  }
+</style>

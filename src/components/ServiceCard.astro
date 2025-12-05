@@ -1,0 +1,97 @@
+---
+import type { Service } from '../config/services.ts';
+
+interface Props {
+  service: Service;
+}
+
+const { service } = Astro.props;
+
+const getIconPath = (icon: string): string => {
+  const icons: Record<string, string> = {
+    'code': 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
+    'shopping': 'M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z',
+    'restaurant': 'M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4',
+    'ai': 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z',
+    'lightning': 'M13 10V3L4 14h7v7l9-11h-7z'
+  };
+  return icons[icon] || icons['code'];
+};
+
+const getColorClasses = (color: string) => {
+  const colors: Record<string, { 
+    borderHover: string; 
+    text: string; 
+    bg: string; 
+    gradient: string;
+    borderClass: string;
+  }> = {
+    'neon-blue': {
+      borderHover: 'hover:border-neon-blue/50',
+      text: 'text-neon-blue',
+      bg: 'from-neon-blue/20 to-neon-purple/20 border-neon-blue/30 hover:from-neon-blue/30 hover:to-neon-purple/30',
+      gradient: 'from-neon-blue to-neon-purple',
+      borderClass: 'border-neon-blue/50'
+    },
+    'neon-green': {
+      borderHover: 'hover:border-neon-green/50',
+      text: 'text-neon-green',
+      bg: 'from-neon-green/20 to-neon-blue/20 border-neon-green/30 hover:from-neon-green/30 hover:to-neon-blue/30',
+      gradient: 'from-neon-green to-neon-blue',
+      borderClass: 'border-neon-green/50'
+    },
+    'neon-teal': {
+      borderHover: 'hover:border-neon-teal/50',
+      text: 'text-neon-teal',
+      bg: 'from-neon-teal/20 to-neon-green/20 border-neon-teal/30 hover:from-neon-teal/30 hover:to-neon-green/30',
+      gradient: 'from-neon-teal to-neon-green',
+      borderClass: 'border-neon-teal/50'
+    },
+    'neon-pink': {
+      borderHover: 'hover:border-neon-pink/50',
+      text: 'text-neon-pink',
+      bg: 'from-neon-pink/20 to-neon-purple/20 border-neon-pink/30 hover:from-neon-pink/30 hover:to-neon-purple/30',
+      gradient: 'from-neon-pink to-neon-purple',
+      borderClass: 'border-neon-pink/50'
+    },
+    'neon-cyan': {
+      borderHover: 'hover:border-neon-cyan/50',
+      text: 'text-neon-cyan',
+      bg: 'from-neon-cyan/20 to-neon-teal/20 border-neon-cyan/30 hover:from-neon-cyan/30 hover:to-neon-teal/30',
+      gradient: 'from-neon-cyan to-neon-teal',
+      borderClass: 'border-neon-cyan/50'
+    }
+  };
+  return colors[color] || colors['neon-blue'];
+};
+
+const colors = getColorClasses(service.color);
+const gradientColors = getColorClasses(service.gradientFrom);
+
+// Validar que los precios existan
+const priceUSD = service.priceFromUSD ?? 0;
+const priceCOP = service.priceFromCOP ?? 0;
+---
+
+<div class={`group bg-gray-900/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 ${colors.borderHover} transition-all duration-300 hover:scale-105`}>
+  <div class={`w-16 h-16 bg-gradient-to-r ${gradientColors.gradient} rounded-xl flex items-center justify-center mb-4`}>
+    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={getIconPath(service.icon)} />
+    </svg>
+  </div>
+  <h3 class="text-xl font-bold text-white mb-2" data-es={service.name} data-en={service.nameEn}>
+    {service.name}
+  </h3>
+  <p class="text-gray-400 mb-4 text-sm" data-es={service.shortDescription} data-en={service.shortDescriptionEn}>
+    {service.shortDescription}
+  </p>
+  <div class="mb-4">
+    <p class="text-gray-300 text-sm mb-2" data-es="Desde:" data-en="From:">Desde:</p>
+    <p class={`text-2xl font-bold ${colors.text}`}>${priceUSD.toLocaleString()} USD</p>
+    <p class="text-gray-400 text-sm">${priceCOP.toLocaleString('es-CO')} COP</p>
+  </div>
+  <a href={`/servicios/${service.slug}`} class={`block w-full text-center bg-gradient-to-r ${colors.bg} rounded-lg py-2 text-white font-semibold transition-all`}>
+    <span data-es="Más Info" data-en="More Info">Más Info</span>
+  </a>
+</div>
+

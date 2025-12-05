@@ -8,6 +8,7 @@ export interface Props {
   image?: string;
   type?: string;
   canonical?: string;
+  showOrviChat?: boolean;
 }
 
 const { 
@@ -16,7 +17,8 @@ const {
   keywords = "desarrollo de software, desarrollo web, desarrollo de aplicaciones, software a la medida, desarrollo de páginas web, desarrollo de apps, e-commerce, software factory, desarrollo de software para empresas, programación, desarrollo de software personalizado",
   image = "/logofreeagents1.png",
   type = "website",
-  canonical
+  canonical,
+  showOrviChat = true
 } = Astro.props;
 
 const siteUrl = Astro.site?.href || "https://freeagents.dev";
@@ -219,7 +221,7 @@ const ogImage = new URL(image, siteUrl).href;
   </head>
   <body class="bg-gray-900 text-white">
     <slot />
-    <OrviChat />
+    {showOrviChat && <OrviChat />}
     
     <!-- Performance Optimization Script -->
     <script>

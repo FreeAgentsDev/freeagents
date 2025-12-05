@@ -3,9 +3,17 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import DynamicBackground from '../components/DynamicBackground.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import { services, quickProducts, maintenancePlans } from '../config/services.ts';
+
+const siteUrl = Astro.site?.href || "https://freeagents.dev";
 ---
 
-<Layout title="Servicios - FreeAgents | Software Factory" description="Desarrollo a la medida, apps móviles y e-commerce. Soluciones tecnológicas profesionales construidas con metodologías ágiles y equipo especializado.">
+<Layout 
+  title="Servicios - FreeAgents | Software Factory" 
+  description="Desarrollo a la medida, apps móviles y e-commerce. Soluciones tecnológicas profesionales construidas con metodologías ágiles y equipo especializado."
+  keywords="desarrollo de software, desarrollo web, e-commerce, apps móviles, automatización IA, software a la medida"
+>
   <Header />
   
   <main class="pt-20 relative min-h-screen overflow-hidden">
@@ -83,132 +91,9 @@ import DynamicBackground from '../components/DynamicBackground.astro';
           </h2>
           
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Desarrollo a la Medida -->
-            <div class="group bg-gray-900/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-neon-blue/50 transition-all duration-300 hover:scale-105">
-              <div class="w-16 h-16 bg-gradient-to-r from-neon-blue to-neon-purple rounded-xl flex items-center justify-center mb-4">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-2" data-es="Desarrollo a la Medida" data-en="Custom Development">Desarrollo a la Medida</h3>
-              <p class="text-gray-400 mb-4 text-sm" data-es="Sistemas únicos diseñados exclusivamente para tu negocio. Más eficiente, más competitivo y más rentable." data-en="Unique systems designed exclusively for your business. More efficient, more competitive and more profitable.">
-                Sistemas únicos diseñados exclusivamente para tu negocio. Más eficiente, más competitivo y más rentable.
-              </p>
-              <div class="flex items-center justify-between mb-4">
-                <div>
-                  <p class="text-2xl font-bold text-neon-blue">$1,200 USD</p>
-                  <p class="text-gray-400 text-sm">$5.000.000 COP</p>
-                </div>
-              </div>
-              <a href="/contacto" class="block w-full text-center bg-gradient-to-r from-neon-blue/20 to-neon-purple/20 border border-neon-blue/30 rounded-lg py-2 text-white font-semibold hover:from-neon-blue/30 hover:to-neon-purple/30 transition-all">
-                <span data-es="Más Info" data-en="More Info">Más Info</span>
-              </a>
-            </div>
-
-            <!-- E-commerce -->
-            <div class="group bg-gray-900/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-neon-green/50 transition-all duration-300 hover:scale-105">
-              <div class="w-16 h-16 bg-gradient-to-r from-neon-green to-neon-blue rounded-xl flex items-center justify-center mb-4">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-2" data-es="E-commerce Profesional" data-en="Professional E-commerce">E-commerce Profesional</h3>
-              <p class="text-gray-400 mb-4 text-sm" data-es="Tu máquina de ventas 24/7. Convierte visitantes en clientes y escala sin límites." data-en="Your 24/7 sales machine. Converts visitors into customers and scales without limits.">
-                Tu máquina de ventas 24/7. Convierte visitantes en clientes y escala sin límites.
-              </p>
-              <div class="mb-4">
-                <p class="text-gray-300 text-sm mb-2" data-es="Desde:" data-en="From:">Desde:</p>
-                <p class="text-2xl font-bold text-neon-green">$800 USD</p>
-                <p class="text-gray-400 text-sm">$3.300.000 COP</p>
-              </div>
-              <a href="/contacto" class="block w-full text-center bg-gradient-to-r from-neon-green/20 to-neon-blue/20 border border-neon-green/30 rounded-lg py-2 text-white font-semibold hover:from-neon-green/30 hover:to-neon-blue/30 transition-all">
-                <span data-es="Ver Planes" data-en="View Plans">Ver Planes</span>
-              </a>
-            </div>
-
-            <!-- Apps Móviles -->
-            <div class="group bg-gray-900/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-neon-purple/50 transition-all duration-300 hover:scale-105">
-              <div class="w-16 h-16 bg-gradient-to-r from-neon-purple to-neon-pink rounded-xl flex items-center justify-center mb-4">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-2" data-es="Apps Móviles" data-en="Mobile Apps">Apps Móviles</h3>
-              <p class="text-gray-400 mb-4 text-sm" data-es="Apps que convierten usuarios en clientes leales. Diseño optimizado para ventas y fidelización." data-en="Apps that convert users into loyal customers. Design optimized for sales and loyalty.">
-                Apps que convierten usuarios en clientes leales. Diseño optimizado para ventas y fidelización.
-              </p>
-              <div class="mb-4">
-                <p class="text-gray-300 text-sm mb-2" data-es="Desde:" data-en="From:">Desde:</p>
-                <p class="text-2xl font-bold text-neon-purple">$350 USD</p>
-                <p class="text-gray-400 text-sm">$1.400.000 COP</p>
-              </div>
-              <a href="/contacto" class="block w-full text-center bg-gradient-to-r from-neon-purple/20 to-neon-pink/20 border border-neon-purple/30 rounded-lg py-2 text-white font-semibold hover:from-neon-purple/30 hover:to-neon-pink/30 transition-all">
-                <span data-es="Más Info" data-en="More Info">Más Info</span>
-              </a>
-            </div>
-
-            <!-- Apps Restaurantes -->
-            <div class="group bg-gray-900/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-neon-teal/50 transition-all duration-300 hover:scale-105">
-              <div class="w-16 h-16 bg-gradient-to-r from-neon-teal to-neon-green rounded-xl flex items-center justify-center mb-4">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-2" data-es="Apps para Restaurantes" data-en="Restaurant Apps">Apps para Restaurantes</h3>
-              <p class="text-gray-400 mb-4 text-sm" data-es="Digitalización completa: menús QR, pedidos sin intermediarios, cocina organizada. Aumenta ventas y reduce costos." data-en="Complete digitization: QR menus, orders without intermediaries, organized kitchen. Increase sales and reduce costs.">
-                Digitalización completa: menús QR, pedidos sin intermediarios, cocina organizada. Aumenta ventas y reduce costos.
-              </p>
-              <div class="mb-4">
-                <p class="text-gray-300 text-sm mb-2" data-es="Desde:" data-en="From:">Desde:</p>
-                <p class="text-2xl font-bold text-neon-teal">$350 USD</p>
-                <p class="text-gray-400 text-sm">$1.400.000 COP</p>
-              </div>
-              <a href="/contacto" class="block w-full text-center bg-gradient-to-r from-neon-teal/20 to-neon-green/20 border border-neon-teal/30 rounded-lg py-2 text-white font-semibold hover:from-neon-teal/30 hover:to-neon-green/30 transition-all">
-                <span data-es="Ver Planes" data-en="View Plans">Ver Planes</span>
-              </a>
-            </div>
-
-            <!-- Automatización IA -->
-            <div class="group bg-gray-900/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-neon-pink/50 transition-all duration-300 hover:scale-105">
-              <div class="w-16 h-16 bg-gradient-to-r from-neon-pink to-neon-purple rounded-xl flex items-center justify-center mb-4">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-2" data-es="Automatización con IA" data-en="AI Automation">Automatización con IA</h3>
-              <p class="text-gray-400 mb-4 text-sm" data-es="Asistente que nunca duerme. Automatiza lo repetitivo para que te enfoques en hacer crecer tu negocio." data-en="Assistant that never sleeps. Automates repetitive tasks so you can focus on growing your business.">
-                Asistente que nunca duerme. Automatiza lo repetitivo para que te enfoques en hacer crecer tu negocio.
-              </p>
-              <div class="mb-4">
-                <p class="text-gray-300 text-sm mb-2" data-es="Desde:" data-en="From:">Desde:</p>
-                <p class="text-2xl font-bold text-neon-pink">$150 USD</p>
-                <p class="text-gray-400 text-sm">$600.000 COP</p>
-              </div>
-              <a href="/contacto" class="block w-full text-center bg-gradient-to-r from-neon-pink/20 to-neon-purple/20 border border-neon-pink/30 rounded-lg py-2 text-white font-semibold hover:from-neon-pink/30 hover:to-neon-purple/30 transition-all">
-                <span data-es="Ver Planes" data-en="View Plans">Ver Planes</span>
-              </a>
-            </div>
-
-            <!-- Productos Pre-Construidos -->
-            <div class="group bg-gray-900/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-neon-cyan/50 transition-all duration-300 hover:scale-105">
-              <div class="w-16 h-16 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-xl flex items-center justify-center mb-4">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-2" data-es="Productos Rápidos" data-en="Quick Products">Productos Rápidos</h3>
-              <p class="text-gray-400 mb-4 text-sm" data-es="Soluciones listas en 24h. Landing pages, mini-ecommerce y más. Rápidos, económicos y listos para usar." data-en="Ready solutions in 24h. Landing pages, mini-ecommerce and more. Fast, affordable and ready to use.">
-                Soluciones listas en 24h. Landing pages, mini-ecommerce y más. Rápidos, económicos y listos para usar.
-              </p>
-              <div class="mb-4">
-                <p class="text-gray-300 text-sm mb-2" data-es="Desde:" data-en="From:">Desde:</p>
-                <p class="text-2xl font-bold text-neon-cyan">$60 USD</p>
-                <p class="text-gray-400 text-sm">$250.000 COP</p>
-              </div>
-              <a href="/contacto" class="block w-full text-center bg-gradient-to-r from-neon-cyan/20 to-neon-teal/20 border border-neon-cyan/30 rounded-lg py-2 text-white font-semibold hover:from-neon-cyan/30 hover:to-neon-teal/30 transition-all">
-                <span data-es="Ver Productos" data-en="View Products">Ver Productos</span>
-              </a>
-            </div>
+            {services.map((service) => (
+              <ServiceCard service={service} />
+            ))}
           </div>
         </div>
       </div>

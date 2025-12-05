@@ -1,0 +1,516 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import DynamicBackground from '../components/DynamicBackground.astro';
+
+const siteUrl = Astro.site?.href || "https://freeagents.dev";
+const currentUrl = `${siteUrl}/orvy`;
+
+// No mostrar OrviChat en esta página ya que es la vista completa
+---
+
+<Layout 
+  title="Orvi - Tu Consultor Virtual | FreeAgents" 
+  description="Chatea con Orvi, tu consultor virtual de FreeAgents. Entiende qué necesita tu negocio y encuentra la mejor solución tecnológica para ti."
+  keywords="orvi, asistente virtual, consultor IA, chatbot, ayuda virtual, consultoría tecnológica"
+  canonical={currentUrl}
+  showOrviChat={false}
+>
+  <Header />
+  
+  <main class="pt-20 relative min-h-screen overflow-hidden" id="orvy-main" style="scroll-margin-top: 0;">
+    <!-- Fondo Dinámico -->
+    <div class="fixed inset-0 -z-10">
+      <DynamicBackground type="circuits" color="purple" />
+      <DynamicBackground type="neural" color="pink" />
+      <DynamicBackground type="particles" color="purple" />
+      
+      <div class="absolute inset-0">
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-900/30 via-pink-900/20 to-purple-900/30 animate-pulse"></div>
+        <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-1/4 left-1/4 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+      </div>
+      
+      <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(168, 85, 247, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(168, 85, 247, 0.2) 1px, transparent 1px); background-size: 50px 50px; animation: grid-move 20s linear infinite;"></div>
+    </div>
+
+    <!-- Vista completa del chat -->
+    <section class="relative py-8 px-4 sm:px-6 lg:px-8" id="orvy-chat-section">
+      <div class="max-w-4xl mx-auto">
+        <!-- Header de la página -->
+        <div class="text-center mb-8">
+          <h1 class="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-300 via-pink-300 to-purple-300 bg-clip-text text-transparent">
+            Orvi - Tu Consultor Virtual
+          </h1>
+          <p class="text-gray-300 text-lg">
+            Chatea con Orvi y descubre la mejor solución tecnológica para tu negocio
+          </p>
+        </div>
+
+        <!-- Chat completo -->
+        <div id="orvy-chat-container" class="bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800 backdrop-blur-xl border-2 border-purple-500/30 rounded-3xl shadow-2xl overflow-hidden">
+          <!-- Header del chat -->
+          <div class="relative flex items-center justify-between px-6 py-5 border-b border-purple-500/20 bg-gradient-to-r from-purple-600/10 via-transparent to-pink-600/10">
+            <div class="flex items-center gap-4">
+              <div class="relative w-12 h-12 rounded-full flex items-center justify-center overflow-hidden flex-shrink-0 ring-2 ring-purple-400/30 animate-pulse-slow">
+                <div class="absolute inset-0 bg-gradient-to-br from-purple-400/30 to-pink-400/30 rounded-full"></div>
+                <img 
+                  src="/orby.png" 
+                  alt="Orvi - Asistente IA" 
+                  class="w-full h-full object-cover rounded-full orby-avatar relative z-10"
+                  loading="eager"
+                />
+              </div>
+              <div class="flex flex-col">
+                <span class="text-xl font-bold text-white bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">Orvi</span>
+                <span class="text-sm text-purple-300 font-medium">Asistente IA • En línea</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <button
+                id="orvy-expand"
+                class="p-2 rounded-xl hover:bg-purple-500/20 text-gray-400 hover:text-white transition-all hover:scale-110"
+                aria-label="Expandir chat"
+                title="Expandir chat"
+              >
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                </svg>
+              </button>
+              <a
+                href="/"
+                class="p-2 rounded-xl hover:bg-purple-500/20 text-gray-400 hover:text-white transition-all hover:scale-110"
+                aria-label="Volver al inicio"
+                title="Volver al inicio"
+              >
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+              </a>
+              <button
+                id="orvy-close"
+                class="p-2 rounded-xl hover:bg-purple-500/20 text-gray-400 hover:text-white transition-all hover:scale-110 hover:rotate-90"
+                aria-label="Cerrar chat"
+                title="Cerrar chat"
+              >
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Área de mensajes -->
+          <div
+            id="orvy-messages"
+            class="h-[60vh] min-h-[400px] overflow-y-auto px-6 py-6 space-y-4 custom-scrollbar"
+          >
+            <!-- Mensaje inicial con animación especial -->
+            <div class="flex items-start gap-4 orvi-welcome-message">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden flex-shrink-0 ring-2 ring-purple-400/30">
+                <div class="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full"></div>
+                <img 
+                  src="/orby.png" 
+                  alt="Orvi - Asistente IA" 
+                  class="w-full h-full object-cover rounded-full orby-avatar relative z-10"
+                  loading="eager"
+                />
+              </div>
+              <div class="relative max-w-[85%] rounded-2xl bg-gradient-to-br from-purple-600/20 via-purple-500/15 to-pink-500/20 backdrop-blur-sm border border-purple-400/20 px-5 py-4 text-base leading-relaxed shadow-lg overflow-hidden">
+                <p class="text-gray-100 relative z-10">
+                  <span class="orvi-greeting-text inline-block">
+                    ¡Hola! 👋 Soy <span class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-pink-300 to-purple-300 animate-gradient-x">Orvi</span>, tu consultor de FreeAgents.
+                  </span>
+                </p>
+                <p class="mt-3 text-gray-200 orvi-welcome-text relative z-10">
+                  Estoy aquí para entender qué necesita tu negocio y ayudarte a encontrar la mejor solución. ¿Qué desafío o proyecto tienes en mente?
+                </p>
+                <!-- Efecto de brillo animado en el mensaje -->
+                <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full orvi-message-shine pointer-events-none"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Input -->
+          <form id="orvy-form" class="relative border-t border-purple-500/20 px-6 py-4 flex items-center gap-3 bg-gradient-to-r from-gray-900/50 via-transparent to-gray-900/50">
+            <input
+              id="orvy-input"
+              type="text"
+              required
+              autocomplete="off"
+              placeholder="Escribe tu mensaje..."
+              aria-label="Campo de texto para escribir tu pregunta a Orvi"
+              aria-required="true"
+              class="flex-1 bg-gray-800/60 border-2 border-purple-500/20 rounded-xl px-5 py-3 text-base text-gray-100 placeholder-gray-400 focus:outline-none focus:border-purple-400/50 focus:bg-gray-800/80 focus:ring-2 focus:ring-purple-500/20 transition-all"
+            />
+            <button
+              type="submit"
+              id="orvy-send"
+              aria-label="Enviar mensaje a Orvi"
+              class="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white shadow-lg hover:shadow-purple-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-purple-400 hover:scale-110 active:scale-95"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  (function () {
+    // Prevenir scroll suave en esta página
+    const html = document.documentElement;
+    const originalScrollBehavior = html.style.scrollBehavior;
+    html.style.scrollBehavior = 'auto';
+    
+    // Función para forzar scroll al top
+    const forceScrollToTop = () => {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      if (window.pageYOffset !== 0) {
+        window.scrollTo(0, 0);
+      }
+    };
+    
+    // Prevenir scroll inmediatamente
+    forceScrollToTop();
+    
+    // Prevenir scroll cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        forceScrollToTop();
+        // Prevenir scroll después de un pequeño delay
+        setTimeout(forceScrollToTop, 0);
+        setTimeout(forceScrollToTop, 10);
+        setTimeout(forceScrollToTop, 50);
+      });
+    } else {
+      forceScrollToTop();
+      setTimeout(forceScrollToTop, 0);
+      setTimeout(forceScrollToTop, 10);
+      setTimeout(forceScrollToTop, 50);
+    }
+    
+    // Prevenir scroll cuando la página se carga completamente
+    window.addEventListener('load', () => {
+      forceScrollToTop();
+      setTimeout(forceScrollToTop, 0);
+      setTimeout(forceScrollToTop, 100);
+    });
+    
+    // Prevenir scroll en cada frame por un momento
+    let frameCount = 0;
+    const preventScrollFrames = () => {
+      if (frameCount < 10) {
+        forceScrollToTop();
+        frameCount++;
+        requestAnimationFrame(preventScrollFrames);
+      } else {
+        // Restaurar scroll suave después de asegurar posición
+        html.style.scrollBehavior = originalScrollBehavior || '';
+      }
+    };
+    requestAnimationFrame(preventScrollFrames);
+    
+    // Remover cualquier hash de la URL que pueda causar scroll
+    if (window.location.hash) {
+      history.replaceState(null, '', window.location.pathname);
+    }
+    
+    const messages = document.getElementById('orvy-messages');
+    const form = document.getElementById('orvy-form');
+    const input = document.getElementById('orvy-input');
+    const sendBtn = document.getElementById('orvy-send');
+    const closeBtn = document.getElementById('orvy-close');
+    const expandBtn = document.getElementById('orvy-expand');
+    // Buscar el contenedor del chat
+    const chatContainer = document.getElementById('orvy-chat-container') as HTMLElement;
+    
+    let isExpanded = false;
+    
+    // Funcionalidad del botón de cerrar
+    closeBtn?.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      // Cerrar la página y volver al inicio
+      window.location.href = '/';
+    });
+    
+    // Funcionalidad del botón de expandir
+    expandBtn?.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (!chatContainer) return;
+      
+      isExpanded = !isExpanded;
+      const chatSection = document.getElementById('orvy-chat-section') as HTMLElement;
+      
+      if (isExpanded) {
+        // Expandir: hacer fullscreen
+        chatContainer.style.position = 'fixed';
+        chatContainer.style.top = '0';
+        chatContainer.style.left = '0';
+        chatContainer.style.right = '0';
+        chatContainer.style.bottom = '0';
+        chatContainer.style.zIndex = '9999';
+        chatContainer.style.borderRadius = '0';
+        chatContainer.style.margin = '0';
+        if (chatSection) {
+          chatSection.style.padding = '0';
+          chatSection.style.height = '100vh';
+        }
+        expandBtn.setAttribute('aria-label', 'Restaurar tamaño');
+        expandBtn.setAttribute('title', 'Restaurar tamaño');
+        // Cambiar icono a restaurar
+        const svg = expandBtn.querySelector('svg');
+        if (svg) {
+          svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 9V4.5M9 9H4.5M9 9L3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5l5.25 5.25" />';
+        }
+      } else {
+        // Restaurar: volver al tamaño normal
+        chatContainer.style.position = '';
+        chatContainer.style.top = '';
+        chatContainer.style.left = '';
+        chatContainer.style.right = '';
+        chatContainer.style.bottom = '';
+        chatContainer.style.zIndex = '';
+        chatContainer.style.borderRadius = '';
+        chatContainer.style.margin = '';
+        if (chatSection) {
+          chatSection.style.padding = '';
+          chatSection.style.height = '';
+        }
+        expandBtn.setAttribute('aria-label', 'Expandir chat');
+        expandBtn.setAttribute('title', 'Expandir chat');
+        // Cambiar icono a expandir
+        const svg = expandBtn.querySelector('svg');
+        if (svg) {
+          svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />';
+        }
+      }
+    });
+
+    function appendMessage(text, from) {
+      if (!messages) return;
+      const wrapper = document.createElement('div');
+      wrapper.className = 'flex items-start gap-4 ' + (from === 'user' ? 'justify-end' : '');
+
+      if (from === 'user') {
+        const bubble = document.createElement('div');
+        bubble.className =
+          'max-w-[85%] rounded-2xl bg-gradient-to-br from-purple-700/40 to-pink-700/40 border border-purple-400/20 px-5 py-4 text-base text-white leading-relaxed shadow-lg animate-message-in';
+        bubble.textContent = text;
+        wrapper.appendChild(bubble);
+      } else {
+        const avatar = document.createElement('div');
+        avatar.className =
+          'w-10 h-10 rounded-full flex items-center justify-center overflow-hidden flex-shrink-0 ring-2 ring-purple-400/30';
+        const img = document.createElement('img');
+        img.src = '/orby.png';
+        img.alt = 'Orvi - Asistente IA';
+        img.className = 'w-full h-full object-cover rounded-full orby-avatar';
+        avatar.appendChild(img);
+
+        const bubble = document.createElement('div');
+        bubble.className =
+          'max-w-[85%] rounded-2xl bg-gradient-to-br from-purple-600/20 via-purple-500/15 to-pink-500/20 backdrop-blur-sm border border-purple-400/20 px-5 py-4 text-base text-gray-200 leading-relaxed whitespace-pre-wrap shadow-lg animate-message-in';
+        bubble.textContent = text;
+
+        wrapper.appendChild(avatar);
+        wrapper.appendChild(bubble);
+      }
+
+      messages.appendChild(wrapper);
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    async function sendMessage(message: string) {
+      if (!sendBtn || !messages) return;
+      sendBtn.disabled = true;
+      const typingId = 'orvy-typing';
+
+      const typing = document.createElement('div');
+      typing.id = typingId;
+      typing.className = 'flex items-start gap-4';
+      typing.innerHTML = `
+        <div class="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden flex-shrink-0 ring-2 ring-purple-400/30">
+          <img src="/orby.png" alt="Orvi - Asistente IA" class="w-full h-full object-cover rounded-full orby-avatar" />
+        </div>
+        <div class="max-w-[85%] rounded-2xl bg-gradient-to-br from-purple-600/20 via-purple-500/15 to-pink-500/20 backdrop-blur-sm border border-purple-400/20 px-5 py-4 text-base text-gray-300">
+          <span class="inline-flex gap-1.5 items-center">
+            <span class="w-2 h-2 rounded-full bg-gray-400 animate-pulse"></span>
+            <span class="w-2 h-2 rounded-full bg-gray-400/70 animate-pulse" style="animation-delay: 0.15s;"></span>
+            <span class="w-2 h-2 rounded-full bg-gray-400/50 animate-pulse" style="animation-delay: 0.3s;"></span>
+          </span>
+        </div>
+      `;
+      messages.appendChild(typing);
+      messages.scrollTop = messages.scrollHeight;
+
+      try {
+        const lang = (localStorage.getItem('language') || 'es');
+        const res = await fetch('/api/orvi', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message,
+            pageUrl: '/orvy',
+            language: lang,
+          }),
+        });
+
+        let data = {};
+        try {
+          data = await res.json();
+        } catch (err) {
+          console.error('[Orvy] No se pudo parsear la respuesta JSON:', err);
+        }
+
+        const typingEl = document.getElementById(typingId);
+        if (typingEl) typingEl.remove();
+
+        if (!res.ok || !data?.reply) {
+          let errorText =
+            (data && data.error) ||
+            'Ahora mismo no puedo responder correctamente. Intenta de nuevo en unos segundos o contáctanos por la página de contacto.';
+
+          if (data && data.providerMessage) {
+            errorText += '\n\nDetalle técnico:\n' + data.providerMessage;
+          }
+
+          appendMessage(errorText, 'orvi');
+        } else {
+          appendMessage(data.reply, 'orvi');
+        }
+      } catch (e) {
+        console.error('Orvy error', e);
+        document.getElementById(typingId)?.remove();
+        appendMessage(
+          'Hubo un problema al conectar con Orvi. Por favor, intenta de nuevo más tarde o usa el formulario de contacto.',
+          'orvi'
+        );
+      } finally {
+        sendBtn.disabled = false;
+      }
+    }
+
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!input) return;
+      const value = input.value.trim();
+      if (!value) return;
+
+      appendMessage(value, 'user');
+      input.value = '';
+      sendMessage(value);
+    });
+
+    // Focus en el input al cargar
+    if (input) {
+      setTimeout(() => input.focus(), 300);
+    }
+  })();
+</script>
+
+<style>
+  .orby-avatar {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, rgba(168, 85, 247, 0.4), rgba(236, 72, 153, 0.4));
+    border-radius: 4px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, rgba(168, 85, 247, 0.6), rgba(236, 72, 153, 0.6));
+  }
+  
+  @keyframes messageIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  .animate-message-in {
+    animation: messageIn 0.3s ease-out;
+  }
+  
+  @keyframes gradient-x {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+  
+  .animate-gradient-x {
+    background-size: 200% 200%;
+    animation: gradient-x 3s ease infinite;
+  }
+  
+  .orvi-message-shine {
+    animation: shine 3s ease-in-out infinite;
+  }
+  
+  @keyframes shine {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  .orvi-welcome-message {
+    animation: welcomeFadeIn 0.8s ease-out;
+  }
+  
+  @keyframes welcomeFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse-slow 3s ease-in-out infinite;
+  }
+</style>
+

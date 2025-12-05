@@ -1,0 +1,167 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import DynamicBackground from '../../components/DynamicBackground.astro';
+import { getServiceBySlug, quickProducts } from '../../config/services.ts';
+
+const service = getServiceBySlug('productos-rapidos');
+if (!service) {
+  return Astro.redirect('/servicios');
+}
+
+const siteUrl = Astro.site?.href || "https://freeagents.dev";
+const currentUrl = `${siteUrl}/servicios/${service.slug}`;
+---
+
+<Layout 
+  title={service.seo.title}
+  description={service.seo.description}
+  keywords={service.seo.keywords}
+  canonical={currentUrl}
+  image="/servicesfreeagents.png"
+>
+  <Header />
+  
+  <main class="pt-20 relative min-h-screen overflow-hidden">
+    <div class="fixed inset-0 -z-10">
+      <DynamicBackground type="circuits" color="cyan" />
+      <DynamicBackground type="particles" color="cyan" />
+      <div class="absolute inset-0">
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-cyan-900/30 via-teal-900/20 to-blue-900/30 animate-pulse"></div>
+        <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-neon-cyan/20 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-1/4 left-1/4 w-96 h-96 bg-neon-teal/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+      </div>
+      <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(0, 212, 255, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 212, 255, 0.2) 1px, transparent 1px); background-size: 50px 50px; animation: grid-move 20s linear infinite;"></div>
+    </div>
+
+    <section class="relative py-6">
+      <div class="container mx-auto px-6 relative z-10">
+        <nav class="flex items-center space-x-2 text-sm text-gray-400">
+          <a href="/" class="hover:text-neon-cyan transition-colors">Inicio</a>
+          <span>/</span>
+          <a href="/servicios" class="hover:text-neon-cyan transition-colors" data-es="Servicios" data-en="Services">Servicios</a>
+          <span>/</span>
+          <span class="text-white">{service.name}</span>
+        </nav>
+      </div>
+    </section>
+
+    <section class="relative py-20 overflow-hidden">
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="text-center lg:text-left">
+            <div class="inline-block px-4 py-2 bg-neon-cyan/10 border border-neon-cyan/30 rounded-full mb-6">
+              <span class="text-neon-cyan font-semibold text-sm" data-es="Productos Rápidos" data-en="Quick Products">Productos Rápidos</span>
+            </div>
+            <h1 class="font-display text-5xl md:text-6xl font-bold mb-6 text-white">
+              <span data-es={service.name} data-en={service.nameEn}>{service.name}</span>
+            </h1>
+            <p class="text-xl text-gray-300 mb-6 max-w-xl" data-es={service.fullDescription} data-en={service.fullDescriptionEn}>
+              {service.fullDescription}
+            </p>
+            <div class="mb-8">
+              <p class="text-lg text-gray-400 mb-4" data-es="Ideal para:" data-en="Ideal for:">Ideal para:</p>
+              <p class="text-gray-300" data-es={service.idealFor} data-en={service.idealForEn}>{service.idealFor}</p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a href="/contacto" class="bg-gradient-to-r from-neon-cyan to-neon-teal px-10 py-5 rounded-full text-white font-bold text-lg hover:shadow-2xl hover:shadow-neon-cyan/30 transition-all duration-300 hover:scale-105">
+                <span data-es="Solicitar Cotización" data-en="Request Quote">Solicitar Cotización</span>
+              </a>
+            </div>
+          </div>
+          <div class="relative flex justify-center lg:justify-end">
+            <div class="relative">
+              <div class="absolute inset-0 bg-gradient-to-r from-neon-cyan/20 to-neon-teal/20 rounded-3xl blur-2xl transform scale-110"></div>
+              <div class="relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-3xl p-6 border border-gray-700/50">
+                <div class="w-64 h-64 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-2xl flex items-center justify-center">
+                  <svg class="w-32 h-32 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 relative">
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-white" data-es="Productos Disponibles" data-en="Available Products">Productos Disponibles</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {quickProducts.map((product) => (
+              <div class="bg-gray-900/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-neon-cyan/50 transition-all duration-300 hover:scale-105">
+                <h3 class="font-semibold text-white mb-3 text-lg" data-es={product.name} data-en={product.nameEn}>{product.name}</h3>
+                <p class="text-gray-400 mb-4 text-sm" data-es={product.description} data-en={product.descriptionEn}>{product.description}</p>
+                <div class="mb-4">
+                  <p class="text-2xl font-bold text-neon-cyan mb-1">${product.priceUSD.toLocaleString()} USD</p>
+                  <p class="text-gray-400 text-sm">${product.priceCOP.toLocaleString('es-CO')} COP</p>
+                  <p class="text-gray-500 text-xs mt-2" data-es={product.deliveryTime} data-en={product.deliveryTimeEn}>{product.deliveryTime}</p>
+                </div>
+                <a href="/contacto" class="block w-full text-center bg-gradient-to-r from-neon-cyan/20 to-neon-teal/20 border border-neon-cyan/30 rounded-lg py-2 text-white font-semibold hover:from-neon-cyan/30 hover:to-neon-teal/30 transition-all">
+                  <span data-es="Solicitar" data-en="Request">Solicitar</span>
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 relative">
+      <div class="container mx-auto px-6 text-center relative z-10">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">
+          <span class="bg-gradient-to-r from-neon-cyan to-neon-teal bg-clip-text text-transparent" data-es="¿Necesitas algo Rápido?" data-en="Need Something Fast?">
+            ¿Necesitas algo Rápido?
+          </span>
+        </h2>
+        <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto" data-es="Nuestros productos rápidos están listos en 24-48 horas. Perfectos para lanzar rápido y validar tu idea." data-en="Our quick products are ready in 24-48 hours. Perfect for launching fast and validating your idea.">
+          Nuestros productos rápidos están listos en 24-48 horas. Perfectos para lanzar rápido y validar tu idea.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contacto" class="bg-gradient-to-r from-neon-cyan to-neon-teal px-8 py-4 rounded-full text-white font-semibold text-lg hover:shadow-lg hover:shadow-neon-cyan/25 transition-all duration-300 hover:scale-105">
+            <span data-es="Solicitar Cotización" data-en="Request Quote">Solicitar Cotización</span>
+          </a>
+          <a href="/servicios" class="border-2 border-neon-teal px-8 py-4 rounded-full text-neon-teal font-semibold text-lg hover:bg-neon-teal hover:text-white transition-all duration-300 hover:scale-105">
+            <span data-es="Ver Todos los Servicios" data-en="View All Services">Ver Todos los Servicios</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": service.name,
+  "description": service.seo.description,
+  "provider": {
+    "@type": "Organization",
+    "name": "FreeAgents",
+    "url": siteUrl
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": ["Colombia", "Latinoamérica"]
+  },
+  "offers": quickProducts.map(product => ({
+    "@type": "Offer",
+    "name": product.name,
+    "price": product.priceUSD,
+    "priceCurrency": "USD"
+  })),
+  "serviceType": "Digital Products",
+  "url": currentUrl
+})} />
+
+<style>
+  @keyframes grid-move {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+  }
+</style>
+

@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+import { getAllServiceSlugs } from '../config/services.ts';
 
 const siteUrl = 'https://freeagents.dev';
 
@@ -12,13 +13,23 @@ const pages = [
   { url: 'contacto', priority: '0.8', changefreq: 'monthly' },
 ];
 
+// Agregar páginas de servicios individuales
+const serviceSlugs = getAllServiceSlugs();
+const servicePages = serviceSlugs.map(slug => ({
+  url: `servicios/${slug}`,
+  priority: '0.85',
+  changefreq: 'monthly'
+}));
+
+const allPages = [...pages, ...servicePages];
+
 export const GET: APIRoute = () => {
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-${pages
+${allPages
   .map(
     (page) => `  <url>
     <loc>${siteUrl}/${page.url}</loc>

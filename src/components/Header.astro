@@ -113,6 +113,20 @@ const currentPath = Astro.url.pathname;
           <div class={`absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-neon-teal to-neon-green group-hover:w-full transition-all duration-300 ${currentPath === '/fundacion' ? 'w-full' : ''}`}></div>
         </a>
         
+        <a 
+          href="/orvy" 
+          class={`nav-link orvi-menu-link group relative px-4 py-2 rounded-lg transition-all duration-300 ${currentPath === '/orvy' ? 'text-purple-400' : 'text-gray-300 hover:text-purple-400'}`}
+          aria-current={currentPath === '/orvy' ? 'page' : undefined}
+          data-orvi-action="open-chat"
+        >
+          <span class="relative z-10 flex items-center gap-2">
+            <span data-es="Orvi" data-en="Orvi">Orvi</span>
+            <span class="text-xs bg-purple-500/20 px-1.5 py-0.5 rounded text-purple-300">IA</span>
+          </span>
+          <div class={`absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${currentPath === '/orvy' ? 'opacity-100' : ''}`}></div>
+          <div class={`absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300 ${currentPath === '/orvy' ? 'w-full' : ''}`}></div>
+        </a>
+        
         <!-- CTA Button Premium -->
         <a 
           href="/contacto" 
@@ -230,6 +244,21 @@ const currentPath = Astro.url.pathname;
             <span data-es="Fundación" data-en="Foundation">Fundación</span>
           </span>
           <div class="absolute inset-0 bg-gradient-to-r from-neon-teal/10 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        </a>
+        
+        <a 
+          href="/orvy" 
+          class="mobile-link orvi-menu-link group relative px-4 py-3 rounded-lg text-gray-300 hover:text-purple-400 transition-all duration-300"
+          data-orvi-action="open-chat"
+        >
+          <span class="relative z-10 flex items-center gap-3">
+            <div class="w-2 h-2 bg-purple-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <span class="flex items-center gap-2">
+              <span data-es="Orvi" data-en="Orvi">Orvi</span>
+              <span class="text-xs bg-purple-500/20 px-1.5 py-0.5 rounded text-purple-300">IA</span>
+            </span>
+          </span>
+          <div class="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
         </a>
         
         <a 
@@ -404,5 +433,34 @@ const currentPath = Astro.url.pathname;
     // Since the page reloads when language changes, we only need to apply on load
     const currentLang = localStorage.getItem('language') || 'es';
     updateLanguage(currentLang);
+
+    // Los enlaces de Orvi en el menú siempre navegan a /orvy (página completa)
+    // Prevenir scroll al navegar a /orvy
+    const orviLinks = document.querySelectorAll('.orvi-menu-link');
+    orviLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = (link as HTMLAnchorElement).getAttribute('href');
+        if (href === '/orvy') {
+          // Prevenir comportamiento por defecto y navegar sin scroll
+          e.preventDefault();
+          // Desactivar scroll suave temporalmente
+          const html = document.documentElement;
+          const originalScrollBehavior = html.style.scrollBehavior;
+          html.style.scrollBehavior = 'auto';
+          
+          // Navegar
+          window.location.href = '/orvy';
+          
+          // Restaurar scroll suave después de un momento
+          setTimeout(() => {
+            html.style.scrollBehavior = originalScrollBehavior || '';
+          }, 100);
+          
+          return false;
+        }
+        // Permitir navegación normal en todos los demás casos
+        return true;
+      });
+    });
   });
 </script>

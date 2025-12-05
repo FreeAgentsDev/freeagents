@@ -136,7 +136,8 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
                 <OptimizedImage 
                   src="/elongreen.png" 
                   alt="Desarrollo de software a la medida - FreeAgents Software Factory especializada en desarrollo de páginas web y aplicaciones" 
-                  class="h-80 rounded-3xl w-auto mx-auto animate-float drop-shadow-2xl"
+                  class="h-80 rounded-3xl w-auto mx-auto drop-shadow-2xl"
+                  style="animation: float-smooth 4s ease-in-out infinite; will-change: transform; transform: translateZ(0); backface-visibility: hidden;"
                   priority={true}
                   loading="eager"
                   width={600}
@@ -922,6 +923,16 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
     .dynamic-background canvas {
       image-rendering: -webkit-optimize-contrast;
       image-rendering: crisp-edges;
+    }
+  }
+  
+  /* Animación suave para la imagen del hero */
+  @keyframes float-smooth {
+    0%, 100% {
+      transform: translateY(0px) translateZ(0);
+    }
+    50% {
+      transform: translateY(-6px) translateZ(0);
     }
   }
 </style>

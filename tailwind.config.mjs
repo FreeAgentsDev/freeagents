@@ -63,8 +63,8 @@ export default {
           '50%': { boxShadow: '0 0 40px rgba(0, 212, 255, 0.6)' },
         },
         float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-10px)' },
+          '0%, 100%': { transform: 'translateY(0px) translateZ(0)' },
+          '50%': { transform: 'translateY(-8px) translateZ(0)' },
         },
         shimmer: {
           '0%': { backgroundPosition: '-1000px 0' },
