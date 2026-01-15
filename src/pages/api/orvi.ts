@@ -3,7 +3,9 @@ import { rateLimit } from '../../utils/rateLimit';
 import { services, quickProducts, maintenancePlans } from '../../config/services.ts';
 
 // Mark this route as server-side only (not prerendered)
-export const prerender = false;
+// Temporarily enabled for static build - uncomment for server deployment
+// export const prerender = false;
+export const prerender = true;
 
 const API_KEY = import.meta.env.ORVI_API_KEY;
 // Using v1 API with gemini-2.5-flash model (stable, supports up to 1M tokens)
