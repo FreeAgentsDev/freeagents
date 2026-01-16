@@ -397,19 +397,25 @@ const currentPath = Astro.url.pathname;
       elements.forEach(element => {
         const text = element.getAttribute(`data-${lang}`);
         if (text) {
-          // Get all child elements to preserve them
+          // Check if element has HTML children (not just text nodes)
+          const hasHTMLChildren = element.children.length > 0;
+          
+          // If element has HTML children, preserve the structure and skip translation
+          // This prevents breaking elements with <strong>, <em>, <span>, etc.
+          if (hasHTMLChildren) {
+            // Skip this element - preserve HTML structure
+            return;
+          }
+          
+          // Simple element without HTML children - safe to replace
           const childElements: Element[] = [];
           Array.from(element.children).forEach(child => {
             childElements.push(child.cloneNode(true) as Element);
           });
           
-          // Clear the element completely
           element.innerHTML = '';
-          
-          // Add the new text
           element.appendChild(document.createTextNode(text));
           
-          // Re-add all child elements after the text
           childElements.forEach(child => {
             element.appendChild(child);
           });

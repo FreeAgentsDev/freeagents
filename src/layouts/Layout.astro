@@ -440,19 +440,53 @@ const ogImage = new URL(image, siteUrl).href;
           elements.forEach(element => {
             const text = element.getAttribute('data-' + lang);
             if (text) {
-              // Get all child elements to preserve them (like SVG, icons, etc.)
+              // Check if element has HTML children (not just text nodes)
+              const hasHTMLChildren = element.children.length > 0;
+              
+              // If element has HTML children, try to preserve structure while translating
+              if (hasHTMLChildren) {
+                // Check if we can extract and preserve the HTML structure
+                // Look for <strong> tags with classes to preserve formatting
+                const strongTags = element.querySelectorAll('strong');
+                
+                if (strongTags.length > 0) {
+                  // Extract classes from existing strong tags
+                  const strongClasses = Array.from(strongTags).map(strong => strong.className);
+                  
+                  // Try to match words in the translation with the original
+                  // For now, preserve the structure but update text content
+                  // This is a simplified approach - for complex cases, we skip
+                  const currentText = element.textContent.trim();
+                  const dataText = text.trim();
+                  
+                  // If the text structure is similar, try to preserve HTML
+                  // Otherwise, skip to avoid breaking the layout
+                  if (currentText.length > 0 && dataText.length > 0) {
+                    // Simple approach: replace text but try to keep strong tags
+                    // Extract text parts and try to match them
+                    const textParts = dataText.split(/(\s+)/);
+                    let newHTML = '';
+                    let strongIndex = 0;
+                    
+                    // This is complex, so for now we'll skip elements with HTML
+                    // and rely on proper data attributes in child elements
+                    return;
+                  }
+                }
+                
+                // Skip this element - preserve HTML structure
+                return;
+              }
+              
+              // Simple element without HTML children - safe to replace
               const childElements = [];
               Array.from(element.children).forEach(child => {
                 childElements.push(child.cloneNode(true));
               });
               
-              // Clear the element
               element.innerHTML = '';
-              
-              // Add the new text
               element.appendChild(document.createTextNode(text));
               
-              // Re-add all child elements after the text
               childElements.forEach(child => {
                 element.appendChild(child);
               });

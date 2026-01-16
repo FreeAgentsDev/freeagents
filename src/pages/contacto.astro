@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro';
 import DynamicBackground from '../components/DynamicBackground.astro';
 ---
 
-<Layout title="Contacto - FreeAgents" description="Hablemos de tu próximo proyecto. Contáctanos para desarrollo de software, apps, e-commerce o para unirte a la Fundación FreeAgents.">
+<Layout title="Hablemos de tu Proyecto. Sin Compromiso, Solo Claridad | FreeAgents" description="Agenda una conversación de 30 minutos. Evaluamos tu proyecto, te damos nuestra perspectiva honesta y, si tiene sentido, te mostramos cómo podemos ayudarte.">
   <Header />
   
   <main class="pt-20 relative min-h-screen overflow-hidden">
@@ -37,28 +37,44 @@ import DynamicBackground from '../components/DynamicBackground.astro';
           </div>
           
           <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 text-white">
-            <span data-es="Hablemos de tu" data-en="Let's Talk About Your">Hablemos de tu</span>
+            <span data-es="Hablemos de tu Proyecto." data-en="Let's Talk About Your Project.">Hablemos de tu Proyecto.</span>
             <br>
-            <span class="bg-gradient-to-r from-neon-cyan to-neon-teal bg-clip-text text-transparent" data-es="Próximo Proyecto" data-en="Next Project">
-              Próximo Proyecto
+            <span class="bg-gradient-to-r from-neon-cyan to-neon-teal bg-clip-text text-transparent" data-es="Sin Compromiso, Solo Claridad." data-en="No Commitment, Just Clarity.">
+              Sin Compromiso, Solo Claridad.
             </span>
           </h1>
           
-          <p class="text-xl text-gray-300 mb-4 max-w-3xl mx-auto" data-es="Estamos aquí para convertir tu visión en realidad. Agenda una llamada gratuita de 30 minutos y descubre cómo podemos ayudarte." data-en="We're here to turn your vision into reality. Schedule a free 30-minute call and discover how we can help you.">
-            Estamos aquí para convertir tu visión en realidad. Agenda una <strong class="text-neon-cyan">llamada gratuita de 30 minutos</strong> 
-            y descubre cómo podemos ayudarte.
+          <p class="text-xl text-gray-300 mb-4 max-w-3xl mx-auto" data-es="Agenda una conversación de 30 minutos. Evaluamos tu proyecto, te damos nuestra perspectiva honesta y, si tiene sentido, te mostramos cómo podemos ayudarte." data-en="Schedule a 30-minute conversation. We evaluate your project, give you our honest perspective, and if it makes sense, we show you how we can help.">
+            Agenda una conversación de 30 minutos. Evaluamos tu proyecto, te damos nuestra <strong class="text-neon-cyan">perspectiva honesta</strong> y, si tiene sentido, te mostramos cómo podemos ayudarte.
           </p>
           
-          <p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto" data-es="Sin compromiso. Solo una conversación honesta sobre tus necesidades tecnológicas." data-en="No commitment. Just an honest conversation about your technological needs.">
-            Sin compromiso. Solo una conversación honesta sobre tus necesidades tecnológicas.
-          </p>
+          <div class="space-y-2 mb-12 max-w-2xl mx-auto">
+            <div class="flex items-center justify-center gap-3 text-gray-200">
+              <svg class="w-5 h-5 text-neon-cyan" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span data-es="Respuesta en 24 horas" data-en="Response within 24 hours">Respuesta en 24 horas</span>
+            </div>
+            <div class="flex items-center justify-center gap-3 text-gray-200">
+              <svg class="w-5 h-5 text-neon-cyan" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span data-es="Consulta gratuita sin compromiso" data-en="Free consultation with no commitment">Consulta gratuita sin compromiso</span>
+            </div>
+            <div class="flex items-center justify-center gap-3 text-gray-200">
+              <svg class="w-5 h-5 text-neon-cyan" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+              <span data-es="Sin presión de venta, solo conversación" data-en="No sales pressure, just conversation">Sin presión de venta, solo conversación</span>
+            </div>
+          </div>
 
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
               href="#contacto-form" 
               class="bg-gradient-to-r from-neon-cyan to-neon-teal px-10 py-5 rounded-full text-white font-bold text-lg hover:shadow-2xl hover:shadow-neon-cyan/30 transition-all duration-300 hover:scale-105"
             >
-              <span data-es="Agendar Llamada Gratuita" data-en="Schedule Free Call">Agendar Llamada Gratuita</span>
+              <span data-es="Agendar Conversación Gratuita" data-en="Schedule Free Conversation">Agendar Conversación Gratuita</span>
             </a>
             <a 
               href="/servicios" 
