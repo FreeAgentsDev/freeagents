@@ -213,7 +213,9 @@ import DynamicBackground from '../components/DynamicBackground.astro';
                       id="nombre" 
                       name="nombre" 
                       required
-                      class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition-colors duration-300"
+                      autocomplete="name"
+                      inputmode="text"
+                      class="w-full px-4 py-3 min-h-[48px] text-base bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/50 transition-all duration-300"
                       placeholder="Tu nombre completo"
                       data-placeholder-es="Tu nombre completo"
                       data-placeholder-en="Your full name"
@@ -225,7 +227,9 @@ import DynamicBackground from '../components/DynamicBackground.astro';
                       type="text" 
                       id="empresa" 
                       name="empresa"
-                      class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition-colors duration-300"
+                      autocomplete="organization"
+                      inputmode="text"
+                      class="w-full px-4 py-3 min-h-[48px] text-base bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/50 transition-all duration-300"
                       placeholder="Nombre de tu empresa"
                     >
                   </div>
@@ -239,7 +243,9 @@ import DynamicBackground from '../components/DynamicBackground.astro';
                       id="email" 
                       name="email" 
                       required
-                      class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition-colors duration-300"
+                      autocomplete="email"
+                      inputmode="email"
+                      class="w-full px-4 py-3 min-h-[48px] text-base bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/50 transition-all duration-300"
                       placeholder="tu@email.com"
                     >
                   </div>
@@ -249,7 +255,9 @@ import DynamicBackground from '../components/DynamicBackground.astro';
                       type="tel" 
                       id="telefono" 
                       name="telefono"
-                      class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition-colors duration-300"
+                      autocomplete="tel"
+                      inputmode="tel"
+                      class="w-full px-4 py-3 min-h-[48px] text-base bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/50 transition-all duration-300"
                       placeholder="+1 (555) 123-4567"
                     >
                   </div>
@@ -261,7 +269,7 @@ import DynamicBackground from '../components/DynamicBackground.astro';
                     id="tipo-proyecto" 
                     name="tipo-proyecto" 
                     required
-                    class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition-colors duration-300"
+                    class="w-full px-4 py-3 min-h-[48px] text-base bg-gray-800 border border-gray-600 rounded-lg text-white focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/50 transition-all duration-300"
                   >
                     <option value="">Selecciona una opción</option>
                     <option value="desarrollo-medida">Desarrollo a la Medida</option>
@@ -282,7 +290,7 @@ import DynamicBackground from '../components/DynamicBackground.astro';
                       <select 
                         id="presupuesto" 
                         name="presupuesto"
-                        class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition-colors duration-300"
+                        class="w-full px-4 py-3 min-h-[48px] text-base bg-gray-800 border border-gray-600 rounded-lg text-white focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/50 transition-all duration-300"
                       >
                         <option value="">Selecciona un rango</option>
                         <option value="800k-1.6m">$800.000 - $1.599.000 (Startup)</option>
@@ -296,7 +304,7 @@ import DynamicBackground from '../components/DynamicBackground.astro';
                       <select 
                         id="timeline" 
                         name="timeline"
-                        class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition-colors duration-300"
+                        class="w-full px-4 py-3 min-h-[48px] text-base bg-gray-800 border border-gray-600 rounded-lg text-white focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/50 transition-all duration-300"
                       >
                         <option value="">Selecciona un timeline</option>
                         <option value="urgente">Lo antes posible (1-2 meses)</option>
@@ -315,7 +323,7 @@ import DynamicBackground from '../components/DynamicBackground.astro';
                       <select 
                         id="experiencia" 
                         name="experiencia"
-                        class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition-colors duration-300"
+                        class="w-full px-4 py-3 min-h-[48px] text-base bg-gray-800 border border-gray-600 rounded-lg text-white focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/50 transition-all duration-300"
                       >
                         <option value="">Selecciona tu experiencia</option>
                         <option value="estudiante">Estudiante</option>
@@ -329,7 +337,7 @@ import DynamicBackground from '../components/DynamicBackground.astro';
                       <select 
                         id="disponibilidad" 
                         name="disponibilidad"
-                        class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition-colors duration-300"
+                        class="w-full px-4 py-3 min-h-[48px] text-base bg-gray-800 border border-gray-600 rounded-lg text-white focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/50 transition-all duration-300"
                       >
                         <option value="">Selecciona tu disponibilidad</option>
                         <option value="tiempo-completo">Tiempo completo</option>
@@ -348,7 +356,8 @@ import DynamicBackground from '../components/DynamicBackground.astro';
                     name="mensaje" 
                     rows="6" 
                     required
-                    class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-neon-blue focus:ring-1 focus:ring-neon-blue transition-colors duration-300 resize-none"
+                    inputmode="text"
+                    class="w-full px-4 py-3 min-h-[120px] text-base bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-neon-blue focus:ring-2 focus:ring-neon-blue/50 transition-all duration-300 resize-y"
                     placeholder="Describe tu proyecto, objetivos, funcionalidades deseadas, o cualquier información relevante que nos ayude a entender mejor tus necesidades..."
                   ></textarea>
                 </div>
@@ -357,18 +366,18 @@ import DynamicBackground from '../components/DynamicBackground.astro';
                   <button 
                     type="button" 
                     id="enviar-whatsapp"
-                    class="w-full bg-gradient-to-r from-green-400 to-green-600 px-8 py-4 rounded-full text-white font-semibold text-lg hover:shadow-lg hover:shadow-green-400/25 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
+                    class="w-full bg-gradient-to-r from-green-400 to-green-600 px-6 py-4 sm:px-8 rounded-full text-white font-semibold text-base sm:text-lg hover:shadow-lg hover:shadow-green-400/25 transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center gap-2 min-h-[48px]"
                   >
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.52 3.48A12.07 12.07 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.22-1.63A11.93 11.93 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.21-3.48-8.52zM12 22c-1.85 0-3.68-.5-5.26-1.44l-.38-.22-3.69.97.99-3.59-.25-.37A9.94 9.94 0 0 1 2 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10zm5.2-7.6c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.28.7.9.86 1.08.16.18.32.2.6.07.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.18-.29.28-.48.09-.18.05-.36-.02-.5-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47-.16-.01-.36-.01-.56-.01-.19 0-.5.07-.76.34-.26.27-1 1-.97 2.43.03 1.43 1.03 2.81 1.18 3 .15.19 2.03 3.1 4.93 4.22.69.3 1.23.48 1.65.61.69.22 1.32.19 1.81.12.55-.08 1.65-.67 1.88-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
-                    Enviar por WhatsApp
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.52 3.48A12.07 12.07 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.22-1.63A11.93 11.93 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.21-3.48-8.52zM12 22c-1.85 0-3.68-.5-5.26-1.44l-.38-.22-3.69.97.99-3.59-.25-.37A9.94 9.94 0 0 1 2 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10zm5.2-7.6c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.28.7.9.86 1.08.16.18.32.2.6.07.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.18-.29.28-.48.09-.18.05-.36-.02-.5-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47-.16-.01-.36-.01-.56-.01-.19 0-.5.07-.76.34-.26.27-1 1-.97 2.43.03 1.43 1.03 2.81 1.18 3 .15.19 2.03 3.1 4.93 4.22.69.3 1.23.48 1.65.61.69.22 1.32.19 1.81.12.55-.08 1.65-.67 1.88-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/></svg>
+                    <span data-es="Enviar por WhatsApp" data-en="Send via WhatsApp">Enviar por WhatsApp</span>
                   </button>
                   <button 
                     type="button" 
                     id="enviar-email"
-                    class="w-full bg-gradient-to-r from-blue-500 to-purple-600 px-8 py-4 rounded-full text-white font-semibold text-lg hover:shadow-lg hover:shadow-blue-400/25 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
+                    class="w-full bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-4 sm:px-8 rounded-full text-white font-semibold text-base sm:text-lg hover:shadow-lg hover:shadow-blue-400/25 transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center gap-2 min-h-[48px]"
                   >
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 20V8.99l8 6.99 8-6.99V20H4z"/></svg>
-                    Enviar por Email
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 20V8.99l8 6.99 8-6.99V20H4z"/></svg>
+                    <span data-es="Enviar por Email" data-en="Send via Email">Enviar por Email</span>
                   </button>
                 </div>
                 <p id="form-alert" class="text-red-500 text-sm mt-4 hidden"></p>

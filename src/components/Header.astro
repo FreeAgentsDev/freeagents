@@ -4,7 +4,7 @@ import LanguageSelector from './LanguageSelector.astro';
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="fixed top-0 w-full z-50" id="main-header" role="banner" aria-label="Navegación principal">
+<header class="sticky top-0 w-full z-50" id="main-header" role="banner" aria-label="Navegación principal">
   <!-- Animated Background Gradient con Glassmorphism -->
   <div class="absolute inset-0 bg-gray-900/80 backdrop-blur-xl border-b border-gray-800/50"></div>
   
@@ -156,10 +156,10 @@ const currentPath = Astro.url.pathname;
         </div>
       </div>
 
-      <!-- Mobile Menu Button Premium -->
+      <!-- Mobile Menu Button Premium - Área táctil aumentada -->
       <button 
         id="mobile-menu-btn" 
-        class="md:hidden relative p-2 rounded-lg text-gray-300 hover:text-white transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-neon-cyan/50"
+        class="md:hidden relative p-3 rounded-lg text-gray-300 hover:text-white transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-neon-cyan/50 min-w-[44px] min-h-[44px] flex items-center justify-center"
         aria-label="Abrir menú de navegación"
         aria-expanded="false"
         aria-controls="mobile-menu"
@@ -182,7 +182,7 @@ const currentPath = Astro.url.pathname;
       <div class="flex flex-col space-y-2 pt-4">
         <a 
           href="/" 
-          class="mobile-link group relative px-4 py-3 rounded-lg text-gray-300 hover:text-white transition-all duration-300"
+          class="mobile-link group relative px-4 py-4 rounded-lg text-gray-300 hover:text-white transition-all duration-300 min-h-[44px] flex items-center"
         >
           <span class="relative z-10 flex items-center gap-3" data-es="Inicio" data-en="Home">
             <div class="w-2 h-2 bg-neon-cyan rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -193,7 +193,7 @@ const currentPath = Astro.url.pathname;
         
         <a 
           href="/servicios" 
-          class="mobile-link group relative px-4 py-3 rounded-lg text-gray-300 hover:text-white transition-all duration-300"
+          class="mobile-link group relative px-4 py-4 rounded-lg text-gray-300 hover:text-white transition-all duration-300 min-h-[44px] flex items-center"
         >
           <span class="relative z-10 flex items-center gap-3">
             <div class="w-2 h-2 bg-neon-cyan rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -204,7 +204,7 @@ const currentPath = Astro.url.pathname;
         
         <a 
           href="/portafolio" 
-          class="mobile-link group relative px-4 py-3 rounded-lg text-gray-300 hover:text-white transition-all duration-300"
+          class="mobile-link group relative px-4 py-4 rounded-lg text-gray-300 hover:text-white transition-all duration-300 min-h-[44px] flex items-center"
         >
           <span class="relative z-10 flex items-center gap-3">
             <div class="w-2 h-2 bg-neon-cyan rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -215,7 +215,7 @@ const currentPath = Astro.url.pathname;
         
         <a 
           href="/precios" 
-          class="mobile-link group relative px-4 py-3 rounded-lg text-gray-300 hover:text-white transition-all duration-300"
+          class="mobile-link group relative px-4 py-4 rounded-lg text-gray-300 hover:text-white transition-all duration-300 min-h-[44px] flex items-center"
         >
           <span class="relative z-10 flex items-center gap-3">
             <div class="w-2 h-2 bg-neon-cyan rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -226,7 +226,7 @@ const currentPath = Astro.url.pathname;
         
         <a 
           href="/nosotros" 
-          class="mobile-link group relative px-4 py-3 rounded-lg text-gray-300 hover:text-white transition-all duration-300"
+          class="mobile-link group relative px-4 py-4 rounded-lg text-gray-300 hover:text-white transition-all duration-300 min-h-[44px] flex items-center"
         >
           <span class="relative z-10 flex items-center gap-3">
             <div class="w-2 h-2 bg-neon-cyan rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -237,7 +237,7 @@ const currentPath = Astro.url.pathname;
         
         <a 
           href="/fundacion" 
-          class="mobile-link group relative px-4 py-3 rounded-lg text-gray-300 hover:text-neon-teal transition-all duration-300"
+          class="mobile-link group relative px-4 py-4 rounded-lg text-gray-300 hover:text-neon-teal transition-all duration-300 min-h-[44px] flex items-center"
         >
           <span class="relative z-10 flex items-center gap-3">
             <div class="w-2 h-2 bg-neon-teal rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -248,7 +248,7 @@ const currentPath = Astro.url.pathname;
         
         <a 
           href="/orvy" 
-          class="mobile-link orvi-menu-link group relative px-4 py-3 rounded-lg text-gray-300 hover:text-purple-400 transition-all duration-300"
+          class="mobile-link orvi-menu-link group relative px-4 py-4 rounded-lg text-gray-300 hover:text-purple-400 transition-all duration-300 min-h-[44px] flex items-center"
           data-orvi-action="open-chat"
         >
           <span class="relative z-10 flex items-center gap-3">
@@ -263,7 +263,7 @@ const currentPath = Astro.url.pathname;
         
         <a 
           href="/contacto" 
-          class="mobile-link group relative mx-4 mt-2 px-6 py-3 rounded-full text-white font-medium text-center overflow-hidden"
+          class="mobile-link group relative mx-4 mt-2 px-6 py-4 rounded-full text-white font-medium text-center overflow-hidden min-h-[48px] flex items-center justify-center"
         >
           <div class="absolute inset-0 bg-gradient-to-r from-neon-cyan via-neon-teal to-neon-cyan bg-[length:200%_100%] group-hover:animate-shimmer"></div>
           <span class="relative z-10" data-es="Contacto" data-en="Contact">Contacto</span>
@@ -292,13 +292,17 @@ const currentPath = Astro.url.pathname;
     animation: shimmer 2s linear infinite;
   }
 
-  /* Header Scroll Effect */
+  /* Header Scroll Effect - Sticky siempre visible */
   #main-header {
     transition: all 0.3s ease;
+    position: sticky;
+    top: 0;
   }
 
   #main-header.scrolled {
     box-shadow: 0 4px 20px rgba(0, 212, 255, 0.1);
+    backdrop-filter: blur(20px);
+    background: rgba(17, 24, 39, 0.95);
   }
 
   /* Mobile Menu Animation */
