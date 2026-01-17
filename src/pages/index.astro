@@ -22,19 +22,24 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
   <ScrollProgress />
   
   <main class="pt-20 relative min-h-screen overflow-hidden">
-    <!-- Fondo Dinámico Optimizado para Performance -->
+    <!-- Fondo Dinámico Optimizado para Performance - Desactivado en móvil -->
     <div class="fixed inset-0 -z-10 will-change-transform">
-      <!-- Capas de Fondos Dinámicos Reducidas (Optimizado) -->
-      <DynamicBackground type="particles" color="blue" />
-      <DynamicBackground type="circuits" color="cyan" />
-      <DynamicBackground type="hologram" color="cyan" />
+      <!-- Capas de Fondos Dinámicos - Solo en desktop (md y superior) -->
+      <div class="hidden md:block">
+        <DynamicBackground type="particles" color="blue" />
+        <DynamicBackground type="circuits" color="cyan" />
+        <DynamicBackground type="hologram" color="cyan" />
+      </div>
+      <!-- Fondo estático simple en móvil para mejor performance -->
+      <div class="md:hidden absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
       
-      <!-- Gradientes Animados Optimizados -->
+      <!-- Gradientes Animados Optimizados - Reducidos en móvil -->
       <div class="absolute inset-0 will-change-opacity">
         <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-cyan-900/12 via-teal-900/8 to-blue-900/12"></div>
-        <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-neon-cyan/6 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-neon-teal/6 rounded-full blur-3xl"></div>
-        <div class="absolute top-1/2 right-1/3 w-[400px] h-[400px] bg-neon-blue/5 rounded-full blur-3xl"></div>
+        <!-- Gradientes más pequeños y menos blur en móvil -->
+        <div class="absolute top-1/4 left-1/4 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-neon-cyan/6 rounded-full blur-xl md:blur-3xl"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-neon-teal/6 rounded-full blur-xl md:blur-3xl"></div>
+        <div class="absolute top-1/2 right-1/3 w-[250px] h-[250px] md:w-[400px] md:h-[400px] bg-neon-blue/5 rounded-full blur-xl md:blur-3xl"></div>
       </div>
       
       <!-- Grid Pattern Overlay Optimizado -->
@@ -47,22 +52,22 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
       </div>
     </div>
     <!-- Hero Section Única - Software Factory -->
-    <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+    <section class="relative min-h-[85vh] sm:min-h-[90vh] flex items-center justify-center overflow-x-hidden overflow-y-visible">
 
-      <div class="relative z-10 container mx-auto px-6 py-20">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+      <div class="relative z-10 container mx-auto px-4 sm:px-5 md:px-6 py-12 sm:py-16 md:py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center max-w-7xl mx-auto">
           <!-- Content -->
-          <div class="text-center lg:text-left">
+          <div class="text-center lg:text-left order-2 lg:order-1 animate-slide-in-left overflow-visible">
             <!-- Badge Purpose-Driven -->
             <div class="inline-flex items-center gap-2 px-4 py-2 bg-neon-cyan/10 border border-neon-cyan/30 rounded-full mb-8 animate-fade-in">
-              <svg class="w-5 h-5 text-neon-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-5 h-5 text-neon-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
               </svg>
               <span class="text-neon-cyan font-semibold" data-es="Tecnología con Propósito" data-en="Purpose-Driven Technology">Tecnología con Propósito</span>
             </div>
 
-            <!-- Main Headline - Con diferenciación clara -->
-            <h1 class="font-display text-5xl md:text-7xl font-bold mb-8 leading-tight animate-slide-up">
+            <!-- Main Headline - Optimizado para móvil -->
+            <h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-6 md:mb-8 leading-tight animate-slide-up">
               <span class="text-white drop-shadow-[0_0_20px_rgba(0,212,255,0.5)]" data-es="Tecnología que Resuelve," data-en="Technology that Solves,">Tecnología que Resuelve,</span>
               <br>
               <span class="bg-gradient-to-r from-neon-cyan via-neon-teal to-neon-blue bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(0,212,255,0.6)]" data-es="No que Vende" data-en="Not that Sells">
@@ -70,92 +75,134 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
               </span>
             </h1>
 
-            <!-- Subheadline - Con propósito explícito -->
-            <p class="text-xl md:text-2xl text-gray-100 mb-4 leading-relaxed animate-slide-up drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]" style="animation-delay: 0.1s;">
+            <!-- Subheadline - Texto completo, sin truncar -->
+            <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-4 leading-relaxed animate-slide-up drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]" style="animation-delay: 0.1s;">
               <span data-es="Desarrollamos software con " data-en="We develop software with ">Desarrollamos software con </span><strong class="text-neon-cyan drop-shadow-[0_0_10px_rgba(0,212,255,0.6)]"><span data-es="propósito" data-en="purpose">propósito</span></strong><span data-es=". Cada proyecto impulsa tu negocio y forma el " data-en=". Each project drives your business and shapes the ">. Cada proyecto impulsa tu negocio y forma el </span><strong class="text-neon-teal drop-shadow-[0_0_10px_rgba(20,184,166,0.6)]"><span data-es="futuro del talento tech" data-en="future of tech talent">futuro del talento tech</span></strong><span data-es=". Sin ruido. Solo resultados." data-en=". No noise. Just results.">. Sin ruido. Solo resultados.</span>
             </p>
 
             <!-- Outcomes Bullets -->
             <div class="space-y-3 mb-8 animate-slide-up drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]" style="animation-delay: 0.2s;">
               <div class="flex items-start gap-3">
-                <svg class="w-6 h-6 text-neon-cyan flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-6 h-6 text-neon-cyan flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                <span class="text-gray-200" data-es="Software que escala con tu negocio, no contra él" data-en="Software that scales with your business, not against it">Software que escala con tu negocio, no contra él</span>
+                <span class="text-gray-200 break-words" data-es="Software que escala con tu negocio, no contra él" data-en="Software that scales with your business, not against it">Software que escala con tu negocio, no contra él</span>
               </div>
               <div class="flex items-start gap-3">
-                <svg class="w-6 h-6 text-neon-teal flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-6 h-6 text-neon-teal flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                <span class="text-gray-200" data-es="Equipos que combinan experiencia con talento emergente" data-en="Teams that combine experience with emerging talent">Equipos que combinan experiencia con talento emergente</span>
+                <span class="text-gray-200 break-words" data-es="Equipos que combinan experiencia con talento emergente" data-en="Teams that combine experience with emerging talent">Equipos que combinan experiencia con talento emergente</span>
               </div>
               <div class="flex items-start gap-3">
-                <svg class="w-6 h-6 text-neon-blue flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-6 h-6 text-neon-blue flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                <span class="text-gray-200" data-es="Cada proyecto contribuye al desarrollo de la próxima generación tech" data-en="Each project contributes to developing the next generation of tech">Cada proyecto contribuye al desarrollo de la próxima generación tech</span>
+                <span class="text-gray-200 break-words" data-es="Cada proyecto contribuye al desarrollo de la próxima generación tech" data-en="Each project contributes to developing the next generation of tech">Cada proyecto contribuye al desarrollo de la próxima generación tech</span>
               </div>
               <div class="flex items-start gap-3">
-                <svg class="w-6 h-6 text-neon-green flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-6 h-6 text-neon-green flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                <span class="text-gray-200" data-es="Sin promesas vacías. Solo código que funciona." data-en="No empty promises. Just code that works.">Sin promesas vacías. Solo código que funciona.</span>
+                <span class="text-gray-200 break-words" data-es="Sin promesas vacías. Solo código que funciona." data-en="No empty promises. Just code that works.">Sin promesas vacías. Solo código que funciona.</span>
               </div>
             </div>
 
-            <!-- CTAs Principales - Mejorados -->
-            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-8 animate-slide-up" style="animation-delay: 0.3s;">
+            <!-- CTAs Principales - Optimizados para móvil (siempre horizontales, compactos) -->
+            <div class="flex flex-row gap-3 sm:gap-4 justify-center lg:justify-start items-center mb-6 md:mb-8 animate-slide-up" style="animation-delay: 0.3s;">
               <a 
                 href="/contacto" 
-                class="group bg-gradient-to-r from-neon-cyan to-neon-teal px-10 py-5 rounded-full text-white font-bold text-lg hover:shadow-2xl hover:shadow-neon-cyan/30 transition-all duration-300 hover:scale-105 flex items-center gap-2"
+                class="group bg-gradient-to-r from-neon-cyan to-neon-teal px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-full text-white font-bold text-sm sm:text-base md:text-lg hover:shadow-2xl hover:shadow-neon-cyan/30 transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-2 min-h-[44px]"
               >
                 <span data-es="Hablar con un Experto" data-en="Talk to an Expert">Hablar con un Experto</span>
-                <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                 </svg>
               </a>
               <a 
                 href="/portafolio" 
-                class="relative border-2 border-neon-teal px-10 py-5 rounded-full text-neon-teal font-bold text-lg bg-neon-teal/10 backdrop-blur-sm hover:bg-neon-teal hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-neon-teal/40 drop-shadow-[0_0_15px_rgba(20,184,166,0.4)]"
+                class="relative border-2 border-neon-teal px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-full text-neon-teal font-bold text-sm sm:text-base md:text-lg bg-neon-teal/10 backdrop-blur-sm hover:bg-neon-teal hover:text-white transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-2xl hover:shadow-neon-teal/40 drop-shadow-[0_0_15px_rgba(20,184,166,0.4)] min-h-[44px]"
               >
                 <span class="relative z-10" data-es="Ver Proyectos Reales" data-en="View Real Projects">Ver Proyectos Reales</span>
                 <div class="absolute inset-0 rounded-full bg-neon-teal/20 blur-xl opacity-50"></div>
               </a>
             </div>
 
-            <!-- Trust Indicators - Mejorados con contexto -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 animate-fade-in" style="animation-delay: 0.4s;">
-              <div class="text-center lg:text-left">
-                <div class="text-3xl md:text-4xl font-bold text-neon-cyan mb-2 drop-shadow-[0_0_15px_rgba(0,212,255,0.6)]">+50</div>
-                <div class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Proyectos Entregados" data-en="Projects Delivered">Proyectos Entregados</div>
+            <!-- Trust Indicators - Slider automático en móvil, grid en desktop -->
+            <div class="animate-fade-in" style="animation-delay: 0.4s;">
+              <!-- Móvil: Slider automático con animación infinita -->
+              <div class="md:hidden overflow-hidden pb-4 -mx-6 px-6">
+                <div id="trust-indicators-slider" class="flex gap-4 min-w-max trust-slider">
+                  <!-- Primera copia para loop infinito -->
+                  <div class="text-center min-w-[140px] flex-shrink-0">
+                    <div class="text-2xl font-bold text-neon-cyan mb-1 drop-shadow-[0_0_15px_rgba(0,212,255,0.6)]">+50</div>
+                    <div class="text-xs text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Proyectos Entregados" data-en="Projects Delivered">Proyectos Entregados</div>
+                  </div>
+                  <div class="text-center min-w-[140px] flex-shrink-0">
+                    <div class="text-2xl font-bold text-neon-teal mb-1 drop-shadow-[0_0_15px_rgba(20,184,166,0.6)]">50+</div>
+                    <div class="text-xs text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Talentos Formados" data-en="Talents Trained">Talentos Formados</div>
+                  </div>
+                  <div class="text-center min-w-[140px] flex-shrink-0">
+                    <div class="text-2xl font-bold text-neon-blue mb-1 drop-shadow-[0_0_15px_rgba(14,165,233,0.6)]">100%</div>
+                    <div class="text-xs text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Calidad Asegurada" data-en="Quality Assured">Calidad Asegurada</div>
+                  </div>
+                  <div class="text-center min-w-[140px] flex-shrink-0">
+                    <div class="text-2xl font-bold text-neon-green mb-1 drop-shadow-[0_0_15px_rgba(16,185,129,0.6)]">24/7</div>
+                    <div class="text-xs text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Soporte Continuo" data-en="Continuous Support">Soporte Continuo</div>
+                  </div>
+                  <!-- Segunda copia para loop infinito -->
+                  <div class="text-center min-w-[140px] flex-shrink-0">
+                    <div class="text-2xl font-bold text-neon-cyan mb-1 drop-shadow-[0_0_15px_rgba(0,212,255,0.6)]">+50</div>
+                    <div class="text-xs text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Proyectos Entregados" data-en="Projects Delivered">Proyectos Entregados</div>
+                  </div>
+                  <div class="text-center min-w-[140px] flex-shrink-0">
+                    <div class="text-2xl font-bold text-neon-teal mb-1 drop-shadow-[0_0_15px_rgba(20,184,166,0.6)]">50+</div>
+                    <div class="text-xs text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Talentos Formados" data-en="Talents Trained">Talentos Formados</div>
+                  </div>
+                  <div class="text-center min-w-[140px] flex-shrink-0">
+                    <div class="text-2xl font-bold text-neon-blue mb-1 drop-shadow-[0_0_15px_rgba(14,165,233,0.6)]">100%</div>
+                    <div class="text-xs text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Calidad Asegurada" data-en="Quality Assured">Calidad Asegurada</div>
+                  </div>
+                  <div class="text-center min-w-[140px] flex-shrink-0">
+                    <div class="text-2xl font-bold text-neon-green mb-1 drop-shadow-[0_0_15px_rgba(16,185,129,0.6)]">24/7</div>
+                    <div class="text-xs text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Soporte Continuo" data-en="Continuous Support">Soporte Continuo</div>
+                  </div>
+                </div>
               </div>
-              <div class="text-center lg:text-left">
-                <div class="text-3xl md:text-4xl font-bold text-neon-teal mb-2 drop-shadow-[0_0_15px_rgba(20,184,166,0.6)]">50+</div>
-                <div class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Talentos Formados" data-en="Talents Trained">Talentos Formados</div>
-              </div>
-              <div class="text-center lg:text-left">
-                <div class="text-3xl md:text-4xl font-bold text-neon-blue mb-2 drop-shadow-[0_0_15px_rgba(14,165,233,0.6)]">100%</div>
-                <div class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Calidad Asegurada" data-en="Quality Assured">Calidad Asegurada</div>
-              </div>
-              <div class="text-center lg:text-left">
-                <div class="text-3xl md:text-4xl font-bold text-neon-green mb-2 drop-shadow-[0_0_15px_rgba(16,185,129,0.6)]">24/7</div>
-                <div class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Soporte Continuo" data-en="Continuous Support">Soporte Continuo</div>
+              <!-- Desktop: Grid 4 columnas -->
+              <div class="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="text-center lg:text-left">
+                  <div class="text-3xl md:text-4xl font-bold text-neon-cyan mb-2 drop-shadow-[0_0_15px_rgba(0,212,255,0.6)]">+50</div>
+                  <div class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Proyectos Entregados" data-en="Projects Delivered">Proyectos Entregados</div>
+                </div>
+                <div class="text-center lg:text-left">
+                  <div class="text-3xl md:text-4xl font-bold text-neon-teal mb-2 drop-shadow-[0_0_15px_rgba(20,184,166,0.6)]">50+</div>
+                  <div class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Talentos Formados" data-en="Talents Trained">Talentos Formados</div>
+                </div>
+                <div class="text-center lg:text-left">
+                  <div class="text-3xl md:text-4xl font-bold text-neon-blue mb-2 drop-shadow-[0_0_15px_rgba(14,165,233,0.6)]">100%</div>
+                  <div class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Calidad Asegurada" data-en="Quality Assured">Calidad Asegurada</div>
+                </div>
+                <div class="text-center lg:text-left">
+                  <div class="text-3xl md:text-4xl font-bold text-neon-green mb-2 drop-shadow-[0_0_15px_rgba(16,185,129,0.6)]">24/7</div>
+                  <div class="text-sm text-gray-200 drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]" data-es="Soporte Continuo" data-en="Continuous Support">Soporte Continuo</div>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Hero Image -->
-          <div class="relative flex justify-center lg:justify-end">
+          <!-- Hero Image - Visible en móvil (más pequeña) -->
+          <div class="relative flex justify-center lg:justify-end order-first lg:order-last animate-slide-in-right">
             <div class="relative">
-              <!-- Glow effect behind image -->
-              <div class="absolute inset-0 bg-gradient-to-r from-neon-cyan/20 to-neon-teal/20 rounded-3xl blur-2xl transform scale-110"></div>
+              <!-- Glow effect behind image - Reducido en móvil -->
+              <div class="absolute inset-0 bg-gradient-to-r from-neon-cyan/20 to-neon-teal/20 rounded-3xl blur-xl md:blur-2xl transform scale-110"></div>
               
               <!-- Main image container -->
-              <div class="relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-3xl p-8 border border-gray-700/50">
+              <div class="relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-2xl md:rounded-3xl p-4 md:p-8 border border-gray-700/50 animate-scale-in" style="animation-delay: 0.2s;">
                 <OptimizedImage 
                   src="/elongreen.png" 
                   alt="Desarrollo de software a la medida - FreeAgents Software Factory especializada en desarrollo de páginas web y aplicaciones" 
-                  class="h-80 rounded-3xl w-auto mx-auto drop-shadow-2xl"
+                  class="h-48 sm:h-64 md:h-80 rounded-2xl md:rounded-3xl w-auto mx-auto drop-shadow-2xl"
                   style="animation: float-smooth 4s ease-in-out infinite; will-change: transform; transform: translateZ(0); backface-visibility: hidden;"
                   priority={true}
                   loading="eager"
@@ -163,10 +210,10 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
                   height={320}
                 />
                 
-                <!-- Decorative elements -->
-                <div class="absolute -top-4 -right-4 w-8 h-8 bg-neon-cyan rounded-full animate-pulse"></div>
-                <div class="absolute -bottom-4 -left-4 w-6 h-6 bg-neon-teal rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
-                <div class="absolute top-1/2 -left-6 w-4 h-4 bg-neon-blue rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+                <!-- Decorative elements - Más pequeños en móvil -->
+                <div class="absolute -top-2 -right-2 md:-top-4 md:-right-4 w-6 h-6 md:w-8 md:h-8 bg-neon-cyan rounded-full animate-pulse"></div>
+                <div class="absolute -bottom-2 -left-2 md:-bottom-4 md:-left-4 w-4 h-4 md:w-6 md:h-6 bg-neon-teal rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
+                <div class="absolute top-1/2 -left-4 md:-left-6 w-3 h-3 md:w-4 md:h-4 bg-neon-blue rounded-full animate-pulse" style="animation-delay: 1s;"></div>
               </div>
             </div>
           </div>
@@ -175,7 +222,7 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
     </section>
 
     <!-- Por Qué Somos Diferentes -->
-    <section class="py-24 relative overflow-hidden">
+    <section class="py-24 relative overflow-hidden" aria-labelledby="diferenciacion-heading">
       <div class="container mx-auto px-6 relative z-10">
         <div class="max-w-6xl mx-auto">
           <div class="text-center mb-16">
@@ -183,7 +230,7 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
               <span class="text-neon-purple font-semibold text-sm" data-es="Diferenciación" data-en="Differentiation">Diferenciación</span>
             </div>
             
-            <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-[0_0_20px_rgba(0,212,255,0.5)]">
+            <h2 id="diferenciacion-heading" class="font-display text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-[0_0_20px_rgba(0,212,255,0.5)]">
               <span data-es="No Somos una Agencia." data-en="We're Not an Agency.">No Somos una Agencia.</span>
               <br>
               <span class="bg-gradient-to-r from-neon-purple to-neon-pink bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(139,92,246,0.6)]" data-es="Somos un Movimiento." data-en="We're a Movement.">Somos un Movimiento.</span>
@@ -196,7 +243,7 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Diferenciador 1: Fundación -->
-            <div class="bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-neon-purple/50 transition-all duration-300 hover:shadow-xl hover:shadow-neon-purple/10 hover:-translate-y-2">
+            <div class="bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-neon-purple/50 transition-all duration-300 hover:shadow-xl hover:shadow-neon-purple/10 hover:-translate-y-2 animate-scale-in" style="animation-delay: 0.1s;">
               <div class="w-16 h-16 bg-gradient-to-r from-neon-purple to-neon-pink rounded-xl flex items-center justify-center mb-6">
                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
@@ -210,7 +257,7 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
             </div>
 
             <!-- Diferenciador 2: Equipo Híbrido -->
-            <div class="bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-neon-cyan/50 transition-all duration-300 hover:shadow-xl hover:shadow-neon-cyan/10 hover:-translate-y-2">
+            <div class="bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-neon-cyan/50 transition-all duration-300 hover:shadow-xl hover:shadow-neon-cyan/10 hover:-translate-y-2 animate-scale-in" style="animation-delay: 0.2s;">
               <div class="w-16 h-16 bg-gradient-to-r from-neon-cyan to-neon-blue rounded-xl flex items-center justify-center mb-6">
                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
@@ -224,7 +271,7 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
             </div>
 
             <!-- Diferenciador 3: Propósito sobre Ruido -->
-            <div class="bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-neon-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-neon-teal/10 hover:-translate-y-2">
+            <div class="bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-neon-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-neon-teal/10 hover:-translate-y-2 animate-scale-in" style="animation-delay: 0.3s;">
               <div class="w-16 h-16 bg-gradient-to-r from-neon-teal to-neon-green rounded-xl flex items-center justify-center mb-6">
                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
@@ -239,7 +286,7 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
           </div>
 
           <div class="text-center mt-12">
-            <a href="/fundacion" class="inline-flex items-center gap-2 px-8 py-4 border-2 border-neon-purple text-neon-purple font-semibold rounded-full bg-neon-purple/15 backdrop-blur-sm hover:bg-neon-purple hover:text-white transition-all duration-300 hover:shadow-2xl hover:shadow-neon-purple/40">
+            <a href="/fundacion" class="inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 border-2 border-neon-purple text-neon-purple font-semibold rounded-full bg-neon-purple/15 backdrop-blur-sm hover:bg-neon-purple hover:text-white transition-all duration-300 hover:shadow-2xl hover:shadow-neon-purple/40 hover:scale-105 active:scale-95 min-h-[44px]">
               <span data-es="Conocer la Fundación" data-en="Learn About the Foundation">Conocer la Fundación</span>
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -251,7 +298,7 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
     </section>
 
     <!-- ¿Qué Hacemos? - Servicios -->
-    <section class="py-24 relative overflow-hidden">
+    <section class="py-24 relative overflow-hidden" aria-labelledby="servicios-heading">
       
       <div class="container mx-auto px-6 relative z-10">
         <div class="text-center mb-16">
@@ -259,7 +306,7 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
             <span class="text-neon-teal font-semibold text-sm" data-es="Nuestros Servicios" data-en="Our Services">Nuestros Servicios</span>
           </div>
           
-          <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-[0_0_20px_rgba(0,212,255,0.5)]">
+          <h2 id="servicios-heading" class="font-display text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-[0_0_20px_rgba(0,212,255,0.5)]">
             <span data-es="Soluciones que Resuelven" data-en="Solutions that Solve">Soluciones que Resuelven</span>
             <br>
             <span class="bg-gradient-to-r from-neon-teal to-neon-blue bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(20,184,166,0.6)]" data-es="Problemas Reales" data-en="Real Problems">Problemas Reales</span>
@@ -272,7 +319,7 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <!-- Desarrollo a la Medida -->
-          <div class="group bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-neon-cyan/50 transition-all duration-300 hover:shadow-xl hover:shadow-neon-cyan/10 hover:-translate-y-2">
+          <div class="group bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-neon-cyan/50 transition-all duration-300 hover:shadow-xl hover:shadow-neon-cyan/10 hover:-translate-y-2 animate-scale-in" style="animation-delay: 0.1s;">
             <div class="w-16 h-16 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
               <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
@@ -302,16 +349,16 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
                 <span data-es="Código mantenible que crece contigo" data-en="Maintainable code that grows with you">Código mantenible que crece contigo</span>
               </li>
             </ul>
-            <a href="/servicios#desarrollo" class="text-neon-cyan hover:text-neon-teal font-semibold flex items-center gap-2">
+            <a href="/servicios#desarrollo" class="text-neon-cyan hover:text-neon-teal font-semibold flex items-center gap-2 min-h-[44px] py-2 focus-visible:outline-2 focus-visible:outline-neon-cyan focus-visible:outline-offset-2 focus-visible:rounded">
               <span data-es="Ver Detalles del Servicio" data-en="View Service Details">Ver Detalles del Servicio</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>
             </a>
           </div>
 
           <!-- Apps Móviles -->
-          <div class="group bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-neon-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-neon-teal/10 hover:-translate-y-2">
+          <div class="group bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-neon-teal/50 transition-all duration-300 hover:shadow-xl hover:shadow-neon-teal/10 hover:-translate-y-2 animate-scale-in" style="animation-delay: 0.2s;">
             <div class="w-16 h-16 bg-gradient-to-r from-neon-teal to-neon-blue rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
               <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
@@ -341,16 +388,16 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
                 <span data-es="UX/UI que tu equipo realmente usa" data-en="UX/UI that your team actually uses">UX/UI que tu equipo realmente usa</span>
               </li>
             </ul>
-            <a href="/servicios#apps" class="text-neon-teal hover:text-neon-blue font-semibold flex items-center gap-2">
+            <a href="/servicios#apps" class="text-neon-teal hover:text-neon-blue font-semibold flex items-center gap-2 min-h-[44px] py-2 focus-visible:outline-2 focus-visible:outline-neon-teal focus-visible:outline-offset-2 focus-visible:rounded">
               <span data-es="Ver Detalles del Servicio" data-en="View Service Details">Ver Detalles del Servicio</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>
             </a>
           </div>
 
           <!-- E-commerce -->
-          <div class="group bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-neon-green/50 transition-all duration-300 hover:shadow-xl hover:shadow-neon-green/10 hover:-translate-y-2">
+          <div class="group bg-gray-800/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-neon-green/50 transition-all duration-300 hover:shadow-xl hover:shadow-neon-green/10 hover:-translate-y-2 animate-scale-in" style="animation-delay: 0.3s;">
             <div class="w-16 h-16 bg-gradient-to-r from-neon-green to-neon-cyan rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
               <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
@@ -380,9 +427,9 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
                 <span data-es="Estrategias de conversión basadas en datos" data-en="Data-driven conversion strategies">Estrategias de conversión basadas en datos</span>
               </li>
             </ul>
-            <a href="/servicios#ecommerce" class="text-neon-green hover:text-neon-cyan font-semibold flex items-center gap-2">
+            <a href="/servicios#ecommerce" class="text-neon-green hover:text-neon-cyan font-semibold flex items-center gap-2 min-h-[44px] py-2 focus-visible:outline-2 focus-visible:outline-neon-green focus-visible:outline-offset-2 focus-visible:rounded">
               <span data-es="Ver Detalles del Servicio" data-en="View Service Details">Ver Detalles del Servicio</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>
             </a>
@@ -390,7 +437,7 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
         </div>
 
         <div class="text-center mt-12">
-          <a href="/servicios" class="relative inline-flex items-center gap-2 px-8 py-4 border-2 border-neon-teal text-neon-teal font-semibold rounded-full bg-neon-teal/15 backdrop-blur-sm hover:bg-neon-teal hover:text-white transition-all duration-300 hover:shadow-2xl hover:shadow-neon-teal/40 drop-shadow-[0_0_15px_rgba(20,184,166,0.4)]">
+          <a href="/servicios" class="relative inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 border-2 border-neon-teal text-neon-teal font-semibold rounded-full bg-neon-teal/15 backdrop-blur-sm hover:bg-neon-teal hover:text-white transition-all duration-300 hover:shadow-2xl hover:shadow-neon-teal/40 drop-shadow-[0_0_15px_rgba(20,184,166,0.4)] hover:scale-105 active:scale-95 min-h-[44px]">
             <span class="relative z-10" data-es="Explorar Todos los Servicios" data-en="Explore All Services">Explorar Todos los Servicios</span>
             <svg class="w-5 h-5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -524,14 +571,14 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
     </section>
 
     <!-- Portafolio Destacado -->
-    <section class="py-24 relative overflow-hidden">
+    <section class="py-24 relative overflow-hidden" aria-labelledby="portafolio-heading">
       <div class="container mx-auto px-6 relative z-10">
         <div class="text-center mb-16">
           <div class="inline-block px-4 py-2 bg-neon-green/10 border border-neon-green/30 rounded-full mb-6">
             <span class="text-neon-green font-semibold text-sm">Proyectos</span>
           </div>
           
-          <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-[0_0_20px_rgba(0,212,255,0.5)]">
+          <h2 id="portafolio-heading" class="font-display text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-[0_0_20px_rgba(0,212,255,0.5)]">
             Casos de <span class="bg-gradient-to-r from-neon-green to-neon-cyan bg-clip-text text-transparent drop-shadow-[0_0_25px_rgba(16,185,129,0.6)]">Éxito Reales</span>
           </h2>
           
@@ -591,7 +638,7 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
         </div>
 
         <div class="text-center">
-          <a href="/portafolio" class="relative inline-flex items-center gap-2 px-8 py-4 border-2 border-neon-green text-neon-green font-semibold rounded-full bg-neon-green/15 backdrop-blur-sm hover:bg-neon-green hover:text-white transition-all duration-300 hover:shadow-2xl hover:shadow-neon-green/40 drop-shadow-[0_0_15px_rgba(16,185,129,0.4)]">
+          <a href="/portafolio" class="relative inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 border-2 border-neon-green text-neon-green font-semibold rounded-full bg-neon-green/15 backdrop-blur-sm hover:bg-neon-green hover:text-white transition-all duration-300 hover:shadow-2xl hover:shadow-neon-green/40 drop-shadow-[0_0_15px_rgba(16,185,129,0.4)] hover:scale-105 active:scale-95 min-h-[44px]">
             <span class="relative z-10" data-es="Ver Portafolio Completo" data-en="View Full Portfolio">Ver Portafolio Completo</span>
             <svg class="w-5 h-5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -749,7 +796,7 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
           <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a 
               href="/contacto" 
-              class="group bg-gradient-to-r from-neon-cyan to-neon-teal px-10 py-5 rounded-full text-white font-bold text-lg hover:shadow-2xl hover:shadow-neon-cyan/30 transition-all duration-300 hover:scale-105 flex items-center gap-2"
+              class="group bg-gradient-to-r from-neon-cyan to-neon-teal px-6 py-4 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-full text-white font-bold text-base sm:text-lg hover:shadow-2xl hover:shadow-neon-cyan/30 transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-2 min-h-[48px] justify-center"
             >
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
@@ -758,7 +805,7 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
             </a>
             <a 
               href="/precios" 
-              class="relative border-2 border-neon-teal px-10 py-5 rounded-full text-neon-teal font-bold text-lg bg-neon-teal/15 backdrop-blur-sm hover:bg-neon-teal hover:text-white transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-neon-teal/40 drop-shadow-[0_0_15px_rgba(20,184,166,0.4)]"
+              class="relative border-2 border-neon-teal px-6 py-4 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-full text-neon-teal font-bold text-base sm:text-lg bg-neon-teal/15 backdrop-blur-sm hover:bg-neon-teal hover:text-white transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-2xl hover:shadow-neon-teal/40 drop-shadow-[0_0_15px_rgba(20,184,166,0.4)] min-h-[48px] flex items-center justify-center"
             >
               <span class="relative z-10" data-es="Ver Planes y Precios" data-en="View Plans and Pricing">Ver Planes y Precios</span>
               <div class="absolute inset-0 rounded-full bg-neon-teal/20 blur-xl opacity-50"></div>
@@ -768,6 +815,20 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
       </div>
     </section>
   </main>
+
+  <!-- CTA Flotante Móvil - Siempre visible (debajo de Orvi) -->
+  <a 
+    href="/contacto" 
+    class="fixed bottom-6 right-4 sm:right-6 z-50 w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-neon-cyan to-neon-teal rounded-full flex items-center justify-center shadow-2xl hover:shadow-neon-cyan/50 hover:scale-110 active:scale-95 transition-all duration-300 group md:hidden"
+    aria-label="Contactar con FreeAgents"
+  >
+    <!-- Icono en móvil -->
+    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+    </svg>
+    <!-- Glow effect -->
+    <div class="absolute inset-0 rounded-full bg-neon-cyan/30 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+  </a>
 
   <Footer />
 </Layout>
@@ -969,6 +1030,182 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
     }
   }
   
+  /* Scrollbar hide para carousel móvil */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Line clamp utility - Solo usar cuando sea absolutamente necesario */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  /* Asegurar que el texto no se corte en palabras */
+  .break-words {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  /* Prevenir cortes de texto en elementos importantes */
+  h1, h2, h3, h4, h5, h6,
+  p, span, a, button {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  /* Específico para móvil - asegurar que el texto se muestre completo */
+  @media (max-width: 768px) {
+    /* Remover cualquier truncamiento en textos importantes */
+    .text-gray-100,
+    .text-gray-200,
+    .text-gray-300 {
+      overflow: visible !important;
+      text-overflow: clip !important;
+      white-space: normal !important;
+    }
+  }
+  
+  /* Smooth scroll para anclas con offset del header - Responsive */
+  html {
+    scroll-padding-top: 60px; /* Móvil */
+  }
+  
+  @media (min-width: 768px) {
+    html {
+      scroll-padding-top: 80px; /* Desktop */
+    }
+  }
+  
+  /* CTA Flotante - Animación de entrada */
+  @keyframes float-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  .fixed.bottom-6.right-6,
+  .fixed.bottom-6.right-4 {
+    animation: float-in 0.5s ease-out 0.5s both;
+  }
+  
+  /* Slider automático de Trust Indicators - Optimizado para performance */
+  @keyframes trust-slide {
+    0% {
+      transform: translateX(0) translateZ(0);
+    }
+    100% {
+      transform: translateX(-50%) translateZ(0);
+    }
+  }
+  
+  .trust-slider {
+    animation: trust-slide 20s linear infinite;
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+  
+  /* Pausar animación en hover para mejor UX */
+  .trust-slider:hover {
+    animation-play-state: paused;
+  }
+  
+  /* Pausar animación en touch para móvil */
+  .trust-slider:active {
+    animation-play-state: paused;
+  }
+  
+  /* Pausar animación si el usuario prefiere movimiento reducido */
+  @media (prefers-reduced-motion: reduce) {
+    .trust-slider {
+      animation: none !important;
+    }
+  }
+  
+  /* Optimización para móviles - velocidad más lenta */
+  @media (max-width: 768px) {
+    .trust-slider {
+      animation-duration: 25s; /* Más lento en móvil para mejor legibilidad */
+    }
+  }
+  
+  /* Animaciones optimizadas para elementos de entrada */
+  @keyframes slide-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slide-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Aplicar animaciones con GPU acceleration */
+  .animate-slide-in-left {
+    animation: slide-in-left 0.6s ease-out forwards;
+    will-change: transform, opacity;
+  }
+  
+  .animate-slide-in-right {
+    animation: slide-in-right 0.6s ease-out forwards;
+    will-change: transform, opacity;
+  }
+  
+  .animate-scale-in {
+    animation: scale-in 0.5s ease-out forwards;
+    will-change: transform, opacity;
+  }
+  
+  /* Ajuste de posición para evitar conflictos en móvil */
+  @media (max-width: 640px) {
+    /* Orvi Chat más arriba para dejar espacio al CTA */
+    #orvi-toggle {
+      bottom: 5rem !important; /* 80px */
+    }
+    
+    /* Back to top más a la izquierda en móvil */
+    #back-to-top {
+      bottom: 1.5rem;
+      right: 1rem;
+    }
+  }
+  
   /* Animación suave para la imagen del hero */
   @keyframes float-smooth {
     0%, 100% {
@@ -1004,6 +1241,29 @@ const currentUrl = new URL(Astro.url.pathname, siteUrl).href;
 
       const elements = document.querySelectorAll('.scroll-reveal');
       elements.forEach((el) => observer.observe(el));
+      
+      // Inicializar Trust Indicators Slider automático
+      const trustSlider = document.getElementById('trust-indicators-slider');
+      if (trustSlider) {
+        // Asegurar que la animación funcione correctamente
+        // La animación CSS ya está configurada, solo necesitamos verificar que existe
+        // Si el usuario prefiere movimiento reducido, la animación se desactiva automáticamente
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion) {
+          trustSlider.style.animation = 'none';
+        }
+        
+        // Pausar animación en hover para mejor UX
+        trustSlider.addEventListener('mouseenter', () => {
+          trustSlider.style.animationPlayState = 'paused';
+        });
+        
+        trustSlider.addEventListener('mouseleave', () => {
+          if (!prefersReducedMotion) {
+            trustSlider.style.animationPlayState = 'running';
+          }
+        });
+      }
     });
   }
 </script>
