@@ -7,7 +7,10 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check:text": "node scripts/check-text-truncation.js",
+    "check:all": "node scripts/check-all-text-issues.js",
+    "test:text": "npm run build && npm run check:text && npm run check:all"
   },
   "dependencies": {
     "@astrojs/node": "^9.5.1",
